@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="db8b9594-3781-4505-94b7-af4d2aab056a" name="Default" comment="" />
+    <ignored path="PHP.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="PHP" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="systemIndex.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/systemIndex.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="515">
+              <caret line="273" column="54" selection-start-line="273" selection-start-column="54" selection-end-line="273" selection-end-column="54" />
+              <folding>
+                <element signature="e#6256#10366#0" expanded="false" />
+                <marker date="1474869542097" expanded="true" signature="5095:5111" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="clientIndex.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/0917_MSDEMO/client/clientIndex.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6642">
+              <caret line="246" column="15" selection-start-line="246" selection-start-column="15" selection-end-line="246" selection-end-column="15" />
+              <folding>
+                <element signature="e#8775#9629#0" expanded="false" />
+                <marker date="1474717807741" expanded="true" signature="7258:7274" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/comment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5859">
+              <caret line="217" column="233" selection-start-line="217" selection-start-column="233" selection-end-line="217" selection-end-column="233" />
+              <folding>
+                <marker date="1474873471349" expanded="true" signature="953:990" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="1463:1536" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="2110:2128" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="2591:2698" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="3077:3095" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="3077:3096" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="3077:3101" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="3077:3103" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="3077:3115" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="3578:3685" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="4064:4089" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="4064:4112" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="4575:4682" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="5020:5086" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="5549:5656" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="5996:6014" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="6445:6552" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="7916:8104" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="8348:8413" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="8859:9053" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="9592:9786" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="9974:10005" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="10030:10064" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="10350:10565" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="10700:10756" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="11223:11417" placeholder="..." />
+                <marker date="1474873471349" expanded="true" signature="11987:12181" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updateHero.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/updateHero.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initialConnection.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/initialConnection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addHero.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/addHero.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3645">
+              <caret line="135" column="68" selection-start-line="135" selection-start-column="67" selection-end-line="135" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/0913/task1.php" />
+        <option value="$PROJECT_DIR$/0913/task3.php" />
+        <option value="$PROJECT_DIR$/0913/task5.php" />
+        <option value="$PROJECT_DIR$/0913/task2.php" />
+        <option value="$PROJECT_DIR$/0914/table.php" />
+        <option value="$PROJECT_DIR$/0914/test1.php" />
+        <option value="$PROJECT_DIR$/0914/test2.php" />
+        <option value="$PROJECT_DIR$/0914/tools.php" />
+        <option value="$PROJECT_DIR$/0914/navBar.php" />
+        <option value="$PROJECT_DIR$/0914/task1.php" />
+        <option value="$PROJECT_DIR$/0915/task1.php" />
+        <option value="$PROJECT_DIR$/0915/menuItem.txt" />
+        <option value="$PROJECT_DIR$/0915/header.php" />
+        <option value="$PROJECT_DIR$/0915/login.php" />
+        <option value="$PROJECT_DIR$/0915/Comment.txt" />
+        <option value="$PROJECT_DIR$/0915/comment.php" />
+        <option value="$PROJECT_DIR$/0916_commentSystem/login.html" />
+        <option value="$PROJECT_DIR$/0916_commentSystem/header.php" />
+        <option value="$PROJECT_DIR$/0916_commentSystem/comment.php" />
+        <option value="$PROJECT_DIR$/0916_commentSystem/comment.html" />
+        <option value="$PROJECT_DIR$/0917_管理系统DEMO/login.html" />
+        <option value="$PROJECT_DIR$/0917_管理系统DEMO/addHero.php" />
+        <option value="$PROJECT_DIR$/0917_管理系统DEMO/initialConnection.php" />
+        <option value="$PROJECT_DIR$/0916_commentSystem/login.php" />
+        <option value="$PROJECT_DIR$/0917_管理系统DEMO/comment.php" />
+        <option value="$PROJECT_DIR$/0917_管理系统DEMO/systemIndex.html" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/test.html" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/updateHero.php" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/comment.php" />
+        <option value="$PROJECT_DIR$/0922/clickForMore/api/initial.Connection..php" />
+        <option value="$PROJECT_DIR$/0922/loadingImagesLikeWaterFall/api/conn.dota.php" />
+        <option value="$PROJECT_DIR$/0922/clickForMore/api/addMore.php" />
+        <option value="$PROJECT_DIR$/0922/loadingImagesLikeWaterFall/api/getmenu.php" />
+        <option value="$PROJECT_DIR$/0922/bulletScreen/api/addmsg.php" />
+        <option value="$PROJECT_DIR$/0922/bulletScreen/api/getMax.php" />
+        <option value="$PROJECT_DIR$/0922/bulletScreen/api/getmsg.php" />
+        <option value="$PROJECT_DIR$/0922/clickForMore/allmenu.html" />
+        <option value="$PROJECT_DIR$/0922/loadingImagesLikeWaterFall/index.html" />
+        <option value="$PROJECT_DIR$/0922/bulletScreen/bulletScreen.html" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/addHero.php" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/systemIndex.html" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/admin/updateHero.php" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/client/clientIndex.html" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/admin/addHero.php" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/admin/initialConnection.php" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/admin/systemIndex.html" />
+        <option value="$PROJECT_DIR$/0917_MSDEMO/admin/comment.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="添加" />
+    <OptionsSetting value="true" id="移除" />
+    <OptionsSetting value="true" id="签出" />
+    <OptionsSetting value="true" id="更新" />
+    <OptionsSetting value="true" id="状态" />
+    <OptionsSetting value="true" id="编辑" />
+    <ConfirmationsSetting value="0" id="添加" />
+    <ConfirmationsSetting value="0" id="移除" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="0917_MSDEMO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PHP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="0917_MSDEMO" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="D:\nodejs\node.exe" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebFront\PHP\0917_MSDEMO\client" />
+      <recent name="D:\WebFront\PHP\0922\bulletScreen\api" />
+      <recent name="D:\WebFront\PHP\0922" />
+      <recent name="D:\WebFront\PHP\0922\clickForMore\api\image\ljx\heroes" />
+      <recent name="D:\WebFront\PHP\0922\loadingImagesLikeWaterFall" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebFront\PHP\0917_MSDEMO\admin" />
+      <recent name="D:\WebFront\PHP\0922" />
+      <recent name="D:\WebFront\PHP\0922\bulletScreen" />
+      <recent name="D:\WebFront\PHP\0922\bulletScreen\api" />
+      <recent name="D:\WebFront\PHP\0922\clickForMore" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db8b9594-3781-4505-94b7-af4d2aab056a" name="Default" comment="" />
+      <created>1473745610116</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1473745610116</updated>
+      <workItem from="1473745611585" duration="15108000" />
+      <workItem from="1473767964492" duration="4730000" />
+      <workItem from="1473818066474" duration="8204000" />
+      <workItem from="1473839675996" duration="1112000" />
+      <workItem from="1473843663221" duration="1048000" />
+      <workItem from="1473921391401" duration="23594000" />
+      <workItem from="1474011514275" duration="17598000" />
+      <workItem from="1474074085602" duration="39079000" />
+      <workItem from="1474264681806" duration="23471000" />
+      <workItem from="1474342838479" duration="27340000" />
+      <workItem from="1474421818709" duration="30036000" />
+      <workItem from="1474523649012" duration="17012000" />
+      <workItem from="1474611036930" duration="17329000" />
+      <workItem from="1474640108263" duration="25000" />
+      <workItem from="1474680886906" duration="15264000" />
+      <workItem from="1474713909359" duration="4379000" />
+      <workItem from="1474867591886" duration="6211000" />
+      <workItem from="1475041533508" duration="86000" />
+      <workItem from="1475646891948" duration="18000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="251644000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24743778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="5" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php" />
+    <entry file="file://$PROJECT_DIR$/0914/navBar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0915/navBar.php" />
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/menuItem.txt" />
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/bootstrap/jquery-1.12.3.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="3" column="26207" selection-start-line="3" selection-start-column="26207" selection-end-line="3" selection-end-column="26207" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/Comment.txt" />
+    <entry file="file://$PROJECT_DIR$/0914/task1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/bootstrap/js/npm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_管理系统DEMO/login.html" />
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/comment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1662">
+          <caret line="245" column="82" selection-start-line="245" selection-start-column="82" selection-end-line="245" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0912/task1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0912/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0913/task1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="36" column="40" selection-start-line="0" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0914/toolTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0916_commentSystem/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="7178" column="10" selection-start-line="7178" selection-start-column="10" selection-end-line="7178" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/bootstrap/jquery-3.1.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/json.php" />
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/uploadFile/images/hero/1474375274574.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="1486" column="0" selection-start-line="1486" selection-start-column="0" selection-end-line="1486" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/test.html" />
+    <entry file="file://$PROJECT_DIR$/0922/jquery-3.1.0.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/loadingImagesLikeWaterFall/images/bg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/clickForMore/api/initial.Connection..php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/bulletScreen/api/conn.dota.php" />
+    <entry file="file://$PROJECT_DIR$/0922/clickForMore/allmenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="53" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/loadingImagesLikeWaterFall/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5751">
+          <caret line="268" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="273" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/bulletScreen/bulletScreen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="80" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/bulletScreen/api/getmsg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="13" column="50" selection-start-line="13" selection-start-column="50" selection-end-line="13" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/bulletScreen/api/getMax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="11" column="59" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/clickForMore/api/addMore.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/bulletScreen/api/addmsg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/bulletScreen/api/initial.Connection..php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/loadingImagesLikeWaterFall/api/initial.Connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0922/loadingImagesLikeWaterFall/api/getmenu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="887" column="0" selection-start-line="887" selection-start-column="0" selection-end-line="887" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/bootstrap/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="1743" column="51" selection-start-line="1743" selection-start-column="51" selection-end-line="1743" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/addHero.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3645">
+          <caret line="135" column="68" selection-start-line="135" selection-start-column="67" selection-end-line="135" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/client/clientIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6642">
+          <caret line="246" column="15" selection-start-line="246" selection-start-column="15" selection-end-line="246" selection-end-column="15" />
+          <folding>
+            <element signature="e#8775#9629#0" expanded="false" />
+            <marker date="1474717807741" expanded="true" signature="7258:7274" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/mysql.php" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/mysqli.php" />
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/updateHero.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/initialConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5859">
+          <caret line="217" column="233" selection-start-line="217" selection-start-column="233" selection-end-line="217" selection-end-column="233" />
+          <folding>
+            <marker date="1474873471349" expanded="true" signature="953:990" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="1463:1536" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="2110:2128" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="2591:2698" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="3077:3095" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="3077:3096" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="3077:3101" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="3077:3103" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="3077:3115" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="3578:3685" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="4064:4089" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="4064:4112" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="4575:4682" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="5020:5086" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="5549:5656" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="5996:6014" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="6445:6552" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="7916:8104" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="8348:8413" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="8859:9053" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="9592:9786" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="9974:10005" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="10030:10064" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="10350:10565" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="10700:10756" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="11223:11417" placeholder="..." />
+            <marker date="1474873471349" expanded="true" signature="11987:12181" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0917_MSDEMO/admin/systemIndex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="273" column="54" selection-start-line="273" selection-start-column="54" selection-end-line="273" selection-end-column="54" />
+          <folding>
+            <element signature="e#6256#10366#0" expanded="false" />
+            <marker date="1474869542097" expanded="true" signature="5095:5111" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

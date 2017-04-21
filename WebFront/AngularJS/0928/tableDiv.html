@@ -1,0 +1,45 @@
+<form role="form">
+    <div class="form-group">
+        <label class="col-md-2 text-right" for="searchText">输入信息搜索</label>
+        <div class="col-md-2">
+            <input type="text" class="form-control" name="searchText" ng-model="searchText">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 text-right" for="typeSelect">显示</label>
+        <div class="col-md-2">
+            <select class="form-control text-center" name="typeSelect" ng-model="selectType"
+                    ng-options="x.name for x in type">
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2 col-md-offset-1">
+            <select class="form-control text-center" name="pageSelect" ng-model="selectPage" ng-options="x.page for x in page">
+                <!--<select class="form-control text-center" name="pageSelect" ng-model="selectPage">-->
+                <option value="" ng-repeat="x.page for x in page">{{}}</option>
+            </select>
+        </div>
+        <label for="pageSelect">条记录</label>
+    </div>
+    <div class="form-group">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td ng-click="sort='id';reverse()">#</td>
+                <td ng-click="sort='language';reverse()">语言</td>
+                <td ng-click="sort='time';reverse()">诞生年代</td>
+                <td ng-click="sort='type';reverse()">它在我眼中类型</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="x in tableData|filter:selectType.value|filter:searchText|limitTo:selectPage.id|orderBy:sort:asc">
+                <td>{{x.id}}</td>
+                <td>{{x.language}}</td>
+                <td>{{x.time}}</td>
+                <td>{{x.type}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

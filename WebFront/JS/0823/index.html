@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Michael Jackson</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="jquery/jquery-3.1.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background: url("images/bg.jpg");
+        }
+        nav .navbar-brand img {
+            height: 100%;
+        }
+        div.container{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:;">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="javascript:;">首页</a></li>
+                <li><a href="javascript:;">咨询</a></li>
+                <li><a href="javascript:;">专辑</a></li>
+                <li><a href="javascript:;">MV</a></li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="请输入信息搜索">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="javascript:;"><span class="glyphicon glyphicon-list"></span></a></li>
+                <li><a href="javascript:;"><span class="label label-default">Beat  It</span></a></li>
+                <li><a href="javascript:;"><span class="glyphicon glyphicon-play"></span></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:;">登录</a></li>
+                <li><a href="javascript:;">注册</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="images/1.jpg" >
+                        <div class="carousel-caption"style="background: rgba(0,0,0,0.5);">
+                            一部电影——<br>一个神
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="images/2.jpg" >
+                        <div class="carousel-caption" style="background: rgba(0,0,0,0.5);">
+                                最畅销专辑——<br>没有之一
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="images/3.jpg" >
+                            <div class="carousel-caption"style="background: rgba(0,0,0,0.5)">
+                                完美主义者——<br>从未离开
+                            </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-2 text-center"><button class="btn btn-default"><span class="glyphicon glyphicon-user"></span>Michael资料</button></div>
+        <div class="col-md-8"></div>
+        <div class="col-md-2 text-center"><button class="btn btn-default"><span class="glyphicon glyphicon-heart"></span>成为VIP</button></div>
+    </div>
+
+
+    <div class="row">
+            <div class="col-md-4 text-center"><img class="img-responsive" src="images/4.jpg" ><p>新闻一</p></div>
+            <div class="col-md-4 text-center"><img class="img-responsive" src="images/4.jpg" ><p>新闻二</p></div>
+            <div class="col-md-4 text-center"><img class="img-responsive" src="images/4.jpg" ><p>新闻三</p></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center"><h1>所有专辑</h1></div>
+    </div>
+        <div class="row">
+            <div class="col-md-3 text-center"><img src="images/a1.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>OFF The Wall</h3></div>
+            <div class="col-md-3 text-center"><img src="images/a2.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>Thriller</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center"><img src="images/a3.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>Bad</h3></div>
+            <div class="col-md-3 text-center"><img src="images/a4.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>Dangerous</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center"><img src="images/a5.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>History</h3></div>
+            <div class="col-md-3 text-center"><img src="images/a6.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>Blood On The Dance Floor</h3></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center"><img src="images/a7.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>Invincible</h3></div>
+            <div class="col-md-3 text-center"><img src="images/a8.jpg" alt=""></div>
+            <div class="col-md-3 text-center"><h3>Xscape</h3></div>
+        </div>
+    <div class="row">
+        <div class="col-md-12 text-center"><button class="btn btn-default">探索专辑</button></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 text-center"><img class="img-responsive"src="images/5.jpg" alt=""></div>
+        <div class="col-md-6 text-center"><h3>Michael Jackson</h3><P>迈克尔·杰克逊（Michael Jackson），1958年8月29日在美国印第安纳州加里市出生，美国歌手、词曲创作人、舞蹈家、表演家、慈善家、音乐家、人道主义者、和平主义者、慈善机构创办人。
+            杰克逊是家族的第七个孩子，他在1964年作为杰克逊五人组的成员和他的兄弟一起在职业音乐舞台上初次登台，1968年乐队与当地的一家唱片公司合作出版了第一张唱片《Big Boy》。1971年12月，发行了个人首支单曲《Got to be there》，标志着其个人独唱生涯的开始。
+            1982年12月，杰克逊音乐生涯最畅销的专辑《Thriller》发行。1987年9月，杰克逊展开个人首次全球巡演。通过舞台和视频的表演，杰克逊普及了一些像机械舞和太空步等舞蹈技术。杰克逊一生中获得了13个格莱美奖和26个全美音乐奖。在他单飞生涯中，他拥有13支美国冠军单曲。2000年吉尼斯世界纪录大全里认证他资助过39个慈善机构。
+            2009年5月，杰克逊宣布将在伦敦举行系列音乐会；6月25日，他因为急性丙泊酚和苯二氮平类药物中毒导致心脏骤停逝世。洛杉矶法医裁定这是一宗凶杀案，他的私人医生康拉德·莫里被判定过失杀人罪。2010年，迈克尔·杰克逊被授予格莱美终生成就奖。
+            2009年6月25日，杰克逊辞世，享年50岁。2011年11月7日下午，杰克逊的私人医师莫里 “过失杀人罪”罪名成立，服刑四年监禁。</P></div>
+    </div>
+    <div class="row text-center"><h1>畅销歌曲</h1></div>
+    <div class="row">
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;background-color:gold;color:black">1</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;background-color:silver;color:black">2</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;background-color:sandybrown;color:black">3</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;">4</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;">5</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;">6</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;">7</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;">8</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;">9</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+        <div class="col-md-3 col-sm-1 text-center"><span class="badge"style="font-size:3em;">10</span></div>
+        <div class="col-md-3 col-sm-1 text-center"><h3>OFF The Wall</h3></div>
+    </div>
+</div>
+</body>
+</html>

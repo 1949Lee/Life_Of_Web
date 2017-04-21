@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算生日</title>
+</head>
+<body>
+<div  style="width:500px;height: 300px;position:absolute;top:40%;left:40%"">
+        请您的生日：<input type="date" id="birth" ><br>
+        <input type="button"  onclick="calculate()" value="戳我计算">
+</div>
+<script>
+    function calculate(){
+        var birth = new Date(document.getElementById("birth").value);
+        alert(2016-parseInt(birth.getFullYear()));
+    }
+</script>
+</body>
+</html>

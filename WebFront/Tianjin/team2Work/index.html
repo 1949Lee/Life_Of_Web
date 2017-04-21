@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOTA2-首页</title>
+    <script src="jquery/jquery-1.12.3.min.js"></script>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        #wjkmain{
+            width: 100%;
+            height: 1500px;
+            background-image: url("image/wjkmain.png");
+        }
+        #wjkhead{
+            width: 100%;
+            height: 80px;
+            background-image: url("image/wjkdota2.png");
+        }
+        #wjkhead img{
+            position: absolute;
+            left: 6%;
+            top: 20px;
+        }
+        #wjkfirstol,#wjksecondol{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #wjkfirstol li{
+            float: left;
+            display: block;
+            width: 7%;
+            height: 80px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 80px;
+            position: relative;
+            left: 40%;
+        }
+        #wjkfirstol li:hover{
+            background-color: black;
+        }
+        #wjkfirstol li a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            /*background-color: red;*/
+        }
+        #wjkhead2{
+            width: 100%;
+            height: 200px;
+            /*border: 1px solid red;*/
+        }
+        #wjksecondol{
+            width: 7%;
+            height: 100%;
+            /*background-color: black;*/
+            background-image: url("image/2jinum.png");
+            position: relative;
+            left: 40%;
+            top: 0;
+            float: left;
+            z-index: 10;
+        }
+        #wjksecondol li{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            font-size: 13px;
+            border-bottom: 1px solid #eeeeee;
+        }
+        #wjksecondol li a{
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        #wjksecondol li a:hover, #wjkthirdol li a:hover{
+            text-decoration: none;
+            color: #00c0ff;;
+        }
+        #wjksecondol li a:active, #wjkthirdol li a:active{
+            text-decoration: none;
+            color: red;
+        }
+        .wjkunselect{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .wjkselect{
+            text-decoration: none;
+            color: #00c0ff;;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        #wjkthirdol{
+            margin: 0;
+            padding: 0;
+            width:10% ;
+            height: 150px;
+            /*background-color: black;*/
+            background-image: url("image/2jinum.png");
+            position: absolute;
+            left: 47%;
+            top: 80px;
+            list-style: none;
+            z-index: 10;
+        }
+        #wjkthirdol li{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            font-size: 13px;
+            border-bottom: 1px solid #eeeeee;
+        }
+        #wjkthirdol li a{
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        #wjklubotu{
+            width: 100%;
+            height: 678px;
+            /*border: 1px solid red;*/
+            position: absolute;
+            top: 80px;
+            /*overflow: hidden;*/
+        }
+        #wjklbimg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /*transition: all 0.5s ease-in 0s;//轮播动画*/
+        }
+        #wjkLeft{
+            color: red;
+            width: 3.5%;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 50px;
+            font-weight: bold;
+            /*border: 1px solid red;*/
+            position: absolute;
+            /*z-index: 99;*/
+            top: 270px;
+            left: 50px;
+        }
+        #wjkLeft:hover{
+            background-color: #000000;
+            opacity: 0.8;
+            color: white;
+        }
+        #wjkRight{
+            color: red;
+            width: 3.5%;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 50px;
+            font-weight: bold;
+            /*border: 1px solid red;*/
+            position: absolute;
+            /*z-index: 99;*/
+            top: 270px;
+            left: 93%;
+        }
+        #wjkLeft:hover,#wjkRight:hover{
+            background-color: #000000;
+            opacity: 0.8;
+            color: white;
+        }
+        #wjkLonum{
+            width: 30%;
+            height: 50px;
+            /*border: 1px solid red;*/
+            position: absolute;
+            left: 33%;
+            top: 600px;
+        }
+        #wjkLoOl li{
+            list-style: none;
+            color: black;
+            float: left;
+            margin-left: 10%;
+            display:  block;
+            width: 20px;
+            height: 20px;
+            background-color: #eeeeee;
+            opacity: 0.5;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+        }
+        /*#wjkLoOl li:hover{*/
+            /*color: red;*/
+            /*opacity: 1;*/
+        /*}*/
+        #wjkLoOl .liselect{  /*为什么一定要加上ID*/
+            color: red;
+            opacity: 1;
+        }
+        #wjkbox{
+            width: 100%;
+            height: 80px;
+            /*border: 1px solid red;*/
+            position: absolute;
+            top: 760px;
+        }
+        #wjkbox1{
+            width: 55%;
+            height: 100%;
+            /*border: 1px solid blue;*/
+            margin-left: 5%;
+            float: left;
+        }
+        #wjkbox1>div{
+            width: 33%;
+            height: 100%;
+            /*border: 1px solid green;*/
+            float: left;
+        }
+        #wjkbox1>div a img{
+            width: 90%;
+            height: 90%;
+        }
+        #wjkbox2{
+            width: 40%;
+            height: 100%;
+            /*border: 1px solid green;*/
+            position: absolute;
+            left: 60%;
+        }
+        #wjkzhiyin{
+            width: 11%;
+            height: 100%;
+            /*border: 1px solid green;*/
+            float: left;
+        }
+        #wjkzhiyin img{
+            height: 90%;
+        }
+        #wjkzhiyin~div{
+            float: left;
+            width: 15%;
+            height: 100%;
+            /*border: 1px solid blue;*/
+        }
+        #wjkzhiyin~div img{
+            height: 90%;
+            width: 98%;
+        }
+        #wjkbox3{
+            width: 84%;
+            height: 500px;
+            /*border: 1px solid red;*/
+            position: absolute;
+            top: 855px;
+            left: 5%;
+        }
+        #wjkbox4{
+            width: 100%;
+            height: 32px;
+            /*border: 1px solid red ;*/
+            position: absolute;
+        }
+        #wjkbox5{
+            width: 62.4%;
+            height: 100%;
+            /*border: 1px solid blue;*/
+            position: absolute;
+            float: left;
+        }
+        #wjkbox6{
+            width: 34.6%;
+            height: 100%;
+            /*border: 1px solid green;*/
+            position: absolute;
+            left: 65.4%;
+            /*top: -32px;*/
+        }
+        .span1{
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+            line-height: 32px;
+            position: absolute;
+            margin-left: 4px;
+            /*vertical-align: top;*/
+            /*vertical-align: middle;*/
+        }
+        .span2 a{
+            color: white;
+            text-decoration: none;
+            float: right;
+            text-align: center;
+            line-height: 32px;
+            font-size: 13px;
+        }
+        .span2 a:hover{
+            color: #177cb7;
+        }
+        #wjkbox7{
+            width: 62.4%;
+            height: 40px;
+            /*border: 1px solid green;*/
+            position: absolute;
+            top: 40px;
+        }
+        #ol1{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+        }
+        #ol1 li{
+            width: 19.71%;
+            height: 100%;
+            list-style: none;
+            float: left;
+
+        }
+          #ol1 li a{
+              display: block;
+              width: 100%;
+              height: 100%;
+              text-decoration: none;
+              color: #eeeeee;
+              line-height: 40px;
+              font-size: 16px;
+              text-align: center;
+              opacity: 0.5;
+              border: 1px #e4e4e4 solid;
+          }
+         #ol1 .aselect{
+            opacity: 1;
+             color: white;
+        }
+        #wjkbox8{
+            width: 62.4%;
+            height: 550px;
+            /*border: 1px solid blue;*/
+            position: absolute;
+            top: 95px;
+        }
+        #wjkol2 li{
+            list-style: none;
+            margin-left: -28px;
+        }
+        #wjkol2 li:first-child{
+           width: 100%;
+            height: 170px;
+        }
+        #wjkol2 li:first-child:hover{
+            box-shadow:0 0 20px #177cb7;
+        }
+        #wjkol2 li:first-child h2{
+            margin: 5px;
+            margin-left: 15px;
+            color: #177cb7;
+        }
+        #wjkol2 li:first-child h3{
+            padding: 3px;
+            font-size: 15px;
+            text-indent: 25px;
+            opacity: 0.9;
+        }
+        #wjkol2 li:first-child img{
+            width: 30%;
+            height: 70%;
+            margin-left: 15px;
+            float: left
+        }
+        #wjkol2 li:first-child~li{
+            width: 100%;
+            height: 40px;
+            /*border: 1px solid green;*/
+            line-height: 40px;
+            position: relative;
+            top: 10px;
+        }
+        #wjkol2 li:first-child~li:nth-child(even){
+            background-color: #1a1a1a;
+        }
+        #wjkol2 li:first-child~li a:hover{
+            color: #0078aa;
+        }
+        #wjkol2 li a{
+            text-decoration: none;
+            color: #e4e4e4;
+            opacity: 0.9;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        #wjkbox9{
+            width: 35%;
+            height: 600px;
+            /*border: 1px solid red;*/
+            position: absolute;
+            left: 65%;
+            top: 45px;
+        }
+        #wjkbox9 img{
+            width: 100%;
+        }
+        #wjkbox9 ol{
+            margin: 0;
+            padding: 0;
+        }
+        #wjkbox9 ol li{
+            list-style: none;
+        }
+        #wjkbox9 ol li:first-child~li:hover{
+           box-shadow: -2px 0 1px #177cb7;
+        }
+
+
+        #ljxFooter{
+            margin:0 auto; width:100%;
+            background-image: url("image/wjkmain.png");
+            position: absolute;
+            top: 1500px;
+        }
+        #ljxFooter>span{
+            display:block;
+            width:80%;
+            margin-left:10%;
+            margin-right:10%;
+        }
+        #ljxFootBottom{
+            text-align: center;
+            width:100%;
+            background-image: url("image/wjkmain.png");
+        }
+        #ljxFootBottom ul{
+            list-style: none;
+            width:70%;
+            margin-left:15%;
+        }
+        #ljxFootBottom ul li{
+            float:left;
+            margin-right:10px;
+        }
+        #ljxFootBottom span{
+            float:left;
+            font-size:10px;
+            line-height:16px;
+            font-family:Arial !important;
+            color:#878686;
+        }
+    </style>
+</head>
+<body>
+<div id="wjkmain">
+    <div id="wjkhead">
+        <a href="http://www.dota2.com.cn/main.htm"><img src="image/wjkdota1.png"></a>
+        <ol id="wjkfirstol">
+        <!--<li>首页</li>   动态生成-->
+        <!--<li>资讯</li>-->
+        <!--<li>赛事</li>-->
+        <!--<li>资料</li>-->
+        </ol>
+    </div>
+    <div id="wjkhead2">
+        <ol id="wjksecondol">
+            <!--<li>品牌站</li>-->
+            <!--<li>个人中心</li>-->
+            <!--<li>神秘商店</li>-->
+        </ol>
+        <ol id="wjkthirdol">
+            <!--<li>品牌站</li>-->
+            <!--<li>个人中心</li>-->
+            <!--<li>神秘商店</li>-->
+        </ol>
+    </div>
+    <div id="wjklubotu">
+        <img id="wjklbimg" >
+        <div id="wjkLeft">&lt;</div>
+        <div id="wjkRight">&gt;</div>
+        <div id="wjkLonum">
+            <ol id="wjkLoOl">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+        </div>
+    </div>
+    <div id="wjkbox">
+        <div id="wjkbox1">
+            <div><a href="#"><img src="image/wjkchongzhi.png"></a></div>
+            <div><a href="#"><img src="image/wjkxiazai.png"></a></div>
+            <div><a href="#"><img src="image/wjkchuce.png"></a></div>
+        </div>
+        <div id="wjkbox2">
+            <div id="wjkzhiyin"><img src="image/wjkzhiyin.png"></div>
+            <div><a href="#" value="0"> <img src="image/wjkyxzl.png" value="0"></a></div>
+            <div><a href="#"> <img src="image/wjkwpzl.png" value="1"></a></div>
+            <div><a href="#"> <img src="image/wjk3bu.png" value="2"></a></div>
+            <div><a href="#"> <img src="image/wjk3fen.png" value="3"></a></div>
+        </div>
+    </div>
+    <div id="wjkbox3">
+        <div id="wjkbox4">
+            <div id="wjkbox5">
+                <img src="image/wjkxinwen.png">
+                <span class="span1">新闻中心</span>
+                <span class="span2"><a href="#"> 更多></a></span>
+            </div>
+            <div id="wjkbox6">
+                <img src="image/wjkcaishi.png">
+                <span class="span1">最新赛事</span>
+                <span class="span2"><a href="#"> 更多></a></span>
+            </div>
+        </div>
+            <div id="wjkbox7">
+                <ol id="ol1">
+                </ol>
+            </div>
+            <div id="wjkbox8">
+                <ol id="wjkol2">
+                    <!--<li><a href="#"> <h2>DOTA2齐天大圣中文预告片</h2>-->
+                        <!--<img src="image/wjkxinwentu.jpg">-->
+                        <!--<h3>北京时间奥斯卡回来开始腐adsdad f dfhgk  烂看 打肯德基按时的示范法你发浪费</h3>-->
+                    <!--</a></li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相&nbsp;&nbsp;-->
+                        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11</a> </li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相</a> </li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相</a> </li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相</a> </li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相</a> </li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相</a> </li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相</a> </li>-->
+                    <!--<li><a href="#">· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相</a> </li>-->
+                </ol>
+            </div>
+            <div id="wjkbox9">
+                <ol>
+                    <li><a href="#"> <img src="image/wjksaishi.png"> </a></li>
+                    <li><a href="#"> <img src="image/wjksaishi1.png"></a> </li>
+                    <li><a href="#"> <img src="image/wjksaishi2.png"></a></li>
+                    <li><a href="#"> <img src="image/wjksaishi3.png"></a></li>
+                    <li><a href="#"> <img src="image/wjksaishi4.png"></a></li>
+                </ol>
+            </div>
+        </div>
+    <div id="ljxFooter">
+            <span style="text-align:center;color: #878686;">京ICP证：050016号
+                《网络文化经营许可证》编号：京网文[2011]0782-287号
+                《网络视听许可证》编号：0110587 京公网安备110105019888号<br>
+                文网进字[2013] 028号
+                新出审字[2013] 1505号 ISBN：978-7-89989-826-0
+            </span>
+        <div id="ljxFootBottom">
+            <ul>
+                <li>
+                    <a href="http://www.valvesoftware.com/" target="_blank">
+                        <img src="image/ljx/valve.jpg">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.wanmei.com/" target="_blank">
+                        <img src="image/ljx/wmlogo.gif">
+                    </a>
+                </li>
+                <li>
+                        <span>
+                        完美世界（北京）网络技术有限公司 版权所有 Copyright © 2014 Perfect World Co., Ltd. All Rights reserved
+                            <br>
+                         © 2014 Valve Corporation. All Rights reserved. Licensed to Perfect World Co., Ltd. in China
+                        </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    var wjkfirstol=document.getElementById("wjkfirstol");
+    var wjksecondol=document.getElementById("wjksecondol");
+    var wjkthirdol=document.getElementById("wjkthirdol");
+    var wjkfirstolnr=["首页","资讯","赛事","资料"];
+    var wjkfirstollj=["index.html","news.html","view.html","heroes.html"];
+    var wjksecondolnr=[["品牌站","个人中心 >","神秘商店 >"],
+        ["官方新闻","赛事新闻 >","更新日志","游戏攻略"],
+        ["赛事中心","活动中心"],
+        ["英雄资料 >","物品资料","视频中心","自定义地图","新手指引 >"]
+    ];
+    var wjkthirdolnr=[
+        [
+            [""],
+            ["修改密码","你的英雄","点卡额度"],
+            ["阿卡丽什么钥匙","规则"]
+        ],
+        [
+            [""],
+            ["LPL","世界联赛","国内联赛","OGN联赛"]
+        ],
+        [
+            [""]
+        ],
+        [
+            ["上单","打野","辅助","中单","ADC"],
+            [""],
+            [""],
+            [""],
+            ["别玩了","别入坑"]
+        ],
+    ];
+    var wjkarrfirsta=[];//用来装第一级动态声明的li里面的A
+//    var wjkarrseconda=[];//用来装第二级动态声明的li里面的A
+    wjksecondol.style.left=40+"%";
+    wjksecondol.style.display="none";
+    wjkthirdol.style.display="none";
+    for(var i=0;i<wjkfirstolnr.length;i++){
+        var wjkfirstli=document.createElement("li");
+        var wjkfirstlia=document.createElement("a")
+        wjkfirstlia.innerHTML=wjkfirstolnr[i];
+        wjkfirstlia.href=wjkfirstollj[i];
+        wjkfirstlia.className="wjkunselect"
+        wjkfirstli.appendChild(wjkfirstlia);
+        wjkfirstol.appendChild(wjkfirstli);
+        wjkarrfirsta.push(wjkfirstlia);
+    }
+    wjkarrfirsta[0].className="wjkselect"
+    var wjkindex=0;
+    for(var i=0;i<wjkarrfirsta.length;i++){
+        wjkarrfirsta[i].value=i;
+
+        wjkarrfirsta[i].onmouseover=function(){
+            wjkindex=this.value;
+            for(var j=0;j<wjkarrfirsta.length;j++){
+                wjkarrfirsta[j].className="wjkunselect";
+            }
+            wjkarrfirsta[this.value].className="wjkselect"
+            //动态声明li
+            var wjksecondli=""
+            for(var j=0;j<wjksecondolnr[this.value].length;j++){
+                wjksecondli+="<li><a href='#'> "+wjksecondolnr[this.value][j]+"</a></li>";
+                wjksecondol.innerHTML=wjksecondli;
+            }
+            wjksecondol.style.left=40+this.value*7+"%";//变换second ol的位置
+            wjksecondol.style.display="block";
+//            alert( wjksecondol.style.left);  测试用的
+            var wjkarrseconda=wjksecondol.getElementsByTagName("li");
+            for(var j=0;j<wjksecondolnr[this.value].length;j++)
+            {
+                wjkarrseconda[j].value=j;
+                wjkarrseconda[j].onmouseover=function(){
+                    var wjkthirdli="";
+                    for(var k=0;k<wjkthirdolnr[wjkindex][this.value].length;k++){
+                        if(wjkthirdolnr[wjkindex][this.value][k]=="")
+                        {
+                            wjkthirdol.innerHTML="";
+                            wjkthirdol.style.display="none";
+                        }
+                        else{
+                            wjkthirdli+="<li><a href='#'>"+wjkthirdolnr[wjkindex][this.value][k]+"</a></li>";
+                            wjkthirdol.innerHTML=wjkthirdli;
+                            wjkthirdol.style.display="block";
+                        }
+                    }
+                    wjkthirdol.style.left=47+wjkindex*7+"%";
+                    wjkthirdol.style.top=80+this.value*31+"px";
+                }
+            }
+        }
+        wjkarrfirsta[i].onmouseout=function(){
+            wjksecondol.style.display="none";
+            for(var j=0;j<wjkarrfirsta.length;j++){
+                wjkarrfirsta[j].className="wjkunselect";
+            }
+            wjkarrfirsta[0].className="wjkselect";
+        }
+        wjksecondol.onmouseout=function(){
+            wjksecondol.style.display="none";
+            wjkthirdol.style.display="none";
+            for(var j=0;j<wjkarrfirsta.length;j++){
+                wjkarrfirsta[j].className="wjkunselect";
+            }
+            wjkarrfirsta[0].className="wjkselect"
+        }
+        wjksecondol.onmouseover=function(){
+            wjksecondol.style.display="block";
+            for(var j=0;j<wjkarrfirsta.length;j++){
+                wjkarrfirsta[j].className="wjkunselect";
+            }
+//            wjkarrfirsta[this.value].className="wjkselect";
+        }
+        wjkthirdol.onmousemove=function(){
+            wjkthirdol.style.display="block";
+            wjksecondol.style.display="block";
+        }
+        wjkthirdol.onmouseout=function(){
+            wjkthirdol.style.display="none";
+            wjksecondol.style.display="none";
+        }
+    }
+    var wjklubotu=document.getElementById("wjklbimg");
+    var wjkLeft=document.getElementById("wjkLeft");
+    var wjkRight=document.getElementById("wjkRight");
+    var wjkLoOl=document.getElementById("wjkLoOl");
+    var wjkLoli=wjkLoOl.getElementsByTagName("li");
+    wjklubotu.src="image/wjk"+1+".jpg";
+    wjkLoli[0].className="liselect";
+    var lbPic=1;
+    function lbUpdate(){
+        lbPic=lbPic%6+1
+        wjklubotu.src="image/wjk"+lbPic+".jpg";
+        for(var i=0;i<wjkLoli.length;i++){
+            wjkLoli[i].className="";
+        }
+        wjkLoli[lbPic-1].className="liselect";
+
+    }
+    var LBtime=setInterval(lbUpdate,1000);//给个变量否则清除的不会是这个计时器
+    wjklubotu.onmouseover=function(){
+        clearInterval(LBtime);
+    }
+    wjklubotu.onmouseout=function(){
+        LBtime=setInterval(lbUpdate,1000);
+    }
+    wjkLeft.onclick=function(){
+        if(lbPic==1){
+            lbPic=6;
+        }
+        else{
+            lbPic--;
+        }
+        wjklubotu.src="image/wjk"+lbPic+".jpg";
+        for(var i=0;i<wjkLoli.length;i++){
+            wjkLoli[i].className="";
+        }
+        wjkLoli[lbPic-1].className="liselect";
+    }
+    wjkLeft.onmouseover=function(){
+        clearInterval(LBtime);
+    }
+    wjkLeft.onmouseout=function(){
+        LBtime=setInterval(lbUpdate,1000);
+    }
+    wjkRight.onclick=function(){
+        if(lbPic==6){
+            lbPic=1;
+        }
+        else{
+            lbPic++;
+        }
+        wjklubotu.src="image/wjk"+lbPic+".jpg";
+        for(var i=0;i<wjkLoli.length;i++){
+            wjkLoli[i].className="";
+        }
+        wjkLoli[lbPic-1].className="liselect";
+    }
+    wjkRight.onmouseover=function(){
+        clearInterval(LBtime);
+    }
+    wjkRight.onmouseout=function(){
+        LBtime=setInterval(lbUpdate,1000);
+    }
+    for(var i=0;i<wjkLoli.length;i++){
+        wjkLoli[i].value=i
+        wjkLoli[i].onmouseover=function(){
+            clearInterval(LBtime);
+            lbPic=this.value+1;
+            wjklubotu.src="image/wjk"+lbPic+".jpg";
+            for(var i=0;i<wjkLoli.length;i++){
+                wjkLoli[i].className="";
+            }
+            wjkLoli[lbPic-1].className="liselect";
+        }
+        wjkLoli[i].onmouseout=function(){
+            LBtime=setInterval(lbUpdate,1000);
+        }
+    }
+     var ol1=document.getElementById("ol1");
+    var wjkol2=document.getElementById("wjkol2");
+    var arrol1=["综合新闻","官方新闻","赛事新闻","更新日志","游戏攻略"];
+    var arrTwo=[
+        ["DOTA2齐天大圣中文预告片","新游记更新金秋推出：齐天大圣驾临DOTA2 <br><br>&nbsp;&nbsp;2016-08-13"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            ,"· 2016勇士令状等级物品和典藏宝瓶下架通知&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  2016-08-11"
+            ,"· 2016国际邀请赛8月11日赛况：Wings挺进前三，Newbee淘汰&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            , "· 2016国际邀请赛正赛第二日赛况：中国战队喜忧参半&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2016-08-11"
+            ,"· 2016国际邀请赛正赛第三日预告&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  2016-08-11"
+            ,"· 2016国际邀请赛正赛第二天 四轮亮点抢先看&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            ,"· 2016国际邀请赛首日纵览 Wings、LGD晋级VG.R遗憾离场&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"],
+        ["DOTA2齐天大圣中文预告片","新游记更新金秋推出：齐天大圣驾临DOTA2 <br><br>&nbsp;&nbsp;2016-08-13"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"],
+        ["DOTA2齐天大圣中文预告片","北京时间奥斯卡回来开始腐adsdad f dfhgk  烂看 打肯德基按时的示范法你发浪费"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"],
+        ["DOTA2齐天大圣中文预告片","北京时间奥斯卡回来开始腐adsdad f dfhgk  烂看 打肯德基按时的示范法你发浪费"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"],
+        ["DOTA2齐天大圣中文预告片","北京时间奥斯卡回来开始腐adsdad f dfhgk  烂看 打肯德基按时的示范法你发浪费"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2016-08-11"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"
+            ,"· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相","· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相",
+            "· 正赛第四日EHOME遭淘汰，欢乐全明星，深渊领主亮相"],
+    ]
+    var createli
+    var createstr="";
+    for(var q=0;q<10;q++){ //初始化
+        if(q==0){
+            createstr=createstr+"<li><a href='#'><h2>"+arrTwo[0][q]+"</h2><img src='image/wjkxinwentu.jpg'><h3>"+arrTwo[0][q+1]+"</h3> </a></li>";
+            q=1;
+        }
+        else{
+            createstr=createstr+"<li><a href='#'>"+arrTwo[0][q]+"</a> </li>"
+        }
+        wjkol2.innerHTML=createstr;
+    }
+    var str1="";
+    for(var i=0;i<arrol1.length;i++){
+        str1+="<li><a href='#'> "+arrol1[i]+"</a></li>"
+    }
+    ol1.innerHTML=str1;
+    var ol1Li=ol1.getElementsByTagName("a");
+    ol1Li[0].className="aselect";
+    for(var i=0;i<ol1Li.length;i++){
+        ol1Li[i].value=i;
+        ol1Li[i].onmouseover=function(){
+            for(var j=1;j<ol1Li.length;j++){
+                ol1Li[j].className="";
+            }
+            ol1Li[this.value].className="aselect"
+//            wjkol2.style.display="block";
+            createstr="";
+            for(var q=0;q<10;q++){ //动态创建
+                if(q==0){
+                    createstr=createstr+"<li><a href='#'><h2>"+arrTwo[this.value][q]+"</h2><img src='image/wjkxinwentu.jpg'><h3>"+arrTwo[this.value][q+1]+"</h3> </a></li>";
+                    q=1;
+                }
+                else{
+                    createstr=createstr+"<li><a href='#'>"+arrTwo[this.value][q]+"</a> </li>"
+                }
+                wjkol2.innerHTML=createstr;
+            }
+
+
+        }
+        ol1Li[i].onmouseout=function(){
+              for(var j=0;j<ol1Li.length;j++){
+                  ol1Li[j].className="";
+              }
+              ol1Li[this.value].className="aselect"
+//            wjkol2.style.display="none";
+          }
+    }
+
+    $(function(){
+        $("#wjkzhiyin~div a img").each(function(i){
+            $(this).val(i);
+        })
+        $("#wjkzhiyin~div a img").mouseenter(function(){
+           $(this).attr("src","image/"+$(this).val()+".png");
+        })
+        $("#wjkzhiyin~div a img").mouseout(function(){
+            $(this).attr("src","image/"+($(this).val()+0)+".png");
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业一</title>
+    <style>
+        img{
+            width:300px;
+            height:500px;
+        }
+        ol{
+            list-style: none;
+            position:absolute;
+        }
+        li{
+            margin-top:30px;
+        }
+        div{
+            border:1px solid gray;
+            border-radius: 10px;
+            font-size: 20px;
+            color:black;
+            position:absolute;
+            z-index: 2;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<ol>
+    <li><a href="javascript:;"><img src="img/1.jpg" ></a></li>
+    <li><a href="javascript:;"><img src="img/2.jpg" ></a></li>
+    <li><a href="javascript:;"><img src="img/3.jpg" ></a></li>
+    <li><a href="javascript:;"><img src="img/4.jpg" ></a></li>
+    <li><a href="javascript:;"><img src="img/5.jpg" ></a></li>
+</ol>
+<div id="info">单击图片查看详细内容</div>
+
+<script>
+    var img = document.getElementsByTagName("img");
+    var info = document.getElementById("info");
+    var addr = [
+            "http://baike.baidu.com/subview/74929/6467465.htm#viewPageContent",
+            "http://baike.baidu.com/view/343683.htm",
+            "http://baike.baidu.com/view/341332.htm",
+            "http://baike.baidu.com/view/1403937.htm",
+            "http://baike.baidu.com/view/3690805.htm"
+    ]
+    for(var i = 0;i < img.length;i++){
+        img[i].value = i;
+        img[i].onmouseover = function(){
+            info.style.display = "block";
+            info.style.top = parseInt(parseInt(this.value)*550+250) +"px";
+            info.style.left = 100 +"px";
+            this.style.opacity = 0.6;
+//            info.style.top = 0 +"px";
+        };
+        img[i].onmouseout = function(){
+            info.style.display = "none";
+            this.style.opacity = 1;
+        };
+        img[i].onclick = function(){
+            window.open(addr[this.value]);
+        }
+    }
+</script>
+</body>
+</html>

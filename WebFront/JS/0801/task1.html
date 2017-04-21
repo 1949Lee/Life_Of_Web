@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两种方式实现矩形面积的计算</title>
+</head>
+<body>
+<div style="border:3px solid red;width:500px;height: 300px;margin:0 auto;">
+ 第一种方法：
+    <button onclick="first()">戳我计算</button>
+    <br>
+</div>
+<div  style="border:3px solid red;width:500px;height: 300px;margin:0 auto;margin-top: 100px; ">
+第二种方法：
+    <form action="javascript:second();">
+        长：<input type="text" id="length"><br>
+        宽：<input type="text" id="width"><br>
+        计算结果：<input type="text" id="area"><br>
+        <input type="submit"  value="戳我计算">
+    </form>
+</div>
+<script>
+    function first(){
+        var length = prompt("请输入矩形的长");
+        var width = prompt("请输入矩形的宽");
+        var area=length*width;
+        alert("矩形的面积为"+area);
+    }
+    function second() {
+        var length = document.getElementById("length").value;
+        var width = document.getElementById("width").value;
+        document.getElementById("area").value=length*width;
+    }
+</script>
+</body>
+</html>

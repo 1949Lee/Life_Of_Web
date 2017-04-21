@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>view</title>
+    <script src="jquery/jquery-1.12.3.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            height: 1600px;
+            /*width: 100%;*/
+            /*border:1px solid red;*/
+        }
+        body{
+
+            background: url("image/lmy/back.jpg") no-repeat;
+            color: white;
+        }
+        #lmyabove{
+            height: 180px;
+            width: 1100px;
+            position: absolute;
+            left: 120px;
+            top:5px;
+            /*border: 1px red solid;*/
+        }
+        #lmyaleft{
+            position: absolute;
+            height: 180px;
+            width: 40%;
+            left: 5px;
+            /*border: 1px green solid;*/
+        }
+        #lmyaL{
+            position: absolute;
+            left: 0;
+            height: 180px;
+            width: 33%;
+            /*border: 1px solid yellow;*/
+            background-image: url("image/lmy/shouye.png");
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+
+        #lmyaL2{
+            position: absolute;
+            left: 33%;
+            height: 180px;
+            width: 33%;
+            /*border: 1px solid yellow;*/
+            background-image: url("image/lmy/xinwen.png");
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+        #lmyaL3{
+            position: absolute;
+            left: 66%;
+            height: 180px;
+            width: 33%;
+            /*border: 1px solid yellow;*/
+            background-image: url("image/lmy/shipin.png");
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+        #lmyacenter{
+            position: absolute;
+            height: 180px;
+            width: 20%;
+            left: 40%;
+            /*border: 1px goldenrod solid;*/
+            background-image: url("image/lmy/dota.png");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #lmyaright{
+            position: absolute;
+            height: 180px;
+            width: 40%;
+            left: 60%;
+            /*border: 1px yellowgreen solid;*/
+        }
+        #lmyaR{
+            position: absolute;
+            left: 0;
+            height: 180px;
+            width: 33%;
+            /*border: 1px solid yellow;*/
+            background-image: url("image/lmy/saishi.png");
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+
+        #lmyaR2{
+            position: absolute;
+            left: 33%;
+            height: 180px;
+            width: 33%;
+            /*border: 1px solid yellow;*/
+            background-image: url("image/lmy/xiazai.png");
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+        #lmyaR3{
+            position: absolute;
+            left: 66%;
+            height: 180px;
+            width: 33%;
+            /*border: 1px solid yellow;*/
+            background-image: url("image/lmy/luntan.png");
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+        a{
+            text-decoration: none;
+            color:#bfbfbb;
+            font-size: 12px;
+            width: 95px;
+            height: 20px;
+            font-family: 微软雅黑;
+            font-style: normal;
+            position: absolute;
+            text-align: center;
+            margin-top: 5px;
+            /*border: 1px red solid;*/
+        }
+        a:hover{
+            color:red;
+            font-size: 10px;
+            height: 10px;
+        }
+        #lmyspan{
+            position: absolute;
+            top:83%;
+            height: 15px;
+            width: 75px;
+            left: 15px;
+        }
+        .contain1{
+            /*border: 1px green solid;*/
+            height: 100px;
+            width: 80%;
+            top:40%;
+            left: 25px;
+            position: absolute;
+
+        }
+        #lmybottom{
+            /*border: 1px red solid;*/
+            height: 1200px;
+            width: 1100px;
+            position: absolute;
+            top:30%;
+            left: 120px;
+        }
+        #lmyweizhi{
+            position: absolute;
+            height:21px;
+            width:23px;
+            /*border: 1px red solid;*/
+            top: 2%;
+            left: 2%;
+            /*background-image: url("image/lmy/weizhi.png");*/
+        }
+        #a1{
+            color: #b54029;
+            font-size: 14px;
+            margin-top:32px;
+            margin-left: 35px;
+            text-decoration: underline;
+        }
+        #lmyd1{
+            /*border: 1px red solid;*/
+            height: 100px;
+            width: 1026px;
+            /*position: fixed;*/
+            /*left:162px;*/
+            /*top:265px;*/
+            top:59px;
+            position: absolute;
+            left: 30px;
+            z-index: 99;
+        }
+        #lmyshipin{
+            position: absolute;
+            left:11%;
+            top:2%;
+            font-size: 14px;
+        }
+        #lmytu1{
+            /*position: fixed;*/
+            position: absolute;
+            /*top:259px;*/
+            /*left: 162px;*/
+            top: -1px;
+            left:-1px;
+            height:100px;
+            width:1100px;
+            z-index: 99;
+        }
+        #lmytu2{
+            /*position: fixed;*/
+            position: absolute;
+            top: 0px;
+            left:-24px;
+            /*top:260px;*/
+            /*left: 140px;*/
+            height:100px;
+            width:1100px;
+            /*display: none;*/
+            z-index: -1;
+
+        }
+       #lmynav01{
+           height: 100px;
+           width: 114px;
+           position: absolute;
+           left: 1px;
+            margin-top: 5px;
+           background-image: url("image/lmy/shouye1.png");
+       }
+        #lmynav02{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left:114px;
+            top:1px;
+            background-image: url("image/lmy/guangfang1.png");
+        }
+        #lmynav03{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 228px;
+            top:1px;
+            background-image: url("image/lmy/bisai.png");
+        }
+        #lmynav04{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 342px;
+            top:1px;
+            background-image: url("image/lmy/xinshou1.png");
+        }
+        #lmynav05{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 456px;
+            top:1px;
+            /*border: 1px solid red;*/
+            background-image: url("image/lmy/jinjie1.png");
+        }
+        #lmynav06{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 570px;
+            top:1px;
+            /*border: 1px solid red;*/
+            background-image: url("image/lmy/mingxing1.png");
+
+        }  #lmynav07{
+               height: 100px;
+               width: 114px;
+               position: absolute;
+               left: 684px;
+               top:1px;
+               /*border: 1px solid red;*/
+                       background-image: url("image/lmy/yingxiong1.png");
+           }
+        #lmynav08{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 798px;
+            top:1px;
+            /*border: 1px solid red;*/
+            background-image: url("image/lmy/jieshuo1.png");
+        }
+        #lmynav09{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 912px;
+            top:1px;
+            /*border: 1px solid red;*/
+            background-image: url("image/lmy/tebie1.png");
+        }
+        #lmynav201{
+            display:block;
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 24px;
+            margin-top: 4px;
+            /*border: 1px solid red;*/
+            float: left;
+            z-index: 0;
+            background-image: url("image/lmy/shouye2.png");
+        }
+        #lmynav202{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            /*border: 1px solid red;*/
+            left:138px;
+            /*top:2px;*/
+            z-index: 0;
+            background-image: url("image/lmy/guanfang2.png");
+        }
+        #lmynav203{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 252px;
+            /*border: 1px red solid;*/
+            top:1px;
+            z-index: 0;
+            background-image: url("image/lmy/bisai2.png");
+
+        }
+        #lmynav204{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 365px;
+            /*border: 1px red solid;*/
+            top: 1px;
+            z-index: 0;
+            background-image: url("image/lmy/xinshou2.png");
+
+        }
+        #lmynav205{
+            height: 100px;
+            width: 114px;
+            /*border: 1px red solid;*/
+            position: absolute;
+            left: 478px;
+            z-index: 0;
+            /*padding-top:-6px;*/
+            background-image: url("image/lmy/jinjie2.png");
+
+        }
+        #lmynav206{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 592px;
+            z-index: 0;
+            background-image: url("image/lmy/mingxing2.png");
+        }
+        #lmynav207{
+               height: 100px;
+               width: 114px;
+               position: absolute;
+               left: 706px;
+               z-index: 0;
+               background-image: url("image/lmy/yingxiong2.png");
+           }
+        #lmynav208{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 820px;
+            /*border: 1px red solid;*/
+            z-index: 0;
+            background-image: url("image/lmy/jieshuo2.png");
+        }
+        #lmynav209{
+            height: 100px;
+            width: 114px;
+            position: absolute;
+            left: 934px;
+            /*border: 1px red solid;*/
+            z-index: 0;
+            background-image: url("image/lmy/tebie2.png");
+        }
+        #lmylunbo{
+            position: absolute;
+            height:406px ;
+            width:690px ;
+            top:195px;
+            /*border: 1px red solid;*/
+        }
+        #lmyimg1,#lmyimg2,#lmyimg3,#lmyimg4,#lmyimg5{
+            position: absolute;
+            height: 384px;
+            width: 540px;
+            /*left: 10px;*/
+            /*top: 10px;*/
+            /*border: 1px red solid;*/
+        }
+
+        #lmylunbo1{
+            position: absolute;
+            /*height: 54px;*/
+            width: 130px;
+            height: 70px;
+            /*top: 10px;*/
+            /*left: 553px;*/
+            /*border: 1px solid orange;*/
+            /*background-color:grey;*/
+        }
+        #lmylunbo2{
+            position: absolute;
+            /*height: 54px;*/
+            width: 130px;
+            height: 70px;
+            top: 78px;
+            /*left: 553px;*/
+            /*border: 1px solid red;*/
+            /*background-color:grey;*/
+        }
+        #lmylunbo3{
+              position: absolute;
+              /*height: 54px;*/
+              width: 130px;
+              height: 70px;
+              top: 156px;
+              /*left: 553px;*/
+              /*border: 1px solid red;*/
+            /*background-color:grey;*/
+          }
+        #lmylunbo4{
+            position: absolute;
+            /*height: 54px;*/
+            width: 130px;
+            height: 70px;
+            top: 231px;
+            /*left: 553px;*/
+            /*border: 1px solid red;*/
+            /*background-color:grey;*/
+        }
+        #lmylunbo5{
+            position: absolute;
+            width: 130px;
+            height: 70px;
+            top: 309px;
+            /*left: 553px;*/
+            /*background-color:grey;*/
+        }
+        #lmypa{
+            position: absolute;
+            height: 384px;
+            width: 535px;
+            top: 10px;
+            left: 10px;
+            /*overflow: hidden;*/
+            /*border: 1px solid green;*/
+        }
+        .b1{
+            position: absolute;
+            top: 15px;
+            left: 16px;
+            height: 40px;
+            opacity: 0.8;
+            font-size: 15px;
+        }
+        .b2{
+            position: absolute;
+            top: 40px;
+            left:16px;
+            height: 40px;
+            font-size: 13px;
+            opacity: 0.6;
+        }
+        #lmyword{
+            position: absolute;
+            height:400px ;
+            width:130px ;
+            left:553px ;
+            top: 10px;
+            /*border: 1px red solid;*/
+        }
+        .select{
+            background-color:chocolate;
+            /*opacity: 0.6;*/
+        }
+        .unselect{
+            background-color: grey;
+        }
+        #lmyBright{
+            position: absolute;
+            height: 404px;
+            width:386px;
+            left: 700px;
+            /*border: 1px red solid;*/
+        }
+        #lmypaihang{
+            position: absolute;
+            height: 30px;
+            width: 150px;
+        }
+
+        #lmyyear{
+              position: absolute;
+             list-style: none;
+              height: 20px;
+              top: 0;
+              right: 130px;
+              width: 50px;
+            text-align: center;
+              border: 1px grey solid;
+            line-height: 20px;
+          }
+        #lmymonth{
+            position: absolute;
+            /*float: right;*/
+            list-style: none;
+            height: 20px;
+            top: 0;
+            right: 70px;
+            width: 50px;
+            text-align: center;
+            line-height: 20px;
+            border: 1px grey solid;
+        }
+        #lmydate{
+            position: absolute;
+            /*float: right;*/
+            height: 20px;
+            list-style: none;
+            text-align: center;
+            top: 0;
+            right: 10px;
+            line-height: 20px;
+            width: 50px;
+            border: 1px grey solid;
+        }
+        .yselect{
+            background-color: grey;
+        }
+        .yunselect{
+
+        }
+        #lmycontain{
+            position: absolute;
+            height: 354px;
+            width: 386px;
+            top: 40px;
+            /*border: 1px green solid;*/
+        }
+      #lmyul1,#lmyul2,#lmyul3{
+          position: absolute;
+          list-style: none;
+          height: 300px;
+      }
+
+        #lmyul1 li{
+           display: block;
+          height: 40px;
+        }
+        #lmyul2 li{
+            display: none;
+            height: 40px;
+        }
+        #lmyul3 li{
+            display: none;
+            height: 40px;
+        }
+        #lmyul1 a:hover,#lmyul2 a:hover,#lmyul3 a:hover{
+            color: red;
+        }
+        .dselect{
+            color: red;
+        }
+        .lmyh{
+            color: red;
+        }
+        #zuixin{
+            position: absolute;
+            top: 420px;
+            left: 10px;
+            height: 39px;
+            width:135px ;
+        }
+        #gengduo{
+            position: absolute;
+            top: 420px;
+            left: 950px;
+            height: 18px;
+            width: 21px;
+        }
+        #lmygd{
+            position: absolute;
+            top: 415px;
+            left: 960px;
+            height: 30px;
+            width: 100px;
+            /*border: 1px red solid;*/
+        }
+        #lmySP{
+            position:absolute;
+            top: 480px;
+            height: 500px;
+            width: 1100px;
+            /*border: 1px red solid;*/
+        }
+        #ol{
+            position: absolute;
+            width: 1100px;
+            height: 50px;
+            background-color: grey;
+        }
+        #ol li{
+            list-style: none;
+            float: left;
+            height: 50px;
+            width: 150px;
+            /*border: 1px solid green;*/
+            text-align: center;
+            line-height: 50px;
+            /*background-color: grey;*/
+            color: lightblue;
+        }
+        .diselect{
+            background-color: cadetblue;
+            color: white;
+        }
+        .diunselect{
+
+        }
+        #lmyall,#lmymap,#lmyshipin2,#lmynew{
+            position:absolute;
+            /*background-color: #d5d5d5;*/
+            height: 440px;
+            width: 1100px;
+            top: 60px;
+            /*border: 1px red solid;*/
+        }
+        #lmyall>li a:hover,#lmymap>li a:hover,#lmyshipin2>li a:hover,#lmynew>li a:hover{
+            color: red;
+        }
+        #lmyall li,#lmymap li,#lmyshipin2 li,#lmynew li{
+            /*position: absolute;*/
+            list-style: none;
+            margin-left: 15px;
+            float: left;
+            margin-top: 5px;
+            height: 180px;width: 164px;
+            /*border: 1px solid red;*/
+        }
+        #lmyall li>div,#lmymap li>div,#lmyshipin2 li>div,#lmynew li>div{
+            height: 102px;
+            width: 164px;
+        }
+        #ljxFooter{
+            position:absolute;
+            top:1150px;
+            height: 65px;
+            width: 100%;
+            /*border: 1px solid red;*/
+            margin:0 auto; width:100%;
+        }
+        #ljxFooter>span{
+            display:block;
+            width:80%;
+            height: 65px;
+            width: 100%;
+            margin-left:5%;
+            margin-right:10%;
+            /*border: 1px solid red;*/
+        }
+        #ljxFootBottom{
+            /*border: 1px solid red;*/
+            text-align: center;
+            position: absolute;
+            height: 65px;
+            /*width: 60%;*/
+            top: 60px;
+            left: 180px;
+            width:80%;
+        }
+        #ljxFootBottom ul{
+            list-style: none;
+            width:70%;
+            height: 65px;
+            /*width: 60%;*/
+            margin-left:15%;
+            /*border: 1px solid red;*/
+        }
+        #ljxFootBottom ul li{
+            float:left;
+            height: 65px;
+            /*border: 1px solid red;*/
+            margin-right:10px;
+        }
+        #ljxFootBottom span{
+            float:left;
+            /*border: 1px solid red;*/
+            font-size:10px;
+            line-height:16px;
+            height: 65px;
+            font-family:Arial !important;
+            color:#878686;
+        }
+
+    </style>
+</head>
+<body>
+<div id="lmyabove">
+<div id="lmyaleft">
+    <div id="lmyaL">
+        <div class="contain1">
+            <a href="#">品牌站</a><br>
+            <a href="index.html">官方首页</a><br>
+            <a href="#">资料站首页</a><br>
+            <a href="#">个人中心首页</a>
+            <span id="lmyspan"style="color: red;font-size: 13px;">自定义地图</span>
+        </div>
+
+    </div>
+    <div id="lmyaL2">
+        <div class="contain1">
+        <a href="#">官方新闻</a><br>
+        <a href="#">更新日志</a><br>
+        <a href="#">赛事新闻</a><br>
+        <a href="#">游戏攻略</a>
+            </div>
+    </div>
+    <div id="lmyaL3">
+        <div class="contain1">
+            <a href="#">官方视频</a><br>
+            <a href="#">比赛视频</a><br>
+            <a href="#">教学视频</a><br>
+            <a href="#">英雄视频</a>
+        </div>
+    </div>
+</div>
+<div id="lmyacenter">
+</div>
+<div id="lmyaright">
+    <div id="lmyaR">
+        <div class="contain1">
+            <a href="#">赛事中心</a><br>
+            <a href="#">活动中心</a><br>
+            <a href="#">神秘商店</a><br>
+            <!--<a href="#">英雄视频</a>-->
+        </div>
+    </div>
+    <div id="lmyaR2">
+        <div class="contain1">
+            <a href="#">游戏下载</a><br>
+            <a href="#">刀塔助手</a><br>
+            <a href="#">精美壁画</a><br>
+            <a href="#">四格漫画</a><br>
+            <a href="#">游戏原画</a><br>
+            <a href="#">四格漫画</a><br>
+        </div>
+    </div>
+    <div id="lmyaR3">
+        <div class="contain1">
+            <a href="#">官方论坛</a><br>
+            <a href="#">新浪微博</a><br>
+            <a href="#">腾讯微博</a><br>
+        </div>
+    </div>
+</div>
+</div>
+<div id="lmybottom">
+    <div id="lmyweizhi" style="position: absolute;top: 30px">
+<img src="image/lmy/weizhi.png" style="width: 100%;height: 100%;">
+    </div>
+        <a id="a1"href="index.html">官网首页</a>
+        <div id="lmyshipin" style="height: 30px;position: absolute;top: 32px">>视频中心</div>
+    <div id="lmyd1">
+        <div id="lmytu1">
+    <a style="height:100px;top: 0px"id="lmynav01"href=""></a>
+    <a id="lmynav02"href=""></a>
+    <a id="lmynav03"href=""></a>
+    <a id="lmynav04" href=""></a>
+    <a id="lmynav05"href=""></a>
+    <a id="lmynav06"href=""></a>
+    <a id="lmynav07" href=""></a>
+    <a id="lmynav08"href=""></a>
+    <a id="lmynav09"href=""></a>
+        </div>
+        <div id="lmytu2">
+            <a style="height:100px;top: 0px"id="lmynav201"href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav202"href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav203"href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav204" href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav205"href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav206"href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav207" href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav208"href=""></a>
+            <a style="height:100px;top: 0px"id="lmynav209"href=""></a>
+        </div>
+        </div>
+<div id="lmylunbo">
+    <div id="lmypa">
+<div id="lmyimg1">
+    <img src="image/lmy/lunbo1.jpg" style="height: 100%;width: 100%"></div>
+<div id="lmyimg2">
+    <img src="image/lmy/lunbo2.jpg" style="height: 100%;width: 100%"></div>
+    <div id="lmyimg3">
+        <img src="image/lmy/lunbo3.jpg" style="height: 100%;width: 100%"></div>
+    <div id="lmyimg4">
+        <img src="image/lmy/lunbo4.jpg" style="height: 100%;width: 100%"></div>
+        <div id="lmyimg5">
+            <img src="image/lmy/lunbo5.jpg" style="height: 100%;width: 100%"></div>
+    </div>
+    <div id="lmyword">
+    <div id="lmylunbo1">
+        <b class="b1">《TI6快报》</b><br><br>
+        <b class="b2">TNC神话完结</b>
+    </div>
+    <div id="lmylunbo2">
+        <b class="b1">R&B直播集锦</b><br><br>
+        <b class="b2">互黑的时刻</b>
+    </div>
+    <div id="lmylunbo3">
+        <b class="b1">林书豪专访</b><br><br>
+        <b class="b2">电竞入奥尚需时间</b>
+    </div>
+    <div id="lmylunbo4">
+        <b class="b1">TI5淘汰赛回顾</b><br><br>
+        <b class="b2">CDEC的梦幻之旅</b>
+    </div>
+    <div id="lmylunbo5">
+        <b class="b1">DOTA2短片 支持</b><br><br>
+        <b class="b2">背靠世界树我也能</b>
+    </div>
+    </div>
+    <div id="lmyBright">
+     <div id="lmypaihang"><img src="image/lmy/paihang.png" style="height: 100%;width: 100%"></div>
+        <ul style="height: 50px;list-style: none">
+            <li style="height:50px "><div id="lmyyear">年</div></li>
+            <li style="height:50px "><div id="lmymonth">周</div></li>
+            <li style="height:50px "><div id="lmydate">日</div></li>
+        </ul>
+        <div id="lmycontain">
+            <ul id="lmyul1" style="z-index: 9">
+                <li id="lmyC1">
+                    <div style="height: 19px;margin-top:10px;width: 18px;border: 1px green solid">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy01.png">
+                </div>
+                  <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                      <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛总决赛 Wings vs DC比赛视频</a><br>
+                      <br><p style="margin-left:100px;font-size: 14px;opacity: 0.8; height: 30px;width: 200px;font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                  </div>
+                </li>
+                <li id="lmyC2">
+                    <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy02.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛胜者组决赛 Wings vs EG视频</a><br>
+                        <br><p style="margin-left:100px;font-size: 14px;opacity: 0.8; height: 30px;width: 200px;font-family: 微软雅黑;">作者：marstv  点击数：18531</p>
+                    </div>
+                </li>
+                <li id="lmyC3">
+                    <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy03.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛淘汰赛败者组 Wings VS MVP视频</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC4"><div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy04.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛外卡赛 EHOME vs Escape视频</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC5"><div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy05.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛淘汰赛胜者组 Wings vs DC视频</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC6"><div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy06.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">胜者组决赛Wings完胜EG 赛后全场高呼Wings</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC7"><div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy07.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛外卡赛 EHOME vs XctN比赛视频</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+
+            </ul>
+            <ul id="lmyul2" >
+                <li id="lmyC21"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy01.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛总决赛 Wings vs DC比赛视频</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC22"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy02.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">《TI6快报》第六期：偶数年定律 Wings加冕</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC23"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy03.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛Wings夺冠 现场观众高唱国歌</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC24"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy04.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">xiao8接受俄媒专访：赵洁与DOTA无法兼得</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC25"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy05.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">2TI6国际邀请赛胜者组决赛 Wings vs EG视频</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC26"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy06.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">超燃！《骄傲的少年》周榜Ti6特辑 Wings</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC27"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy07.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6西雅图零距离总决赛回顾 Wings加冕TI6冠军</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+
+            </ul>
+            <ul id="lmyul3" >
+                <li id="lmyC31"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy01.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛总决赛 Wings vs DC比赛视频</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC32"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy02.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">《TI6快报》第六期：偶数年定律 Wings加冕</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC33"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy03.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6国际邀请赛Wings夺冠 现场观众高唱国歌</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC34"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy04.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">xiao8接受俄媒专访：赵洁与DOTA无法兼得</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC35"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy05.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">超燃！《骄傲的少年》周榜Ti6特辑 Wings</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC36"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy06.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6西雅图零距离总决赛回顾 Wings加冕TI6冠军</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+                <li id="lmyC37"> <div style="height: 19px;margin-top:10px;width: 18px;">
+                    <img style="height: 100%; width: 100%" src="image/lmy/lmy07.png">
+                </div>
+                    <div style="height:30px;width:370px;margin-left: 20px;margin-top: -26px;text-align: center;">
+                        <a href="#" style="height:30px;width:370px;font-size:15px;font-weight:normal;position:absolute;left:35px;text-align: justify;">TI6冠军Wings专访 经历太多坚持到现在不容易</a><br>
+                        <br><p style="font-size: 14px;opacity: 0.8; font-family: 微软雅黑;">作者：marstv  点击数：18649</p>
+                    </div></li>
+            </ul>
+        </div>
+    </div>
+    <div id="zuixin"><img src="image/lmy/zuixin.png" style="height: 100%;width: 100%"></div>
+    <div id="gengduo"><img src="image/lmy/jia.png" style="height: 100%;width: 100%"></div>
+    <div id="lmygd"><a href="#">更多最新视频</a></div>
+    <div id="lmySP">
+        <ol id="ol">
+        </ol>
+        <div id="dd" style="height:500px">
+            <div id="lmyall">
+                <ul style="height: 400px;">
+                    <li >
+                        <div>
+                        <img src="image/lmy/fuchou.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6 Road to the Finals 复仇者联盟抱憾</a>
+                        </div>
+                         <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li>
+                        <div>
+                        <img src="image/lmy/S2.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 AR技术奇幻采访之风行者</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S3.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6国际邀请赛Wings夺冠 现场观众高唱国歌</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S4.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6冠军Wings专访 经历太多坚持到现在不容易</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                    <img src="image/lmy/S5.png" style="height: 100% ;width:100%">
+                    <a style="width:15%;text-align: justify"> 小K DOTA2解说：kaka天梯死亡先知第一视角</a>
+                </div>
+                    <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S6.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 决赛预热Dota2震撼音乐会</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li style="z-index: 20"> <div>
+                        <img src="image/lmy/S7.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离总决赛回顾 Wings加冕TI6冠军</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S8.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify">xiao8接受俄媒专访：赵洁与DOTA无法兼得</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S9.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 《TI6快报》第六期：偶数年定律 Wings加冕</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S10.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify">TI6西雅图零距离：奇幻采访之颜值担当风行者</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S11.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 超燃！《骄傲的少年》周榜Ti6特辑 Wings</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S12.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离：观众席上的冰与火之歌</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                </ul>
+            </div>
+            <div id="lmymap" >
+                <ul >
+                    <li>
+                        <div>
+                            <img src="image/lmy/man.png" style="height: 100% ;width:100%">
+                                <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                            </div>
+                                <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S12.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离：观众席上的冰与火之歌</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S11.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 超燃！《骄傲的少年》周榜Ti6特辑 Wings</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                     </li>
+                    <li> <div>
+                        <img src="image/lmy/S10.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离：奇幻采访之颜值担当风行者</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S9.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S8.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S7.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S6.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S5.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S4.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S3.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S2.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                </ul>
+            </div>
+            <div id="lmynew" >
+                <ul >
+                    <li><div>
+                        <img src="image/lmy/man2.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S7.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S4.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6西雅图零距离 选手传记之NewBee.Kaka</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S6.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S8.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S12.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S8.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S3.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S5.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S9.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S7.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S2.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify">TI6主赛事第五日回顾 邪恶天才不敌护国神翼</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                </ul>
+            </div>
+            <div id="lmyshipin2"  >
+                <ul >
+                    <li>
+                        <div>
+                            <img src="image/lmy/S12.png" style="height: 100% ;width:100%">
+                            <a style="width:15%;text-align: justify">剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                        </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S11.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S10.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S9.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify">剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S8.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S7.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 155px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S6.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S5.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S4.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li> <div>
+                        <img src="image/lmy/S3.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b>
+                    </li>
+                    <li><div>
+                        <img src="image/lmy/S2.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify">剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b> </li>
+                    <li><div>
+                        <img src="image/lmy/fuchou.png" style="height: 100% ;width:100%">
+                        <a style="width:15%;text-align: justify"> 剁手节奏来临 一大波DOTA2新饰品即将到达战场</a>
+                    </div>
+                        <b style="opacity: 0.5;font-size: 13px;position: absolute;top: 340px;height: 20px;width: 150px">发布时间：08/14 </b> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="ljxFooter">
+        <span style="text-align:center;color: #878686;">京ICP证：050016号
+            《网络文化经营许可证》编号：京网文[2011]0782-287号
+            《网络视听许可证》编号：0110587 京公网安备110105019888号<br>
+            文网进字[2013] 028号
+            新出审字[2013] 1505号 ISBN：978-7-89989-826-0
+        </span>
+        <div id="ljxFootBottom">
+            <ul>
+                <li>
+                    <a href="http://www.valvesoftware.com/" target="_blank">
+                        <div style="height: 25px;width: 87px;position:absolute;left:-80px;top: 0px"><img style="height: 100%;width: 100%" src="image/ljx/valve.jpg"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.wanmei.com/" target="_blank">
+                        <div style="height: 25px;width: 73px;position:absolute;left:-185px;top: 0px"><img src="image/ljx/wmlogo.gif" style="height: 100%;width: 100%"></div>
+                    </a>
+                </li>
+                <li>
+                    <span>
+                    完美世界（北京）网络技术有限公司 版权所有 Copyright © 2014 Perfect World Co., Ltd. All Rights reserved
+                        <br>
+                     © 2014 Valve Corporation. All Rights reserved. Licensed to Perfect World Co., Ltd. in China
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+
+<script>
+    var arrli=new Array();
+    var ol = document.getElementById("ol");
+
+//    d[0].style.display = "block";
+    var arr = ["所有视频", "自定义地图", "最新版本", "全部饰品"];
+    for (var n = 0; n < arr.length; n++) {
+        var li = document.createElement("li");
+        li.innerHTML = arr[n];
+        ol.appendChild(li);
+        arrli.push(li);
+    }
+
+
+    $(function(){
+        var bool = true;
+        $("#lmytu1 a").mouseover(function(){
+            bool = false;
+            $("#lmytu1 a").eq($(this).index()).slideUp("fast",function(){
+                bool =true;
+            });
+            $(this).siblings().slideDown("fast");
+        });
+        $("#lmyd1").mouseout(function(){
+            if(bool==true){
+                $("#lmytu1 a").slideDown("1000");
+            }
+        })
+        $("#lmyword div").addClass("unselect");
+        $("#lmyword div").eq(0).removeClass("unselect");
+        $("#lmyword div").eq(0).addClass("select");
+        $("#lmypa>div img").hide();
+        $("#lmypa>div img").eq(0).show();
+        var a=0;
+        function update(){
+            $("#lmypa>div img").hide();
+//            alert(1)
+            a++;
+            if(a==5){
+                a=0;
+            }
+            if((a-1)==-1){
+            }
+            else{
+                $("#lmypa>div img").eq(a-1).fadeOut("1000");
+            }
+
+            $("#lmypa>div img").eq(a).fadeIn("1000");
+            $("#lmyword div").eq(a).removeClass("unselect");
+            $("#lmyword div").eq(a).addClass("select");
+            $("#lmyword div").eq(a).siblings().addClass("unselect");
+        }
+        var t= setInterval(update,2000);
+        $("#lmyword div").each(function(i){
+            $(this).click(function(){
+                clearInterval(t);
+                $("#lmypa>div img").hide();
+                $("#lmypa>div img").eq($(this).index()).fadeIn("1000");
+                $("#lmyword div").addClass("unselect");
+                $("#lmyword div").eq($(this).index()).removeClass("unselect");
+                $("#lmyword div").eq($(this).index()).addClass("select");
+            })
+        })
+        $("#lmypa>div").mouseenter(function(){
+            clearInterval(t);
+        })
+        $("#lmypa>div").mouseleave(function(){
+            t= setInterval(update,2000);
+        })
+        $("#lmyul1 li").each(function(i){
+            $(this).val(i);
+            $(this).css({backgroundColor:"grey",top:$(this).val()*40+"px","border":"1px black solid",overflow:"hidden",height:40+"px",width:384+"px"});
+        })
+        $("#lmyyear").addClass("yselect");
+        $("#lmyul1 li").eq(0).css({backgroundColor:"grey",top:0,"border":"1px black solid",height:80+"px",overflow:"hidden",width:384+"px"});
+        $("#lmyul2 li").each(function(i){
+            $(this).val(i);
+            $(this).css({backgroundColor:"grey",top:$(this).val()*40+"px","border":"1px black solid",height:40+"px",overflow:"hidden",width:384+"px"});
+        })
+        $("#lmyul2 li").eq(0).css({backgroundColor:"grey",top:0,"border":"1px black solid",height:80+"px",overflow:"hidden",width:384+"px"});
+        $("#lmyul3 li").each(function(i){
+            $(this).val(i);
+            $(this).css({backgroundColor:"grey",top:$(this).val()*40+"px","border":"1px black solid",overflow:"hidden",height:40+"px",width:384+"px"});
+        })
+        $("#lmyul3 li").eq(0).css({backgroundColor:"grey",top:0,"border":"1px black solid",overflow:"hidden",height:80+"px",width:384+"px"});
+       $("#lmyyear").click(function(){
+           $("#lmyul1 li").css("display","block");
+           $("#lmyul1").css("z-index",9);
+           $("#lmyul1").siblings().css("z-index",0);
+           $("#lmyul2 li").css("display","none");
+           $("#lmyul3 li").css("display","none");
+           $(this).removeClass("yunselect")
+           $(this).addClass("yselect");
+           $("#lmymonth").removeClass("yselect");
+           $("#lmymonth").addClass("yunselect");
+           $("#lmydate").removeClass("yselect");
+           $("#lmydate").addClass("yunselect");
+       })
+        $("#lmymonth").click(function(){
+//            alert(2)
+            $("#lmyul2 li").css("display","block");
+            $("#lmyul2").css("z-index",9);
+            $("#lmyul2").siblings().css("z-index",0);
+            $("#lmyul1 li").css("display","none");
+            $("#lmyul3 li").css("display","none");
+            $(this).removeClass("yunselect");
+            $(this).addClass("yselect");
+            $("#lmyyear").removeClass("yselect");
+            $("#lmyyear").addClass("yunselect");
+            $("#lmydate").removeClass("yselect");
+            $("#lmydate").addClass("yunselect");
+
+        })
+        $("#lmydate").click(function(){
+            $("#lmyul3 li").css("display","block");
+            $("#lmyul3").css("z-index",9);
+            $("#lmyul3").siblings().css("z-index",0);
+            $("#lmyul1 li ").css("display","none");
+            $("#lmyul2 li").css("display","none");
+            $(this).removeClass("yunselect");
+            $(this).addClass("yselect");
+            $("#lmymonth").removeClass("yselect");
+            $("#lmymonth").addClass("yunselect");
+            $("#lmyyear").removeClass("yselect");
+            $("#lmyyear").addClass("yunselect");
+        })
+        $("#lmyul1 li").mouseenter(function(){
+           $(this).css("height",80+"px");
+            $(this).siblings().css("height",40+"px");
+//            $(this).css("color","red")
+        })
+
+        $("#lmyul2 li").mouseenter(function(){
+            $(this).css("height",80+"px");
+            $(this).siblings().css("height",40+"px");
+        })
+        $("#lmyul3 li").mouseenter(function(){
+            $(this).css("height",80+"px");
+            $(this).siblings().css("height",40+"px");
+        })
+        $("#lmyall").css("display","block");
+         $("#ol li").eq(0).addClass("diselect");
+         $("#ol li").eq(0).siblings().addClass("diunselect");
+        $("#lmyall").siblings().css("display","none");
+     $("#ol li").each(function(i){
+      $(this).val(i);
+      $(this).click(function(){
+           $("#dd>div").eq($(this).val()).css("display","block");
+           $("#dd>div").eq($(this).val()).siblings().css("display","none");
+          $("#ol li").eq($(this).val()).addClass("diselect");
+          $("#ol li").eq($(this).val()).siblings().removeClass("diselect");
+          $("#ol li").eq($(this).val()).siblings().addClass("diunselect");
+      })
+  })
+
+    })
+</script>
+</body>
+</html>

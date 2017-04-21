@@ -1,0 +1,239 @@
+﻿/****************************************** 
+Web Layout:Tang.Binbin - tangbinbin@wanmei.com
+******************************************/
+@import url(http://www.wanmei.com/public/style/wm.css);
+
+
+body{margin:0px;padding:0px;background:#151617;font-size:12px;color:#333; line-height:12px;}
+img{border:0px;}
+a{text-decoration:none;color:#0366b2}
+a:hover{text-decoration:underline;color:#0366b2}
+a {blr:expression(this.onFocus=this.blur());outline:none;}
+.clr{clear:both}
+.clearfix:after {content:"";display:block;height:0;clear:both;} 
+.clearfix {zoom:1;}
+.pointer{cursor:pointer}
+.none{display:none;}
+.relative {position:relative;z-index:999}
+textarea {resize:none}
+
+
+#wrap{background:url(../images/info1301/bg.jpg) repeat-x center top;width:100%;clear:both;padding:50px 0 60px}
+#header ,#main{width:1002px; margin:0px auto;clear:both;}
+#main{background:url(../images/info1301/main_auto.jpg) repeat-y center top}
+#header{position:relative;}
+
+
+.iftop_nav{height:78px}
+.top{height:78px;background:url(../images/info1301/top_bg.jpg) repeat-x;min-width:1002px}
+.bottom{height:160px;padding-top:16px;background:#000;min-width:1002px}
+.bottom_box{width:720px;margin:0 auto}
+.bottom_box td{padding-right:20px;line-height:14px;font-size:12px;color:#878686}
+
+.top_nav{width:1002px;margin:0 auto;position:relative}
+.top_logo{width:220px;padding:20px 0 0 28px;float:left}
+.top_nav2 p{height:30px}
+.top_nav ul{padding-left:30px;height:30px}
+.top_nav ul li{width:68px;float:left;height:30px}
+.top_nav ul li a{text-indent:-9999em;font-size:0;line-height:0;height:30px;line-height:30px;display:block}
+.top_nav ul li a.nav1{background:url(../images/info1301/nav1.jpg) no-repeat center 0}
+.top_nav ul li a.nav2{background:url(../images/info1301/nav2.jpg) no-repeat center 0}
+.top_nav ul li a.nav3{background:url(../images/info1301/nav3.jpg) no-repeat center 0}
+.top_nav ul li a.nav4{background:url(../images/info1301/nav4.jpg) no-repeat center 0}
+.top_nav ul li a.nav5{background:url(../images/info1301/nav5.jpg) no-repeat center 0}
+.top_nav ul li a.nav6{background:url(../images/info1301/nav6.jpg) no-repeat center 0}
+.top_nav ul li a.nav7{background:url(../images/info1301/nav7.jpg) no-repeat center 0}
+.top_nav ul li a.nav8{background:url(../images/info1301/nav8.jpg) no-repeat center 0}
+.top_nav ul li a.nav9{background:url(../images/info1301/nav9.jpg) no-repeat center 0}
+.top_nav ul li a.nav10{background:url(../images/info1301/nav10.jpg) no-repeat center 0}
+.top_nav ul li a:hover{background-position:center -30px}
+.top_nav2{width:750px;float:left}
+.top_nav2 a{color:#8d8787}
+.top_nav ul li a:hover ,.top_nav2 a:hover{color:#d1cfcf;text-decoration:none}
+.tit{padding:32px 44px 0;height:326px;background:url(../images/info1301/main_top.jpg) no-repeat}
+.tit h1{height:48px;line-height:48px;text-align:center;color:#d9d9d9;font-size:40px}
+.tit h2{height:30px;line-height:22px;text-align:center;color:#929292;font-size:14px}
+.tit h3{width:256px;height:144px;padding:4px 6px 6px 4px;background:url(../images/info1301/img_bg1.jpg) no-repeat;margin:0 auto}
+.tit h4{height:42px;text-align:center;line-height:42px;color:#939393;font-size:16px}
+.tit h4 span{color:#d9d9d9}
+.top_nav2{height:30px;line-height:24px;text-align:right;color:#8d8787}
+
+
+/*  标题文字  */
+.tit1{height:46px;line-height:46px;padding-top:16px;text-align:center;color:#9c3627;font-weight:bold;font-size:26px;font-family:"Microsoft YaHei",微软雅黑,宋体}
+/*  大模块  */
+.box1{width:914px;background:url(../images/info1301/box_auto1.jpg) repeat-y;margin:0 auto}
+.box1 p.shuoming{clear:both;color:#999;padding:20px 42px;line-height:18px}
+.box1_main ,.box2_main{padding:0 32px}
+.box2_main{min-height:200px}
+/*  小模块  */
+.box2{width:444px;background:url(../images/info1301/box_auto2.jpg) repeat-y}
+/*  装备推荐  */
+.tab_btn{width:88px;float:left}
+.tab_btn a{display:block;height:37px;margin-bottom:3px;text-indent:-9999em}
+.tab_btn a.btn1{background:url(../images/info1301/nav_btn1.jpg) no-repeat}
+.tab_btn a.btn2{background:url(../images/info1301/nav_btn2.jpg) no-repeat}
+.tab_btn a.btn3{background:url(../images/info1301/nav_btn3.jpg) no-repeat}
+.tab_btn a.btn4{background:url(../images/info1301/nav_btn4.jpg) no-repeat}
+.tab_btn a.on{background-position:0 -37px}
+.tab_box{width:290px;float:left}
+.tab_box li{width:72px;height:98px;float:left;margin:0 12px;position:relative}
+.tab_box li.liz{z-index:10}
+.tab_box li span{display:block;width:67px;padding:1px;border:1px solid #3f3424;background:#020201;margin:0 auto}
+.tab_box li p{padding-top:6px;line-height:22px;color:#999;padding-left:30px;background:url(../images/info1301/tit_img07.gif) no-repeat 0 center;font-weight:bold}
+.tab_box li .iconTooltip{left:80px;top:0;z-index:2}
+.tab_box li .iconTooltip span{border:none}
+/*  攻略分享  */
+.news_list{padding:10px 0}
+.news_list li{height:26px;line-height:26px;color:#999;border-bottom:1px solid #282622}
+.news_list li a{color:#999}
+.news_list li span{float:right;color:#4c4c4d;line-height:24px}
+.list_more{height:22px;line-height:22px;margin-top:10px;padding:0px 6px;background:#0b0c0c;text-align:right}
+.list_more a{color:#bf9526}
+
+/*  英雄轮播图  */
+.img_box{height:350px;clear:both}
+.img_box img{width:580px;height:348px;text-align:center}
+.img_btn{clear:both;overflow-y:hidden;overflow-x:auto;padding-top:6px}
+.img_btn li{width:140px;height:100px;float:left;padding:0 2px}
+.img_btn li img{width:136px;height:74px;border:2px solid #000;cursor:pointer}
+.img_btn li img.on{border:2px solid #fff}
+
+.dl1 dt{width:256px;float:left}
+.dl1 dt td{text-align:center;font-weight:bold;color:#999}
+.dl1 dd{width:582px;padding-left:12px;float:left}
+.dl1 dd li{padding-bottom:4px}
+.dl2 dt{width:312px;float:left}
+.dl2 dd{width:538px;float:left;padding-top:30px}
+.dl2 dd td{line-height:24px;font-weight:bold;color:#999}
+.dl2 dd td strong{color:#d0d0d0}
+.hero_items_img{width:100px;height:100px;margin-right:4px;float:left;position:relative}
+.hero_items_right{width:466px;float:left}
+.hero_items_right li{padding-bottom:4px;clear:both}
+.hero_items_right h2{line-height:18px;font-size:18px;color:#999;padding-bottom:2px}
+.hero_items_right p{line-height:20px;color:#999}
+.ttimg{width:233px;height:270px;padding:4px 6px 6px 4px;margin:0 auto;background:url(../images/info1301/img_bg2.jpg) no-repeat}
+
+.video{width:572px;height:347px;background:url(../images/info1301/video_bg1.jpg) no-repeat;padding:4px 6px 6px 4px}
+.ability_img{padding:0 }
+.hero_detail p{text-indent:2em;color:#999;line-height:24px}
+.skill li{width:875px;margin:0 auto 14px;background:url(../images/info1301/skill_auto.gif) repeat-y}
+.skill_top{background:url(../images/info1301/skill_bg1.jpg) no-repeat center top;padding-top:10px}
+.skilldetail{width:820px;margin:0 0 10px 12px;border-radius:5px;padding:16px;float:left;background:#2a2b2b}
+.skill_img{width:90px;height:90px;float:left;padding:0 12px 12px 0;background:url(../images/info1301/img_bg3.jpg) no-repeat}
+.skill_tit{width:444px;float:left}
+.skill_tit h2{height:44px;line-height:36px;font-size:18px;color:#fff}
+.skill_tit p{line-height:22px;color:#999}
+.skill_right{width:250px;float:left;padding-top:28px;padding-left:10px}
+.skill_right p{height:36px;line-height:36px;color:#999;font-size:12px;font-weight:bold}
+.skill_right p strong ,.skilldl dt strong ,.skilldl dd strong{color:#d0d0d0}
+.skill_right p.ico1 ,.hero_items_box h5 span.ico1 ,.items_p5 span.ico1{background:url(../images/info1301/ico1.gif) no-repeat left center;padding-left:32px}
+.skill_right p.ico2 ,.hero_items_box h5 span.ico2 ,.items_p5 span.ico2{background:url(../images/info1301/ico2.gif) no-repeat left center;padding-left:32px}
+.skilldl dt{padding-left:132px;width:352px;float:left}
+.skilldl dd{width:370px;float:left}
+.skilldl dt ,.skilldl dd{line-height:22px;font-weight:bold;font-size:12px;color:#999;padding-bottom:30px}
+.skill_list {padding:15px 34px}
+.skill_list li{width:52px;height:52px;padding:3px;background:url(../images/info1301/skill_bg.gif) no-repeat;margin:4px 6px;float:left}
+.boxdl{width:914px;margin:0 auto}
+.boxdl dt{width:444px;float:left}
+.boxdl dd{width:444px;padding-left:26px;float:left}
+.skin{padding-left:36px}
+.skin li{width:196px;padding-right:22px;float:left}
+.skin li p{line-height:38px;text-align:center;color:#999}
+
+.goods_main{padding:0 22px}
+.goods_main h2{line-height:40px;line-height:40px;background:#000;text-align:center;font-size:30px;color:#fff;margin-bottom:14px}
+.items_tit_box{background:#000;margin-bottom:14px;padding:14px 6px;border-radius:5px}
+.items_list li{width:70px;float:left;padding-right:10px;text-align:center;position:relative}
+.items_list li.lir{padding-right:0px}
+.items_list li h3{height:24px;line-height:14px;text-align:left;color:#636464;font-size:12px}
+.items_list li h4{height:38px;line-height:26px;color:#c0c0c0;text-align:center}
+.items_list li p{width:70px;height:53px;margin-bottom:5px}
+.items_list li p img{cursor:pointer}
+.iconTooltip ,.hero_items_box{width:318px;border:2px solid #000;border-radius:7px;background:#1e1e1d;position:absolute;z-index:1000;padding:10px;display:none;text-align:left}
+
+
+/*  物品弹出框 */
+.hero_items_box {left:100px}
+.hero_items_box h2{line-height:32px;font-size:18px;color:#fff;border-bottom:1px solid #999;margin-bottom:4px;padding-bottom:6px}
+.hero_items_box h3{line-height:20px;font-size:14px;color:#fff;font-weight:bold;border-bottom:1px solid #999;margin-bottom:4px;padding-bottom:6px}
+.hero_items_box h4{line-height:20px;font-size:14px;color:#999;font-weight:bold;padding-bottom:6px}
+.hero_items_box h4 strong{color:#c6c6c6}
+.hero_items_box h5 ,.items_txt .items_p5{height:22px;padding:6px 0}
+.hero_items_box h5 span ,.items_txt .items_p5 span{display:block;width:120px;color:#999;line-height:20px;float:left}
+.hero_items_box h6{line-height:16px;font-size:12px;color:#a8a8a8}
+.hero_items_box p{line-height:20px;padding-bottom:6px;color:#c6c6c6;font-size:14px}
+.iconTooltip_top{padding:6px 0}
+.iconTooltip_img{width:74px;height:56px;float:left;padding-right:4px}
+.iconTooltip_img img{width:70px;height:53px}
+.iconTooltip_tit{float:left;text-align:left}
+.iconTooltip_tit .items_tit ,.items_tit_box .items_tit{line-height:20px;font-size:18px;color:#fff}
+.iconTooltip_tit .c0 ,.items_tit_box .c0{color:#fff}
+.iconTooltip_tit .c1 ,.items_tit_box .c1{color:#1D80E7}
+.iconTooltip_tit .c2 ,.items_tit_box .c2{color:#2BAB01}
+.iconTooltip_tit .c3 ,.items_tit_box .c3{color:#B812F9}
+.iconTooltip_tit .c4 ,.items_tit_box  .c4{color:#E29B01}
+.iconTooltip_tit .price ,.items_tit_box .price {padding-left:30px;line-height:20px;font-size:12px;font-weight:bold;color:#f5c433;background:url(../images/info1301/tit_img07.gif) no-repeat 0 center}
+.items_txt{font-weight:bold;color:#c0c0c0;clear:both;text-align:left}
+.items_txt .items_p{width:100%;height:auto;font-size:14px;line-height:18px;padding:10px 0;text-align:left}
+.items_txt .items_p2{line-height:20px;background:url(../images/info1301/li01.gif) no-repeat 14px center;padding-left:26px;text-align:left;font-size:14px}
+.items_txt .items_p2 strong ,.items_txt .items_p3 strong ,.itemsShow_info li .items_p2 strong ,.itemsShow_info li .items_p3 strong{color:#f5c433}
+.items_txt .items_p3{line-height:20px;padding-left:26px;font-size:14px}
+.items_txt .items_p4{line-height:14px;font-size:12px;color:#AFAFAF;font-weight:normal;padding-top:10px}
+.items_txt .items_p5{line-height:24px;font-size:12px;color:#AFAFAF;font-weight:normal;clear:both;padding-top:10px}
+
+/*  顶部物品显示  */
+.itemsShow_top{position:relative;height:40px;margin-bottom:6px}
+.itemsShow_top .recipe{position:absolute;top:0;right:0;z-index:2}
+.itemsShow_top .recipe dt{width:60px;line-height:40px;color:#cfcfcf;font-size:12px;float:left}
+.itemsShow_top .recipe dd {width:50px;margin-right:4px;float:left;position:relative}
+.itemsShow_top .recipe dd img{width:50px;height:40px;cursor:pointer;}
+.itemsShow_top .recipe dd .iconTooltip{display:none;position:absolute;top:0;left:-350px}
+.itemsShow_img {width:198px;height:144px;float:left}
+.itemsShow_img img{width:182px;height:138px;border:3px solid #242424}
+.itemsShow_info{width:654px;float:left;padding-top:10px;border-top:1px solid #222}
+.itemsShow_info li{width:208px;float:left;margin-right:10px}
+.itemsShow_info li .items_p{font-size:12px;color:#cfcfcf;line-height:18px}
+.itemsShow_info li .items_p2{line-height:18px;background:url(../images/info1301/li01.gif) no-repeat 10px center;padding-left:26px;text-align:left;font-size:14px;color:#858585}
+.itemsShow_info li .items_p3{line-height:18px;font-size:12px;color:#858585}
+.itemsShow_info li .items_p4{line-height:18px;font-size:12px;color:#AFAFAF;font-weight:normal}
+.itemsShow_info li .items_p5{line-height:24px;font-size:12px;color:#AFAFAF;font-weight:normal;clear:both;padding-top:10px}
+.itemsShow_info li .items_p5 span{display:block;width:60px;color:#999;line-height:20px;float:left}
+
+/*  英雄首页  */
+.hero_tit_box{background:#000;margin-bottom:14px;padding:14px 6px;border-radius:5px}
+.hero_name{line-height:40px;font-size:24px;text-align:center;color:#c4c0c0;padding-bottom:1px;background:url(../images/info1301/bor01.jpg) no-repeat center bottom}
+.hero_roles{line-height:18px;text-align:center;font-size:14px;padding-top:2px;color:#c4c0c0}
+.hero_roles span{color:#fff}
+.hero_list{width:278px;padding:0 6px;float:left}
+.hero_list li{width:69px;height:44px;float:left;position:relative}
+.hero_list li.hero_list_tit{width:278px;height:42px;text-align:center}
+.hero_list li.hero_list_tit span{padding-left:40px;height:42px;line-height:42px;display:inline-block;font-size:16px;color:#616363}
+.hero_list li.hero_list_tit span.str{background:url(../images/heropedia/overviewicon_str.png) no-repeat 0 center}
+.hero_list li.hero_list_tit span.agi{background:url(../images/heropedia/overviewicon_agi.png) no-repeat 0 center}
+.hero_list li.hero_list_tit span.int{background:url(../images/heropedia/overviewicon_int.png) no-repeat 0 center}
+.heroHoverSmall{width:59px;height:33px;border:4px solid #000;border-radius:3px}
+.heroHoverLarge{width:127px;height:71px;border:4px solid #fff;border-radius:3px;-webkit-box-shadow:0px 0px 4px 4px #1C1E1E;-moz-box-shadow:0px 0px 4px 4px #1c1e1e;-moz-border-radius:3px;box-shadow:0px 0px 4px 4px #1C1E1E;position:absolute;top:-19px;left:-34px;z-index:3;display:none}
+.hero_list_middle{width:278px;padding:0 6px 0 22px;float:left}
+/*  筛选样式  */
+#heroFilterArea{text-align:center;padding-bottom:10px;color:#999}
+.filterSelect{width:150px;padding:3px;font-size:12px;background:#2a2c2d;border-top:1px solid #363939;border-left:1px solid #363939;border-right:1px solid #1b1e1e;border-bottom:1px solid #1b1e1e;color:#999}
+.heroPickerIconLink {float:left;position:relative;display:block}
+.filterUnmatchedHero {filter:alpha(opacity=10);-moz-opacity:.1;opacity:.1;background-color:#000000;cursor:default}
+
+
+/* 131023 */
+.hero_video{ width:848px; border:2px solid #000; margin:10px auto 0; overflow:hidden;}
+.hero_video_info{width:848px; height:20px;padding:8px 0 20px;margin:0 auto; text-align:center; color:#939393; overflow:hidden;}
+
+.addbtns{height:58px;}
+.addbtns dt{float:left; width:480px; padding:0 0 0 46px;}
+.addbtns dt a{float:left; width:128px; height:42px; background:url(../images/hero131119/btn1.jpg) no-repeat -130px 0; line-height:42px; text-align:center; color:#FFF; font-size:18px; font-family:"Microsoft YaHei"; display:inline; margin-right:4px;}
+.addbtns dt a.hover,.addbtns dt a:hover{background-position:0 0; text-decoration:none;}
+.addbtns dd{float:left; width:430px; padding-top:8px;}
+.searchbtn{background:url(../images/hero131119/btn3.jpg) no-repeat 0 0; display:block; width:72px; height:25px;}
+.pubinps{width:330px; height:18px; padding:2px 10px; color:#FFF; border:1px solid #040000; background:#2e2e2e; float:left; line-height:18px;}
+
+.addbtn1{height:50px; padding:0 0 0 696px;}
+.addbtn1 a{float:left; width:97px; height:37px; line-height:37px; text-align:center; color:#FFF; font-size:14px; font-family:"Microsoft YaHei"; display:inline; margin-right:2px; background:url(../images/hero131119/btn2.jpg) no-repeat -97px 0;}
+.addbtn1 a:hover{background-position:0 0; text-decoration:none;}

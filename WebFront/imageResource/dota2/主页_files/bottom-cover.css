@@ -1,0 +1,8 @@
+.bottom {height: 160px;background-color:#000;background-repeat: no-repeat;z-index: 1;font-size: 12px;color: #959595;position: relative;}
+.foot_dl {position: absolute;top: 40px;}
+.foot_dl dt{float:left; padding-left: 75px;}
+.foot_dl dt a {float: left;padding: 0 20px;}
+.foot_dl dt a.wanmei {border-right: 1px solid #000;}
+.foot_dl dd{float:right;font-size: 12px; margin: 0;line-height: 1.25;}
+.bottom .rel1100 .certificate {position: absolute;top: 85px;left: 230px;line-height: 1.5;font-size: 12px; color:#333;text-align: center;}
+.rel1100{margin:0 auto;width:1100px;position: relative;}

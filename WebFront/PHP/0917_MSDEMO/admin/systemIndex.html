@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>朕的DOTA2英雄</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <style>
+        .heroArea .media-list > li.media > a.media-left > span {
+            font-size: 4rem;
+        }
+
+        .heroArea .media-list > li.media > .media-body  .heroTitle > span {
+            color: #0f0f0f;
+            font-size: 1.5rem;
+        }
+
+        .heroArea .media-list > li.media > .media-body  .heroTitle > a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+        .heroArea .media-list > li.media > .media-body > .heroHeading > div.operateHero > a > span {
+            color: #0f0f0f;
+            font-size: 2rem;
+        }
+
+        .operateHero > a {
+            display: inline-block;
+            margin-right: 1rem;
+            margin-top: 2rem;
+        }
+
+        .heroTitle{
+            margin-top: 0;
+        }
+
+        .heroPosition > span{
+            display: block;
+            font-size: 1.75rem;
+            margin-top: 0.875rem;
+            font-weight: bold;
+        }
+        .newHero{
+            /*display: block;*/
+            /*float: right;*/
+            position:fixed;
+            right:5rem;
+            bottom:5rem;
+            font-size: 4rem;
+            text-decoration: none;
+        }
+        .newHero:hover{
+            text-decoration: none;
+        }
+        .newHero span{
+            display: block;
+            text-shadow: #0f0f0f 0 5px 6px;
+        }
+        .newHero span:hover{
+            display: block;
+            text-shadow: #0f0f0f 0 5px 6px;
+        }
+        .newHero span:active{
+            display: block;
+            text-shadow: #0f0f0f 0 0px 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row text-center"><h2>朕的DOTA2英雄</h2></div>
+    <div class="row">
+        <div class="col-sm-12 heroArea">
+            <ul class="media-list">
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal fade"id="deleteConfirm" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">起奏陛下</h4>
+                </div>
+                <div class="deleteHeroInfo modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">朕于心不忍</button>
+                    <button type="button" onclick="deleteConfirmFun()" class="btn btn-danger">朕意已决，删</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 text-center col-sm-offset-2">
+            <nav class="pagerBtnNav">
+                <ul class="pagination pagination-lg pagerBtn">
+                    <!--<li><a href="#">&laquo;</a></li>-->
+                    <!--<li class="active"><a href="#">1</a></li>-->
+                    <!--<li><a href="#">2</a></li>-->
+                    <!--<li><a href="#">3</a></li>-->
+                    <!--<li><a href="#">4</a></li>-->
+                    <!--<li><a href="#">&raquo;</a></li>-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<a class="newHero"   href="javascript:;"><span class="text-center glyphicon glyphicon-plus-sign"></span></a>
+<script src="../bootstrap/jquery-3.1.0.min.js"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script>
+    $("a").on("blur",function(){
+        return;
+    });
+    $(".newHero").on("click",function(){
+        window.location.href = "addHero.php";
+        $(this).blur();
+    });
+    $(".newHero").tooltip({
+        title:"朕要创建新英雄",
+        delay:{show:250,hide:100},
+        trigger:"hover focus click"
+    });
+    //    var deleteConfirm = false;
+    function goToUpdateHero(hID) {
+        window.localStorage.removeItem("hID");
+        window.localStorage.setItem("hID", hID);
+        window.location.href = "updateHero.php";
+    }
+    function deleteConfirmFun() {
+//        $(".deleteHeroInfo").html();
+//        window.localStorage.removeItem("hID");
+//        window.localStorage.setItem("hID", hID);
+        var deleteHero =  $('#deleteConfirm').data("hero");
+        var deleteAJAX = $.ajax({
+            url:"./comment.php",
+            type:"post",
+            cache:"false",
+            data:{
+                type:"deleteHero",
+                heroID:deleteHero.heroInfo.ID
+            },
+            dataType:"JSON",
+            success:function (response) {
+                console.log(response);
+            },
+            error:function () {
+                alert("异常!");
+            }
+        });
+        $('#deleteConfirm').modal('hide')
+    }
+    function deleteHero(hero) {
+        $('#deleteConfirm').data("hero",hero);
+        var heroInfo = "<span class='text-info'style='font-size: 2rem;'>皇上，真的要删除<span class='text-danger'>" + hero.heroInfo.name + "</span>?</span><br><img src='uploadFile/images/hero/" + hero.heroInfo.picPath + "'>" +
+                "<div><br><span>添加于" + hero.heroInfo.createTime + "</span>" +
+                "</div>";
+        $(".deleteHeroInfo").html(heroInfo);
+        $('#deleteConfirm').modal('show');
+    }
+    $(function () {
+        var CommentPage = [];
+        var CommentSum = 0;
+        var hID = [];
+        var hero = null;
+//        $("body").on("click", ".navbar-nav > li", function () {
+//            $(this).siblings().removeClass("active");
+//            $(this).addClass("active");
+//        });
+        $(".pagerBtnNav").on("click", ".pagerBtn > li.pageIndex", function () {
+            refreshCommentArea(CommentPage[$(this).index() - 1]);
+            $(this).siblings().removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".pagerBtnNav").on("click", ".pagerBtn > li.prePage,.pagerBtn > li.nextPage", function () {
+            $(this).blur();
+        });
+        function refreshCommentArea(data) {
+            var info = "";
+            if (data != null) {
+                hID = [];
+                for (i = 0; i < data.length; i++) {
+                    hID.push(data[i].heroInfo.ID);
+                    var str = "<li class=\"media\" >" +
+                            "<a class=\"media-left\" href=\"#\">" +
+                            "<span>" + "<img src='uploadFile/images/hero/" + data[i].heroInfo.picPath + "'>" + "</span>" +
+                            "</a>" +
+                            "<div class=\"media-body\">" +
+                            "<div class='heroHeading row'>"+
+                            "<h3 data-toggle='collapse' data-target='#skill"+i+"' class=\"heroTitle col-sm-12 col-md-3\"><a href='javascript:;' >" + data[i].heroInfo.name + "</a><br><span>添加于" + data[i].heroInfo.createTime + "</span>" +
+                            "</h3>" +
+                            "<div class='heroPosition col-sm-12 col-md-6'>" +
+                            "<span>";
+                    //这里的英雄定位当初做的不好，应该存成一个字符串，然后转化成数组进行操作并且把定位的名字也存成数组
+                    str += data[i].heroInfo.carry == "1" ? "核心-":"";
+                    str += data[i].heroInfo.control == "1" ? "控制-":"";
+                    str += data[i].heroInfo.support == "1" ? "辅助-":"";
+                    str += data[i].heroInfo.initial == "1" ? "先手-":"";
+                    str += data[i].heroInfo.jungle == "1" ? "打野-":"";
+                    str += data[i].heroInfo.longTime == "1" ? "耐久-":"";
+                    str += data[i].heroInfo.boom == "1" ? "爆发-":"";
+                    str += data[i].heroInfo.push == "1" ? "推进-":"";
+                    str += data[i].heroInfo.escape == "1" ? "逃生-":"";
+                    str = str.substr(0,str.length-1);
+                    str +="</span>"+
+                            "</div>"+
+                            "<div class='operateHero text-right col-sm-12 col-md-3'>" +
+                            "<a href='javascript:goToUpdateHero(" + data[i].heroInfo.ID + ")'><span class='updateHero glyphicon glyphicon-edit'></span></a>" +
+                            "<a href='javascript:deleteHero(" + JSON.stringify(data[i])+")'><span class='deleteHero glyphicon glyphicon-trash'></span></a>" +
+                            "</div>" +
+                            "</div>"+
+                            "<div class=\"panel panel-default \">" +
+                            "<div id='skill"+i+"' class='panel-collapse collapse'>" +
+                            "<div class=\"panel-body\">" +
+                            "<table class='skill table table-bordered table-hover'>" +
+                            "<thead>" +
+                            "<tr>" +
+                            "<th>#</th>" +
+                            "<th>技能名称</th>" +
+                            "<th>技能描述</th>" +
+                            "<th>技能类型</th>" +
+                            "<th>伤害类型</th>" +
+                            "<th>冷却时间</th>" +
+                            "<th>释放所需魔法值</th>" +
+                            "</tr>" +
+                            "</thead>" +
+                            "<tbody>";
+                    for (var j = 0; j < data[i].skills.length; j++) {
+                        str += "<tr>" +
+                                "<td>" + (j + 1) + "</td>" +
+                                "<td>" + data[i].skills[j].name + "</td>" +
+                                "<td>" + data[i].skills[j].skillDescription + "</td>" +
+                                "<td>" + data[i].skills[j].type + "</td>" +
+                                "<td>" + data[i].skills[j].damageType + "</td>" +
+                                "<td>" + data[i].skills[j].coldDown + "</td>" +
+                                "<td>" + data[i].skills[j].needMana + "</td>" +
+                                "</tr>";
+                    }
+                    str += "</tbody>" +
+                            "</table>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</li>";
+                    info += str;
+                }
+            }
+            else {
+                info = "<h2>暂无英雄</h2>";
+            }
+            $(".heroArea>ul").html(info);
+        }
+
+        function initContent() {
+            var header = $.ajax({
+                url: './comment.php',// 跳转到 action
+                data: {
+                    type: "showHero"
+                },
+                type: 'post',
+                cache: false,
+                dataType: 'json',//AJAX返回JSON类型，若服务器端返回的不是JSON对象，则执行error函数
+                success: function (response) {
+                    console.log(response);
+                    refreshPager(response.comments);
+                    hero = null;
+                    hero = response.hero;
+                    refreshCommentArea(response.hero);
+                },
+                error: function () {
+                    alert("异常！");
+                }
+            });
+
+        };
+        initContent();
+        function refreshPager(data) {
+
+        }
+
+    });
+</script>
+</body>
+</html>

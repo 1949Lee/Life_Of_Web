@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击加载更多菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            height: 71px;
+            width: 100%;
+            border: 1px solid green;
+            list-style: none;
+            text-align: center;
+            line-height: 50px;
+            padding-bottom: 2rem;
+            padding-top: 2rem;
+        }
+        button{
+            height: 50px;
+            width: 100%;
+        }
+    </style>
+    <script src="../jquery-3.1.0.min.js"></script>
+
+</head>
+<body>
+
+<ol>
+</ol>
+<button>点击加载更多...</button>
+<script>
+var nowp = 1;
+    $(function () {
+        $.post("http://192.168.1.33/lee/PHP/0922/clickForMore/api/addMore.php",{nowpage:nowp},function (data) {
+//        $.post("http://169.254.69.213/PHP/0922/clickForMore/api/addMore.php",{nowpage:nowp},function (data) {
+            for(var n=0;n<data.length;n++){
+                $("ol").append($("<li><img src='../"+data[n].picPath+"'></li>"));
+            }
+//            console.log(data);
+        },"json");
+        $("button").click(function () {
+            nowp++;
+            $.post("http://192.168.1.33/lee/PHP/0922/clickForMore/api/addMore.php",{nowpage:nowp},function (data) {
+//            $.post("http://169.254.69.213/PHP/0922/clickForMore/api/addMore.php",{nowpage:nowp},function (data) {
+                for(var n=0;n<data.length;n++){
+                    $("ol").append($("<li><img src='../"+data[n].picPath+"'></li>"));
+                }
+            },"json");
+        })
+
+    })
+
+
+</script>
+
+</body>
+</html>

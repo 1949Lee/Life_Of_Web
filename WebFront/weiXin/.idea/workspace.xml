@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/wxTest1012/client/main.php" line="94" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d03c3df-ef9e-4a13-b6a3-65726b3b58c3" name="Default" comment="" />
+    <ignored path="weiXin.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="weiXin" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="getImagesList.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wxTest1012/admin/getImagesList.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="12" column="102" selection-start-line="12" selection-start-column="102" selection-end-line="12" selection-end-column="102" />
+              <folding>
+                <marker date="1476884523299" expanded="true" signature="228:302" ph="SELECT * FRO... db_pic" />
+                <marker date="1476884523299" expanded="true" signature="228:315" ph="SELECT disti... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="228:317" ph="SELECT disti... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="228:318" ph="SELECT disti... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="228:319" ph="SELECT disti... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="546:621" ph="SELECT userI... imgUser" />
+                <marker date="1476884523299" expanded="true" signature="1091:1136" ph="select serve... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="1091:1172" ph="select serve... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="1091:1195" ph="select serve... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="1196:1197" ph="SELECT serve... uploadPic" />
+                <marker date="1476884523299" expanded="true" signature="1196:1198" ph="SELECT serve... uploadPic" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wxTest1012/client/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1080">
+              <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="weui.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wxTest1012/client/css/weui.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38040">
+              <caret line="1268" column="30" selection-start-line="1268" selection-start-column="30" selection-end-line="1268" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wxTest1012/admin/check.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+              <folding>
+                <marker date="1476443459614" expanded="true" signature="1021:1081" ph="select * fro... imgUser" />
+                <marker date="1476443459614" expanded="true" signature="1188:1323" ph="insert into imgUser... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadImages.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wxTest1012/admin/uploadImages.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="16" column="144" selection-start-line="16" selection-start-column="144" selection-end-line="16" selection-end-column="144" />
+              <folding>
+                <marker date="1476879449693" expanded="true" signature="340:436" ph="insert into uploadPic... " />
+                <marker date="1476879449693" expanded="true" signature="340:437" ph="insert into uploadPic... " />
+                <marker date="1476879449693" expanded="true" signature="340:457" ph="insert into uploadPic... " />
+                <marker date="1476879449693" expanded="true" signature="340:461" ph="insert into uploadPic... " />
+                <marker date="1476879449693" expanded="true" signature="340:480" ph="insert into uploadPic... " />
+                <marker date="1476879449693" expanded="true" signature="340:505" ph="insert into uploadPic... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wxTest1012/client/main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13770">
+              <caret line="459" column="17" selection-start-line="459" selection-start-column="17" selection-end-line="459" selection-end-column="17" />
+              <folding>
+                <marker date="1476884523245" expanded="false" signature="2987:3029" ph="..." />
+                <marker date="1476884523245" expanded="false" signature="3678:3720" ph="..." />
+                <marker date="1476884523245" expanded="true" signature="7486:7513" ph="..." />
+                <marker date="1476884523245" expanded="true" signature="11384:11429" ph="..." />
+                <marker date="1476884523245" expanded="true" signature="18001:18046" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wxTest1012/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="930">
+              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/wx_sample/index.php" />
+        <option value="D:/Web/tianjin/test.php" />
+        <option value="D:/Web/tianjin/weixin/test.php" />
+        <option value="$PROJECT_DIR$/wx_test/client/main.html" />
+        <option value="$PROJECT_DIR$/wx_test/jweixin-1.0.0.js" />
+        <option value="$PROJECT_DIR$/wx_test/PHP/jssdk.php" />
+        <option value="$PROJECT_DIR$/wx_test/client/main.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/client/check.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/admin/initConnection.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/admin/check.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/admin/top.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/admin/jssdk.php" />
+        <option value="$PROJECT_DIR$/dist/example/index.html" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/wx_sample/test.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/client/WaterFall.js" />
+        <option value="$PROJECT_DIR$/wxTest1012/APItest.html" />
+        <option value="$PROJECT_DIR$/wxTest1012/admin/moveToThirdServer.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/admin/uploadImages.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/client/css/weui.css" />
+        <option value="$PROJECT_DIR$/wxTest1012/client/css/main.css" />
+        <option value="$PROJECT_DIR$/wxTest1012/test.html" />
+        <option value="$PROJECT_DIR$/wxTest1012/client/main.php" />
+        <option value="$PROJECT_DIR$/wxTest1012/admin/getImagesList.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weiXin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../graduationProject" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="D:\nodejs\node.exe" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebFront\weiXin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebFront\weiXin\wxTest1012" />
+      <recent name="D:\WebFront\weiXin" />
+      <recent name="D:\WebFront\weiXin\wxTest1012\client\css" />
+      <recent name="D:\WebFront\weiXin\wxTest1012\admin" />
+      <recent name="D:\WebFront\weiXin\wxTest1012\admin\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d03c3df-ef9e-4a13-b6a3-65726b3b58c3" name="Default" comment="" />
+      <created>1476180167703</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1476180167703</updated>
+      <workItem from="1476180169253" duration="10080000" />
+      <workItem from="1476261659265" duration="16030000" />
+      <workItem from="1476281491284" duration="219000" />
+      <workItem from="1476410273950" duration="22467000" />
+      <workItem from="1476494007069" duration="19323000" />
+      <workItem from="1476531286389" duration="7919000" />
+      <workItem from="1476596856012" duration="8000" />
+      <workItem from="1476596869152" duration="10452000" />
+      <workItem from="1476682700583" duration="6591000" />
+      <workItem from="1476752349073" duration="21486000" />
+      <workItem from="1476789195210" duration="6176000" />
+      <workItem from="1476799123041" duration="1102000" />
+      <workItem from="1476838861809" duration="41121000" />
+      <workItem from="1485226514099" duration="51000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="163025000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24524158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1476884523245" expanded="false" signature="2987:3029" ph="..." />
+            <marker date="1476884523245" expanded="false" signature="3678:3720" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="7486:7513" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="11384:11429" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="18001:18046" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/WaterFall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/getImagesList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding>
+            <marker date="1476884523299" expanded="true" signature="228:302" ph="SELECT * FRO... db_pic" />
+            <marker date="1476884523299" expanded="true" signature="228:315" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:317" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:318" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:319" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="546:621" ph="SELECT userI... imgUser" />
+            <marker date="1476884523299" expanded="true" signature="1091:1136" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1172" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1195" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1197" ph="SELECT serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1198" ph="SELECT serve... uploadPic" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/moveToThirdServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/uploadImages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <marker date="1476879449693" expanded="true" signature="340:436" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:437" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:457" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:461" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:480" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:505" ph="insert into uploadPic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/APItest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/jssdk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10260">
+          <caret line="342" column="131" selection-start-line="342" selection-start-column="131" selection-end-line="342" selection-end-column="131" />
+          <folding>
+            <marker date="1476884523245" expanded="false" signature="2987:3029" ph="..." />
+            <marker date="1476884523245" expanded="false" signature="3678:3720" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="7486:7513" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="11384:11429" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="18001:18046" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/WaterFall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/getImagesList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding>
+            <marker date="1476884523299" expanded="true" signature="228:302" ph="SELECT * FRO... db_pic" />
+            <marker date="1476884523299" expanded="true" signature="228:315" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:317" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:318" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:319" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="546:621" ph="SELECT userI... imgUser" />
+            <marker date="1476884523299" expanded="true" signature="1091:1136" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1172" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1195" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1197" ph="SELECT serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1198" ph="SELECT serve... uploadPic" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/moveToThirdServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/uploadImages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1476879449693" expanded="true" signature="340:436" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:437" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:457" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:461" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:480" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:505" ph="insert into uploadPic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/APItest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/jssdk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1476884523245" expanded="false" signature="2987:3029" ph="..." />
+            <marker date="1476884523245" expanded="false" signature="3678:3720" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="7486:7513" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="11384:11429" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="18001:18046" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/WaterFall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/getImagesList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding>
+            <marker date="1476884523299" expanded="true" signature="228:302" ph="SELECT * FRO... db_pic" />
+            <marker date="1476884523299" expanded="true" signature="228:315" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:317" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:318" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:319" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="546:621" ph="SELECT userI... imgUser" />
+            <marker date="1476884523299" expanded="true" signature="1091:1136" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1172" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1195" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1197" ph="SELECT serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1198" ph="SELECT serve... uploadPic" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/moveToThirdServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/uploadImages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding>
+            <marker date="1476879449693" expanded="true" signature="340:436" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:437" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:457" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:461" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:480" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:505" ph="insert into uploadPic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="38" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/jssdk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/top.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1476884523245" expanded="false" signature="2987:3029" ph="..." />
+            <marker date="1476884523245" expanded="false" signature="3678:3720" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="7486:7513" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="11384:11429" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="18001:18046" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/getImagesList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding>
+            <marker date="1476884523299" expanded="true" signature="228:302" ph="SELECT * FRO... db_pic" />
+            <marker date="1476884523299" expanded="true" signature="228:315" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:317" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:318" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:319" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="546:621" ph="SELECT userI... imgUser" />
+            <marker date="1476884523299" expanded="true" signature="1091:1136" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1172" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1195" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1197" ph="SELECT serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1198" ph="SELECT serve... uploadPic" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/moveToThirdServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/uploadImages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding>
+            <marker date="1476879449693" expanded="true" signature="340:436" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:437" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:457" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:461" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:480" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:505" ph="insert into uploadPic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/jssdk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/top.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/top.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/jweixin-1.0.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="5050" selection-start-line="3" selection-start-column="5050" selection-end-line="3" selection-end-column="5050" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx_sample/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wx_sample/sample/php/sample.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-888">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/moveToThirdServer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/bootstrap/js/npm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/bootstrap/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="5255" column="1" selection-start-line="5255" selection-start-column="1" selection-end-line="5255" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/jssdk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/APItest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/jquery-3.1.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="8123" column="19" selection-start-line="8123" selection-start-column="19" selection-end-line="8123" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/WaterFall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/uploadImages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="144" selection-start-line="16" selection-start-column="144" selection-end-line="16" selection-end-column="144" />
+          <folding>
+            <marker date="1476879449693" expanded="true" signature="340:436" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:437" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:457" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:461" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:480" ph="insert into uploadPic... " />
+            <marker date="1476879449693" expanded="true" signature="340:505" ph="insert into uploadPic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/check.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+          <folding>
+            <marker date="1476443459614" expanded="true" signature="1021:1081" ph="select * fro... imgUser" />
+            <marker date="1476443459614" expanded="true" signature="1188:1323" ph="insert into imgUser... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/css/weui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38040">
+          <caret line="1268" column="30" selection-start-line="1268" selection-start-column="30" selection-end-line="1268" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/client/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13770">
+          <caret line="459" column="17" selection-start-line="459" selection-start-column="17" selection-end-line="459" selection-end-column="17" />
+          <folding>
+            <marker date="1476884523245" expanded="false" signature="2987:3029" ph="..." />
+            <marker date="1476884523245" expanded="false" signature="3678:3720" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="7486:7513" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="11384:11429" ph="..." />
+            <marker date="1476884523245" expanded="true" signature="18001:18046" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wxTest1012/admin/getImagesList.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="102" selection-start-line="12" selection-start-column="102" selection-end-line="12" selection-end-column="102" />
+          <folding>
+            <marker date="1476884523299" expanded="true" signature="228:302" ph="SELECT * FRO... db_pic" />
+            <marker date="1476884523299" expanded="true" signature="228:315" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:317" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:318" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="228:319" ph="SELECT disti... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="546:621" ph="SELECT userI... imgUser" />
+            <marker date="1476884523299" expanded="true" signature="1091:1136" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1172" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1091:1195" ph="select serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1197" ph="SELECT serve... uploadPic" />
+            <marker date="1476884523299" expanded="true" signature="1196:1198" ph="SELECT serve... uploadPic" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

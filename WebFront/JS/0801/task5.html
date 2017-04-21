@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不能说7的游戏</title>
+</head>
+<body>
+    求1-100之内所有能被7整除的数或者尾数为7的数:<br>
+    <button onclick="calculate()">显示</button>
+<script>
+    function calculate(){
+        for(var i=1;i<=100;i++){
+            if((i%10)==7){
+                document.write(i+"<br>");
+            }
+            else if((i%7)==0){
+                document.write(i+"<br>");
+            }
+        }
+    }
+</script>
+</body>
+</html>

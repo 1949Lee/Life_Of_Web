@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2d70825b-02b7-4f5e-bd76-3f9741d2bdc0" name="Default" comment="" />
+    <ignored path="AngularJS.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="AngularJS" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHPWebsite/php/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+              <folding>
+                <marker date="1475646722941" expanded="true" signature="243:276" ph="select busin... business" />
+                <marker date="1475646722941" expanded="true" signature="441:469" ph="select steps... resolution" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comment.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../PHP/0917_MSDEMO/admin/comment.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1053">
+              <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+              <folding>
+                <marker date="1474873471349" expanded="true" signature="953:990" ph="SELECT * FRO... hero" />
+                <marker date="1474873471349" expanded="true" signature="1463:1536" ph="SELECT a.*,b... skills" />
+                <marker date="1474873471349" expanded="true" signature="2110:2128" ph="SELECT * FRO... hero" />
+                <marker date="1474873471349" expanded="true" signature="2591:2698" ph="SELECT a.*,b... skills" />
+                <marker date="1474873471349" expanded="true" signature="3077:3115" ph="SELECT * FRO... hero" />
+                <marker date="1474873471349" expanded="true" signature="3578:3685" ph="SELECT a.*,b... skills" />
+                <marker date="1474873471349" expanded="true" signature="4064:4112" ph="SELECT * FRO... hero" />
+                <marker date="1474873471349" expanded="true" signature="4575:4682" ph="SELECT a.*,b... skills" />
+                <marker date="1474873471349" expanded="true" signature="5020:5086" ph="SELECT * FRO... hero" />
+                <marker date="1474873471349" expanded="true" signature="5549:5656" ph="SELECT a.*,b... skills" />
+                <marker date="1474873471349" expanded="true" signature="5996:6014" ph="SELECT * FRO... hero" />
+                <marker date="1474873471349" expanded="true" signature="6445:6552" ph="SELECT a.*,b... skills" />
+                <marker date="1474873471349" expanded="true" signature="7916:8104" ph="insert into hero... " />
+                <marker date="1474873471349" expanded="true" signature="8348:8413" ph="select ID fr... hero" />
+                <marker date="1474873471349" expanded="true" signature="8859:9053" ph="insert into skills... " />
+                <marker date="1474873471349" expanded="true" signature="9592:9786" ph="insert into skills... " />
+                <marker date="1474873471349" expanded="true" signature="9974:10005" ph="delete from " />
+                <marker date="1474873471349" expanded="true" signature="10030:10064" ph="delete from " />
+                <marker date="1474873471349" expanded="true" signature="10350:10565" ph="update hero " />
+                <marker date="1474873471349" expanded="true" signature="10700:10756" ph="SELECT a.ID skills" />
+                <marker date="1474873471349" expanded="true" signature="11223:11417" ph="update skill... " />
+                <marker date="1474873471349" expanded="true" signature="11987:12181" ph="update skill... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initialConnection.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../PHP/0917_MSDEMO/admin/initialConnection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySQLConnection.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHPWebsite/php/MySQLConnection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+              <folding>
+                <element signature="e#6#84#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PHPWebsite/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3132">
+              <caret line="189" column="180" selection-start-line="189" selection-start-column="180" selection-end-line="189" selection-end-column="180" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PHPWebsite/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="131" column="15" selection-start-line="131" selection-start-column="15" selection-end-line="131" selection-end-column="15" />
+              <folding>
+                <element signature="e#103#911#0" expanded="false" />
+                <element signature="n#!!block;n#startAnimation#0" expanded="false" />
+                <element signature="e#4998#5082#0" expanded="false" />
+                <element signature="e#5889#6980#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/0928/tableData.php" />
+        <option value="$PROJECT_DIR$/0928/tableCtrl.js" />
+        <option value="$PROJECT_DIR$/0928/table.html" />
+        <option value="$PROJECT_DIR$/0929/task1.html" />
+        <option value="$PROJECT_DIR$/0929/test.html" />
+        <option value="$PROJECT_DIR$/0928/JS/tableCtrl.js" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/weatherForecastCtrl.js" />
+        <option value="$PROJECT_DIR$/0928/tableDiv.html" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/charts.html" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/js/charts.js" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/CSS/weatherForecast.css" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/charts.html" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/media/js/charts.js" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/AngularJSWeatherForecast.html" />
+        <option value="$PROJECT_DIR$/AngularJSWeatherForecastPage/JS/weatherForecastCtrl.js" />
+        <option value="$PROJECT_DIR$/PHPWebsite/index.html" />
+        <option value="$PROJECT_DIR$/PHPWebsite/index.js" />
+        <option value="$PROJECT_DIR$/PHPWebsite/php/MySQLConnection.php" />
+        <option value="$PROJECT_DIR$/PHPWebsite/php/index.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="添加" />
+    <OptionsSetting value="true" id="移除" />
+    <OptionsSetting value="true" id="签出" />
+    <OptionsSetting value="true" id="更新" />
+    <OptionsSetting value="true" id="状态" />
+    <OptionsSetting value="true" id="编辑" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AngularJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AngularJS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AngularJS" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="D:\nodejs\node.exe" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../weiXin" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\WebFront\AngularJS\AngularJSWeatherForecastPage\media" />
+      <recent name="D:\WebFront\AngularJS\AngularJSWeatherForecastPage" />
+      <recent name="D:\WebFront\AngularJS\AngularJSWeatherForecastPage\JS" />
+      <recent name="D:\WebFront\AngularJS\0929" />
+      <recent name="D:\WebFront\AngularJS\0929\AngularJS" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebFront\AngularJS" />
+      <recent name="D:\WebFront\AngularJS\AngularJSWeatherForecastPage" />
+      <recent name="D:\WebFront\AngularJS\0929" />
+      <recent name="D:\WebFront\AngularJS\0928\AngularJS" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d70825b-02b7-4f5e-bd76-3f9741d2bdc0" name="Default" comment="" />
+      <created>1475041622778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1475041622778</updated>
+      <workItem from="1475041624153" duration="10821000" />
+      <workItem from="1475054253216" duration="155000" />
+      <workItem from="1475060670914" duration="1015000" />
+      <workItem from="1475061965863" duration="2534000" />
+      <workItem from="1475127945853" duration="10166000" />
+      <workItem from="1475202455427" duration="2250000" />
+      <workItem from="1475559672100" duration="29083000" />
+      <workItem from="1475638261984" duration="4308000" />
+      <workItem from="1476180090515" duration="74000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="60406000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24670571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/0928/table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/tableDiv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/JS/tableCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/tableData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/tableData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/AngularJS/angular.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/tableData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0929/bootstrap/js/npm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0929/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0929/task1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="77" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/JS/tableCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0928/tableDiv.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/charts.html" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/js/app.js" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/js/charts.js" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/css/default.css" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/css/style.css" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/css/bootstrap-responsive.min.css" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/charts.html" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/bg/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/bg/2.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/bg/3.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/alpha.png" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/ajax-loading.gif" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/3.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/2.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/bg/4.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/amazon.png" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/animated-overlay.gif" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/avatar.png" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/metronic控件/media/image/avatar1.jpg" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/media/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30294">
+          <caret line="1122" column="33" selection-start-line="1122" selection-start-column="33" selection-end-line="1122" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/media/css/font-awesome.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5886">
+          <caret line="218" column="21" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/media/js/charts.js" />
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/CSS/weatherForecast.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/bootstrap/jquery-3.1.0.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="9949" column="15" selection-start-line="9949" selection-start-column="15" selection-end-line="9949" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/AngularJSWeatherForecast.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="24" column="107" selection-start-line="24" selection-start-column="107" selection-end-line="24" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPWebsite/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AngularJSWeatherForecastPage/JS/weatherForecastCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="267" column="44" selection-start-line="267" selection-start-column="44" selection-end-line="267" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PHP/0915/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPWebsite/php/MySQLConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="e#6#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PHP/0917_MSDEMO/admin/initialConnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PHP/0917_MSDEMO/admin/comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1053">
+          <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+          <folding>
+            <marker date="1474873471349" expanded="true" signature="953:990" ph="SELECT * FRO... hero" />
+            <marker date="1474873471349" expanded="true" signature="1463:1536" ph="SELECT a.*,b... skills" />
+            <marker date="1474873471349" expanded="true" signature="2110:2128" ph="SELECT * FRO... hero" />
+            <marker date="1474873471349" expanded="true" signature="2591:2698" ph="SELECT a.*,b... skills" />
+            <marker date="1474873471349" expanded="true" signature="3077:3115" ph="SELECT * FRO... hero" />
+            <marker date="1474873471349" expanded="true" signature="3578:3685" ph="SELECT a.*,b... skills" />
+            <marker date="1474873471349" expanded="true" signature="4064:4112" ph="SELECT * FRO... hero" />
+            <marker date="1474873471349" expanded="true" signature="4575:4682" ph="SELECT a.*,b... skills" />
+            <marker date="1474873471349" expanded="true" signature="5020:5086" ph="SELECT * FRO... hero" />
+            <marker date="1474873471349" expanded="true" signature="5549:5656" ph="SELECT a.*,b... skills" />
+            <marker date="1474873471349" expanded="true" signature="5996:6014" ph="SELECT * FRO... hero" />
+            <marker date="1474873471349" expanded="true" signature="6445:6552" ph="SELECT a.*,b... skills" />
+            <marker date="1474873471349" expanded="true" signature="7916:8104" ph="insert into hero... " />
+            <marker date="1474873471349" expanded="true" signature="8348:8413" ph="select ID fr... hero" />
+            <marker date="1474873471349" expanded="true" signature="8859:9053" ph="insert into skills... " />
+            <marker date="1474873471349" expanded="true" signature="9592:9786" ph="insert into skills... " />
+            <marker date="1474873471349" expanded="true" signature="9974:10005" ph="delete from " />
+            <marker date="1474873471349" expanded="true" signature="10030:10064" ph="delete from " />
+            <marker date="1474873471349" expanded="true" signature="10350:10565" ph="update hero " />
+            <marker date="1474873471349" expanded="true" signature="10700:10756" ph="SELECT a.ID skills" />
+            <marker date="1474873471349" expanded="true" signature="11223:11417" ph="update skill... " />
+            <marker date="1474873471349" expanded="true" signature="11987:12181" ph="update skill... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPWebsite/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3132">
+          <caret line="189" column="180" selection-start-line="189" selection-start-column="180" selection-end-line="189" selection-end-column="180" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPWebsite/php/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <marker date="1475646722941" expanded="true" signature="243:276" ph="select busin... business" />
+            <marker date="1475646722941" expanded="true" signature="441:469" ph="select steps... resolution" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPWebsite/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="131" column="15" selection-start-line="131" selection-start-column="15" selection-end-line="131" selection-end-column="15" />
+          <folding>
+            <element signature="e#103#911#0" expanded="false" />
+            <element signature="n#!!block;n#startAnimation#0" expanded="false" />
+            <element signature="e#4998#5082#0" expanded="false" />
+            <element signature="e#5889#6980#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

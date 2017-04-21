@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ实现Tab选项卡</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+    <style>
+        .select{
+            background-color: blue;
+            color:yellow;
+        }
+        li{
+            list-style : none;
+            float : left;
+            line-height : 30px;
+            height :30px;
+            width : 100px;
+            background-color : grey;
+            textAlign : center;
+            color : black;
+            border : 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<ol id="menu">
+
+</ol>
+<div id="bg" class="select">
+
+</div>
+<script>
+    $(function(){
+        var arrayLi = ["虚拟现实","人工智能","HTML5","数据挖掘"];
+        $("#bg").css({
+            backgroundColor:"lightgrey",
+            width:parseInt(arrayLi.length*100+8)+"px",
+            height:"500px"
+        });
+        $("#menu").css({padding:"0",margin:"0"});
+
+        for(var i = 0;i < arrayLi.length;i++){
+            var li = $("<li></li>");
+            li.html(arrayLi[i]);
+//            li.prop("value",i);
+            $("#menu").append(li);
+        }
+        $("#menu>li").click(function () {
+            $("#bg").text(arrayLi[$(this).index()]);
+            $(this).siblings().removeClass("select");
+            $(this).siblings()
+            $(this).addClass("select");
+        })
+        $("#menu>li:nth-child(1)").click();
+    });
+</script>
+</body>
+</html>
+

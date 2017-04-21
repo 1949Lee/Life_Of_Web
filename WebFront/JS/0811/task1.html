@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ显示与隐藏</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<div style="background-color: aqua;width:100px;height:100px;"></div>
+
+
+<script>
+    $(document).ready(function () {
+        $("button:nth-child(1)").click(function () {
+            $("div").show("slow");
+        })
+        $("button:nth-child(2)").click(function () {
+            $("div").hide("slow");
+        })
+    })
+</script>
+</body>
+</html>

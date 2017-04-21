@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<form name="registerForm">
+    用户名：<input type="text"><br><br>
+    密码：<input type="password"><br><br>
+    确认密码：<input type="password"><br><br>
+    邮件：<input type="email"><br><br>
+    QQ号：<input type="text"><br><br>
+    手机号：<input type="text"><br><br>
+    <input type="button"value="提交" onclick="validate()"><br><br>
+</form>
+
+
+<script>
+    function validate(){
+        if(document.registerForm[0].value==""){
+            alert("用户名不能为空");
+            document.registerForm[0].focus();
+            return;
+        }
+        if(document.registerForm[1].value!=document.registerForm[2].value){
+            alert("两次密码不一致");
+            document.registerForm[1].focus();
+            return;
+        }
+        var reg = new RegExp(/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/);
+        if(!reg.test(document.registerForm[3].value)){
+            alert("邮箱错误");
+            document.registerForm[3].focus();
+            return;
+        }
+        reg = new RegExp("^[0-9]*$");
+        if(document.registerForm[4].value.length <= 10||!reg.test(document.registerForm[4].value)){
+            alert("QQ号需10位以上且全是数字");
+            document.registerForm[4].focus();
+            return;
+        }
+        if (!(/^1[3|4|5|7|8][0-9]{9}$/.test(document.registerForm[5].value))) {
+            alert("手机号码有误");
+            document.registerForm[5].focus();
+            return;
+        }
+    }
+</script>
+</body>
+</html>

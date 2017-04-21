@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #screen {
+            height: 500px;
+            width: 100%;
+            border: 1px green solid;
+        }
+
+        #screen p {
+            position: absolute;
+            left: 1000px;
+        }
+
+
+    </style>
+    <script src="../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+
+<div id="screen">
+
+</div>
+<input type="text" id="msg">
+<button id="btn">发送</button>
+
+<script>
+    var nid = 1;
+    $(function () {
+        $("#btn").click(function () {
+
+            $.post("http://192.168.1.33/lee/PHP/0922/bulletScreen/api/addmsg.php", {content: $("#msg").val()},
+//            $.post("http://169.254.69.213/PHP/0922/bulletScreen/api/addmsg.php", {content: $("#msg").val()},
+                    function (data) {
+
+                    }, 'json');
+            $("#msg").val("");
+        });
+        //获得最大的id
+        $.post("http://192.168.1.33/lee/PHP/0922/bulletScreen/api/getMax.php", null,
+//        $.post("http://169.254.69.213/PHP/0922/bulletScreen/api/getMax.php", null,
+                function (data) {
+                    nid = parseInt(data);
+                    setInterval(showMsg, 500);
+                }, 'json');
+    })
+
+    function showMsg() {
+        //获得所有的信息
+        $.post("http://192.168.1.33/lee/PHP/0922/bulletScreen/api/getmsg.php, {mid: nid}",
+//        $.post("http://169.254.69.213/PHP/0922/bulletScreen/api/getmsg.php", {mid: nid},
+
+                function (data) {
+                    if (data && data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].ID > nid) {
+                                nid = data[i].ID;
+                            }
+                            var p = $("<p>" + data[i].content + "</p>");
+                            $("#screen").append(p);
+
+                            var y = Math.random() * 500;
+
+                            p.css({top: y + "px"});
+                            p.animate({left: 0}, 8000, "", function () {
+                                $(this).remove();
+                            });
+                        }
+                    }
+
+
+                }, 'json');
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ控制div移动</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+    <style>
+        button{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<button style="margin-left:37px">&uparrow;</button>
+<br>
+<button >&leftarrow;</button>
+<button style="margin-left:20px">&RightArrow;</button>
+<br>
+<button style="margin-left:37px">&downarrow;</button>
+
+
+<div style="width:100px;height:100px;background-color:yellow;position:absolute;left:300px;top:300px"></div>
+
+
+<script>
+    $(function(){
+        $($("button")[0]).click(function(){
+            //up
+            $("div").animate({"top":"-=10px"},100)
+        });
+        $($("button")[1]).click(function(){
+            //left
+            $("div").animate({"left":"-=10px"},100)
+        });
+        $($("button")[2]).click(function(){
+            //right
+            $("div").animate({"left":"+=10px"},100)
+        });
+        $($("button")[3]).click(function(){
+            //down
+            $("div").animate({"top":"+=10px"},100)
+        });
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>出征</title>
+    <style>
+        ol{
+            list-style: none;
+            position:absolute;
+            left:0px;
+            padding:0px;
+        }
+    </style>
+</head>
+<body>
+<ol>
+    <li><img src=""></li>
+    <li><img src=""></li>
+    <li><img src=""></li>
+</ol>
+
+
+<script>
+    var img = document.getElementsByTagName("img");
+    var src = localStorage.img.split(",");
+    for(var i = 0;i<img.length;i++){
+        img[i].src = src[i];
+    }
+    localStorage.clear();
+    var ol =document.getElementsByTagName("ol")[0];
+    ol.style.position = "absolute";
+    ol.style.left = "0px";
+    var t = setInterval(move,100);
+    function move() {
+        if(parseInt(ol.style.right) !=0)
+            ol.style.left = parseInt(ol.style.left)+10+"px";
+        else {
+            clearInterval(t);
+            alert("胜利");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>简单的相册界面</title>
+<style>
+    html,body{
+        height: 100%;
+    }
+    .album{
+        width:30%;
+        height:300px;
+        float:left;
+        margin-right:1.5%;
+        margin-left: 1.5%;
+        margin-top: 5%;
+        text-align:center;
+        background-image:url(image/albumBackground.jpg);
+        background-size:cover;
+    }
+    img{
+        width:70%;
+        height:200px;
+        border:1px solid deepskyblue;
+        margin-top: 5%;
+        opacity: 0.7;
+    }
+    #background{
+        width: 100%;
+        height: 100%;
+        background-image:url(image/background.jpg);
+        background-size:cover;
+    }
+    a:hover img{
+        border:none;
+        opacity: 1;
+    }
+    p{
+        font-size: 20px;
+        color:aliceblue;
+    }
+</style>
+</head>
+<body>
+<div id="background">
+<div class="album">
+    <a href="javascript:;"><img src="image/lina.jpg"/></a>
+    <p>DOTA2的那些英雄</p>
+</div>
+<div class="album">
+    <a href="javascript:;"><img src="image/ysu.jpg"/></a>
+    <p>致我将逝去的燕山大学的日子</p>
+</div>
+<div class="album">
+    <a href="javascript:;"><img src="image/sjz.jpg"/></a>
+    <p>没有比石家庄更好的城市了</p>
+</div>
+</div>
+</body>
+</html>

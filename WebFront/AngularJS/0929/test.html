@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="AngularJS/angular.min.js"></script>
+</head>
+<body>
+<form ng-app="myApp" ng-controller="validateCtrl"
+      name="myForm" novalidate>
+    <label for="actionLocation">Location:</label>
+    <select class="form-control" ng-model="newTodo.test" id="actionLocation" ng-options="x.location for x in todos">
+        <option value="">dasdasda</option>
+    </select>
+    {{newTodo.test.time}}
+</form>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.email = 'john.doe@gmail.com';
+        $scope.todos=[
+            {action:"打球",location:"playground",time:"2016/10/1",complete:false},
+            {action:"DOTA2",location:"home",time:"2016/10/2",complete:false},
+            {action:"写作业",location:"home",time:"2016/10/3",complete:false},
+            {action:"看Node.JS",location:"office",time:"2016/10/4",complete:false}];
+    });
+</script>
+</body>
+</html>

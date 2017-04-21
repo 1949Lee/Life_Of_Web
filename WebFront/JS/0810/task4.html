@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选英雄</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+    <style>
+        ol{
+            list-style: none;
+            margin-left:15%;
+            height:300px;
+        }
+        li{
+            float:left;
+            margin-left: 30px;
+            margin-top:200px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <ol>
+        <li><img src="images/sven_hphover.png"><br><div><input type="checkbox" ></div></li>
+        <li><img src="images/wisp_hphover.png"><br><div><input type="checkbox"></div></li>
+        <li><img src="images/earthshaker_hphover.png"><br><div><input type="checkbox"></div></li>
+        <li><img src="images/nevermore_hphover.png"><br><div><input type="checkbox"></div></li>
+        <li><img src="images/lion_hphover.png"><br><div><input type="checkbox"></div></li>
+    </ol>
+    <br><br>
+    <button id="reverse">反选</button>
+    <br><br>
+    <button onclick="validate()">出征</button>
+
+
+<script>
+    function validate(){
+        var checkBox = document.getElementsByTagName("input");
+        var sum = 0;
+        localStorage.img = "";
+        for(var i = 0;i < checkBox.length;i++){
+            if(checkBox[i].checked == true){
+                sum++;
+                localStorage.img = localStorage.img+document.getElementsByTagName("img")[i].src +",";
+            }
+        }
+        if(sum!=3){
+            alert("请选择三个英雄");
+            return;
+        }
+        window.location ="attack.html";
+    }
+    $(document).ready(function () {
+        $("#reverse").click(function () {
+            for(var i = 0;i<$("[type = checkbox]").length;i++){
+                $("li:nth-child(" + (i+1) + ") [type = checkbox]")[0].checked =
+                        !$("li:nth-child(" + (i+1) + ") [type = checkbox]")[0].checked;
+            }
+        })
+
+
+
+    })
+</script>
+</body>
+</html>

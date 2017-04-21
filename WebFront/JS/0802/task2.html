@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>级联列表</title>
+</head>
+<body>
+<select id="first" onchange="change_second()">
+
+</select>&nbsp;&nbsp;
+<select id="second" >
+</select><br>
+<hr>
+<img  id="img">
+
+<script>
+    var first = document.getElementById("first");
+    var second = document.getElementById("second");
+    var domain = ["排序算法","查找算法","最短路径算法"];
+    var algorithms = [ ["插入排序","快速排序","归并排序","堆排序"],
+                        ["顺序查找","折半查找","索引查找","哈希表"],
+                        ["Dijkstra算法","SPFA算法","Floyd算法"]];
+    for(var i = 0;i < domain.length;i++){
+        var op = document.createElement("option");
+        op.value = i;
+        op.innerHTML = domain[i];
+        first.appendChild(op);
+    }
+    for(var i = 0;i < algorithms[0].length;i++){
+        var op = document.createElement("option");
+        op.value = i;
+        op.innerHTML = algorithms[0][i];
+        second.appendChild(op);
+    }
+    var img = document.getElementById("img");
+    img.src = "images/sort.jpg";
+    function change_second(){
+        var index = first.value;
+        second.innerHTML = null;
+        for(var i = 0;i < algorithms[index].length;i++){
+            second.innerHTML=second.innerHTML+"<option value="+i+">"
+                    +algorithms[index][i]
+                    +"</option>";
+        }
+        switch(index){
+            case "0":
+                img.src = "images/sort.jpg";
+                break;
+            case "1":
+                img.src = "images/search.jpg";
+                break;
+            case "2":
+                img.src = "images/shortestPath.jpg";
+                break;
+        }
+
+    }
+</script>
+</body>
+</html>

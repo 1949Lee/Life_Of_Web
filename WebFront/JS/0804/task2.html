@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab标签</title>
+    <style>
+        .select{
+            background-color: blue;
+            color:yellow;
+        }
+        li{
+            list-style : none;
+            float : left;
+            line-height : 30px;
+            height :30px;
+            width : 100px;
+            background-color : grey;
+            textAlign : center;
+            color : black;
+            border : 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<ol id="menu">
+
+</ol>
+<div id="bg" class="select">
+
+</div>
+<script>
+    var arrayLi = ["虚拟现实","人工智能","HTML5","数据挖掘"];
+    var menuLi = [];
+    var menu = document.getElementById("menu");
+    var div  =document.getElementById("bg");
+    var tabDiv = [];
+    div.style.backgroundColor = "lightgrey";
+    div.style.width = parseInt(arrayLi.length*100+8)+"px";
+    div.style.height = "500px";
+    menu.style.padding = 0;
+    menu.style.margin = 0;
+    for(var i = 0;i < arrayLi.length;i++){
+        var li = document.createElement("li");
+        li.innerHTML = arrayLi[i];
+        li.value = i;
+        menuLi.push(li);
+        menu.appendChild(li);
+        var d = document.createElement("div");
+        d.innerHTML = arrayLi[i] + "的div";
+        d.style.display = "none";
+        d.style.color = "black";
+        tabDiv.push(d);
+        document.getElementById("bg").appendChild(d);
+    }
+//    menuLi[0].style.backgroundColor = "";
+//    menuLi[0].style.color = "";
+    menuLi[0].className = "select";
+    tabDiv[0].style.display = "block";
+    for(var i = 0;i < arrayLi.length;i++) {
+        menuLi[i].onclick = function () {
+            for (var j = 0; j < arrayLi.length; j++) {
+                tabDiv[j].style.display = "none";
+//                menuLi[j].style.color = "black";
+//                menuLi[j].style.backgroundColor = "grey";
+                menuLi[j].className = "";
+            }
+//            this.style.backgroundColor = "";
+//            this.style.color = "";
+            this.className = "select";
+            tabDiv[this.value].style.display = "block";
+        };
+    }
+</script>
+</body>
+</html>

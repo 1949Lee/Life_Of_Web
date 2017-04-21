@@ -1,0 +1,22 @@
+﻿@charset "utf-8";
+/*******author:Zhongwei.Zhang**************/
+/* nav */
+#dota2_topnav{ position:absolute; width:1100px; height:140px; top:30px; left:50%; margin-left:-550px; z-index:10;}
+#dota2_topnav div{ position:absolute; width:95px; top:0; text-align:center;}
+.top_nav1,.top_nav2,.top_nav3,.top_nav4,.top_nav5,.top_nav6{ display:block; width:95px; height:49px; text-indent:-9999px; overflow:hidden;}
+.top_nav1{ background-image:url(../images/main1505/nav1.png)}
+.top_nav2{ background-image:url(../images/main1505/nav2.png)}
+.top_nav3{ background-image:url(../images/main1505/nav3.png)}
+.top_nav4{ background-image:url(../images/main1505/nav4.png)}
+.top_nav5{ background-image:url(../images/main1505/nav5.png)}
+.top_nav6{ background-image:url(../images/main1505/nav6.png)}
+#dota2_topnav div p{ padding-top:15px;}
+#dota2_topnav div p a{ display:block; width:95px; height:24px; font:normal 12px "微软雅黑"; color:#bfbfbb;}
+#dota2_topnav div p a:hover{ color:#ed3f02; text-decoration:none;}
+.nav_col1{ left:0px;}
+.nav_col2{ left:143px;}
+.nav_col3{ left:291px;}
+.nav_col4{ left:706px;}
+.nav_col5{ left:856px;}
+.nav_col6{ left:1004px;}
+.top_logo{ position:absolute; width:150px; height:131px; left:462px; top:0px; background-image:url(http://www.wanmei.com/public/images/logo/dota2/dota21.png); text-indent:-9999px; overflow:hidden;}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动DIV</title>
+</head>
+<body>
+<button onclick="_left()">左</button>
+<button onclick="_up()">上</button>
+<button onclick="_right()">右</button>
+<button onclick="_down()">下</button>
+<div id="obj" style="position:absolute;left:300px;top:100px;border:solid 1px red;width:50px;height:50px">
+</div>
+<script>
+    function _left() {
+        document.getElementById("obj").style.left = parseInt(parseInt(document.getElementById("obj").style.left) - 10) + "px";
+    }
+    function _up() {
+        document.getElementById("obj").style.top = parseInt(parseInt(document.getElementById("obj").style.top) - 10) + "px";
+    }
+    function _right() {
+        document.getElementById("obj").style.left = parseInt(parseInt(document.getElementById("obj").style.left) + 10) + "px";
+    }
+    function _down() {
+        document.getElementById("obj").style.top = parseInt(parseInt(document.getElementById("obj").style.top) + 10) + "px";
+    }
+    document.onkeydown = function(event){
+        var l = parseInt(document.getElementById("obj").style.left);
+        var t = parseInt(document.getElementById("obj").style.top);
+        switch(event.keyCode){
+            case 65:
+                    l -= 10;
+                document.getElementById("obj").style.left = l+"px";
+                break;
+            case 87:
+                    t -= 10;
+                document.getElementById("obj").style.top = t+"px";
+                break;
+            case 68:
+                    l += 10;
+                document.getElementById("obj").style.left = l+"px";
+                break;
+            case 83:
+                    t += 10;
+                document.getElementById("obj").style.top = t+"px";
+                break;
+            default:
+                break;
+        }
+
+    }
+</script>
+</body>
+</html>

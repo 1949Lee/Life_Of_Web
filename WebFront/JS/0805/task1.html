@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <style>
+        html,body{
+            margin:0px;
+            padding:0px;
+        }
+        .menu>li{
+            list-style: none;
+            position: relative;
+            float:left;
+            width:78px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+        }
+        .menu>li>div{
+            list-style: none;
+            width:78px;
+            height:300px;
+            background:url("images/submenu.png") center no-repeat;
+            background-size: cover;
+            position:absolute;
+            top: 0px;
+            display: none;
+
+        }
+        .menu>li>div>ol>li{
+            list-style: none;
+            text-align: center;
+            line-height: 30px;
+            width:78px;
+            height:30px;
+        }
+        .menu>li>div>ol>li>a:hover{
+            color:#00c0ff;
+        }
+        .menu>li a{
+            color:#827c79;
+            text-decoration:none;
+            position: relative;
+            z-index: 1;
+        }
+        .menu{
+            font-size: 20px;
+            margin:0px;
+            padding:0px;
+        }
+        #nav{
+            background:url("images/nav_bg.png") center no-repeat;
+            width:312px;
+            height:50px;
+        }
+        .menuSelected{
+            border-left: 1px solid grey;
+            border-right: 1px solid grey;
+            background:url("images/submenu.png") top no-repeat;
+            background-size: cover;
+            margin-left: -1px;
+            margin-right: -1px;
+        }
+        #grand{
+            list-style: none;
+            display:none;
+            padding: 0px;
+            z-index:2;
+            border:1px solid yellow;
+            width:80px;
+        }
+        #grand>li{
+            width:80px;
+            height:20px;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+            margin: 0px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="nav">
+<ol id="menu" class="menu">
+
+</ol>
+    <ol id="grand">
+    </ol>
+</div>
+
+<script>
+      var menu = document.getElementById("menu");
+      var nav = document.getElementById("nav");
+      var grandSubMenu = document.getElementById("grand");
+      var menuText = ["首页","资料","咨讯","下载"];
+      var menuLi = [];
+      var menuDiv = [];
+      var subMenuLi =[];
+      var grandSubMenuLi =[];
+      var subMenuText = [
+          [""],
+              ["英雄资料","物品资料","视频中心","自定义地图","新手引导"],
+              ["官方新闻","赛事新闻","更新日志","游戏攻略"],
+              ["游戏下载","刀塔助手","精美壁纸","官方漫画"]
+      ];
+      var grandSubMenuText = [
+          [[]],
+          [["全部英雄","英雄排行","英雄对比"],
+              ["全部物品","物品测试"],
+              ["官方视频","教学视频","比赛视频","英雄视频"],
+              ["首页概览","畅玩体验","优秀地图","开发工具"],
+              ["下载游戏","申请账号","开始游戏"]],
+          [[],
+              [],
+              [],
+              ["全部攻略","新手攻略","进阶攻略","技巧攻略"]],
+          [["客户端下载","媒体分流下载","工具下载"],
+              ["安卓下载","苹果下载","其他"],
+              ["原画欣赏","精美壁纸"],
+              ["官方漫画","四格漫画"]]
+      ];
+    for(var i = 0;i < menuText.length;i++){
+        var li = document.createElement("li");
+        li.innerHTML = "<a href='javascript:;'>"+menuText[i]+"</a>";
+        menu.appendChild(li);
+        menuLi.push(li);
+        li.value = i;
+        subMenuLi[i] = [];
+    }
+      for(var i = 0;i < menuLi.length;i++){
+          var div = document.createElement("div");
+          menuLi[i].appendChild(div);
+          menuDiv.push(div);
+      }
+      menuLi[0].className = "selected";
+      for(var i = 0;i < menuLi.length;i++) {
+          menuLi[i].onmouseover = function () {
+              for(var j = 0;j < menuLi.length;j++){
+                  menuLi[j].className = "";
+              }
+              menuLi[this.value].className = "menuSelected";
+              if (this.value != 0) {
+                  for(var j = 1;j < menuLi.length;j++){
+                      menuDiv[j].style.display = "none";
+                  }
+                  menuDiv[this.value].style.display = "block";
+              }
+          };
+          menuLi[i].onmouseout = function () {
+              if (this.value != 0) {
+                  menuDiv[this.value].style.display = "none";
+              }
+          }
+      }
+    for(var i = 0;i < menuLi.length;i++){
+        var ol = document.createElement("ol");
+        ol.value = i;
+        ol.style.position = "absolute";
+        ol.style.margin = "0px";
+        ol.style.padding = "0px";
+        ol.style.top = 50+"px";
+        ol.style.fontSize = "5px";
+        for(var j = 0;j < subMenuText[i].length;j++){
+            var li = document.createElement("li");
+            li.innerHTML = "<a href='javascript:;'>"+subMenuText[i][j]+"</a>";
+            li.name = (i+","+j).toString();
+            ol.appendChild(li);
+            li.style.margin = "0px";
+            subMenuLi[i].push(li);
+        }
+        menuDiv[i].appendChild(ol);
+    }
+    for (var i = 0; i < menuLi.length; i++) {
+        for(var j = 0;j < subMenuText[i].length;j++){
+            if(grandSubMenuText[i][j].length!=0) {
+                subMenuLi[i][j].onmouseover = function () {
+                    grandSubMenu.innerHTML = "";
+                    var index = this.name.split(",");
+                    subMenuLi[index[0]][index[1]].appendChild(grandSubMenu);
+                    grandSubMenu.style.position = "relative";
+                    grandSubMenu.style.left = "78px";
+                    grandSubMenu.style.top = "-30px";
+                    for (var k = 0; k < grandSubMenuText[index[0]][index[1]].length; k++) {
+                        var li = document.createElement("li");
+                        li.innerHTML = "<a href='javascript:;'>"  + grandSubMenuText[index[0]][index[1]][k] + "</a>";
+//                        li.innerHTML = grandSubMenuText[index[0]][index[1]][k];
+                        grandSubMenu.appendChild(li);
+                        grandSubMenuLi.push(li);
+                    }
+                    grandSubMenu.style.display = "block";
+                }
+                subMenuLi[i][j].onmouseout = function () {
+                    grandSubMenu.style.display = "none";
+                }
+            }
+
+        }
+    }
+      grandSubMenu.onmouseout = function () {
+//          alert("sss");
+          grandSubMenu.style.display = "none";
+      };
+    menu.onmouseout = function () {
+        grandSubMenu.style.display = "none";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>position实现十字</title>
+    <style>
+        html,body{
+            height: 100%;
+            margin:0;
+            padding: 0;
+        }
+        div{
+
+            width: 45%;
+            height: 45%;
+        }
+        #d1{
+            background-color: red;
+            float: left;
+
+        }
+        #d2{
+            background-color: yellow;
+            position:absolute;
+            top:0px;
+            left: 55%;
+        }
+        #d3{
+            background-color: blue;
+            position: relative;
+            left: 0px;
+            top: 55%;
+        }
+        #d4{
+            background-color: purple;
+            position:fixed;
+            top: 55%;
+            left: 55%;
+        }
+    </style>
+</head>
+<body>
+<div id="d1"></div>
+<div id="d2"></div>
+<div id="d3"></div>
+<div id="d4"></div>
+</body>
+</html>

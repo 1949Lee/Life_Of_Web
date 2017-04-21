@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串转化成列表</title>
+</head>
+<body>
+<input type="text" id="str" placeholder="请输入要转化的字符串"><br><br>
+<input type="button" value="转化" onclick="changeToList()">
+<div id="list"></div>
+<script>
+    function changeToList(){
+        var str = document.getElementById("str").value;
+
+        var li = str.split(",");
+        str = "<ol>";
+        for(var i = 0;i < li.length;i++){
+            str = str + "<li>"+li[i]+"</li>";
+        }
+        str += "<ol>";
+        document.getElementById("list").innerHTML = str;
+    }
+</script>
+</body>
+</html>

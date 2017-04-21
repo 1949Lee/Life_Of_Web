@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星座判断</title>
+</head>
+<body>
+<div style="width:500px;height: 300px;position:absolute;top:40%;left:40%">
+    <input type="text" placeholder="请输入生日" id="birth" ><br><br>
+    <label id="result"></label><br><br>
+    <span id="img"></span>
+    <br><br>
+    <button onclick="calculate()">显示我的星座</button>
+</div>
+<script>
+    function calculate() {
+        var birth=document.getElementById("birth").value;
+        birth = new Date(birth);
+        switch(birth.getMonth()+1)
+        {
+            case 1:
+                if(birth.getDate()>=20)
+                {
+                    document.getElementById("result").innerHTML="你是水瓶座";
+                    document.getElementById("img").innerHTML="<img src='images/水瓶.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是摩羯座";
+                    document.getElementById("img").innerHTML="<img src='images/摩羯.png'>";
+                }
+                break;
+            case 2:
+                if(birth.getDate()>=19)
+                {
+                    document.getElementById("result").innerHTML="你是双鱼座";
+                    document.getElementById("img").innerHTML="<img src='images/双鱼.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是水瓶座";
+                    document.getElementById("img").innerHTML="<img src='images/水瓶.png'>";
+                }
+                break;
+            case 3:
+                if(birth.getDate()>=21)
+                {
+                    document.getElementById("result").innerHTML="你是白羊座";
+                    document.getElementById("img").innerHTML="<img src='images/白羊.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是双鱼座";
+                    document.getElementById("img").innerHTML="<img src='images/双鱼.png'>";
+                }
+                break;
+            case 4:
+                if(birth.getDate()>=20)
+                {
+                    document.getElementById("result").innerHTML="你是金牛座";
+                    document.getElementById("img").innerHTML="<img src='images/金牛.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是白羊座";
+                    document.getElementById("img").innerHTML="<img src='images/白羊.png'>";
+                }
+                break;
+            case 5:
+                if(birth.getDate()>=21)
+                {
+                    document.getElementById("result").innerHTML="你是双子座";
+                    document.getElementById("img").innerHTML="<img src='images/双子.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是金牛座";
+                    document.getElementById("img").innerHTML="<img src='images/金牛.png'>";
+                }
+                break;
+            case 6:
+                if(birth.getDate()>=22 )
+                {
+                    document.getElementById("result").innerHTML="你是巨蟹座";
+                    document.getElementById("img").innerHTML="<img src='images/巨蟹.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是双子座";
+                    document.getElementById("img").innerHTML="<img src='images/双子.png'>";
+                }
+                break;
+            case 7:
+                if(birth.getDate()>=23)
+                {
+                    document.getElementById("result").innerHTML="你是狮子座";
+                    document.getElementById("img").innerHTML="<img src='images/狮子.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是巨蟹座";
+                    document.getElementById("img").innerHTML="<img src='images/巨蟹.png'>";
+                }
+                break;
+            case 8:
+                if(birth.getDate()>=23)
+                {
+                    document.getElementById("result").innerHTML="你是处女座";
+                    document.getElementById("img").innerHTML="<img src='images/处女.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是狮子座";
+                    document.getElementById("img").innerHTML="<img src='images/狮子.png'>";
+                }
+                break;
+            case 9:
+                if(birth.getDate()>=23)
+                {
+                    document.getElementById("result").innerHTML="你是天秤座";
+                    document.getElementById("img").innerHTML="<img src='images/天秤.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是处女座";
+                    document.getElementById("img").innerHTML="<img src='images/处女.png'>";
+                }
+                break;
+            case 10:
+                if(birth.getDate()>=24)
+                {
+                    document.getElementById("result").innerHTML="你是天蝎座";
+                    document.getElementById("img").innerHTML="<img src='images/天蝎.png'>";
+
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是天秤座";
+                    document.getElementById("img").innerHTML="<img src='images/天秤.png'>";
+                }
+                break;
+            case 11:
+                if(birth.getDate()>=23)
+                {
+                    document.getElementById("result").innerHTML="你是射手座";
+                    document.getElementById("img").innerHTML="<img src='images/射手.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是天蝎座";
+                    document.getElementById("img").innerHTML="<img src='images/天蝎.png'>";
+                }
+                break;
+            case 12:
+                if(birth.getDate()>=23)
+                {
+                    document.getElementById("result").innerHTML="你是摩羯座";
+                    document.getElementById("img").innerHTML="<img src='images/摩羯.png'>";
+                }
+                else{
+                    document.getElementById("result").innerHTML="你是射手座";
+                    document.getElementById("img").innerHTML="<img src='images/射手.png'>";
+                }
+                break;
+            default:
+                document.getElementById("level").innerHTML="输入的生日不合法";
+        }
+    }
+</script>
+</body>
+</html>

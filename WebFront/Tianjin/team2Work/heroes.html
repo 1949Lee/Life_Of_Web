@@ -1,0 +1,1143 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOTA2英雄</title>
+    <link rel="stylesheet" href="heroes.css">
+    <!--<link rel="stylesheet" href="animate.min.css">-->
+    <style>
+        .animated{-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
+        .flipOutY{-webkit-backface-visibility:visible!important;-ms-backface-visibility:visible!important;backface-visibility:visible!important;-webkit-animation-name:flipOutY;animation-name:flipOutY}
+        .flipInY{-webkit-backface-visibility:visible!important;-ms-backface-visibility:visible!important;backface-visibility:visible!important;-webkit-animation-name:flipInY;animation-name:flipInY}
+        @-webkit-keyframes flipOutY{0%{-webkit-transform:perspective(400px) rotateY(0deg);transform:perspective(400px) rotateY(0deg);opacity:1}100%{-webkit-transform:perspective(400px) rotateY(90deg);transform:perspective(400px) rotateY(90deg);opacity:0}}
+        @keyframes flipOutY{0%{-webkit-transform:perspective(400px) rotateY(0deg);-ms-transform:perspective(400px) rotateY(0deg);transform:perspective(400px) rotateY(0deg);opacity:1}100%{-webkit-transform:perspective(400px) rotateY(90deg);-ms-transform:perspective(400px) rotateY(90deg);transform:perspective(400px) rotateY(90deg);opacity:0}}
+        @-webkit-keyframes flipInY{0%{-webkit-transform:perspective(400px) rotateY(90deg);transform:perspective(400px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(400px) rotateY(-10deg);transform:perspective(400px) rotateY(-10deg)}70%{-webkit-transform:perspective(400px) rotateY(10deg);transform:perspective(400px) rotateY(10deg)}100%{-webkit-transform:perspective(400px) rotateY(0deg);transform:perspective(400px) rotateY(0deg);opacity:1}}
+        @keyframes flipInY{0%{-webkit-transform:perspective(400px) rotateY(90deg);-ms-transform:perspective(400px) rotateY(90deg);transform:perspective(400px) rotateY(90deg);opacity:0}40%{-webkit-transform:perspective(400px) rotateY(-10deg);-ms-transform:perspective(400px) rotateY(-10deg);transform:perspective(400px) rotateY(-10deg)}70%{-webkit-transform:perspective(400px) rotateY(10deg);-ms-transform:perspective(400px) rotateY(10deg);transform:perspective(400px) rotateY(10deg)}100%{-webkit-transform:perspective(400px) rotateY(0deg);-ms-transform:perspective(400px) rotateY(0deg);transform:perspective(400px) rotateY(0deg);opacity:1}}
+    </style>
+    <script src="jquery/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<div id="ljxTop">
+
+    <div id="ljxLogo">
+
+    </div>
+
+    <div id="ljxNav">
+        <ul id="ljxNav_ul">
+            <li class="link_nav"><a id="ljxNav1" class="link_nav" href="index.html">首页</a></li>
+            <li class="link_nav"><a id="ljxNav2" class="link_nav" href="news.html">新闻</a></li>
+            <li class="link_nav"><a id="ljxNav3" class="link_nav" href="javascript:;">资料</a></li>
+            <li class="link_nav"><a id="ljxNav6" class="link_nav" href="view.html">视频</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="ljxContent">
+    <div id="ljxTitle">
+        <span id="ljxH1">英雄</span>
+        <div id="ljxSearch_div">
+            <form >
+            <input type="text" id="ljxSearch_text" placeholder="输入搜索内容"/>
+            <img id="ljxSearch_btn" src="image/ljx/search.png"/>
+            </form>
+        </div>
+        <div id="ljxHeroesTabMenu">
+            <ul class="ljxTabMenuUl">
+                <li >
+                    <a class="ljxTabMenuOn"href="javascript:;">全部英雄</a>
+                </li>
+                <li>
+                    <a href="http://db.dota2.com.cn/top">英雄排行</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="ljxHeroes">
+        <div class="ljxHero_tit_box" id="ljxHeroBioDynamic">
+            <div class="ljxHero_name" id="ljxHeroBioName">Dota2英雄资料</div>
+            <div class="ljxHero_roles" id="ljxHeroBioRoles"></div>
+        </div>
+        <div id="ljxHeroFilterArea">
+            过滤器&nbsp;&nbsp;&nbsp;
+            <select  id="ljxFilterRole" class="ljxFilterSelect" name="">
+                <option value="">按定位</option>
+                <option value="">所有</option>
+                <option value="Carry">核心</option>
+                <option value="Disabler">控制</option>
+                <option value="Initiator">先手</option>
+                <option value="Jungler">打野</option>
+                <option value="Support">辅助</option>
+                <option value="Durable">耐久</option>
+                <option value="Nuker">爆发</option>
+                <option value="Pusher">推进</option>
+                <option value="Escape">逃生</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;
+            <select  id="ljxFilterAttack" class="ljxFilterSelect" name="">
+                <option value="">按攻击类型</option>
+                <option value="">所有</option>
+                <option value="melee">近战</option>
+                <option value="ranged">远程</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;
+            <select  id="ljxFilterName" class="ljxFilterSelect noCaps" name="">
+                <option value="">英雄名称</option>
+                <option value="">所有</option>
+                <option value="antimage">敌法师</option>
+                <option value="axe">斧王</option>
+                <option value="bane">祸乱之源</option>
+                <option value="bloodseeker">嗜血狂魔</option>
+                <option value="crystal_maiden">水晶室女</option>
+                <option value="drow_ranger">卓尔游侠</option>
+                <option value="earthshaker">撼地者</option>
+                <option value="juggernaut">主宰</option>
+                <option value="mirana">米拉娜</option>
+                <option value="nevermore">影魔</option>
+                <option value="morphling">变体精灵</option>
+                <option value="phantom_lancer">幻影长矛手</option>
+                <option value="puck">帕克</option>
+                <option value="pudge">帕吉</option>
+                <option value="razor">剃刀</option>
+                <option value="sand_king">沙王</option>
+                <option value="storm_spirit">风暴之灵</option>
+                <option value="sven">斯温</option>
+                <option value="tiny">小小</option>
+                <option value="vengefulspirit">复仇之魂</option>
+                <option value="windrunner">风行者</option>
+                <option value="zuus">宙斯</option>
+                <option value="kunkka">昆卡</option>
+                <option value="lina">莉娜</option>
+                <option value="lich">巫妖</option>
+                <option value="lion">莱恩</option>
+                <option value="shadow_shaman">暗影萨满</option>
+                <option value="slardar">斯拉达</option>
+                <option value="tidehunter">潮汐猎人</option>
+                <option value="witch_doctor">巫医</option>
+                <option value="riki">力丸</option>
+                <option value="enigma">谜团</option>
+                <option value="tinker">修补匠</option>
+                <option value="sniper">狙击手</option>
+                <option value="necrolyte">瘟疫法师</option>
+                <option value="warlock">术士</option>
+                <option value="beastmaster">兽王</option>
+                <option value="queenofpain">痛苦女王</option>
+                <option value="venomancer">剧毒术士</option>
+                <option value="faceless_void">虚空假面</option>
+                <option value="skeleton_king">冥魂大帝</option>
+                <option value="death_prophet">死亡先知</option>
+                <option value="phantom_assassin">幻影刺客</option>
+                <option value="pugna">帕格纳</option>
+                <option value="templar_assassin">圣堂刺客</option>
+                <option value="viper">冥界亚龙</option>
+                <option value="luna">露娜</option>
+                <option value="dragon_knight">龙骑士</option>
+                <option value="dazzle">戴泽</option>
+                <option value="rattletrap">发条技师</option>
+                <option value="leshrac">拉席克</option>
+                <option value="furion">先知</option>
+                <option value="life_stealer">噬魂鬼</option>
+                <option value="dark_seer">黑暗贤者</option>
+                <option value="clinkz">克林克兹</option>
+                <option value="omniknight">全能骑士</option>
+                <option value="enchantress">魅惑魔女</option>
+                <option value="huskar">哈斯卡</option>
+                <option value="night_stalker">暗夜魔王</option>
+                <option value="broodmother">育母蜘蛛</option>
+                <option value="bounty_hunter">赏金猎人</option>
+                <option value="weaver">编织者</option>
+                <option value="jakiro">杰奇洛</option>
+                <option value="batrider">蝙蝠骑士</option>
+                <option value="chen">陈</option>
+                <option value="spectre">幽鬼</option>
+                <option value="doom">末日使者</option>
+                <option value="ancient_apparition">远古冰魄</option>
+                <option value="ursa">熊战士</option>
+                <option value="spirit_breaker">裂魂人</option>
+                <option value="gyrocopter">矮人直升机</option>
+                <option value="alchemist">炼金术士</option>
+                <option value="invoker">祈求者</option>
+                <option value="silencer">沉默术士</option>
+                <option value="obsidian_destroyer">殁境神蚀者</option>
+                <option value="lycan">狼人</option>
+                <option value="brewmaster">酒仙</option>
+                <option value="shadow_demon">暗影恶魔</option>
+                <option value="lone_druid">德鲁伊</option>
+                <option value="chaos_knight">混沌骑士</option>
+                <option value="meepo">米波</option>
+                <option value="treant">树精卫士</option>
+                <option value="ogre_magi">食人魔魔法师</option>
+                <option value="undying">不朽尸王</option>
+                <option value="rubick">拉比克</option>
+                <option value="disruptor">干扰者</option>
+                <option value="nyx_assassin">司夜刺客</option>
+                <option value="naga_siren">娜迦海妖</option>
+                <option value="keeper_of_the_light">光之守卫</option>
+                <option value="wisp">艾欧</option>
+                <option value="visage">维萨吉</option>
+                <option value="slark">斯拉克</option>
+                <option value="medusa">美杜莎</option>
+                <option value="troll_warlord">巨魔战将</option>
+                <option value="centaur">半人马战行者</option>
+                <option value="magnataur">马格纳斯</option>
+                <option value="shredder">伐木机</option>
+                <option value="bristleback">钢背兽</option>
+                <option value="tusk">巨牙海民</option>
+                <option value="skywrath_mage">天怒法师</option>
+                <option value="abaddon">亚巴顿</option>
+                <option value="elder_titan">上古巨神</option>
+                <option value="legion_commander">军团指挥官</option>
+                <option value="ember_spirit">灰烬之灵</option>
+                <option value="earth_spirit">大地之灵</option>
+                <option value="terrorblade">恐怖利刃</option>
+                <option value="phoenix">凤凰</option>
+                <option value="oracle">神谕者</option>
+                <option value="techies">工程师</option>
+                <option value="winter_wyvern">寒冬飞龙</option>
+                <option value="arc_warden">天穹守望者</option>
+            </select>
+        </div>
+        <ul class="ljxHero_list">
+            <li class="ljxHero_list_tit" >
+                <span class="ljxStr">力量</span>
+            </li>
+            <li >
+                <a id="link_earthshaker" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/earthshaker/">
+                    <img id="hover_earthshaker" class="heroHoverLarge"  src="image/ljx/heroes/earthshaker_hphover.png">
+                    <img id="base_earthshaker" class="heroHoverSmall" src="image/ljx/heroes/earthshaker_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_sven" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/sven/">
+                    <img id="hover_sven" class="heroHoverLarge"  src="image/ljx/heroes/sven_hphover.png">
+                    <img id="base_sven" class="heroHoverSmall" src="image/ljx/heroes/sven_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_tiny" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/tiny/">
+                    <img id="hover_tiny" class="heroHoverLarge"  src="image/ljx/heroes/tiny_hphover.png">
+                    <img id="base_tiny" class="heroHoverSmall" src="image/ljx/heroes/tiny_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_kunkka" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/kunkka/">
+                    <img id="hover_kunkka" class="heroHoverLarge"  src="image/ljx/heroes/kunkka_hphover.png">
+                    <img id="base_kunkka" class="heroHoverSmall" src="image/ljx/heroes/kunkka_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_beastmaster" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/beastmaster/">
+                    <img id="hover_beastmaster" class="heroHoverLarge"  src="image/ljx/heroes/beastmaster_hphover.png">
+                    <img id="base_beastmaster" class="heroHoverSmall" src="image/ljx/heroes/beastmaster_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_dragon_knight" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/dragon_knight/">
+                    <img id="hover_dragon_knight" class="heroHoverLarge"  src="image/ljx/heroes/dragon_knight_hphover.png">
+                    <img id="base_dragon_knight" class="heroHoverSmall" src="image/ljx/heroes/dragon_knight_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_rattletrap" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/clockwerk/">
+                    <img id="hover_rattletrap" class="heroHoverLarge"  src="image/ljx/heroes/rattletrap_hphover.png">
+                    <img id="base_rattletrap" class="heroHoverSmall" src="image/ljx/heroes/rattletrap_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_omniknight" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/omniknight/">
+                    <img id="hover_omniknight" class="heroHoverLarge"  src="image/ljx/heroes/omniknight_hphover.png">
+                    <img id="base_omniknight" class="heroHoverSmall" src="image/ljx/heroes/omniknight_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_huskar" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/huskar/">
+                    <img id="hover_huskar" class="heroHoverLarge"  src="image/ljx/heroes/huskar_hphover.png">
+                    <img id="base_huskar" class="heroHoverSmall" src="image/ljx/heroes/huskar_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_alchemist" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/alchemist/">
+                    <img id="hover_alchemist" class="heroHoverLarge"  src="image/ljx/heroes/alchemist_hphover.png">
+                    <img id="base_alchemist" class="heroHoverSmall" src="image/ljx/heroes/alchemist_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_brewmaster" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/brewmaster/">
+                    <img id="hover_brewmaster" class="heroHoverLarge"  src="image/ljx/heroes/brewmaster_hphover.png">
+                    <img id="base_brewmaster" class="heroHoverSmall" src="image/ljx/heroes/brewmaster_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_treant" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/treant_protector/">
+                    <img id="hover_treant" class="heroHoverLarge"  src="image/ljx/heroes/treant_hphover.png">
+                    <img id="base_treant" class="heroHoverSmall" src="image/ljx/heroes/treant_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_wisp" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/Io/">
+                    <img id="hover_wisp" class="heroHoverLarge"  src="image/ljx/heroes/wisp_hphover.png">
+                    <img id="base_wisp" class="heroHoverSmall" src="image/ljx/heroes/wisp_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_centaur" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/centaur_warrunner/">
+                    <img id="hover_centaur" class="heroHoverLarge"  src="image/ljx/heroes/centaur_hphover.png">
+                    <img id="base_centaur" class="heroHoverSmall" src="image/ljx/heroes/centaur_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_shredder" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/timbersaw/">
+                    <img id="hover_shredder" class="heroHoverLarge"  src="image/ljx/heroes/shredder_hphover.png">
+                    <img id="base_shredder" class="heroHoverSmall" src="image/ljx/heroes/shredder_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_bristleback" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/bristleback/">
+                    <img id="hover_bristleback" class="heroHoverLarge"  src="image/ljx/heroes/bristleback_hphover.png">
+                    <img id="base_bristleback" class="heroHoverSmall" src="image/ljx/heroes/bristleback_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_tusk" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/tusk/">
+                    <img id="hover_tusk" class="heroHoverLarge"  src="image/ljx/heroes/tusk_hphover.png">
+                    <img id="base_tusk" class="heroHoverSmall" src="image/ljx/heroes/tusk_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_elder_titan" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/elder_titan/">
+                    <img id="hover_elder_titan" class="heroHoverLarge"  src="image/ljx/heroes/elder_titan_hphover.png">
+                    <img id="base_elder_titan" class="heroHoverSmall" src="image/ljx/heroes/elder_titan_sb.png"></a>
+            </li>
+            <li >
+                <a id="link_legion_commander" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/legion_commander/">
+                    <img id="hover_legion_commander" class="heroHoverLarge"  src="image/ljx/heroes/legion_commander_hphover.png">
+                    <img id="base_legion_commander" class="heroHoverSmall" src="image/ljx/heroes/legion_commander_sb.png"></a>
+            </li>
+            <li >
+                <a id="link_earth_spirit" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/earth_spirit/">
+                    <img id="hover_earth_spirit" class="heroHoverLarge"  src="image/ljx/heroes/earth_spirit_hphover.png">
+                    <img id="base_earth_spirit" class="heroHoverSmall" src="image/ljx/heroes/earth_spirit_sb.png"></a>
+            </li>
+            <li >
+                <a id="link_phoenix" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/phoenix/">
+                    <img id="hover_phoenix" class="heroHoverLarge"  src="image/ljx/heroes/phoenix_hphover.png">
+                    <img id="base_phoenix" class="heroHoverSmall" src="image/ljx/heroes/phoenix_sb.png"></a>
+            </li>
+        </ul>
+        <ul class="ljxHero_list">
+            <li class="ljxHero_list_tit" >
+                <span class="ljxAgi">敏捷</span>
+            </li>
+            <li >
+                <a id="link_antimage" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/anti_mage/">
+                    <img id="hover_antimage" class="heroHoverLarge"  src="image/ljx/heroes/antimage_hphover.png">
+                    <img id="base_antimage" class="heroHoverSmall" src="image/ljx/heroes/antimage_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_drow_ranger" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/drow_ranger/">
+                    <img id="hover_drow_ranger" class="heroHoverLarge"  src="image/ljx/heroes/drow_ranger_hphover.png">
+                    <img id="base_drow_ranger" class="heroHoverSmall" src="image/ljx/heroes/drow_ranger_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_juggernaut" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/juggernaut/">
+                    <img id="hover_juggernaut" class="heroHoverLarge"  src="image/ljx/heroes/juggernaut_hphover.png">
+                    <img id="base_juggernaut" class="heroHoverSmall" src="image/ljx/heroes/juggernaut_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_mirana" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/mirana/">
+                    <img id="hover_mirana" class="heroHoverLarge"  src="image/ljx/heroes/mirana_hphover.png">
+                    <img id="base_mirana" class="heroHoverSmall" src="image/ljx/heroes/mirana_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_morphling" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/morphling/">
+                    <img id="hover_morphling" class="heroHoverLarge"  src="image/ljx/heroes/morphling_hphover.png">
+                    <img id="base_morphling" class="heroHoverSmall" src="image/ljx/heroes/morphling_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_phantom_lancer" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/phantom_lancer/">
+                    <img id="hover_phantom_lancer" class="heroHoverLarge"  src="image/ljx/heroes/phantom_lancer_hphover.png">
+                    <img id="base_phantom_lancer" class="heroHoverSmall" src="image/ljx/heroes/phantom_lancer_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_vengefulspirit" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/vengeful_spirit/">
+                    <img id="hover_vengefulspirit" class="heroHoverLarge"  src="image/ljx/heroes/vengefulspirit_hphover.png">
+                    <img id="base_vengefulspirit" class="heroHoverSmall" src="image/ljx/heroes/vengefulspirit_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_riki" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/riki/">
+                    <img id="hover_riki" class="heroHoverLarge"  src="image/ljx/heroes/riki_hphover.png">
+                    <img id="base_riki" class="heroHoverSmall" src="image/ljx/heroes/riki_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_sniper" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/sniper/">
+                    <img id="hover_sniper" class="heroHoverLarge"  src="image/ljx/heroes/sniper_hphover.png">
+                    <img id="base_sniper" class="heroHoverSmall" src="image/ljx/heroes/sniper_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_templar_assassin" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/templar_assassin/">
+                    <img id="hover_templar_assassin" class="heroHoverLarge"  src="image/ljx/heroes/templar_assassin_hphover.png">
+                    <img id="base_templar_assassin" class="heroHoverSmall" src="image/ljx/heroes/templar_assassin_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_luna" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/luna/">
+                    <img id="hover_luna" class="heroHoverLarge"  src="image/ljx/heroes/luna_hphover.png">
+                    <img id="base_luna" class="heroHoverSmall" src="image/ljx/heroes/luna_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_bounty_hunter" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/bounty_hunter/">
+                    <img id="hover_bounty_hunter" class="heroHoverLarge"  src="image/ljx/heroes/bounty_hunter_hphover.png">
+                    <img id="base_bounty_hunter" class="heroHoverSmall" src="image/ljx/heroes/bounty_hunter_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_ursa" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/ursa/">
+                    <img id="hover_ursa" class="heroHoverLarge"  src="image/ljx/heroes/ursa_hphover.png">
+                    <img id="base_ursa" class="heroHoverSmall" src="image/ljx/heroes/ursa_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_gyrocopter" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/gyrocopter/">
+                    <img id="hover_gyrocopter" class="heroHoverLarge"  src="image/ljx/heroes/gyrocopter_hphover.png">
+                    <img id="base_gyrocopter" class="heroHoverSmall" src="image/ljx/heroes/gyrocopter_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_lone_druid" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/lone_druid/">
+                    <img id="hover_lone_druid" class="heroHoverLarge"  src="image/ljx/heroes/lone_druid_hphover.png">
+                    <img id="base_lone_druid" class="heroHoverSmall" src="image/ljx/heroes/lone_druid_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_naga_siren" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/naga_siren/">
+                    <img id="hover_naga_siren" class="heroHoverLarge"  src="image/ljx/heroes/naga_siren_hphover.png">
+                    <img id="base_naga_siren" class="heroHoverSmall" src="image/ljx/heroes/naga_siren_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_troll_warlord" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/troll_warlord/">
+                    <img id="hover_troll_warlord" class="heroHoverLarge" src="image/ljx/heroes/troll_warlord_hphover.png">
+                    <img id="base_troll_warlord" class="heroHoverSmall" src="image/ljx/heroes/troll_warlord_sb.png"></a>
+            </li>
+            <li >
+                <a id="link_ember_spirit" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/ember_spirit/">
+                    <img id="hover_ember_spirit" class="heroHoverLarge" src="image/ljx/heroes/ember_spirit_hphover.png">
+                    <img id="base_ember_spirit" class="heroHoverSmall" src="image/ljx/heroes/ember_spirit_sb.png"></a>
+            </li>
+            <li >
+                <a id="link_arc_warden" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/arc_warden/">
+                    <img id="hover_arc_warden" class="heroHoverLarge" src="image/ljx/heroes/arc_warden_hphover.png">
+                    <img id="base_arc_warden" class="heroHoverSmall" src="image/ljx/heroes/arc_warden_sb.png"></a>
+            </li>
+        </ul>
+        <ul class="ljxHero_list">
+            <li class="ljxHero_list_tit" >
+                <span class="ljxInt">智力</span>
+            </li>
+            <li >
+                <a id="link_crystal_maiden" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/crystal_maiden/">
+                    <img id="hover_crystal_maiden" class="heroHoverLarge"  src="image/ljx/heroes/crystal_maiden_hphover.png">
+                    <img id="base_crystal_maiden" class="heroHoverSmall" src="image/ljx/heroes/crystal_maiden_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_puck" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/puck/">
+                    <img id="hover_puck" class="heroHoverLarge"  src="image/ljx/heroes/puck_hphover.png">
+                    <img id="base_puck" class="heroHoverSmall" src="image/ljx/heroes/puck_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_storm_spirit" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/storm_spirit/">
+                    <img id="hover_storm_spirit" class="heroHoverLarge"  src="image/ljx/heroes/storm_spirit_hphover.png">
+                    <img id="base_storm_spirit" class="heroHoverSmall" src="image/ljx/heroes/storm_spirit_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_windrunner" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/windranger/">
+                    <img id="hover_windrunner" class="heroHoverLarge"  src="image/ljx/heroes/windrunner_hphover.png">
+                    <img id="base_windrunner" class="heroHoverSmall" src="image/ljx/heroes/windrunner_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_zuus" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/zeus/">
+                    <img id="hover_zuus" class="heroHoverLarge"  src="image/ljx/heroes/zuus_hphover.png">
+                    <img id="base_zuus" class="heroHoverSmall" src="image/ljx/heroes/zuus_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_lina" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/lina/">
+                    <img id="hover_lina" class="heroHoverLarge"  src="image/ljx/heroes/lina_hphover.png">
+                    <img id="base_lina" class="heroHoverSmall" src="image/ljx/heroes/lina_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_shadow_shaman" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/shadow_shaman/">
+                    <img id="hover_shadow_shaman" class="heroHoverLarge"  src="image/ljx/heroes/shadow_shaman_hphover.png">
+                    <img id="base_shadow_shaman" class="heroHoverSmall" src="image/ljx/heroes/shadow_shaman_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_tinker" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/tinker/">
+                    <img id="hover_tinker" class="heroHoverLarge"  src="image/ljx/heroes/tinker_hphover.png">
+                    <img id="base_tinker" class="heroHoverSmall" src="image/ljx/heroes/tinker_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_furion" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/natures_prophet/">
+                    <img id="hover_furion" class="heroHoverLarge"  src="image/ljx/heroes/furion_hphover.png">
+                    <img id="base_furion" class="heroHoverSmall" src="image/ljx/heroes/furion_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_enchantress" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/enchantress/">
+                    <img id="hover_enchantress" class="heroHoverLarge"  src="image/ljx/heroes/enchantress_hphover.png">
+                    <img id="base_enchantress" class="heroHoverSmall" src="image/ljx/heroes/enchantress_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_jakiro" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/jakiro/">
+                    <img id="hover_jakiro" class="heroHoverLarge"  src="image/ljx/heroes/jakiro_hphover.png">
+                    <img id="base_jakiro" class="heroHoverSmall" src="image/ljx/heroes/jakiro_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_chen" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/chen/">
+                    <img id="hover_chen" class="heroHoverLarge"  src="image/ljx/heroes/chen_hphover.png">
+                    <img id="base_chen" class="heroHoverSmall" src="image/ljx/heroes/chen_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_silencer" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/silencer/">
+                    <img id="hover_silencer" class="heroHoverLarge"  src="image/ljx/heroes/silencer_hphover.png">
+                    <img id="base_silencer" class="heroHoverSmall" src="image/ljx/heroes/silencer_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_ogre_magi" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/ogre_magi/">
+                    <img id="hover_ogre_magi" class="heroHoverLarge"  src="image/ljx/heroes/ogre_magi_hphover.png">
+                    <img id="base_ogre_magi" class="heroHoverSmall" src="image/ljx/heroes/ogre_magi_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_rubick" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/rubick/">
+                    <img id="hover_rubick" class="heroHoverLarge"  src="image/ljx/heroes/rubick_hphover.png">
+                    <img id="base_rubick" class="heroHoverSmall" src="image/ljx/heroes/rubick_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_disruptor" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/disruptor/">
+                    <img id="hover_disruptor" class="heroHoverLarge"  src="image/ljx/heroes/disruptor_hphover.png">
+                    <img id="base_disruptor" class="heroHoverSmall" src="image/ljx/heroes/disruptor_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_keeper_of_the_light" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/keeper_of_the_light/">
+                    <img id="hover_keeper_of_the_light" class="heroHoverLarge"  src="image/ljx/heroes/keeper_of_the_light_hphover.png">
+                    <img id="base_keeper_of_the_light" class="heroHoverSmall" src="image/ljx/heroes/keeper_of_the_light_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_skywrath_mage" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/Skywrath_Mage/">
+                    <img id="hover_skywrath_mage" class="heroHoverLarge"  src="image/ljx/heroes/skywrath_mage_hphover.png">
+                    <img id="base_skywrath_mage" class="heroHoverSmall" src="image/ljx/heroes/skywrath_mage_sb.png"></a>
+            </li>
+            <li >
+                <a id="link_oracle" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/oracle/">
+                    <img id="hover_oracle" class="heroHoverLarge"  src="image/ljx/heroes/oracle_hphover.png">
+                    <img id="base_oracle" class="heroHoverSmall" src="image/ljx/heroes/oracle_sb.png"></a>
+            </li>
+            <li >
+                <a id="link_techies" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/techies/">
+                    <img id="hover_techies" class="heroHoverLarge"  src="image/ljx/heroes/techies_hphover.png">
+                    <img id="base_techies" class="heroHoverSmall" src="image/ljx/heroes/techies_sb.png"></a>
+            </li>
+        </ul>
+        <ul class="ljxHero_list" style="clear:left;">
+            <li >
+                <a id="link_axe" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/axe/">
+                    <img id="hover_axe" class="heroHoverLarge"  src="image/ljx/heroes/axe_hphover.png">
+                    <img id="base_axe" class="heroHoverSmall" src="image/ljx/heroes/axe_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_pudge" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/pudge/">
+                    <img id="hover_pudge" class="heroHoverLarge"  src="image/ljx/heroes/pudge_hphover.png">
+                    <img id="base_pudge" class="heroHoverSmall" src="image/ljx/heroes/pudge_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_sand_king" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/sand_king/">
+                    <img id="hover_sand_king" class="heroHoverLarge"  src="image/ljx/heroes/sand_king_hphover.png">
+                    <img id="base_sand_king" class="heroHoverSmall" src="image/ljx/heroes/sand_king_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_slardar" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/slardar/">
+                    <img id="hover_slardar" class="heroHoverLarge"  src="image/ljx/heroes/slardar_hphover.png">
+                    <img id="base_slardar" class="heroHoverSmall" src="image/ljx/heroes/slardar_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_tidehunter" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/tidehunter/">
+                    <img id="hover_tidehunter" class="heroHoverLarge"  src="image/ljx/heroes/tidehunter_hphover.png">
+                    <img id="base_tidehunter" class="heroHoverSmall" src="image/ljx/heroes/tidehunter_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_skeleton_king" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/wraith_king/">
+                    <img id="hover_skeleton_king" class="heroHoverLarge"  src="image/ljx/heroes/wraith_king_hphover.png">
+                    <img id="base_skeleton_king" class="heroHoverSmall" src="image/ljx/heroes/wraith_king_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_life_stealer" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/lifestealer/">
+                    <img id="hover_life_stealer" class="heroHoverLarge"  src="image/ljx/heroes/life_stealer_hphover.png">
+                    <img id="base_life_stealer" class="heroHoverSmall" src="image/ljx/heroes/life_stealer_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_night_stalker" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/night_stalker/">
+                    <img id="hover_night_stalker" class="heroHoverLarge"  src="image/ljx/heroes/night_stalker_hphover.png">
+                    <img id="base_night_stalker" class="heroHoverSmall" src="image/ljx/heroes/night_stalker_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_doom" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/doom/">
+                    <img id="hover_doom" class="heroHoverLarge"  src="image/ljx/heroes/doom_bringer_hphover.png">
+                    <img id="base_doom" class="heroHoverSmall" src="image/ljx/heroes/doom_bringer_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_spirit_breaker" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/spirit_breaker/">
+                    <img id="hover_spirit_breaker" class="heroHoverLarge"  src="image/ljx/heroes/spirit_breaker_hphover.png">
+                    <img id="base_spirit_breaker" class="heroHoverSmall" src="image/ljx/heroes/spirit_breaker_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_lycan" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/lycan/">
+                    <img id="hover_lycan" class="heroHoverLarge"  src="image/ljx/heroes/lycan_hphover.png">
+                    <img id="base_lycan" class="heroHoverSmall" src="image/ljx/heroes/lycan_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_chaos_knight" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/chaos_knight/">
+                    <img id="hover_chaos_knight" class="heroHoverLarge"  src="image/ljx/heroes/chaos_knight_hphover.png">
+                    <img id="base_chaos_knight" class="heroHoverSmall" src="image/ljx/heroes/chaos_knight_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_undying" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/undying/">
+                    <img id="hover_undying" class="heroHoverLarge"  src="image/ljx/heroes/undying_hphover.png">
+                    <img id="base_undying" class="heroHoverSmall" src="image/ljx/heroes/undying_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_magnataur" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/magnus/">
+                    <img id="hover_magnataur" class="heroHoverLarge"  src="image/ljx/heroes/magnataur_hphover.png">
+                    <img id="base_magnataur" class="heroHoverSmall" src="image/ljx/heroes/magnataur_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_abaddon" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/abaddon/">
+                    <img id="hover_abaddon" class="heroHoverLarge"  src="image/ljx/heroes/abaddon_hphover.png">
+                    <img id="base_abaddon" class="heroHoverSmall" src="image/ljx/heroes/abaddon_sb.png"></a>
+            </li>
+        </ul>
+        <ul class="ljxHero_list">
+            <li >
+                <a id="link_bloodseeker" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/bloodseeker/">
+                    <img id="hover_bloodseeker" class="heroHoverLarge"  src="image/ljx/heroes/bloodseeker_hphover.png">
+                    <img id="base_bloodseeker" class="heroHoverSmall" src="image/ljx/heroes/bloodseeker_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_nevermore" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/shadow_fiend/">
+                    <img id="hover_nevermore" class="heroHoverLarge"  src="image/ljx/heroes/nevermore_hphover.png">
+                    <img id="base_nevermore" class="heroHoverSmall" src="image/ljx/heroes/nevermore_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_razor" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/razor/">
+                    <img id="hover_razor" class="heroHoverLarge"  src="image/ljx/heroes/razor_hphover.png">
+                    <img id="base_razor" class="heroHoverSmall" src="image/ljx/heroes/razor_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_venomancer" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/venomancer/">
+                    <img id="hover_venomancer" class="heroHoverLarge"  src="image/ljx/heroes/venomancer_hphover.png">
+                    <img id="base_venomancer" class="heroHoverSmall" src="image/ljx/heroes/venomancer_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_faceless_void" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/faceless_void/">
+                    <img id="hover_faceless_void" class="heroHoverLarge"  src="image/ljx/heroes/faceless_void_hphover.png">
+                    <img id="base_faceless_void" class="heroHoverSmall" src="image/ljx/heroes/faceless_void_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_phantom_assassin" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/phantom_assassin/">
+                    <img id="hover_phantom_assassin" class="heroHoverLarge"  src="image/ljx/heroes/phantom_assassin_hphover.png">
+                    <img id="base_phantom_assassin" class="heroHoverSmall" src="image/ljx/heroes/phantom_assassin_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_viper" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/viper/">
+                    <img id="hover_viper" class="heroHoverLarge"  src="image/ljx/heroes/viper_hphover.png">
+                    <img id="base_viper" class="heroHoverSmall" src="image/ljx/heroes/viper_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_clinkz" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/clinkz/">
+                    <img id="hover_clinkz" class="heroHoverLarge"  src="image/ljx/heroes/clinkz_hphover.png">
+                    <img id="base_clinkz" class="heroHoverSmall" src="image/ljx/heroes/clinkz_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_broodmother" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/broodmother/">
+                    <img id="hover_broodmother" class="heroHoverLarge"  src="image/ljx/heroes/broodmother_hphover.png">
+                    <img id="base_broodmother" class="heroHoverSmall" src="image/ljx/heroes/broodmother_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_weaver" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/weaver/">
+                    <img id="hover_weaver" class="heroHoverLarge"  src="image/ljx/heroes/weaver_hphover.png">
+                    <img id="base_weaver" class="heroHoverSmall" src="image/ljx/heroes/weaver_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_spectre" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/spectre/">
+                    <img id="hover_spectre" class="heroHoverLarge"  src="image/ljx/heroes/spectre_hphover.png">
+                    <img id="base_spectre" class="heroHoverSmall" src="image/ljx/heroes/spectre_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_meepo" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/meepo/">
+                    <img id="hover_meepo" class="heroHoverLarge"  src="image/ljx/heroes/meepo_hphover.png">
+                    <img id="base_meepo" class="heroHoverSmall" src="image/ljx/heroes/meepo_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_nyx_assassin" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/nyx_assassin/">
+                    <img id="hover_nyx_assassin" class="heroHoverLarge"  src="image/ljx/heroes/nyx_assassin_hphover.png">
+                    <img id="base_nyx_assassin" class="heroHoverSmall" src="image/ljx/heroes/nyx_assassin_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_slark" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/slark/">
+                    <img id="hover_slark" class="heroHoverLarge"  src="image/ljx/heroes/slark_hphover.png">
+                    <img id="base_slark" class="heroHoverSmall" src="image/ljx/heroes/slark_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_medusa" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/medusa/">
+                    <img id="hover_medusa" class="heroHoverLarge"  src="image/ljx/heroes/medusa_hphover.png">
+                    <img id="base_medusa" class="heroHoverSmall" src="image/ljx/heroes/medusa_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_terrorblade" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/terrorblade/">
+                    <img id="hover_terrorblade" class="heroHoverLarge"  src="image/ljx/heroes/terrorblade_hphover.png">
+                    <img id="base_terrorblade" class="heroHoverSmall" src="image/ljx/heroes/terrorblade_sb.png">
+                </a>
+            </li>
+        </ul>
+        <ul class="ljxHero_list">
+            <li >
+                <a id="link_bane" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/bane/">
+                    <img id="hover_bane" class="heroHoverLarge"  src="image/ljx/heroes/bane_hphover.png">
+                    <img id="base_bane" class="heroHoverSmall" src="image/ljx/heroes/bane_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_lich" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/lich/">
+                    <img id="hover_lich" class="heroHoverLarge"  src="image/ljx/heroes/lich_hphover.png">
+                    <img id="base_lich" class="heroHoverSmall" src="image/ljx/heroes/lich_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_lion" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/lion/">
+                    <img id="hover_lion" class="heroHoverLarge"  src="image/ljx/heroes/lion_hphover.png">
+                    <img id="base_lion" class="heroHoverSmall" src="image/ljx/heroes/lion_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_witch_doctor" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/witch_doctor/">
+                    <img id="hover_witch_doctor" class="heroHoverLarge"  src="image/ljx/heroes/witch_doctor_hphover.png">
+                    <img id="base_witch_doctor" class="heroHoverSmall" src="image/ljx/heroes/witch_doctor_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_enigma" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/enigma/">
+                    <img id="hover_enigma" class="heroHoverLarge"  src="image/ljx/heroes/enigma_hphover.png">
+                    <img id="base_enigma" class="heroHoverSmall" src="image/ljx/heroes/enigma_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_necrolyte" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/necrophos/">
+                    <img id="hover_necrolyte" class="heroHoverLarge"  src="image/ljx/heroes/necrolyte_hphover.png">
+                    <img id="base_necrolyte" class="heroHoverSmall" src="image/ljx/heroes/necrolyte_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_warlock" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/warlock/">
+                    <img id="hover_warlock" class="heroHoverLarge"  src="image/ljx/heroes/warlock_hphover.png">
+                    <img id="base_warlock" class="heroHoverSmall" src="image/ljx/heroes/warlock_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_queenofpain" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/queen_of_pain/">
+                    <img id="hover_queenofpain" class="heroHoverLarge"  src="image/ljx/heroes/queenofpain_hphover.png">
+                    <img id="base_queenofpain" class="heroHoverSmall" src="image/ljx/heroes/queenofpain_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_death_prophet" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/death_prophet/">
+                    <img id="hover_death_prophet" class="heroHoverLarge"  src="image/ljx/heroes/death_prophet_hphover.png">
+                    <img id="base_death_prophet" class="heroHoverSmall" src="image/ljx/heroes/death_prophet_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_pugna" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/pugna/">
+                    <img id="hover_pugna" class="heroHoverLarge"  src="image/ljx/heroes/pugna_hphover.png">
+                    <img id="base_pugna" class="heroHoverSmall" src="image/ljx/heroes/pugna_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_dazzle" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/dazzle/">
+                    <img id="hover_dazzle" class="heroHoverLarge"  src="image/ljx/heroes/dazzle_hphover.png">
+                    <img id="base_dazzle" class="heroHoverSmall" src="image/ljx/heroes/dazzle_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_leshrac" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/leshrac/">
+                    <img id="hover_leshrac" class="heroHoverLarge"  src="image/ljx/heroes/leshrac_hphover.png">
+                    <img id="base_leshrac" class="heroHoverSmall" src="image/ljx/heroes/leshrac_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_dark_seer" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/dark_seer/">
+                    <img id="hover_dark_seer" class="heroHoverLarge"  src="image/ljx/heroes/dark_seer_hphover.png">
+                    <img id="base_dark_seer" class="heroHoverSmall" src="image/ljx/heroes/dark_seer_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_batrider" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/batrider/">
+                    <img id="hover_batrider" class="heroHoverLarge"  src="image/ljx/heroes/batrider_hphover.png">
+                    <img id="base_batrider" class="heroHoverSmall" src="image/ljx/heroes/batrider_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_ancient_apparition" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/ancient_apparition/">
+                    <img id="hover_ancient_apparition" class="heroHoverLarge"  src="image/ljx/heroes/ancient_apparition_hphover.png">
+                    <img id="base_ancient_apparition" class="heroHoverSmall" src="image/ljx/heroes/ancient_apparition_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_invoker" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/invoker/">
+                    <img id="hover_invoker" class="heroHoverLarge"  src="image/ljx/heroes/invoker_hphover.png">
+                    <img id="base_invoker" class="heroHoverSmall" src="image/ljx/heroes/invoker_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_obsidian_destroyer" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/Outworld_Devourer/">
+                    <img id="hover_obsidian_destroyer" class="heroHoverLarge"  src="image/ljx/heroes/obsidian_destroyer_hphover.png">
+                    <img id="base_obsidian_destroyer" class="heroHoverSmall" src="image/ljx/heroes/obsidian_destroyer_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_shadow_demon" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/shadow_demon/">
+                    <img id="hover_shadow_demon" class="heroHoverLarge"  src="image/ljx/heroes/shadow_demon_hphover.png">
+                    <img id="base_shadow_demon" class="heroHoverSmall" src="image/ljx/heroes/shadow_demon_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_visage" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/visage/">
+                    <img id="hover_visage" class="heroHoverLarge"  src="image/ljx/heroes/visage_hphover.png">
+                    <img id="base_visage" class="heroHoverSmall" src="image/ljx/heroes/visage_sb.png">
+                </a>
+            </li>
+            <li >
+                <a id="link_winter_wyvern" class="heroPickerIconLink" target="_blank" href="http://www.dota2.com.cn/hero/winter_wyvern/">
+                    <img id="hover_winter_wyvern" class="heroHoverLarge"  src="image/ljx/heroes/winter_wyvern_hphover.png">
+                    <img id="base_winter_wyvern" class="heroHoverSmall" src="image/ljx/heroes/winter_wyvern_sb.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="ljxFooter">
+        <span style="text-align:center;color: #878686;">京ICP证：050016号
+            《网络文化经营许可证》编号：京网文[2011]0782-287号
+            《网络视听许可证》编号：0110587 京公网安备110105019888号<br>
+            文网进字[2013] 028号
+            新出审字[2013] 1505号 ISBN：978-7-89989-826-0
+        </span>
+        <div id="ljxFootBottom">
+            <ul>
+                <li>
+                    <a href="http://www.valvesoftware.com/" target="_blank">
+                        <img src="image/ljx/valve.jpg">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.wanmei.com/" target="_blank">
+                        <img src="image/ljx/wmlogo.gif">
+                    </a>
+                </li>
+                <li>
+                    <span>
+                    完美世界（北京）网络技术有限公司 版权所有 Copyright © 2014 Perfect World Co., Ltd. All Rights reserved
+                        <br>
+                     © 2014 Valve Corporation. All Rights reserved. Licensed to Perfect World Co., Ltd. in China
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var ljxHeroTag = ["核心","控制","先手","打野","辅助","耐久","爆发","推进","逃生"];
+    var ljxHeroRole =[
+            ["撼地者","earthshaker","1","0,1,1,0,1,0,1,0,0"],
+            ["斯温","sven","1","1,1,1,0,0,1,1,0,0"],
+            ["小小","tiny","1","1,1,1,0,0,1,1,1,0"],
+            ["昆卡","kunkka","1","1,1,1,0,0,1,1,0,0"],
+            ["兽王","beastmaster","1","0,1,1,0,0,1,1,0,0"],
+            ["龙骑士","dragon_knight","1","1,1,1,0,0,1,1,1,0"],
+            ["发条技师","rattletrap","1","0,1,1,0,0,1,1,0,0"],
+            ["全能骑士","omniknight","1","0,0,0,0,1,1,1,0,0"],
+            ["哈斯卡","huskar","0","1,0,1,0,0,1,0,0,0"],
+            ["炼金术士","alchemist","1","1,1,1,1,0,1,1,0,0"],
+            ["酒仙","brewmaster","1","1,1,1,0,0,1,1,0,0"],
+            ["树精卫士","treant","1","0,1,1,0,1,1,0,0,1"],
+            ["艾欧","wisp","0","0,0,0,0,1,0,1,1,0"],
+            ["半人马战行者","centaur","1","0,1,1,0,0,1,1,0,1"],
+            ["伐木机","shredder","1","0,0,0,0,0,1,1,0,1"],
+            ["钢背兽","bristleback","1","1,0,1,0,0,1,1,0,0"],
+            ["巨牙海民","tusk","1","0,1,1,0,0,0,1,0,0"],
+            ["上古巨神","elder_titan","1","0,1,1,0,0,1,1,0,0"],
+            ["军团指挥官","legion_commande","1","1,1,1,0,0,1,1,0,0"],
+            ["大地之灵","earth_spirit","1","0,1,1,0,0,1,1,0,1"],
+            ["凤凰","phoenix","0","0,1,1,0,1,0,1,0,1"],
+            ["敌法师","antimage","1","1,0,0,0,0,0,1,0,1"],
+            ["卓尔游侠","drow_ranger","0","1,1,0,0,0,0,0,1,0"],
+            ["主宰","juggernaut","1","1,0,0,0,0,0,0,1,1"],
+            ["米拉娜","mirana","0","1,1,0,0,1,0,1,0,1"],
+            ["变体精灵","morphling","0","1,1,0,0,0,1,1,0,1"],
+            ["幻影长矛手","phantom_lancer","1","1,0,0,0,0,0,1,1,1"],
+            ["复仇之魂","vengefulspirit","0","0,1,1,0,1,0,1,0,1"],
+            ["力丸","riki","1","1,1,0,0,0,0,0,0,1"],
+            ["火枪手","sniper","0","1,0,0,0,0,0,1,0,0"],
+            ["圣堂刺客","templar_assassin","0","1,0,0,0,0,0,0,0,1"],
+            ["露娜","luna","","1,0,0,0,0,0,1,1,0"],
+            ["赏金猎人","bounty_hunter","1","0,0,0,0,0,0,1,0,1"],
+            ["拍拍熊","ursa","1","1,1,1,0,0,1,0,0,0"],
+            ["矮人直升机","gyrocopter","0","1,1,0,0,0,0,1,0,0"],
+            ["德鲁伊","lone_druid","0","1,0,0,1,0,1,0,1,0"],
+            ["娜迦海妖","naga_siren","1","1,1,1,0,1,0,0,1,1"],
+            ["巨魔战将","troll_warlord","0","1,1,0,0,0,1,0,1,0"],
+            ["灰烬之灵","ember_spirit","1","1,1,1,0,0,0,1,0,1"],
+            ["天穹守望者","arc_warden","0","1,0,0,0,0,0,1,0,1"],
+            ["水晶室女","crystal_maiden","0","0,1,1,0,1,0,1,0,0"],
+            ["帕克","puck","0","0,1,1,0,0,0,1,0,1"],
+            ["风暴之灵","storm_spirit","0","1,1,0,1,0,0,1,0,1"],
+            ["风行者","windrunner","0","1,1,0,0,1,0,1,0,1"],
+            ["宙斯","zuus","0","0,0,0,0,0,0,1,0,0"],
+            ["火女","lina","0","1,1,0,0,1,0,1,0,0"],
+            ["暗影萨满","shadow_shaman","0","0,1,1,0,1,0,1,1,0"],
+            ["修补匠","tinker","0","1,0,0,0,0,0,1,1,0"],
+            ["先知","furion","0","1,0,1,0,0,0,1,1,1"],
+            ["魅惑魔女","enchantress","0","0,1,0,1,1,1,0,1,0"],
+            ["杰奇洛","jakiro","0","0,1,0,0,1,0,1,1,0"],
+            ["陈","chen","0","0,0,0,1,1,0,0,1,0"],
+            ["沉默术士","silencer","0","1,1,1,0,1,0,1,0,0"],
+            ["食人魔魔法师","ogre_magi","1","0,1,1,0,1,1,1,0,0"],
+            ["拉比克","rubick","0","0,1,0,0,1,0,1,0,0"],
+            ["干扰者","disruptor","0","0,1,1,0,1,0,1,0,0"],
+            ["光之守卫","keeper_of_the_light","0","0,1,1,0,1,0,1,0,0"],
+            ["天怒法师","skywrath_mage","0","0,1,0,0,1,0,1,0,0"],
+            ["神谕者","oracle","0","0,1,0,0,1,0,1,0,1"],
+            ["工程师","techies","0","0,1,0,0,0,0,1,0,0"],
+            ["斧王","axe","1","0,1,1,1,0,1,0,0,0"],
+            ["帕吉","pudge","1","0,1,1,0,0,1,1,0,0"],
+            ["沙王","sand_king","1","0,1,1,1,0,0,1,0,1"],
+            ["斯拉达","slardar","1","1,1,1,0,0,0,1,0,1"],
+            ["潮汐猎人","tidehunter","1","0,1,1,0,0,1,1,0,0"],
+            ["冥魂大帝","skeleton_king","1","1,1,1,0,1,1,0,0,0"],
+            ["噬魂鬼","life_stealer","1","1,1,0,1,0,1,0,0,1"],
+            ["夜魔","night_stalker","1","1,1,1,0,0,1,1,0,0"],
+            ["末日使者","doom","1","1,1,1,0,0,1,1,0,0"],
+            ["裂魂人","spirit_breaker","1","1,1,1,0,0,1,0,0,1"],
+            ["狼人","lycan","1","1,0,0,1,0,1,0,1,1"],
+            ["混沌骑士","chaos_knight","1","1,1,1,0,0,1,0,1,0"],
+            ["尸王","undying","1","0,0,0,0,1,1,1,0,0"],
+            ["马格纳斯","magnataur","1","0,1,1,0,0,0,1,0,1"],
+            ["亚巴顿","abaddon","1","1,0,0,0,1,1,0,0,0"],
+            ["血魔","bloodseeker","1","1,1,1,1,0,0,1,0,0"],
+            ["影魔","nevermore","0","1,0,0,0,0,0,1,0,0"],
+            ["电魂","razor","0","1,0,0,0,0,1,1,1,0"],
+            ["剧毒术士","venomancer","0","0,1,1,0,1,0,1,1,0"],
+            ["虚空假面","faceless_void","1","1,1,1,0,0,1,0,0,1"],
+            ["幻影刺客","phantom_assassin","q","1,0,0,0,0,0,0,0,1"],
+            ["冥界亚龙","viper","0","1,1,1,0,0,1,0,0,0"],
+            ["克林克兹","clinkz","0","1,0,0,0,0,0,0,1,1"],
+            ["育母蜘蛛","broodmother","1","1,0,0,0,0,0,1,1,1"],
+            ["编织着","weaver","0","1,0,0,0,0,0,0,0,1"],
+            ["幽鬼","spectre","1","1,0,0,0,0,1,0,0,1"],
+            ["米波","meepo","1","1,1,1,0,0,0,1,1,1"],
+            ["司夜刺客","nyx_assassin","1","0,1,1,0,0,0,1,0,1"],
+            ["斯拉克","slark","1","1,1,0,0,0,0,1,0,1"],
+            ["美杜莎","medusa","0","1,1,0,0,0,1,0,0,0"],
+            ["恐怖利刃","terrorblade","1","1,0,0,0,0,0,1,1,0"],
+            ["痛苦之源","bane","0","0,1,0,0,1,1,1,0,0"],
+            ["巫妖","lich","0","0,0,0,0,1,0,1,0,0"],
+            ["莱恩","lion","0","0,1,1,0,1,0,1,0,0"],
+            ["巫医","witch_doctor","0","0,1,0,0,1,0,1,0,0"],
+            ["谜团","enigma","0","0,1,1,1,0,0,0,1,0"],
+            ["瘟疫法师","necrolyte","0","1,1,0,0,0,1,1,0,0"],
+            ["术士","warlock","0","0,1,1,0,1,0,0,0,0"],
+            ["痛苦女王","queenofpain","0","1,0,0,0,0,0,1,0,1"],
+            ["死亡先知","death_prophet","0","1,1,0,0,0,0,1,1,0"],
+            ["帕格纳","pugna","0","0,0,0,0,0,0,1,1,0"],
+    ["戴泽","dazzle","0","0,1,0,0,1,0,1,0,0"],
+    ["拉席克","leshrac","0","1,1,0,0,1,0,1,1,0"],
+    ["黑暗贤者","dark_seer","0","0,1,1,1,0,0,0,0,1"],
+    ["蝙蝠骑士","batrider","0","0,1,1,1,0,0,0,0,1"],
+    ["远古冰魄","ancient_apparition","0","0,1,0,0,1,0,1,0,0"],
+    ["祈求者","invoker","0","1,1,0,0,0,0,1,1,1"],
+    ["殁境神蚀者","obsidian_destroyer","0","1,1,0,0,0,0,1,0,0"],
+    ["暗影恶魔","shadow_demon","0","0,1,1,0,1,0,1,0,0"],
+    ["维萨吉","visage","0","0,1,0,0,1,1,1,1,0"],
+    ["寒冰飞龙","winter_wyvern","0","0,1,0,0,1,0,1,0,0"],
+    ];
+    $(function(){
+        $(".ljxTabMenuUl li:nth-child(1) a").addClass("ljxTabMenuOn");
+        $(".ljxTabMenuUl li:not(:nth-child(1)) a").addClass("ljxTabMenuOff");
+        $(".ljxHero_list a").each(function () {
+            var index = $("[class=heroPickerIconLink]").index($(this));
+            $(this).data("category", ljxHeroRole[index][3]);
+        });
+        $(".ljxHero_list li a").mouseover(function () {
+            $(this).removeClass("animated");
+            var index = $(".ljxHero_list li a").index($(this));
+            $("#ljxHeroBioName").text(ljxHeroRole[index][0]);
+            var info = "<span class='ljxBioTextAttack'>"+(function(){
+                    if(ljxHeroRole[index][2]=="1"){
+                        return "近程";
+                    }
+                    else{
+                        return "远程";
+                    }
+                })()+"-</span>";
+            var tem = ljxHeroRole[index][3].split(",");
+            var str = [];
+            for(var  i = 0;i < ljxHeroTag.length; i++){
+                if(tem[i]=="1"){
+                    str.push(ljxHeroTag[i]);
+                }
+            }
+            info += str.join("-");
+            $("#ljxHeroBioRoles").html(info);
+            $(this).find("img:nth-child(1)").addClass("ljxHeroLargeShow");
+        });
+        $(".ljxHero_list li a").mouseout(function () {
+            $(this).find("img:nth-child(1)").removeClass("ljxHeroLargeShow");
+        });
+        $(".ljxTabMenuUl li").mouseover(function(){
+            $(".ljxTabMenuUl li:not(this)").find("a").removeClass("ljxTabMenuOn");
+            $(".ljxTabMenuUl li:not(this)").find("a").addClass("ljxTabMenuOff");
+            $(this).find("a").addClass("ljxTabMenuOn");
+        });
+        $(".ljxTabMenuUl li").mouseout(function(){
+            $(".ljxTabMenuUl li").find("a").removeClass("ljxTabMenuOn");
+            $(".ljxTabMenuUl li").find("a").addClass("ljxTabMenuOff");
+            $(".ljxTabMenuUl li:nth-child(1)").find("a").addClass("ljxTabMenuOn");
+        });
+        function filterChange(){
+            var index = $("#ljxFilterRole").find("option:selected").index() - 2;
+            var range = -1;
+            if($("#ljxFilterAttack").find("option:selected").text() =="近战"){
+                range = 1;
+            }
+            if($("#ljxFilterAttack").find("option:selected").text() =="远程"){
+                range = 0;
+            }
+            var hero = $("#ljxFilterName").find("option:selected");
+            if(hero.index() > 1){
+                $("#ljxFilterRole").prop("disabled","disabled");
+                $("#ljxFilterAttack").prop("disabled","disabled");
+                $(".ljxHero_list li a").each(function () {
+                    if($(this).prop("id").substr(5) != hero.val()){
+                        $(this).removeClass("animated flipInY");
+                        $(this).addClass("animated flipOutY");
+                    }
+                    else{
+                        $(this).removeClass("animated flipOutY");
+                        $(this).addClass("animated flipInY");
+                    }
+                })
+
+            }
+            else {
+                $("#ljxFilterRole").prop("disabled",false);
+                $("#ljxFilterAttack").prop("disabled",false);
+                if (index < 0) {
+                    if(range != -1) {
+                        $(".ljxHero_list li a").each(function () {
+                            if (parseInt(ljxHeroRole[$(this).index()][2]) != range) {
+                                $(this).removeClass("animated flipInY");
+                                $(this).addClass("animated flipOutY");
+                            }
+                        });
+                    }
+                    $(".ljxHero_list li a").each(function () {
+                        $(this).removeClass("animated flipOutY");
+                        $(this).addClass("animated flipInY");
+                    });
+                }
+                else {
+                    if(range != -1) {
+                        $(".ljxHero_list li a").each(function () {
+                            if (parseInt(ljxHeroRole[$(this).index()][2]) != range) {
+                                $(this).removeClass("animated flipInY");
+                                $(this).addClass("animated flipOutY");
+                            }
+                        });
+                    }
+                    $(".ljxHero_list li a").each(function () {
+                        $(this).removeClass("animated flipInY");
+                        var a = $(this);
+                        var role = $(this).data("category").split(",");
+                        if (role[index] == "0") {
+                            $(this).addClass("animated flipOutY");
+//                            $("ljxFilterName").find("options").each(function(a){
+//                                if($(this).text() == ljxHeroRole[a.index()][0]){
+//                                    $(this).prop("disabled","disabled");
+//                                }
+//                            })
+//                            $("ljxFilterName").find("options").eq(0).prop("disabled","disabled");
+                        }
+
+                    })
+                }
+            }
+        }
+        $("#ljxFilterRole").change(filterChange);
+        $("#ljxFilterAttack").change(filterChange);
+        $("#ljxFilterName").change(filterChange);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        .menu>li{
+            list-style: none;
+            position: relative;
+            float:left;
+            width:78px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+        }
+        .menu>li a{
+            color:#827c79;
+            text-decoration:none;
+            position: relative;
+            z-index: 1;
+        }
+        .menu{
+            font-size: 20px;
+            margin:0px;
+            padding:0px;
+            position:absolute;
+        }
+        #nav{
+            background:url("images/nav_bg.png") center no-repeat;
+            width:312px;
+            height:50px;
+            position: fixed;
+        }
+        .selected{
+            border-left: 1px solid grey;
+            border-right: 1px solid grey;
+            background:url("images/submenu.png") top no-repeat;
+            background-size: cover;
+            margin-left: -1px;
+            margin-right: -1px;
+        }
+        #content{
+            width:100%;
+        }
+        img{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<div id="nav">
+<ol id="menu" class="menu">
+    <li class="selected"><a href="javascript:;">首页</a></li>
+    <li><a href="javascript:;">资料</a></li>
+    <li><a href="javascript:;">视频</a></li>
+    <li><a href="javascript:;">下载</a></li>
+</ol>
+</div>
+<div id="content">
+    <div><img src="images/index1.PNG" ></div>
+    <div><img src="images/index2.PNG" ></div>
+    <div><img src="images/index3.PNG" ></div>
+    <div><img src="images/index4.PNG" ></div>
+</div>
+
+<script>
+      var menuText = ["首页","资料","咨讯","下载"];
+      $(function () {
+          $("#menu>li").mouseover(function () {
+              $(this).addClass("selected");
+              $(this).siblings().removeClass("selected");
+          });
+          $("#menu>li").click(function () {
+              $(document).scrollTop($("#content div:nth-child("+($(this).index()+1)+")").offset().top);
+          });
+      })
+</script>
+</body>
+</html>

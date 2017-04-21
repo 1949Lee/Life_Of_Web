@@ -1,0 +1,29 @@
+﻿#dota_top_nav_td { width: 100%; height: 78px; background: url(../images/main1307/top_nav.jpg) no-repeat center top;position:relative;}
+#dota_top_nav_td .nav_main { width: 1002px; height: 78px; margin: 0 auto;}
+#dota_top_nav_td .logo { width: 260px; height: 48px; padding-top: 15px; padding-left: 26px; float: left;margin:0}
+#dota_top_nav_td .logo a { display: block; width: 260px; height: 48px; text-indent: -10000px; overflow: hidden; background: url(../images/main1307/logo.jpg) no-repeat left top;}
+#dota_top_nav_td .nav { width: 696px; height: 78px; float: right;margin:0;padding:0;}
+#dota_top_nav_td .nav li { width: 87px; height: 78px; float: left; position: relative; top: 0; left: 0; z-index: 1009;list-style:none}
+#dota_top_nav_td .nav li a.link_nav { display: block; width: 87px; height: 40px; line-height: 20px; padding: 19px 0px 18px 0px; color: #999; text-align: center; font-size: 16px; font-weight: bolder; z-index: 200; position: absolute; top: 0; left: 0; text-indent: -10000px; overflow: hidden; background-image: url(../images/main1307/nav.jpg); background-repeat: no-repeat;}
+#dota_top_nav_td .nav li.btn01 a.link_nav { background-position: left top;}
+#dota_top_nav_td .nav li.btn02 a.link_nav { background-position: -87px top;}
+#dota_top_nav_td .nav li.btn03 a.link_nav { background-position: -174px top;}
+#dota_top_nav_td .nav li.btn04 a.link_nav { background-position: -261px top;}
+#dota_top_nav_td .nav li.btn05 a.link_nav { background-position: -348px top;}
+#dota_top_nav_td .nav li.btn06 a.link_nav { background-position: -435px top;}
+#dota_top_nav_td .nav li.btn07 a.link_nav { background-position: -522px top;}
+#dota_top_nav_td .nav li.btn08 a.link_nav { background-position: -609px top;}
+#dota_top_nav_td .nav li a:hover {  background-image: url(../images/main1307/nav.jpg); background-repeat: no-repeat; text-decoration: none;}
+#dota_top_nav_td .nav li.btn01 a.current { background-position: left -77px;}
+#dota_top_nav_td .nav li.btn02 a.current { background-position: -87px -77px;}
+#dota_top_nav_td .nav li.btn03 a.current { background-position: -174px -77px;}
+#dota_top_nav_td .nav li.btn04 a.current { background-position: -261px -77px;}
+#dota_top_nav_td .nav li.btn05 a.current { background-position: -348px -77px;}
+#dota_top_nav_td .nav li.btn06 a.current { background-position: -435px -77px;}
+#dota_top_nav_td .nav li.btn07 a.current { background-position: -522px -77px;}
+#dota_top_nav_td .nav li.btn08 a.current { background-position: -609px -77px;}
+#dota_top_nav_td .nav_tips_bg{width:87px;height:260px;position:absolute;z-index:99; background: url(../images/main1307/nav_bg.png) no-repeat left top;_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.dota2.com.cn/images/main1307/nav_bg.png',sizingMethod='scale');display: none;}
+#dota_top_nav_td .nav_tips { position: absolute; width: 87px; height: 260px; left: 0px; top: 0px; padding: 77px 0 0;  display: none; z-index: 100;}
+#dota_top_nav_td .nav_tips li { height: 30px;padding:0;margin:0;}
+#dota_top_nav_td .nav_tips li a { display: block; height: 30px; line-height: 30px; color: #999; font-size: 12px; padding: 0; margin: 0; text-align: center;}
+#dota_top_nav_td .nav_tips li a:hover {text-decoration: none;background:none; color: #b0290e;}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算矩形面积</title>
+</head>
+<body>
+长：<input type="text" id="length" placeholder="请输入矩形长度"><br><br>
+宽：<input type="text" id="width" ><br><br>
+<input type="button" value="计算面积" onclick="show()">
+<script>
+    function calculate(){
+        var l = document.getElementById("length").value;
+        var w = document.getElementById("width").value;
+        return l*w;
+    }
+    function show(){
+        alert(calculate());
+    }
+</script>
+</body>
+</html>

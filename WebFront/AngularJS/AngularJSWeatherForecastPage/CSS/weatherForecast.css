@@ -1,0 +1,19 @@
+html{
+    height:100%;
+}
+body{
+    display: block;
+    height:100%;
+    background: #8AF25E;
+    background-image: repeating-linear-gradient(30deg,
+    hsla(0,0%,100%,0.2),
+    hsla(0,0%,100%,0.2) 30px,
+    transparent 0,
+    transparent 60px
+    ),repeating-linear-gradient(-60deg,
+            hsla(0,0%,100%,0.2),
+            hsla(0,0%,100%,0.2) 30px,
+            transparent 0,
+            transparent 60px
+    );
+}

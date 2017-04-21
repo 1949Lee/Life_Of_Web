@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数添加table</title>
+</head>
+<body>
+<div id="show" style="width:200px;border:1px solid blue;"onclick="createTable(this,4,5,'red')">
+请单击到蓝框内来创建table并显示。
+</div>
+<script>
+     var div = document.getElementById("show");
+    function createTable(obj,row,col,color)
+    {
+        var str = "<table style='background: "+color+"'>";
+        for(var i = 0;i < row;i++){
+            str = str + "<tr style='height:30px;'>"
+            for(var j = 0;j < col;j++){
+                str += "<td style='width:30px;height: 30px;border:3px solid black;'></td>";
+            }
+            str += "<tr>";
+        }
+        obj.innerHTML += str;
+    }
+</script>
+</body>
+</html>

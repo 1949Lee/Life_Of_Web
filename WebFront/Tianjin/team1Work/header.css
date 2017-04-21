@@ -1,0 +1,140 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+#header{
+    height:90px;
+    background: black url(images/header-bg.gif) repeat-x 0 bottom;
+    width:80%;
+    position: absolute;
+    left:10%;
+    right:10%;
+    z-index: 1;
+}
+#logo{
+    width:22%;
+    height:80px;
+    position:absolute;
+    left: 5px;
+    top: 5px;
+    background-color: transparent;
+    background-image:url(images/logo/logo.png);
+    background-repeat: no-repeat;
+}
+#map{
+    width:100%;
+    height:20px;
+    color:white;
+    font-size: 20px;
+    background-image: url(images/logo/map.png);
+    background-size: 22% 20px;
+    background-repeat: no-repeat;
+
+}
+#map_hover{
+    width:30%;
+    height:200px;
+    position: absolute;
+    top:60px;
+    left:23%;
+    display: none;
+    background-color: grey;
+}
+#map_div:hover #map_hover{
+    float:left;
+    display: block;
+}
+#map_div{
+    width:8%;
+    height:20px;
+    margin-left: 23%;
+    margin-top: 40px;
+
+}
+#map_hover #letter{
+    width: 100%;
+}
+#map a{
+    text-decoration: none;
+    margin-left:30%;
+}
+#nav{
+    width:70%;
+    height: 75px;
+    position:absolute;
+    left: 30%;
+    top: 40px;
+}
+#nav_ul{
+    list-style: none;
+}
+#nav li {
+    float: left;
+    width: 10%;
+    height: 60px;
+    text-align: center;
+    margin-right: 5%;
+}
+#nav li a{
+    margin-right: 5%;
+}
+#nav li a:link, #map a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+
+}
+#nav li a:visited,#map a{
+    color: white;
+    text-decoration: none;
+
+}
+#map a:hover{
+    color: white;
+    text-decoration: none;
+}
+#map a:active{
+    color: white;
+    text-decoration: none;
+}
+
+#nav li a:hover {
+    color: #f5db2d;
+    /*display: block;*/
+    /*height:84%;*/
+    margin-left: -16%;
+    margin-top: -16%;
+    font-size: 25px;
+    /*border: none;*/
+    /*background:black;*/
+    /*border-right: 3px grey solid;*/
+    /*border-left: 3px grey solid;*/
+    /*background:-webkit-linear-gradient(top,transparent 25%,grey);*/
+    /*-webkit-box-reflect:below  0px -webkit-linear-gradient(top,transparent,white);*/
+}
+#nav li a:active {
+    color: white;
+}
+#nav li #nav_search{
+    color:#717779;
+    height:20px;
+    width:150%;
+    background-color:#1a1d1e;
+    border:1px solid #2c2f33;
+}
+#nav li #search_btn{
+    width:4%;
+    heght:15px;
+    float:left;
+    position:absolute;
+    margin-top:-25px;
+    margin-left: 73px;
+}
+#footer{
+    position: absolute;
+    bottom:20px;
+    text-align: justify;
+    color:gray;
+}
+
+

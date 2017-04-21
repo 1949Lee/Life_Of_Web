@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>青蛙爬井</title>
+</head>
+<body>
+一只青蛙不小心掉进的井里20，往上跳，上跳3米下滑2米，问跳几次能出来？<br>
+答：
+<script>
+    var y=0;
+    var jump = 0;
+    while(true) {
+        jump++;
+        y += 3;
+        if (y == 20) {
+            break;
+        }
+        y -= 2;
+    }
+    document.write(jump+"次");
+</script>
+</body>
+</html>

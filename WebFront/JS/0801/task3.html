@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩判断</title>
+</head>
+<body>
+<div style="width:500px;height: 300px;position:absolute;top:40%;left:40%">
+<input type="number" placeholder="请输入成绩" id="grade" ><br><br>
+    <label id="level"></label>
+    <br>
+    <button onclick="calculate()">判断</button>
+</div>
+<script>
+    function calculate(){
+        var grade=document.getElementById("grade").value;
+        var level=parseInt(grade/10);
+    switch(level)
+    {
+        case 6:
+        case 7:
+            document.getElementById("level").innerHTML="及格";
+            break;
+        case 8:
+            document.getElementById("level").innerHTML="良好";
+            break;
+        case 9:
+            document.getElementById("level").innerHTML="学霸";
+            break;
+        case 10:
+            document.getElementById("level").innerHTML="别人家孩子";
+            break;
+        default:
+            document.getElementById("level").innerHTML="不及格";
+    }
+    }
+</script>
+</body>
+</html>

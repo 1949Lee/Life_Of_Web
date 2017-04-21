@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript对象</title>
+</head>
+<body>
+
+
+<script>
+    function helicopter(){
+        this.hp = 100;
+        this.name = "";
+        this.ap = 100;
+        this.show = function(){
+            document.write("我是"+this.name+"，是第一种方式定义的的。我现在的血量为："+this.hp+"<br>");
+        };
+        this.cunrrentHp = function(){
+            document.write("还剩："+this.hp+"血<br>");
+        };
+        this.dameged = function(){
+            this.hp--;
+        };
+    }
+    function ship(){
+        var ship = new Object();
+        ship.hp = 100;
+        ship.name = "";
+        ship.ap = 100;
+        ship.show = function(){
+            document.write("我是"+ship.name+"，是第二种方式定义的。我现在的血量为："+this.hp+"<br>");
+        };
+        ship.cunrrentHp = function(){
+            document.write("还剩："+ship.hp+"血<br>")
+        };
+        ship.attacked = function(){
+            ship.hp--;
+        };
+        return ship;
+    }
+    var tank = {
+        hp : 100,
+        name : "天启坦克",
+        ap : 100,
+        show : function(){
+            document.write("我是"+this.name+"，是第三种方式定义的。我现在的血量为："+this.hp+"<br>");
+        },
+        move : function(x,y,x1,y1){
+            document.write("从("+x+","+y+"),移动到了("+x1+","+y1+")。<br>");
+        },
+        attack : function(index){
+            document.write("发射了第"+index+"炮<br>");
+        }
+    }
+Object.prototype.disappeared = function(){
+    document.write(this.name+"失踪了<br>");
+}
+    var h = new helicopter();
+    var s = ship();
+    h.name = "武装直升机";
+    s.name = "无畏级战舰 ";
+    s.disappeared();
+    h.show();
+    s.show();
+    tank.show();
+    s.disappeared();
+    tank.move(0,0,10,10);
+    for(var i = 0;i < 10;i++){
+        document.write(tank.name+":");
+        tank.attack(i+1);
+        h.dameged();
+        document.write(h.name+":");
+        h.cunrrentHp();
+    }
+</script>
+</body>
+</html>

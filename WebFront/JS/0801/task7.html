@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品竞猜游戏</title>
+</head>
+<body>
+商品价格竞猜游戏：
+现知商品价格在500-600之间
+有10次竞猜机会。<br>
+<!--用户输入>商品价格  对不起大了-->
+<!--用户输入<商品价格  对不起小了-->
+           <!--用户输入==商品价格  还等什么赶快买吧-->
+           <!--10次没猜对 GAME OVER-->
+           <!--当用户才对，提示用户输入Y继续游戏-->
+<script>
+    var flag="Y";
+    while(flag=="Y") {
+        var sum = 50;
+        for (var n = 0; n < 10; n++) {
+            var price = prompt("请输入价格");
+            if (price > sum) {
+                document.write("对不起大了<br>");
+            }
+            if (price < sum) {
+                document.write("对不起小了<br>");
+            }
+            if (price == sum) {
+                document.write("还等什么赶快买吧");
+                var tem = prompt("是否继续？输入Y继续，N退出");
+                if(tem!="Y"){
+                        flag="N";
+                }
+                break;
+            }
+            if(n==9){
+                document.write("Game Over<br>");
+                flag="N";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

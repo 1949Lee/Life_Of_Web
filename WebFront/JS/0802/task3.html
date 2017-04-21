@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符统计</title>
+</head>
+
+<body>
+<textarea  id="text" title=""  cols="100" rows="10"  wrap="virtual"></textarea>
+<br><br>
+<div id="length"></div>
+<button onclick="check()">确定</button>
+<script>
+    String.prototype.modify = function () {
+        return this.replace(/fuck|TMD|你妈的/g,function(x){
+            var r = '';
+            for ( var i=0;i<x.length;i++ )
+            {
+                r += '*';
+            }
+            return r;
+        });
+    }
+
+    function  check(){
+        var str = document.getElementById("text").value;
+        var length = str.length;
+        document.getElementById("length").innerHTML="共"+length+"个字";
+        str = str.modify();
+        document.getElementById("text").value = str;
+    }
+
+</script>
+</body>
+</html>

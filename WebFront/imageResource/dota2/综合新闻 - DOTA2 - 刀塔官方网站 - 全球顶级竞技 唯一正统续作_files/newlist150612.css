@@ -1,0 +1,110 @@
+/* public */
+html,body,form,ol,ul,li,div,p,dl,dt,dd,h1,h2,h3,h4,h5,h6,table,th,td,font,em,ins,span,a{margin:0; padding:0;}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea{font-size:100%;font-weight:normal}
+html{_filter:expression(document.execCommand("BackgroundImageCache",false,true));}
+ul,li,div,dl,dt,dd{list-style:none;}
+h1.wm-public{height:0px; line-height:0px; font-size:0px;}
+a{text-decoration:none;}
+a{blr:expression(this.onFocus=this.blur());outline:none;}
+a:hover{text-decoration:underline;}
+img{border:0;}
+font,em{font-style:normal; font-family:\5b8b\4f53;}
+label{vertical-align:middle; font-family:tahoma;}
+textarea,input{resize:none; outline:none;}
+textarea{overflow:auto;}
+ins{float:right; text-decoration:none; font-weight:normal;}
+.pub_wsp{word-wrap:break-word; word-break:break-all;}
+.pub_abso{vertical-align:middle;}
+.pub_clr{clear:both;font-size:0;height:0;line-height:0;overflow:hidden;}
+.pub_yh{font-family:"Microsoft YaHei";}
+.none{display:none;}
+body{background:none; font-size:12px; font-family:Verdana,Geneva,sans-serif,\5b8b\4f53;}
+#header,#main,#footer{margin:0 auto; width:1100px;}
+#content{min-width:1100px; background:#000 url(../images/newlist150612/bg1.jpg) no-repeat center 0;}
+
+/* page background */
+#wrap{background:url(../images/newlist150612/bg2.jpg) no-repeat center 1928px;}
+.navList{position:absolute; width:200px; left:20px; top:326px; left:32px; color:#FFF; font-size:14px;}
+.navList a{color:#b54029; text-decoration:underline;}
+.navList em{padding:0 6px;}
+
+/* header */
+#header{position:relative; height:380px;}
+#header img{display:block;}
+
+/* main */
+#main{position:relative; overflow:hidden;}
+#footerIframe {padding:20px 0; background: #000;}
+
+/***********menulist****************/
+.menulist{ clear:both; width:1100px;background:url(../images/newlist150612/navbg_hover.jpg) repeat;height:91px;}
+.menulist ul{ overflow:hidden;}	
+.menulist li{ float:left; border-right:1px solid #3a4446; width:274px;}
+.menulist li a{ display:block; width:274px; height:81px; line-height:81px; background:url(../images/newlist150612/navbg.jpg) repeat; color:#fff; font-size:24px; text-align:center; font-family:"微软雅黑";}
+.menulist li .on{ background:url(../images/newlist150612/navbg_hover.jpg) repeat; text-decoration:none;}
+.menulist li a:hover{ text-decoration:none;}
+/******.menulist li a:hover,*******/
+.newbox{ clear:both; background:#383f41; border:1px solid #3a4446; padding:37px 0 37px 37px;margin-bottom: 100px; width:1061px;}
+	.newcon{ display:none; width:1060px;}
+	.newlist{ display:block;}
+	.newlist ul,.official ul,.lastnews ul,.dariy ul{ overflow:hidden;}
+	.newlist ul	li,.official ul	li,.lastnews ul	li,.dariy ul li{ float:left; width:493px; margin-right:37px; margin-bottom:37px; overflow:hidden; background:rgb(37,44,45); height:503px;}
+			.ullist	li div{ padding:18px; border-top:3px solid #872f10;}
+				.imgpic{ width:493px; height:327px;  overflow:hidden;}
+				.imgpic a{ display:block; position:relative;}
+				.imgpic a .imgshow{ display:none; position:absolute; top:0px; left:0px; z-index:2;}
+				.imgpic a img{ height:327px; width:493px;}
+				
+			.ullist li h1{ font-size:18px; overflow:hidden;}
+			.ullist li h1 a{ color:#fff;font-family:"微软雅黑";}
+			.ullist li h1 a:hover,.ullist li h1 .on{color:#ed3f02; }
+					.time{ clear:both;background:url(../images/newlist150612/time.png) no-repeat; width:155px; height:24px;margin-top:10px; overflow:hidden;}
+					.time a{ display:block; color:#fff; font-size:14px; padding-left:37px; height:24px; line-height:24px;}
+					.time a:hover{ text-decoration:none;}
+					.desc{ color:rgb(158,159,159); font-size:12px; line-height:24px; clear:both; margin-top:10px; overflow:hidden; height:72px;}
+						
+.page{height:24px; line-height:24px; text-align:center; font-family:"微软雅黑",Simsun; font-size:14px; margin-top:20px; }
+.page,.page a{color:#fff;}
+.page a{ display:inline-block; background:#282828;}
+.page a:hover{ background:#b54029;}
+.page a,.page span{padding:0 5px;}
+.page .current{color:#F00; font-weight:bold;}
+.page .prev,.page .next{color:#000; font-weight:normal;}			
+	
+		.go_top {position: fixed;left: 50%;bottom: 65px;margin-left: 550px;cursor: pointer; display:none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

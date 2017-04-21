@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星座运势API接口练习</title>
+    <style>
+        ol{
+            list-style: square;
+        }
+    </style>
+</head>
+<body>
+<select id="constellation">
+    <option>水瓶座</option>
+    <option>双鱼座</option>
+    <option>白羊座</option>
+    <option>金牛座</option>
+    <option>双子座</option>
+    <option>巨蟹座</option>
+    <option>狮子座</option>
+    <option>处女座</option>
+    <option>天秤座</option>
+    <option>天蝎座</option>
+    <option>射手座</option>
+    <option>摩羯座</option>
+</select>
+<select id="checkTime">
+    <option>today</option>
+    <option>tomorrow</option>
+    <option>week</option>
+    <option>nextweek</option>
+    <option>month</option>
+    <option>year</option>
+</select>
+<button onclick="luckyCheck()">查看运势</button>
+<br><br>
+<div id="result"></div>
+
+
+
+<script>
+
+
+
+
+
+    var http = null;//AJAX异步请求变量
+    function luckyCheck(){
+        var cons = document.getElementById("constellation").value;
+        var checkTime = document.getElementById("checkTime").value;
+        var result = document.getElementById("result");
+        var apiKey = "95dd67f7d643a6584c94c548d8f04b81";
+        var url = "http://apis.baidu.com/bbtapi/constellation/constellation_query?consName="+
+               cons+ "&&type="+checkTime;
+        if(window.ActiveXObject){//低版本IE浏览器
+            http = new window.ActiveXObject("Microsoft.XMLHTTP");
+        }
+        else{//其他主流浏览器
+            http = new XMLHttpRequest();
+        }
+        http.open("get",url,true);//建立连接
+        http.setRequestHeader("apikey",apiKey);//设置APIkey
+        http.send(null);//发送请求
+        http.onreadystatechange = function () {
+            var tips = document.createElement("div");
+            if (http.readyState == 4 && http.status == 200) {
+                var obj = JSON.parse(http.response);
+                console.log(obj);
+                switch(checkTime){
+                    case "today":
+                        var str = cons+"今日运势";
+                        str = str + "<ol>";
+                        str = str + "<li>时间:"+obj.datetime+"</li>";
+                        str = str + "<li>综合信息:"+obj.summary+"</li>";
+                        str = str + "<li>综合指数:"+obj.all+"</li>";
+                        str = str + "<li>速配星座:"+obj.QFriend+"</li>";
+                        str = str + "<li>幸运色:"+obj.color+"</li>";
+                        str = str + "<li>健康指数:"+obj.health+"</li>";
+                        str = str + "<li>爱情指数:"+obj.love+"</li>";
+                        str = str + "<li>财运指数:"+obj.money+"</li>";
+                        str = str + "<li>工作指数:"+obj.work+"</li>";
+                        str = str + "<li>幸运数字:"+obj.number+"</li>";
+                        str = str + "</ol>";
+                        result.innerHTML=str;
+                        break;
+                    case "tomorrow":
+                        var str = cons+"明日运势";
+                        str = str + "<ol>";
+                        str = str + "<li>时间:"+obj.datetime+"</li>";
+                        str = str + "<li>综合信息:"+obj.summary+"</li>";
+                        str = str + "<li>综合指数:"+obj.all+"</li>";
+                        str = str + "<li>速配星座:"+obj.QFriend+"</li>";
+                        str = str + "<li>幸运色:"+obj.color+"</li>";
+                        str = str + "<li>健康指数:"+obj.health+"</li>";
+                        str = str + "<li>爱情指数:"+obj.love+"</li>";
+                        str = str + "<li>财运指数:"+obj.money+"</li>";
+                        str = str + "<li>工作指数:"+obj.work+"</li>";
+                        str = str + "<li>幸运数字:"+obj.number+"</li>";
+                        str = str + "</ol>";
+                        result.innerHTML=str;
+                        break;
+                    case "week":
+                        var str = cons+"本周运势";
+                        str = str + "<ol>";
+                        str = str + "<li>时间:"+obj.date+"</li>";
+                        str = str + "<li>第"+obj.weekth+"周</li>";
+                        str = str + "<li>"+obj.health+"</li>";
+                        str = str + "<li>"+obj.job+"</li>";
+                        str = str + "<li>"+obj.love+"</li>";
+                        str = str + "<li>"+obj.money+"</li>";
+                        str = str + "<li>"+obj.work+"</li>";
+                        str = str + "</ol>";
+                        result.innerHTML=str;
+                        break;
+                    case "nextweek":
+                        var str = cons+"下周运势";
+                        str = str + "<ol>";
+                        str = str + "<li>时间:"+obj.date+"</li>";
+                        str = str + "<li>第"+obj.weekth+"周</li>";
+                        str = str + "<li>"+obj.health+"</li>";
+                        str = str + "<li>"+obj.job+"</li>";
+                        str = str + "<li>"+obj.love+"</li>";
+                        str = str + "<li>"+obj.money+"</li>";
+                        str = str + "<li>"+obj.work+"</li>";
+                        str = str + "</ol>";
+                        result.innerHTML=str;
+                        break;
+                    case "month":
+                        var str = cons+"本月运势";
+                        str = str + "<ol>";
+                        str = str + "<li>时间:"+obj.date+"</li>";
+                        str = str + "<li>综合运势:"+obj.all+"</li>";
+                        str = str + "<li>健康:"+obj.health+"</li>";
+                        str = str + "<li>爱情:"+obj.love+"</li>";
+                        str = str + "<li>财运:"+obj.money+"</li>";
+                        str = str + "<li>工作:"+obj.work+"</li>";
+                        str = str + "</ol>";
+                        result.innerHTML=str;
+                        break;
+                    case "year":
+                        var str = cons+"今年运势";
+                        str = str + "<ol>";
+                        str = str + "<li>"+obj.date+":"+obj.mima.info+"</li>";
+                        str = str + "<li>综合运势:"+obj.mima.text+"</li>";
+                        str = str + "<li>事业:"+obj.career[0]+"</li>";
+                        str = str + "<li>财运:"+obj.finance[0]+"</li>";
+                        str = str + "<li>健康:"+obj.health[0]+"</li>";
+                        str = str + "<li>感情:"+obj.love[0]+"</li>";
+                        str = str + "<li>幸运石:"+obj.luckyStone+"</li>";
+                        str = str + "</ol>";
+                        result.innerHTML=str;
+                        break;
+                }
+            }
+        }; //设置回调函数
+    }
+
+</script>
+</body>
+</html>

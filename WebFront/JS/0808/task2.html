@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+<button onclick="start()">开始倒计时</button>
+<h1 id="count"></h1>
+
+<script>
+    var t ;
+    var h = document.getElementById("count");
+    var count = 50;
+    function start(){
+         t= setInterval(decrease,1000);
+        h.innerHTML = count;
+    }
+    function decrease(){
+        if(!(--count)){
+            h.innerHTML = count;
+            window.location = "http://www.h5edu.cn";
+        }
+        else{
+            h.innerHTML = count;
+        }
+    }
+</script>
+</body>
+</html>

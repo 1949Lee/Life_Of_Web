@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style>
+        .commentArea .media-list > li.media > a.media-left > span {
+            font-size: 4rem;
+        }
+
+        .commentArea .media-list > li.media > .media-body > .media-heading > span {
+            color: #0f0f0f;
+            font-size: 1.5rem;
+        }
+
+        .commentArea .media-list > li.media > .media-body > .media-heading > div > a > span {
+            color: #0f0f0f;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="panel panel-default ">
+                <!-- Default panel contents -->
+                <div class="panel-heading">我要评论</div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea name="content" id="commentContent" cols="30" rows="5"
+                                      class="form-control"></textarea>
+                        </div>
+                        <div class="form-group pull-right">
+                            <input type="button" id="commentBtn" name="comment" class="btn btn-default" value="发表评论">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-10 commentArea">
+            <ul class="media-list">
+
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 text-center col-sm-offset-2">
+            <nav class="pagerBtnNav">
+                <ul class="pagination pagination-lg pagerBtn">
+                    <!--<li><a href="#">&laquo;</a></li>-->
+                    <!--<li class="active"><a href="#">1</a></li>-->
+                    <!--<li><a href="#">2</a></li>-->
+                    <!--<li><a href="#">3</a></li>-->
+                    <!--<li><a href="#">4</a></li>-->
+                    <!--<li><a href="#">&raquo;</a></li>-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<script src="bootstrap/jquery-1.12.3.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script>
+    $(function () {
+        var CommentPage = [];
+        var CommentSum = 0;
+        $("body").on("click", ".navbar-nav > li", function () {
+            $(this).siblings().removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".pagerBtnNav").on("click", ".pagerBtn > li.pageIndex", function () {
+            refreshCommentArea(CommentPage[$(this).index()-1]);
+            $(this).siblings().removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".pagerBtnNav").on("click", ".pagerBtn > li.prePage,.pagerBtn > li.nextPage",
+                function () {
+                    $(this).blur();
+        });
+        function refreshCommentArea(data) {
+            var comments = "";
+            if (data != null) {
+                for (i = 0; i < data.length; i++) {
+                    var str = "<li class=\"media\" >" +
+                            "<a class=\"media-left\" href=\"#\">" +
+                            "<span class=\"glyphicon glyphicon-user\"></span>" +
+                            "</a>" +
+                            "<div class=\"media-body\">" +
+                            "<h3 class=\"media-heading\">" + data[i].userName + "<br><span>发表于" + data[i].submitTime + "</span>" +
+                            "<div class='pull-right'>" +
+                            "<a href='javascript:;'><span class='glyphicon glyphicon-thumbs-up'></span></a>" +
+                            "<button class='btn btn-default btn-sm'>回复</button>" +
+                            "</div>" +
+                            "</h3>" +
+                            "<div class=\"panel panel-default \">" +
+                            "<div class=\"panel-body\">" +
+                            data[i].commentContent +
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</li>";
+                    comments += str;
+                }
+            } else {
+                comments = "<h2>暂无评论</h2>";
+            }
+            $(".commentArea>ul").html(comments);
+        }
+
+        function initContent() {
+            var header = $.ajax({
+                url: './comment.php',// 跳转到 action
+                data: {
+                    init: "yes",
+                    refresh: "yes"
+                },
+                type: 'post',
+                cache: false,
+                dataType: 'json',//AJAX返回JSON类型，若服务器端返回的不是JSON对象，则执行error函数
+                success: function (response) {
+                    $("body").prepend($(response["navBar"]));
+                    refreshPager(response.comments,"init");
+                    refreshCommentArea(CommentPage[0]);
+                },
+                error: function () {
+                    alert("异常！");
+                }
+            });
+
+        };
+        initContent();
+        $('#commentBtn').click(function () {
+            $(this).bind('blur', function () {
+                return true;
+            });
+            var element = this;//保存下当前的按钮，为以后失去焦点做准备
+            $.ajax({
+                url: "./comment.php",
+                type: "post",
+                cache: false,
+                data: {
+                    content: $("#commentContent").val(),
+                    refresh: "yes"
+                },
+                dataType: 'json',
+                success: function (response) {
+//                    console.log(response);
+                    refreshPager(response.comments,"pageBtn");
+                    refreshCommentArea(CommentPage[0]);
+                    $("#commentContent").val("");
+                    $(element).blur();
+                },
+                error: function () {
+                    alert("异常！");
+                }
+            })
+        });
+        function refreshPager(data,type) {
+            if (type == "init") {
+                var length = 0;
+                if (data.length <= 5) {
+                    length = 1;
+                }
+                if (data.length % 5 == 0) {
+                    length = data.length / 5;
+                } else {
+                    length = parseInt(data.length / 5) + 1;
+                }
+                CommentPage = new Array(length);
+                if (length == 1) {
+                    CommentPage[0] = new Array(data.length);
+                    for (var j = 0; j < CommentPage[0].length; j++) {
+                        CommentPage[0][j] = data[j];
+                    }
+                } else {
+                    for (var i = 0; i < CommentPage.length; i++) {
+                        if ((data.length - i * 5) >= 5) {
+                            CommentPage[i] = new Array(5);
+                            for (var j = 0; j < 5; j++) {
+                                CommentPage[i][j] = data[i * 5 + j];
+                            }
+                        } else {
+                            CommentPage[i] = new Array(data.length - i * 5);
+                            for (var j = 0; j < CommentPage[i].length; j++) {
+                                CommentPage[i][j] = data[i * 5 + j];
+                            }
+                        }
+                    }
+                }
+                if (length != 1) {
+                    var pagerLi = "";
+                    pagerLi += "<li class='prePage' ><a href='javascript:;'>&laquo;</a></li>" +
+                            "<li class='active pageIndex'><a href='javascript:;'>1</a></li>";
+                    for (var i = 1; i < length; i++) {
+                        pagerLi += "<li class='pageIndex'><a href='javascript:;'>" + (i + 1) + "</a></li>";
+                    }
+                    pagerLi += "<li class='nextPage'><a href='javascript:;'>&raquo;</a></li>";
+                    $(".pagerBtn").html(pagerLi);
+                }
+                CommentSum = data.length;
+            }
+            else if("pageBtn"){
+                if(CommentSum < data.length){
+                    var front = CommentSum;
+                    if(CommentPage[CommentPage.length-1].length < 5){
+                        if((data.length - CommentSum) >= 5) {
+                            for (var i = CommentPage[CommentPage.length - 1].length - 1; i < 5; i++, front++) {
+                                CommentPage[CommentPage.length - 1].push(data[front]);
+                            }
+                        }else{
+                            for (var i = CommentPage[CommentPage.length - 1].length - 1; i < data.length - CommentSum; i++, front++) {
+                                CommentPage[CommentPage.length - 1].push(data[front]);
+                            }
+                            CommentSum = data.length;
+                            return;
+                        }
+                    }
+                    var length = 0;
+                    var sum = data.length-front;
+                    if (sum % 5 == 0) {
+                        length = sum / 5;
+                    } else {
+                        length = parseInt(sum / 5) + 1;
+                    }
+                    var addCommentPage = new Array(length);
+                    if (length == 1) {
+                        addCommentPage[0] = new Array(sum);
+                        for (var j = 0; j < addCommentPage[0].length; j++,front++) {
+                            addCommentPage[0][j] = data[front];
+                        }
+                    } else {
+                        for (var i = 0; i < addCommentPage.length ; i++) {
+                            if ((sum - i * 5) > 5) {
+                                addCommentPage[i] = new Array(5);
+                                for (var j = 0; j < 5; j++,front++) {
+                                    addCommentPage[i][j] = data[front];
+                                }
+                            } else {
+                                addCommentPage[i] = new Array(sum - i * 5);
+                                for (var j = 0; j < addCommentPage[i].length; j++,front++) {
+                                    addCommentPage[i][j] = data[i * 5 + j];
+                                }
+                            }
+                        }
+                    }
+                    CommentPage  = CommentPage.concat(addCommentPage);
+                    length = CommentPage.length;
+                    if (length != 1) {
+                        var pagerLi = "";
+                        pagerLi += "<li class='prePage' ><a href='javascript:;'>&laquo;</a></li>" +
+                                "<li class='active pageIndex'><a href='javascript:;'>1</a></li>";
+                        for (var i = 1; i < length; i++) {
+                            pagerLi += "<li class='pageIndex'><a href='javascript:;'>" + (i + 1) + "</a></li>";
+                        }
+                        pagerLi += "<li class='nextPage'><a href='javascript:;'>&raquo;</a></li>";
+                        $(".pagerBtn").html(pagerLi);
+                    }
+                    CommentSum = data.length;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

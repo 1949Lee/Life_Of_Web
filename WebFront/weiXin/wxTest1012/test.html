@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script src="jweixin-1.0.0.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="client/css/weui.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        a p.scaleFont {
+            font-size: 2rem;
+        }
+
+        h4.thumbImgMargin, ul.thumbImgMargin {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        h4.media-heading span:not(:first-child) {
+            margin-left: 20px;
+            color: #999999;
+            font-size: 12px;
+        }
+        img.head{
+            width: 64px;
+            height:64px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(function () {
+        $('body').append('<button class="moreTopImages">adasd</button>');
+        $('.moreTopImages').on('click',function () {
+            alert();
+        });
+    })
+</script>
+</body>
+</html>

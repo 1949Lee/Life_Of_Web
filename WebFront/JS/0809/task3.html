@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气</title>
+    <style>
+        div{
+            width:100%;
+            border:1px solid red;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+<div id="weather">
+
+</div>
+<button id="localWeather" onclick="showLocalWeather()">本地天气</button><br><br>
+
+<input type="text" placerholder="请输入城市名，如：北京市">
+<button id="otherCityWeather">其他城市</button>
+
+
+
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script>
+    var div = document.getElementById("weather");
+    var city;
+    function confirmLocal() {
+        var url = "http://apis.baidu.com/apistore/iplookupservice/iplookup?ip=" + returnCitySN["cip"];
+        if (window.ActiveXObject) {//低版本IE浏览器
+            http = new window.ActiveXObject("Microsoft.XMLHTTP");
+        }
+        else {//其他主流浏览器
+            http = new XMLHttpRequest();
+        }
+        http.open("get", url, true);//建立连接
+        http.setRequestHeader("apikey", "95dd67f7d643a6584c94c548d8f04b81");//设置APIkey
+        http.send(null);//发送请求
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                var obj = JSON.parse(http.response);
+                city = obj.retData.city;
+                div.innerHTML = city;
+                console.log(obj);
+            }
+        }
+    }
+    function showLocalWeather(){
+//        confirmLocal();
+        var url = "http://apis.baidu.com/apistore/iplookupservice/iplookup?ip=" + returnCitySN["cip"];
+        if (window.ActiveXObject) {//低版本IE浏览器
+            http = new window.ActiveXObject("Microsoft.XMLHTTP");
+        }
+        else {//其他主流浏览器
+            http = new XMLHttpRequest();
+        }
+        http.open("get", url, true);//建立连接
+        http.setRequestHeader("apikey", "95dd67f7d643a6584c94c548d8f04b81");//设置APIkey
+        http.send(null);//发送请求
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                var obj = JSON.parse(http.response);
+                city = obj.retData.city;
+                div.innerHTML = city;
+                console.log(obj);
+                url = "http://apis.baidu.com/apistore/weatherservice/citylist?cityname=" + city;
+                if (window.ActiveXObject) {//低版本IE浏览器
+                    http = new window.ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else {//其他主流浏览器
+                    http = new XMLHttpRequest();
+                }
+                http.open("get", url, true);//建立连接
+                http.setRequestHeader("apikey", "95dd67f7d643a6584c94c548d8f04b81");//设置APIkey
+                http.send(null);//发送请求
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        var obj = JSON.parse(http.response);
+                        console.log(obj);
+                    }
+                }
+            }
+        }
+
+    }
+</script>
+</body>
+</html>

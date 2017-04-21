@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ-AJAX手机归属地</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="animate.css">
+</head>
+<body>
+<input type="text" placeholder="请输入手机号查询">&nbsp;&nbsp;
+<input type="button" value="查询">
+
+<script>
+    $(function () {
+        $("[type=button]").click(function () {
+            var phone = $("[type=text]").val();
+            $.ajax({
+                url: 'http://apis.baidu.com/chazhao/mobilesearch/phonesearch?phone='+phone+'',
+                headers: {apikey: '95dd67f7d643a6584c94c548d8f04b81'},
+                success: function (obj) {
+                    console.log(obj);
+                    alert(obj.data.province+"省"+obj.data.city);
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

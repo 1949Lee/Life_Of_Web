@@ -1,0 +1,32 @@
+﻿@charset "utf-8";
+/*******author:Zhongwei.Zhang**************/
+html{ min-width:1002px;}
+body{ margin:0; padding:0; font-size:12px; font-family:"宋体","微软雅黑",Arial, Helvetica, sans-serif; background-color:#141516; color:#6e6e6e;}
+div,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,input,select,textarea,table,td{ margin:0; padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+area{outline:none;}
+img{ border:0;}
+ol,ul{list-style:none;}
+a{ font-family:"微软雅黑","宋体",Arial, Helvetica, sans-serif; text-decoration:none;outline:none;}
+a:hover{ text-decoration:underline}
+table{ border-collapse:collapse; border-spacing:0;}
+.clearfix:after {content:"";display:block;height:0;clear:both;} 
+.clearfix {zoom:1;}
+/* bar */
+#bar_nav{ width:44px; height:385px;}
+.bar_link{ width:44px; height:180px; background-image:url(../images/bar_link.png)}
+.bar_link a{ display:block; width:44px; height:60px; background:url(about:blank); text-indent:-9999px;}
+.bar_shaixuan{ width:44px; height:180px; background-image:url(../images/bar_shaixuan.png)}
+.shaixuan_box{ position:relative; display:block;width:44px; height:60px; background:url(about:blank);}
+#s_liliang.on{ background:url(../images/bar_shaixuan.png) -44px 0 no-repeat;}
+#s_minjie.on{ background:url(../images/bar_shaixuan.png) -44px -60px no-repeat;}
+#s_zhili.on{ background:url(../images/bar_shaixuan.png) -44px -120px no-repeat;}
+.bar_shai_pop{ display:none; position:absolute; width:360px; height:180px; left:-360px; background-color:#262829;}
+.bar_shai_pop1{ top:0;}
+.bar_shai_pop2{ top:-60px;}
+.bar_shai_pop3{ top:-120px;}
+.bar_shai_pop_t{ height:20px; padding:10px 0 0 10px; font:normal 14px "微软雅黑"; color:#c0c0c0;}
+.bar_pop_ul{ width:352px; margin:0 auto; overflow:hidden;}
+.bar_pop_ul li{ float:left; display:inline; width:72px; height:60px; margin:10px 8px 0; text-align:center;}
+.bar_pop_ul li img{ display:block; width:68px; height:36px; border:2px solid #020202;}
+.bar_pop_ul li a{ color:#c0c0c0}

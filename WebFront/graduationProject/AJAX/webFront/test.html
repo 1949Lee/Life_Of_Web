@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装AJAX</title>
+</head>
+<body>
+<img id='test' src="../service/verificationCode.php?weight=150&height=50" alt="">
+<!--<img id='test' src="" alt="">-->
+
+<script src="jquery/jquery-3.1.0.min.js"></script>
+<script src="js/ajax.js"></script>
+<script>
+    $(function () {
+//        $('#test').attr("src",ServiceUrl()+'verificationCode.php?weight=150&height=50')
+//        ajaxByJQ.invokeServer('universalHandler.php', {urlClass: 'verificationCode', method: 'createCode',weight:'150',height:'50'}, function (data) {
+//                     console.log(data);
+//                    $("#test").attr('src',data);
+//                },
+//                {
+//                    cache: false,
+//                    dataType: 'jsonp',
+//                    //failedFun:function(){}
+//                    // type:get或post
+//                }
+//        );
+        $("#test").click(function(){
+            $(this).attr("src",'res/img/verificationCode.php?' + Math.random()+'weight=150&height=50');
+        });
+    });
+</script>
+</body>
+</html>

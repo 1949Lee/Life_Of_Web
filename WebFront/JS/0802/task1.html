@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组排序</title>
+</head>
+<body>
+<div style="border:3px solid red;width:500px;height: 300px;margin:0 auto;margin-top: 100px; ">
+
+    原始数组：<label id="initial"></label><br>
+    最高分：<label id="max"></label><br>
+    最低分：<label id="min"></label><br>
+    平均分：<label id="average"></label><br>
+    总分：<label id="sum"></label><br>
+    冒泡排序：<label id="bubble_sort"></label><br>
+    选择排序：<label id="choose_sort"></label><br>
+</div>
+<script>
+    //    原始数组
+    var array = [83, 75, 87, 67, 60, 77, 90, 97, 89, 80];
+    var index;//存储最高分，最低分的元素的下标
+    //    打印原始数组
+    for (var i = 0; i < array.length; i++) {
+        var str = array[i] + ",";
+        document.getElementById("initial").innerHTML += str;
+    }
+    //      求最高分
+    index = 0;
+    for (var i = 1; i < array.length; i++) {
+        if (array[index] < array[i]) {
+            index = i;
+        }
+    }
+    document.getElementById("max").innerHTML = array[index];
+    index = 0;
+    //      求最低分
+    for (var i = 1; i < array.length; i++) {
+        if (array[index] > array[i]) {
+            index = i;
+        }
+    }
+    document.getElementById("min").innerHTML = array[index];
+    //   数组求和
+    var sum = 0;
+    for (var i = 1; i < array.length; i++) {
+        sum += array[i];
+    }
+    document.getElementById("average").innerHTML = sum / 10;//平均数
+    document.getElementById("sum").innerHTML = sum;//总和
+    //    冒泡排序——升序
+    for (var i = 1; i < array.length; i++) {
+        for (var j = 0; j < array.length - i; j++) {
+            if (array[j] > array[j + 1]) {
+                var tem = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = tem;
+            }
+        }
+    }
+    //打印结果
+    document.getElementById("bubble_sort").innerHTML ="<br>升序——";
+    for (var i = 0; i < array.length; i++) {
+        var str = array[i] + ",";
+        document.getElementById("bubble_sort").innerHTML += str;
+    }
+    document.getElementById("bubble_sort").innerHTML +="<br>降序——";
+    //恢复原始数组
+    array = [83, 75, 87, 67, 60, 77, 90, 97, 89, 80];
+    //    冒泡排序——降序
+    for (var i = 1; i < array.length; i++) {
+        for (var j = 0; j < array.length - i; j++) {
+            if (array[j] < array[j + 1]) {
+                var tem = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = tem;
+            }
+        }
+    }
+    //打印结果
+    for (var i = 0; i < array.length; i++) {
+        var str = array[i] + ",";
+        document.getElementById("bubble_sort").innerHTML += str;
+    }
+    //恢复原始数组
+    array = [83, 75, 87, 67, 60, 77, 90, 97, 89, 80];
+    //选择排序——升序
+    for(var i = 0;i < array.length -1 ;i++){
+        for(var j = i+1;j < array.length;j++){
+            if(array[i] > array[j]){
+                var tem = array[i];
+                array[i] = array[j];
+                array[j] = tem;
+            }
+        }
+    }
+    //打印结果
+    document.getElementById("choose_sort").innerHTML ="<br>升序——";
+    for (var i = 0; i < array.length; i++) {
+        var str = array[i] + ",";
+        document.getElementById("choose_sort").innerHTML += str;
+    }
+    document.getElementById("choose_sort").innerHTML +="<br>降序——";
+    //恢复原始数组
+    array = [83, 75, 87, 67, 60, 77, 90, 97, 89, 80];
+    //选择排序——降序
+    for(var i = 0;i < array.length - 1;i++){
+        for(var j = i+1;j < array.length;j++){
+            if(array[i] < array[j]){
+                var tem = array[i];
+                array[i] = array[j];
+                array[j] = tem;
+            }
+        }
+    }
+    //打印结果
+    for (var i = 0; i < array.length; i++) {
+        var str = array[i] + ",";
+        document.getElementById("choose_sort").innerHTML += str;
+    }
+
+
+</script>
+</body>
+</html>

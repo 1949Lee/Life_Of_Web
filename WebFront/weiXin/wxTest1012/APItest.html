@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>经纬度转换实际地址</title>
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+</head>
+<body>
+
+<script>
+    geocoder = new qq.maps.Geocoder();
+    var latLng = new qq.maps.LatLng( 39.13333, 117.20000);
+    geocoder.getAddress(latLng);
+    //设置服务请求成功的回调函数
+    geocoder.setComplete(function(result) {
+//        console.log(result.detail);
+//        if('北京市' == ('天津市'|'北京市'|'重庆市'|'上海市'|'香港特别行政区'|'澳门特别行政区')) {
+            console.log(result.detail.addressComponents.province + '·' + result.detail.addressComponents.city + result.detail.addressComponents.district + result.detail.addressComponents.street);
+//        }
+    });
+</script>
+</body>
+</html>

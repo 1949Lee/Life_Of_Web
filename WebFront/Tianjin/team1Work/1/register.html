@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>加入极光</title>
+    <!--<link rel="stylesheet" href="header.css">-->
+    <link rel="stylesheet" href="register.css">
+    <style>
+        @font-face {
+            font-family: 'newfont';
+            src:url("font/时尚中黑简体.ttf");
+        }
+        body{
+            font-family: 'newfont';
+        }
+    </style>
+</head>
+<body>
+<div id="bg">
+<div id="header">
+    <div id="logo">
+
+    </div><span>成为极光二手车的一员</span>
+    <ul id="login">
+        <li><a  class="link_nav" href="javascript:;">直接登录</a></li>
+        <li><a  class="link_nav" href="javascript:;">已有账号？</a></li>
+
+    </ul>
+</div>
+<div id="content">
+
+    <div id="register_box">
+        <form>
+             <table id="info">
+                 <tr>
+                     <td><span>* 用户名:</span></td>
+                     <td>
+                         <input class="info_input" type="text" placeholder="请输入用户名">
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>* 密码:</td>
+                     <td>
+                         <div>
+                         <input class="info_input" type="password" placeholder="请输入密码">
+                         <ul id="level">
+                             <li id="level_easy">弱</li>
+                             <li id="level_medium">中</li>
+                             <li id="level_hard">强</li>
+                         </ul>
+                         </div>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>* 手机号:</td>
+                     <td>
+                         <div id="tel_div">
+                         <input class="info_input" type="tel" placeholder="请输入手机号">
+                         <br><span>港澳台及海外用户，<a href="javascript:;">点击这里</a></span>
+                         </div>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>* 验证码:</td>
+                     <td>
+                         <div id="code_iv">
+                         <button class="info_input"id="code_btn" type="button">免费获取验证码</button>
+                         <input class="info_input" type="text" placeholder="请输入6位验证码">
+                         <br><span>验证码24小时内有效</span>
+                         </div>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>* 性别:</td>
+                     <td>
+                         <input class="info_input" type="radio" name="sex" id="man_radio">男
+                         <input class="info_input" type="radio" name="sex" id="woman_radio">女
+                     </td>
+                 </tr>
+
+             </table>
+            <div id="confirm">
+                <input id="confirm_btn"type="button" value="同意协议并加入极光">
+                <br>
+                <a href="javascript:;" id="contract">《极光二手车服务协议书》</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

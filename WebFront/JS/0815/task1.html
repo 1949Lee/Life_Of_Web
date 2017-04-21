@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ—AJAX 天气查询</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="animate.css">
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        .animated {
+            -webkit-animation-duration: 1s;
+            -moz-animation-duration: 1s;
+            -o-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            -moz-animation-fill-mode: both;
+            -o-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        @-webkit-keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(-2000px);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: translateY(30px);
+            }
+
+            80% {
+                -webkit-transform: translateY(-10px);
+            }
+
+            100% {
+                -webkit-transform: translateY(0);
+            }
+        }
+
+        @-moz-keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                -moz-transform: translateY(-2000px);
+            }
+
+            60% {
+                opacity: 1;
+                -moz-transform: translateY(30px);
+            }
+
+            80% {
+                -moz-transform: translateY(-10px);
+            }
+
+            100% {
+                -moz-transform: translateY(0);
+            }
+        }
+
+        @-o-keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                -o-transform: translateY(-2000px);
+            }
+
+            60% {
+                opacity: 1;
+                -o-transform: translateY(30px);
+            }
+
+            80% {
+                -o-transform: translateY(-10px);
+            }
+
+            100% {
+                -o-transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-2000px);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(30px);
+            }
+
+            80% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .bounceInDown {
+            -webkit-animation-name: bounceInDown;
+            -moz-animation-name: bounceInDown;
+            -o-animation-name: bounceInDown;
+            animation-name: bounceInDown;
+        }
+        @-webkit-keyframes flipInY {
+            0% {
+                -webkit-transform: perspective(400px) rotateY(90deg);
+                opacity: 0;
+            }
+
+            40% {
+                -webkit-transform: perspective(400px) rotateY(-10deg);
+            }
+
+            70% {
+                -webkit-transform: perspective(400px) rotateY(10deg);
+            }
+
+            100% {
+                -webkit-transform: perspective(400px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+        @-moz-keyframes flipInY {
+            0% {
+                -moz-transform: perspective(400px) rotateY(90deg);
+                opacity: 0;
+            }
+
+            40% {
+                -moz-transform: perspective(400px) rotateY(-10deg);
+            }
+
+            70% {
+                -moz-transform: perspective(400px) rotateY(10deg);
+            }
+
+            100% {
+                -moz-transform: perspective(400px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+        @-o-keyframes flipInY {
+            0% {
+                -o-transform: perspective(400px) rotateY(90deg);
+                opacity: 0;
+            }
+
+            40% {
+                -o-transform: perspective(400px) rotateY(-10deg);
+            }
+
+            70% {
+                -o-transform: perspective(400px) rotateY(10deg);
+            }
+
+            100% {
+                -o-transform: perspective(400px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+        @keyframes flipInY {
+            0% {
+                transform: perspective(400px) rotateY(90deg);
+                opacity: 0;
+            }
+
+            40% {
+                transform: perspective(400px) rotateY(-10deg);
+            }
+
+            70% {
+                transform: perspective(400px) rotateY(10deg);
+            }
+
+            100% {
+                transform: perspective(400px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        .flipInY {
+            -webkit-backface-visibility: visible !important;
+            -webkit-animation-name: flipInY;
+            -moz-backface-visibility: visible !important;
+            -moz-animation-name: flipInY;
+            -o-backface-visibility: visible !important;
+            -o-animation-name: flipInY;
+            backface-visibility: visible !important;
+            animation-name: flipInY;
+        }
+        @-webkit-keyframes rollIn {
+            0% { opacity: 0; -webkit-transform: translateX(-100%) rotate(-120deg); }
+            100% { opacity: 1; -webkit-transform: translateX(0px) rotate(0deg); }
+        }
+
+        @-moz-keyframes rollIn {
+            0% { opacity: 0; -moz-transform: translateX(-100%) rotate(-120deg); }
+            100% { opacity: 1; -moz-transform: translateX(0px) rotate(0deg); }
+        }
+
+        @-o-keyframes rollIn {
+            0% { opacity: 0; -o-transform: translateX(-100%) rotate(-120deg); }
+            100% { opacity: 1; -o-transform: translateX(0px) rotate(0deg); }
+        }
+
+        @keyframes rollIn {
+            0% { opacity: 0; transform: translateX(-100%) rotate(-120deg); }
+            100% { opacity: 1; transform: translateX(0px) rotate(0deg); }
+        }
+
+        .rollIn {
+            -webkit-animation-name: rollIn;
+            -moz-animation-name: rollIn;
+            -o-animation-name: rollIn;
+            animation-name: rollIn;
+        }
+        [type=text] {
+            width: 200px;
+            background-color: rgba(	250,250,210,0.5);
+            border:darkgrey 2px solid;
+            border-radius: 5px;
+            box-shadow: 0 0 10px black;
+        }
+        [type=button] {
+            background-color: rgba(	0,206,209,0.3);
+            border:rgba(0,0,0,0.3) 2px solid;
+            border-radius: 5px;
+        }
+        .bg {
+            width: 100%;
+            height: 100%;
+            position:absolute;
+            text-align: center;
+        }
+        img{
+            width:100%;
+            height:100%;
+            display:inline;
+            /*position:absolute;*/
+        }
+        .info{
+            width:25%;
+            position:absolute;
+            left:37.5%;
+            top:20%;
+        }
+        .forecast {
+            width:100%;
+            position:absolute;
+            top:23%;
+            height:490px;
+            /*border:1px solid red;*/
+        }
+        #title{
+            height:20%;
+            width:100%;
+            font-size: 50px;
+            position: absolute;
+            top:0;left:0;
+            text-align: center;
+            display:none;
+        }
+        #today{
+            width:100%;
+            text-align: center;
+            display: none;
+            position:absolute;
+        }
+        #today p{
+            /*color: rgba();*/
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        #today span{
+            /*color: rgba();*/
+            font-size: 8px;
+        }
+        .forecast ul li{
+            list-style: none;
+            float:left;
+            margin-right:20px;
+            font-size: 20px;
+            /*color: rgba();*/
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <img src="images/qingtian3.jpg">
+    <div class="info">
+        <input type="text" placeholder="请输入城市拼音查询，如：beijing">&nbsp;&nbsp;
+        <input type="button" value="查看天气">
+    </div>
+    <div class="forecast">
+
+    </div>
+</div>
+
+<script>
+
+
+    $(function () {
+        $("[type=button]").click(function () {
+            var city = $("[type=text]").val();
+            $.ajax({
+                url: 'http://apis.baidu.com/heweather/weather/free?city='+city+'',
+                headers: {apikey: '95dd67f7d643a6584c94c548d8f04b81'},
+                success: function (obj) {
+                    $("#title").remove();
+                    $("#today").remove();
+                    $("#future").remove();
+                    var cityName = obj["HeWeather data service 3.0"][0].basic.city;
+                    var updateTime =  obj["HeWeather data service 3.0"][0].basic.update.loc;
+                    var todayWeather = obj["HeWeather data service 3.0"][0].now.cond.txt;
+                    var todayTem = obj["HeWeather data service 3.0"][0].now.tmp;
+                    var todayVis = obj["HeWeather data service 3.0"][0].now.vis;
+                    var todayWind = obj["HeWeather data service 3.0"][0].now.wind;
+                    var todaySuggestion = obj["HeWeather data service 3.0"][0].suggestion.drsg.txt;
+                    var futureWeather = obj["HeWeather data service 3.0"][0].daily_forecast;
+                    var title = $("<div id='title' class='title'>" +
+                            "<span>"+cityName+
+                            "</span>" +
+                            "</div>");
+                    $(".bg").append(title);
+                    title.find("span").each(function () {
+                        $(this).css("line-height",$(this).parent().css("height"));
+                    });
+                    title.fadeIn(500);
+//                    title.addClass("animated bounceInDown");
+                    var basic = $("<div id='today'>" +
+                            "<p>"+todayWeather+"</p>" +
+                            "<p>"+todayTem+"℃("+futureWeather[0].tmp.min+"-"+futureWeather[0].tmp.max+"℃)</p>" +
+                            "<p>能见度："+todayVis+"</p>" +
+                            "<p>"+todayWind.dir+todayWind.sc+"级</p>" +
+                            "<p>"+todaySuggestion+"</p>" +
+                            "<span>更新于"+updateTime+"</span>"+"</div>");
+                    $(".forecast").append(basic);
+//                    basic.addClass("animated flipInY");
+                    basic.fadeIn(500);
+                    var future = $("<div id='future'><ul><li></li><li></li></ul></div>");
+                    var text = ["明天","后天"];
+
+                    future.find("ul").find("li").each(function () {
+
+                        var str = "<p>"+text[$(this).index()]+"</p>";
+                        str = str + "<p>"+"白天："+
+                                futureWeather[$(this).index()+1].cond.txt_d+"；夜间："+
+                        futureWeather[$(this).index()+1].cond.txt_n
+                                +"</p>";
+                        str = str + "<p>"+futureWeather[$(this).index()+1].tmp.min+
+                                "-"+futureWeather[$(this).index()+1].tmp.max+
+                                "℃</p>";
+                        $(this).append($(str));
+                    });
+                    $(".forecast").fadeIn(500);
+//                    $(".forecast").addClass("animated rollIn");
+                    future.find("ul").css({"position":"absolute",
+                        "top":(parseInt(basic.css("height"))+10)+"px",
+                        "left":"400px"});
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

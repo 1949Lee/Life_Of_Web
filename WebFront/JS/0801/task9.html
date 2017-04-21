@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>100-999所有水仙花数</title>
+</head>
+<body>
+100-999所有水仙花数:<br>
+<script>
+    for(var i=250;i<=999;i++){
+        var initial = i;
+
+        var tem = i%10;
+        var sum = tem*tem*tem;
+
+        i = parseInt(i/10);
+        tem = i%10;
+        sum = sum + tem*tem*tem;
+
+        i = parseInt(i/10);
+        tem = i%10;
+        sum = sum + tem*tem*tem;
+        if(sum ==initial){
+            document.write(initial+"<br>");
+        }
+        i=initial;
+    }
+</script>
+</body>
+</html>

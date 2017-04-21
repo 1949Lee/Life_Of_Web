@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>简单的导航栏实现</title>
+    <style>
+        html,body{
+            background-color: aliceblue;
+            width: 100%;
+            height: 100%;
+        }
+        #menu{
+            background-color:aliceblue;
+            width:100%;
+            height: 5%;
+        }
+        .menubtn{
+            float: left;
+            background-color:transparent;
+            width:25%;
+            height: 100%;
+            text-align: center;
+        }
+        #content {
+            background-color:lightblue;
+            width:100%;
+            height: 100%;
+            text-align: center;
+            font-size: 50px;
+        }
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        a:visited{
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            color:red;
+            text-decoration: none;
+        }
+        a:active{
+            color:red;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="menu">
+<div class="menubtn" id="index"><a href="javascript:;">首页</a></div>
+<div class="menubtn" id="songs"><a href="javascript:;">曲库</a></div>
+<div class="menubtn" id="list"><a href="javascript:;">我的歌单</a></div>
+<div class="menubtn" id="personalCenter"><a href="javascript:;">个人中心</a></div>
+</div>
+<div id="content">
+内容
+</div>
+</body>
+</html>

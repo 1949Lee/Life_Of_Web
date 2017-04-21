@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab+列表</title>
+    <style>
+        .selected{
+            list-style : none;
+            background-color: blue;
+            color:yellow;
+            float : left;
+            line-height : 30px;
+            height :30px;
+            width : 100px;
+            text-align : center;
+            border : 1px solid red;
+        }
+        .unselected{
+            list-style : none;
+            float : left;
+            line-height : 30px;
+            height :30px;
+            width : 100px;
+            background-color : grey;
+            text-align : center;
+            color : black;
+            border : 1px solid red;
+        }
+
+        #list{
+            margin:0px;
+            padding:0px;
+        }
+        #list li{
+            list-style: none;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color:#717779;
+            border-top: 1px solid #2c2f33;
+            border-bottom: 1px solid #2c2f33;
+            background-color:#1a1d1e;
+        }
+        #bg{
+            overflow-y: scroll;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<ol id="menu">
+
+</ol>
+<div id="bg" >
+
+</div>
+
+<script>
+    var arrayLi = ["DOTA2","守望先锋","饥荒","使命召唤"];
+    var menuLi = [];
+    var menu = document.getElementById("menu");
+    var div  =document.getElementById("bg");
+    var tabDiv = [];
+    div.style.backgroundColor = "lightgrey";
+    div.style.width = parseInt(arrayLi.length*100+8)+"px";
+    div.style.height = "500px";
+    menu.style.padding = 0;
+    menu.style.margin = 0;
+    for(var i = 0;i < arrayLi.length;i++){
+        var li = document.createElement("li");
+        li.innerHTML = arrayLi[i];
+        li.value = i;
+        li.className = "unselected";
+        menuLi.push(li);
+        menu.appendChild(li);
+        var d = document.createElement("div");
+        d.innerHTML = arrayLi[i] + "的div";
+        d.style.display = "none";
+        d.style.color = "black";
+        tabDiv.push(d);
+        document.getElementById("bg").appendChild(d);
+    }
+    menuLi[0].className = "selected";
+    tabDiv[0].innerHTML = "<ol id='list'></ol>";
+    tabDiv[0].style.display = "block";
+    for(var i = 0;i < arrayLi.length;i++) {
+        menuLi[i].onclick = function () {
+            for (var j = 0; j < arrayLi.length; j++) {
+                tabDiv[j].style.display = "none";
+                menuLi[j].className = "unselected";
+            }
+            this.className = "selected";
+            tabDiv[this.value].style.display = "block";
+        };
+    }
+
+    var list = document.getElementById("list");
+//    list.style.display = "inline";
+    var heroes = [
+        "敌法师",
+        "斧王",
+        "祸乱之源",
+        "嗜血狂魔",
+        "水晶室女",
+        "卓尔游侠",
+        "撼地者",
+        "主宰",
+        "米拉娜",
+        "影魔",
+        "变体精灵",
+        "幻影长矛手",
+        "帕克",
+        "帕吉",
+        "剃刀",
+        "沙王",
+        "风暴之灵",
+        "斯温",
+        "小小",
+        "复仇之魂",
+        "风行者",
+        "宙斯",
+        "昆卡",
+        "莉娜",
+        "巫妖",
+        "莱恩",
+        "暗影萨满",
+        "斯拉达",
+        "潮汐猎人",
+        "巫医",
+        "力丸",
+        "谜团",
+        "修补匠",
+        "狙击手",
+        "瘟疫法师",
+        "术士",
+        "兽王",
+        "痛苦女王",
+        "剧毒术士",
+        "冥魂大帝",
+        "死亡先知",
+        "幻影刺客",
+        "帕格纳",
+        "圣堂刺客",
+        "冥界亚龙",
+        "露娜",
+        "龙骑士",
+        "戴泽",
+        "发条技师",
+        "拉席克",
+        "先知",
+        "噬魂鬼",
+        "黑暗贤者",
+        "克林克兹",
+        "全能骑士",
+        "魅惑魔女",
+        "哈斯卡",
+        "暗夜魔王",
+        "育母蜘蛛",
+        "赏金猎人",
+        "编织者",
+        "杰奇洛",
+        "蝙蝠骑士",
+        "陈",
+        "幽鬼",
+        "末日使者",
+        "远古冰魄",
+        "熊战士",
+        "裂魂人",
+        "矮人直升机",
+        "炼金术士",
+        "祈求者",
+        "沉默术士",
+        "殁境神蚀者",
+        "狼人",
+        "酒仙",
+        "暗影恶魔",
+        "德鲁伊",
+        "混沌骑士",
+        "米波",
+        "树精卫士",
+        "食人魔魔法师",
+        "不朽尸王",
+        "拉比克",
+        "干扰者",
+        "司夜刺客",
+        "娜迦海妖",
+        "光之守卫",
+        "艾欧",
+        "维萨吉",
+        "斯拉克",
+        "美杜莎",
+        "巨魔战将",
+        "半人马战行者",
+        "马格纳斯",
+        "伐木机",
+        "钢背兽",
+        "巨牙海民",
+        "天怒法师",
+        "亚巴顿",
+        "上古巨神",
+        "军团指挥官",
+        "灰烬之灵",
+        "大地之灵",
+        "恐怖利刃",
+        "凤凰",
+        "神谕者",
+        "工程师",
+        "寒冬飞龙",
+        "天穹守望者"
+    ]
+    var heroes_link = [
+        "http://www.dota2.com.cn/hero/anti_mage/",
+        "http://www.dota2.com.cn/hero/axe/",
+        "http://www.dota2.com.cn/hero/bane/",
+        "http://www.dota2.com.cn/hero/bloodseeker/",
+        "http://www.dota2.com.cn/hero/crystal_maiden/",
+        "http://www.dota2.com.cn/hero/drow_ranger/",
+        "http://www.dota2.com.cn/hero/earthshaker/",
+        "http://www.dota2.com.cn/hero/juggernaut/",
+        "http://www.dota2.com.cn/hero/mirana/",
+        "http://www.dota2.com.cn/hero/shadow_fiend/",
+        "http://www.dota2.com.cn/hero/morphling/",
+        "http://www.dota2.com.cn/hero/phantom_lancer/",
+        "http://www.dota2.com.cn/hero/puck/",
+        "http://www.dota2.com.cn/hero/pudge/ ",
+        "http://www.dota2.com.cn/hero/razor/",
+        "http://www.dota2.com.cn/hero/sand_king/",
+        "http://www.dota2.com.cn/hero/storm_spirit/",
+        "http://www.dota2.com.cn/hero/sven/ ",
+        "http://www.dota2.com.cn/hero/tiny/",
+        "http://www.dota2.com.cn/hero/vengeful_spirit/",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;",
+        "javascript:;"
+    ];
+    var heroes_img = [
+        "images/antimage_sb.png",
+        "images/axe_sb.png",
+        "images/bane_sb.png",
+        "images/bloodseeker_sb.png",
+        "images/crystal_maiden_sb.png",
+        "images/drow_ranger_sb.png",
+        "images/earthshaker_sb.png",
+        "images/juggernaut_sb.png",
+        "images/mirana_sb.png",
+        "images/nevermore_sb.png",
+        "images/morphling_sb.png",
+        "images/phantom_lancer_sb.png",
+        "images/puck_sb.png",
+        "images/pudge_sb.png",
+        "images/razor_sb.png",
+        "images/sand_king_sb.png",
+        "images/storm_spirit_sb.png",
+        "images/sven_sb.png",
+        "images/tiny_sb.png",
+        "images/vengefulspirit_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+        "images/axe_sb.png",
+    ];
+    var n=0;
+    for(n;n<20;n++){
+        var li = document.createElement("li");
+        li.innerHTML = "<a id='link"+n+"' class='heroPickerIconLink' href='"+heroes_link[n]+"'> " +
+                //<img id='hover_ES'  class='heroHoverLarge' src='image/dota2/heroes/ES_B.png'> " +
+                "<img id='base"+n+"'  class='heroHoverSmall' src='"+heroes_img[n]+"'> " +
+                "</a>"+
+                heroes[n];
+        list.appendChild(li);
+    }
+    var myli = document.createElement("li");
+    myli.innerHTML = "加载更多...";
+    list.appendChild(myli);
+    myli.onclick = function () {
+        if ((n + 20) < heroes.length) {
+            var length = n +20;
+            for (;  n< length; n++) {
+                var li = document.createElement("li");
+                li.innerHTML = heroes[n];
+                list.appendChild(li);
+            }
+            list.appendChild(this);
+        }
+        else {
+            var length = n +20;
+            for (; n< heroes.length; n++) {
+                var li = document.createElement("li");
+                li.innerHTML = heroes[n];
+                list.appendChild(li);
+            }
+            this.innerHTML = "没有更多了";
+            list.appendChild(this);
+        }
+
+    };
+    list.appendChild(myli);
+</script>
+</body>
+</html>

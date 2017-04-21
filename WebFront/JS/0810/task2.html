@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单价计算</title>
+</head>
+<body>
+<form name="ff">
+    数量<input type="text" name="a"><br><br>
+    单价<input type="text" name="a"><br><br>
+    总价<input type="text" name="a"><br><br>
+    <input name="b" type="button" value="计算">
+</form>
+
+<script>
+    document.ff.b.onclick = function () {
+
+        var total =document.ff[0].value *  document.ff[1].value
+
+        document.ff[2].value =total;
+    }
+
+
+</script>
+</body>
+</html>

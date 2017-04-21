@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+    <style>
+        html,body{
+            padding:0px;
+            margin:0px;
+        }
+        td{
+            width:28px;
+            height:28px;
+            border:1px solid black;
+            margin:0px;
+            padding:0px;
+        }
+        table{
+            /*border:1px solid black;*/
+            position:absolute;
+            background-color: rgba(0,255,255,0.3);
+        }
+        #map{
+            position:absolute;
+        }
+        span{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            /*left: ;*/
+        }
+    </style>
+</head>
+<body>
+
+
+<span id="score"><h3>Score:0</h3></span>
+
+<span>
+<button onclick="changeSpeed('100')">快</button>
+<button onclick="changeSpeed('250')">中</button>
+<button onclick="changeSpeed('500')">慢</button>
+<button onclick="start()">开始</button>
+<button onclick="suspend()">暂停</button>
+</span>
+<div id="map">
+
+</div>
+
+<script>
+    var map = document.getElementById("map");
+    var mapCount = 10;
+    map.style.width =mapCount*30 +"px";
+    map.style.width =mapCount*30 +"px";
+    var rat;
+    var snakeHead;
+    function createMap(mapCount){
+        var str = "<table cellspacing='0'>";
+        for(var i = 0;i < mapCount;i++ ){
+            str = str + "<tr>";
+            for(var j = 0;j < mapCount;j++ ) {
+                str = str + "<td></td>";
+            }
+            str = str +"</tr>";
+        }
+        str = str + "</table>";
+        map.innerHTML = str;
+    }
+    createMap(mapCount);
+    function createNode(type){
+        var node = document.createElement("div");
+        node.style.height = "30px";
+        node.style.width = "30px";
+        switch(type){
+            case 1:    //蛇头
+                node.style.backgroundColor = "	rgb(255,20,147)";
+                break;
+            case 2:    //蛇身
+                node.style.backgroundColor = "	rgb(255,215,0)";
+                break;
+            case 3:    //老鼠
+                node.style.backgroundColor = "	rgb(0,0,128)";
+                break;
+        }
+        map.appendChild(node);
+        node.style.position = "absolute";
+        node.style.left = parseInt(Math.random()*mapCount) *30+"px";
+        node.style.top = parseInt(Math.random()*mapCount) *30+"px";
+        return node;
+    }
+    rat = createNode(3);
+    snakeHead = createNode(1);
+    function move(){
+
+    }
+    var speed = 500;
+    var span = document.getElementById("score");
+    var score = 0;
+    var snakeBody = new Array;
+    function update() {
+        if (parseInt(snakeHead.style.left) >= 30 * mapCount || parseInt(snakeHead.style.left) < 0 ||
+                parseInt(snakeHead.style.top) >= 30 * mapCount || parseInt(snakeHead.style.top) < 0) {
+            alert("GAME OVER");
+            clearInterval(t);
+        }
+        if (snakeBody.length > 0) {
+            for (var n = snakeBody.length - 1; n >= 0; n--) {
+                //伤害到自己
+                if (snakeHead.style.left == snakeBody[n].style.left &&
+                        snakeHead.style.top == snakeBody[n].style.top) {
+                    alert("咬到自己，游戏结束");
+                    clearInterval(t);
+                }
+                switch (snakeBody[n].value) {
+                    case 65:
+                        snakeBody[n].style.left = parseInt(snakeBody[n].style.left) - 30 + "px";
+                        break;
+                    case 87:
+                        snakeBody[n].style.top = parseInt(snakeBody[n].style.top) - 30 + "px";
+                        break;
+                    case 68:
+                        snakeBody[n].style.left = parseInt(snakeBody[n].style.left) + 30 + "px";
+                        break;
+                    case 83:
+                        snakeBody[n].style.top = parseInt(snakeBody[n].style.top) + 30 + "px";
+                        break;
+                }
+
+                if (n == 0) {
+                    snakeBody[n].value = snakeHead.value;
+                } else {
+                    snakeBody[n].value = snakeBody[n - 1].value;
+                }
+            }
+        }
+        switch (snakeHead.value) {
+            case 65:
+                snakeHead.style.left = parseInt(parseInt(snakeHead.style.left) - 30) + "px";
+                break;
+            case 87:
+                snakeHead.style.top = parseInt(parseInt(snakeHead.style.top) - 30) + "px";
+                break;
+            case 68:
+                snakeHead.style.left = parseInt(parseInt(snakeHead.style.left) + 30) + "px";
+                break;
+            case 83:
+                snakeHead.style.top = parseInt(parseInt(snakeHead.style.top) + 30) + "px";
+                break;
+        }
+            if (snakeHead.style.top == rat.style.top &&
+                    snakeHead.style.left == rat.style.left) {
+                if (snakeBody.length < (mapCount * mapCount - 1)) {
+                    score +=10;
+                    span.innerHTML = "<h3>Score:"+score+"</h3>";
+                    var body = createNode(2);
+                    var last;
+                    if (snakeBody.length == 0) {
+                        last = snakeHead;
+                    }
+                    else {
+                        last = snakeBody[snakeBody.length - 1];
+                    }
+                    body.value = last.value;
+                    switch (body.value) {
+                        case 65:
+                            body.style.left = parseInt(last.style.left) + 30 + "px";
+                            body.style.top = last.style.top;
+                            break;
+                        case 87:
+                            body.style.left = last.style.left;
+                            body.style.top = parseInt(last.style.top) + 30 + "px";
+                            break;
+                        case 68:
+                            body.style.left = parseInt(last.style.left) - 30 + "px";
+                            body.style.top = last.style.top;
+                            break;
+                        case 83:
+                            body.style.left = last.style.left;
+                            body.style.top = parseInt(last.style.top) - 30 + "px";
+                            break;
+                    }
+                    snakeBody.push(body);
+
+
+                    rat.style.left = parseInt(Math.random() * mapCount) * 30 + "px";
+                    rat.style.top = parseInt(Math.random() * mapCount) * 30 + "px";
+                    var rx = 0;
+                    var ry = 0;
+                    var fbool = true;
+                    var num = 0;
+                    while (fbool) {
+                        rx = parseInt(Math.random() * 10) * 50 + "px";
+                        ry = parseInt(Math.random() * 10) * 50 + "px";
+                        for (var n = 0; n < everyNode.length; n++) {
+                            if (everyNode[n].style.left == rx && everyNode[n].style.top == ry) {
+                                num++;
+                            }
+                        }
+                        if (num == 0) {
+                            break;
+                        } else {
+                            num = 0;
+                        }
+                    }
+
+                    rat.style.left = rx;
+                    rat.style.top = ry;
+
+                }
+            }
+
+        }
+    function changeSpeed(speed){
+        clearInterval(t);
+        t = setInterval(update,speed);
+    }
+    function start(){
+        clearInterval(t);
+        t = setInterval(update,speed);
+    }
+    function suspend(){
+        clearInterval(t);
+    }
+    var t;
+    snakeHead.value = 65;
+    document.onkeydown = function () {
+        switch(event.keyCode){
+            case 65:
+                if (snakeHead.value != 68 || snakeBody.length == 0) {
+                    snakeHead.value = 65;
+                }
+                break;
+            case 87:
+                if(snakeHead.value != 83||snakeBody.length == 0){
+                    snakeHead.value = 87;
+                }
+                break;
+            case 68:
+                if(snakeHead.value != 65||snakeBody.length == 0){
+                    snakeHead.value = 68;
+                }
+                break;
+            case 83:
+                if(snakeHead.value != 87||snakeBody.length == 0){
+                    snakeHead.value = 83;
+                }
+                break;
+        }
+    }
+</script>
+</body>
+</html>

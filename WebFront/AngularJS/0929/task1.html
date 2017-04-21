@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+<head>
+    <meta charset="utf-8">
+    <title> testApp </title>
+    <script src="AngularJS/angular.min.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+    <style>
+        .test{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="testAppCtrl">
+    <H3 class="">TO DO LIST
+			<span class="label label-info">
+				{{(todos|filter:{complete:'false'}).length}} </span>
+    </H3>
+    <!-- 创建表格 -->
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="well">
+                <div class="form-group">
+                    <label for="actionText">Action:</label>
+                    <input id="actionText" type="text" ng-model="newTodo.action" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="actionLocation">Location:</label>
+                    <select id="actionLocation" class="form-control" ng-model="newTodo.location">
+                        <option value="home">home</option>
+                        <option value="office">office</option>
+                        <option value="mall">mall</option>
+                        <option value="mall">library</option>
+                        <option value="mall">playground</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="actionTime">Date:</label>
+                    <input id="actionTime"type="date" class="form-control" ng-model="newTodo.time">
+                </div>
+                <button class="btn btn-primary btn-block" ng-click="addNewItem(newTodo)">add</button>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>action</th>
+                    <th>Location</th>
+                    <th>Done</th>
+                </tr>
+                </thead>
+                <tr ng-repeat="item in todos">
+                    <td>{{item.time}}</td>
+                    <td>{{item.action}}</td>
+                    <td>{{item.location}}</td>
+                    <td>
+                        <input type="checkbox" ng-model="item.complete">
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script >
+    var module=angular.module("testApp",[]);
+    module.controller("testAppCtrl",function($scope){
+        $scope.todos=[
+            {action:"打球",location:"playground",time:"2016/10/1",complete:false},
+            {action:"DOTA2",location:"home",time:"2016/10/2",complete:false},
+            {action:"写作业",location:"home",time:"2016/10/3",complete:false},
+            {action:"看Node.JS",location:"office",time:"2016/10/4",complete:false}];
+        $scope.addNewItem=function(newItem){
+            if (angular.isDefined(newItem)) {
+                $scope.todos.push({
+                    action:newItem.action,
+                    location:newItem.location,
+                    time:newItem.time.getFullYear()+"/"+(newItem.time.getMonth()+1)+"/"+newItem.time.getDate(),
+                    complete:false
+                });
+            }else{
+                alert("is not find");
+            }
+        };
+
+    });
+
+
+</script>
+</body>
+</html>

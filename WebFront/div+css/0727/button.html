@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CSS实现简单按钮</title>
+    <style>
+        a{
+            background-image: url(image/button1.png);
+            text-decoration: none;
+            background-position: center;
+            background-size: cover;
+            border: outset;
+            text-align: center;
+        }
+        a:hover{
+            background-image: url(image/button2.png);
+            background-position: center;
+            background-size: cover;
+            text-decoration: none;
+            color: red;
+        }
+        a:active{
+            border: inset;
+        }
+    </style>
+</head>
+<body>
+input 系统提供的按钮：<br><input type="button" value="确定">
+<br>
+<br>
+用超链接+CSS自制的按钮样式：<br><a>确定</a>
+</body>
+</html>

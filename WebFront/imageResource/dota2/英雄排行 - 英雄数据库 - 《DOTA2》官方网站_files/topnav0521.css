@@ -1,0 +1,28 @@
+﻿@charset "utf-8";
+/*******author:Zhongwei.Zhang**************/
+body,div,p{ margin:0; padding:0;}
+.clearfix:after {content:"";display:block;height:0;clear:both;} 
+.clearfix {zoom:1;}
+img{border:0}
+#dota2_topnav { position:relative;height:75px; background: url(../../images/main1310/top_nav_bg.png) no-repeat center top; z-index:10;font-size:12px; font-family:"宋体",Arial, Helvetica, sans-serif;width: 100%;/* top: 41px; */top: 0;z-index: 9999;}
+#dota2_topnav a{font-family:"宋体",Arial, Helvetica, sans-serif; text-decoration:none;outline:none;}
+#dota2_topnav .nav_main { position:relative; width:1100px; height:75px; margin:0 auto;}
+#dota2_topnav .nav_logo{position:absolute; width:265px; height:55px; left:0px; top:10px;background: url(http://dota2.wanmei.com/images/nav130827/logo.jpg) no-repeat 0 0;text-indent:-10000px;}
+#dota2_topnav .dota2nav{position:relative;float:right;width:836px;height:75px;background:url(../../images/nav1405/nav_btns.jpg) no-repeat 0 0;}
+#dota2_topnav .dota2nav .link_div{position:relative;float:left; width:76px; height:75px;}
+#dota2_topnav .dota2nav a.link_nav{position:absolute;width:76px; height:75px; left:0; top:0; background:url(about:blank); text-indent:-9999px; z-index:102;}
+#dota2_topnav .dota2nav a.link_hover,#dota2_topnav .dota2nav a.link_nav:hover{background:url(../../images/nav1405/nav_btns.jpg)}
+#dota2_topnav .dota2nav a#link_nav2.link_hover,#dota2_topnav .dota2nav a#link_nav2:hover{ background-position:-76px -78px;}
+#dota2_topnav .dota2nav a#link_nav3.link_hover,#dota2_topnav .dota2nav a#link_nav3:hover{ background-position:-152px -78px;}
+#dota2_topnav .dota2nav a#link_nav4.link_hover,#dota2_topnav .dota2nav a#link_nav4:hover{ background-position:-228px -78px;}
+#dota2_topnav .dota2nav a#link_nav5.link_hover,#dota2_topnav .dota2nav a#link_nav5:hover{ background-position:-304px -78px;}
+#dota2_topnav .dota2nav a#link_nav6.link_hover,#dota2_topnav .dota2nav a#link_nav6:hover{ background-position:-380px -78px;}
+#dota2_topnav .dota2nav a#link_nav7.link_hover,#dota2_topnav .dota2nav a#link_nav7:hover{ background-position:-456px -78px;}
+#dota2_topnav .dota2nav a#link_nav8.link_hover,#dota2_topnav .dota2nav a#link_nav8:hover{ background-position:-532px -78px;}
+#dota2_topnav .dota2nav a#link_nav9.link_hover,#dota2_topnav .dota2nav a#link_nav9:hover{ background-position:-608px -78px;}
+#dota2_topnav .dota2nav a#link_nav10.link_hover,#dota2_topnav .dota2nav a#link_nav10:hover{ background-position:-684px -78px;}
+#dota2_topnav .dota2nav a#link_nav11.link_hover,#dota2_topnav .dota2nav a#link_nav11:hover{ background-position:-760px -78px;}
+#dota2_topnav .dota2nav .link_pop{display:none;position:absolute; width:76px; height:240px; padding-top:75px; left:0; top:0px; background:url(../../images/main1310/top_nav_pop.png) no-repeat center top;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://dota2.wanmei.com/images/main1310/top_nav_pop.png', sizingMethod='scale');z-index: 101;}
+#dota2_topnav .dota2nav .link_pop a{ display:block; height:26px; font:normal 12px/26px "微软雅黑";color:#CCCCCC; text-align:center;}
+#dota2_topnav .dota2nav .link_pop a:hover{color:#D84108;} 
+#navBarShadow {position:absolute;width:100%;height:29px;top:74px;left:0px;background-image:url(http://www.dota2.com.cn/apps/dota2/images/header/header_bg_shadow.png);background-repeat:repeat-x;z-index:100;pointer-events:none;}

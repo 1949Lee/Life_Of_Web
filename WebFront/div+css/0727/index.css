@@ -1,0 +1,145 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+#top{
+    width: 100%;
+    height:75px;
+    background-image: url(image/dota2/nav_bg.png);
+    z-index: 99;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+}
+#logo{
+    width:55px;
+    height:55px;
+    position:absolute;
+    left: 0px;
+    top: 10px;
+    background-image:url(image/dota2/logo.png);
+    background-size: cover;
+}
+#nav{
+    width:100%;
+    height: 75px;
+    position:absolute;
+    left: 55px;
+    top: 10px;
+}
+#nav_ul{
+    list-style: none;
+}
+li .link_nav{
+    float: left;
+    width: 75px;
+    text-decoration: none;
+    text-align: justify;
+    margin-right: 20px;
+}
+.link_nav a:link {
+    color: grey;
+    font-size: 20px;
+}
+.link_nav a:visited {
+    color: grey;
+}
+.link_nav a:hover {
+    color: ghostwhite;
+}
+.link_nav a:active {
+    color: ghostwhite;
+}
+#content{
+    width: 100%;
+    height:1000px;
+    background-image: url(image/dota2/bg.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 75px;
+}
+#title{
+    width:80%;
+    height: 75px;
+    margin-left:10%;
+    margin-right:10%;
+    border-bottom:2px solid darkslategray;
+}
+h1{
+    position: absolute;
+    left:200px;
+    color: grey;
+}
+#search_div{
+    padding:0px;
+    width:243px;
+    height:30px;
+    position: absolute;
+    right:200px;
+    top:33px;
+}
+#search_btn{
+    position:absolute;
+    right:0px;
+    width: 64px;
+    height:24px;
+}
+#search_text{
+    color:#717779;
+    height:20px;
+    position: absolute;
+    background-color:#1a1d1e;
+    border:1px solid #2c2f33;
+}
+.list{
+    list-style: none;
+}
+h3{
+    color: grey;
+    margin-left:50%;
+}
+.hero_li{
+    float: left;
+    margin-bottom:20px;
+    margin-left:50px;
+}
+.heroes_div{
+    width: 30%;
+    height:350px;
+    float: left;
+    margin-left:6%;
+}
+#heroes{
+    width:80%;
+    height: 845px;
+    margin-left:10%;
+    margin-right:10%;
+    background-color: #0f0f0f;
+}
+.heroHoverSmall{
+    width:59px;height:33px;border:4px solid #000;
+}
+.heroHoverLarge{
+    width:127px;
+    height:71px;
+    border:4px solid #fff;
+    z-index:3;
+    position:absolute;
+    display: none;
+}
+.heroPickerIconLink:hover .heroHoverLarge{
+    float:left; display:block;
+}
+#footer{
+    position: absolute;
+    bottom:20px;
+    text-align: justify;
+    color:gray;
+}
+h5{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+

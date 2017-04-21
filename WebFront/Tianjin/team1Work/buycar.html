@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>极光二手车-买车</title>
+    <link rel="icon" href="image/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="buycar.css">
+    <!--<link rel="stylesheet" href="header.css">-->
+    <style>
+        @font-face {
+            font-family: "newfont";
+            src: url("font/时尚中黑简体.ttf");
+        }
+        body
+        {
+            font-family: newfont;
+        }
+    </style>
+</head>
+<body>
+<div id="body1">
+    <div id="header">
+        <ol>
+            <li><a target="_self" href="#">&lt;&lt; 汽车之家首页</a> </li>
+            <li><span>|</span></li>
+            <li><a  target="_self" href="#">我要买车</a></li>
+            <li><span>|</span></li>
+            <li><a target="_self"  href="#">我要卖车</a></li>
+            <li><span>|</span></li>
+            <li><a target="_self" href="#">估价</a></li>
+            <li><span>|</span></li>
+            <li><a target="_self" href="#">求购</a></li>
+        </ol>
+        <ul class="ul1">
+            <li>个人：</li>
+            <li><a href="#">登录</a></li>
+            <li><i>|</i></li>
+            <li><a href="register.html" >注册</a></li>
+        </ul>
+        <!--<a href="javascript:;"><span>我的二手车之家</span><i class="iconfont iconfont-drop-down">&#xe916;</i></a>-->
+        <ul class="ul2">
+            <li><a href="#">电脑客户端</a> </li>
+            <li>|</li>
+            <li><a href="#">移动APP</a></li>
+        </ul>
+    </div>
+    <div id="header2">
+        <div id="logo">
+        </div>
+        <div id="map_div">
+            <div id="map">
+                <a href="javascript:;">天津</a>
+            </div>
+            <div id="map_hover">
+                <div id="search">
+                    <input type="text"id="search_box"placeholder="请输入城市名">
+                    <input type="button" id="search_button"value="搜索">
+                </div>
+                <div id="letter">
+                    <div class="city-tab" >
+                        <h4>省份首字母：</h4>
+                        <a href="javascript:void(0);">A</a>
+                        <a href="javascript:void(0);">B</a>
+                        <a href="javascript:void(0);">C</a>
+                        <a href="javascript:void(0);">F</a>
+                        <a href="javascript:void(0);">G</a>
+                        <a href="javascript:void(0);">H</a>
+                        <a href="javascript:void(0);">J</a>
+                        <a href="javascript:void(0);">L</a>
+                        <a href="javascript:void(0);">N</a>
+                        <a href="javascript:void(0);">Q</a>
+                        <a href="javascript:void(0);">S</a>
+                        <a href="javascript:void(0);">T</a>
+                        <a href="javascript:void(0);">X</a>
+                        <a href="javascript:void(0);">Y</a>
+                        <a href="javascript:void(0);">Z</a>
+                    </div>
+                    <div id="city">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="nav">
+            <ul id="nav_ul">
+                <li class="link_nav"><a id="nav1" class="link_nav" href="javascript:;">首页</a></li>
+                <li class="link_nav"><a id="nav2" class="link_nav" href="javascript:;">买车</a></li>
+                <li class="link_nav"><a id="nav3" class="link_nav" href="sale.html">卖车</a></li>
+                <li class="link_nav"><a id="nav4" class="link_nav" href="news.html">资讯</a></li>
+                <li class="link_nav"><a id="nav5" class="link_nav" href="javascript:;">反馈</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="tiaojian">
+        <br>
+    当前位置：<a href="#">极光二手车</a>&nbsp;>
+        <a href="#">天津二手车</a>
+        <br><br>
+        您已选择：<span>天津</span>
+        <a href="#" style="position: relative;left: 5%">清除全部</a>
+        <a href="#" style="position: relative;left: 55%">+添加订阅</a>
+        <div id="shaixuan">
+        <table  width="100%">
+            <tr>
+                <th>品牌</th>
+                <td>
+                    <ul>
+                        <li><a href="#"> 宝马</a></li>
+                        <li><a href="#"> 大众</a></li>
+                        <li><a href="#">奔驰</a> </li>
+                        <li><a href="#">奥迪</a> </li>
+                        <li><a href="#">夏利</a> </li>
+                        <li><a href="#">吉利</a> </li>
+                        <li><a href="#">沃尔沃</a> </li>
+                        <li><a href="#">阿斯度马丁</a></li>
+                        <li><a href="#">保时捷</a></li>
+                        <li><a href="#">兰博基尼</a></li>
+                        <li><a href="#" style="margin-left: 40px;">更多></a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>车系</th>
+                <td>
+                    <ul>
+                        <li><a href="#"> 高尔夫</a></li>
+                        <li><a href="#"> 奥迪A6L</a></li>
+                        <li><a href="#">宝马3系</a> </li>
+                        <li><a href="#">迈腾</a> </li>
+                        <li><a href="#">吉利金刚</a> </li>
+                        <li><a href="#">雅阁</a> </li>
+                        <li><a href="#">福克斯</a> </li>
+                        <li><a href="#">速腾</a></li>
+                        <li><a href="#">奥迪A8</a></li>
+                        <li><a href="#">奔驰c系</a></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>价格</th>
+                <td>
+                <ul id="jiaqian">
+                    <li><a href="#"> 3万以下</a></li>
+                    <li><a href="#"> 3-5万</a></li>
+                    <li><a href="#">5-8万</a> </li>
+                    <li><a href="#">8-10万</a> </li>
+                    <li><a href="#">10-15万</a> </li>
+                    <li><a href="#">15-20万</a> </li>
+                    <li><a href="#">20-30万</a> </li>
+                    <div class="money">
+                    <input type="text">万
+                        <em>-</em>
+                        <input type="text">万
+                        <a href="#">确定</a>
+                    </div>
+                </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>其他</th>
+                <td>
+                <ul>
+                    <li>
+                        <div id="chelingmain">
+                        <div id="cheling">
+                         <a href="#">车龄 &nbsp;&nbsp;&nbsp;<</a>
+                        </div>
+                        <div id="chelingactive">
+                            <div class="chelingactive">
+                        <ul class="cheling">
+                            <li><a href="#">1年内</a> </li>
+                            <li><a href="#">1-3年</a> </li>
+                            <li><a href="#">3-5年</a> </li>
+                            <li><a href="#">5-8年</a> </li>
+                            <li><a href="#">8-10年</a> </li>
+                            <li><a href="#">10年以上</a> </li>
+                        </ul>
+                            </div>
+                            <div class="chelingdiv">
+                                <input type="text">年
+                                <em>-</em>
+                                <input type="text">年
+                                <a href="#">确定</a>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="jibiemain">
+                            <div id="jibie">
+                                <a href="#">级别 &nbsp;&nbsp;&nbsp;<</a>
+                            </div>
+                            <div id="jibieactive">
+                                <div class="jibieactive" >
+                                    <ul class="jibie">
+                                        <li><input type="checkbox">微型车</li>
+                                        <li><input type="checkbox">小型车</li>
+                                        <li><input type="checkbox">中型车</li>
+                                        <li><input type="checkbox">中大型</li>
+                                        <li><input type="checkbox">大型车</li>
+                                    </ul>
+                                </div>
+                                <div class="jibiediv">
+                                    <input type="button" value="确定">
+                                    <input type="button" value="取消">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="pailiangmain">
+                            <div id="pailiang">
+                                <a href="#">排量 &nbsp;&nbsp;&nbsp;<</a>
+                            </div>
+                            <div id="pailiangactive">
+                                <div class="pailiangactive" >
+                                    <ul class="pailiang">
+                                        <li><input type="checkbox">1.0L及以下</li>
+                                        <li><input type="checkbox">1.1L-1.6L</li>
+                                        <li><input type="checkbox">1.7L-2.0L</li>
+                                        <li><input type="checkbox">2.1L-2.5L</li>
+                                        <li><input type="checkbox">2.6L-3.0L</li>
+                                        <li><input type="checkbox">3.1L-4.0L</li>
+                                        <li><input type="checkbox">4.0L以上</li>
+                                    </ul>
+                                </div>
+                                <div class="pailiangdiv">
+                                    <input type="button" value="确定">
+                                    <input type="button" value="取消">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <select class="biansuqi">
+                            <option>变速器</option>
+                            <option>手动</option>
+                            <option>自动</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="qudong">
+                            <option>驱动</option>
+                            <option>前驱</option>
+                            <option>后驱</option>
+                            <option>四驱</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select class="licheng">
+                            <option>里程</option>
+                            <option> 1万公里内</option>
+                            <option>3万公里内</option>
+                            <option>6万公里内</option>
+                            <option>10万公里内</option>
+                            <option>10万公里上</option>
+                        </select>
+                    </li>
+                    <li>
+                        <div class="gengduomain">
+                            <div class="gengduo">
+                                <a href="#">更多&nbsp;&nbsp;&nbsp;<</a>
+                            </div>
+                            <div class="gengduohover">
+                                <div><a href="#">属性&nbsp;&nbsp;&nbsp;<</a></div>
+                                <div><a href="#">国别&nbsp;&nbsp;&nbsp;<</a></div>
+                                <div><a href="#">颜色&nbsp;&nbsp;&nbsp;<</a></div>
+                                <div><a href="#">结构&nbsp;&nbsp;&nbsp;<</a></div>
+                                <div><a href="#">燃料&nbsp;&nbsp;&nbsp;<</a></div>
+                                <div><a href="#">配置&nbsp;&nbsp;&nbsp;<</a></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        </table>
+        </div>
+        <div class="xinxi">
+            <div class="xinxi1">
+                <a href="#">天津二手车</a>
+                <a href="#">个人车源</a>
+                <a href="#">商家车源</a>
+                <a href="#">品牌认证</a>
+            </div>
+            <div class="xinxi2">
+                <ul>
+                    <li><input type="checkbox">已查4S店维修保养记录</li>
+                    <li><input type="checkbox">降价</li>
+                    <li><input type="checkbox">原厂质保</li>
+                    <li><input type="checkbox">延长质保</li>
+                    <li><input type="checkbox">准新车</li>
+                    <li><input type="checkbox">只看有图</li>
+                    <li><input type="checkbox">只看在售</li>
+                </ul>
+            </div>
+            <div class="xinxi3">
+                <ul>
+                    <li><a href="#">默认排序</a></li>
+                    &nbsp;&nbsp;
+                    <li>|</li>
+                    <li><a href="#">价格</a></li>
+                    &nbsp;&nbsp;
+                    <li>|</li>
+                    <li><a href="#">车龄</a></li>
+                    &nbsp;&nbsp;
+                    <li>|</li>
+                    <li><a href="#">里程</a></li>
+                    &nbsp;&nbsp;
+                    <li>|</li>
+                    <li><a href="#">日期</a></li>
+                </ul>
+                <div class="xinxi4">
+                    <p style="margin-top: 3px;margin-left: 20%; float: left">共找到<i style="color: yellow">1564565</i>辆车源</p>
+                    <img src="image/buycar/1.png" style="margin-left: 8%;margin-top:1px; ">
+                    <img src="image/buycar/2.png" style="margin-left: 2%;margin-top:1px; ">
+                </div>
+            </div>
+        </div>
+        <div class="tupian">
+            <div class="firstrow">
+                <div><a href="#"> <img src="image/buycar/che1.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che2.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che3.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che4.png"></a></div>
+            </div>
+            <div class="secondrow">
+                <div><a href="#"> <img src="image/buycar/che5.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che6.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che7.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che8.png"></a></div>
+            </div>
+            <div class="thirdrow">
+                <div><a href="#"> <img src="image/buycar/che9.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che10.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che11.png"></a></div>
+                <div><a href="#"> <img src="image/buycar/che12.png"></a></div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar">
+        <div class="yidiche">
+        <a style="color: white;line-height: 40px;">异地热门车源</a>
+        </div>
+        <div class="yidichepic">
+            <a href="#"> <img src="image/buycar/waidiche1.png" style="margin-top: 15px;"></a>
+            <a href="#"> <img src="image/buycar/waidiche2.png"></a>
+           <a href="#"> <img src="image/buycar/waidiche3.png"></a>
+        </div>
+        <div class="pinpai">
+            <div class="pinpaizi">
+                <a style="color: white;line-height: 40px;">异地热门车源</a>
+            </div>
+            <table border="1" width="100%" >
+                <tr>
+                    <td><a href="#"><img src="image/buycar/pinpai1.png"></a> </td>
+                    <td><a href="#"><img src="image/buycar/pinpai2.jpg"></a></td>
+                </tr>
+                <tr>
+                    <td><a href="#"><img src="image/buycar/pinpai3.png"></a></td>
+                    <td><a href="#"><img src="image/buycar/pinpai4.png"></a></td>
+                </tr>
+                <tr>
+                    <td><a href="#"><img src="image/buycar/pinpai5.png"></a></td>
+                    <td><a href="#"><img src="image/buycar/pinpai6.png"></a></td>
+                </tr>
+                <tr>
+                    <td><a href="#"><img src="image/buycar/pinpai7.jpg"></a></td>
+                    <td><a href="#"><img src="image/buycar/pinpai8.jpg"></a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+<div class="footer1">
+    <a href="#" style="margin-left: 25%">公司介绍&nbsp;&nbsp;|</a>
+    <a href="#">联系我们&nbsp;&nbsp;|</a>
+    <a href="#">网站导航【广播电视节目制作经营许可证：（京）字第1338】</a>
+    <div class="footerlogo">
+    <img src="image/logo/logo.png" style="width: 100% ; height:100%;" >
+    </div>
+    <a href="#" style="margin-left: 15%">京ICP备11003899号-1&nbsp;京公网备&nbsp;1101082000103号&nbsp;中国互联网协会会员单位&nbsp;电信与信息服务业务经营许可证：京ICP证110115号</a>
+</div>
+</body>
+</html>

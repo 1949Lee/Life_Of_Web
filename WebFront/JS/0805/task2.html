@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        html,body{
+            padding:0px;
+            margin:0px;
+            width:100%;
+            height:100%;
+        }
+        img{
+            width:90%;
+            height:100%;
+            margin: 0 auto;
+            display: block;
+        }
+        .lbtn{
+            background: rgba(128,128,128,0.7);
+            position:absolute;
+            top:50%;
+            left:5%;
+            font-size: 60px;
+            font-weight: bolder;
+            font-weight: bolder;
+            text-decoration: none;
+            color:black;
+        }
+        .rbtn{
+            background: rgba(128,128,128,0.7);
+            position:absolute;
+            top:50%;
+            right:5%;
+            font-size: 60px;
+            font-weight: bolder;
+
+        }
+        span a,span a {
+            text-decoration: none;
+            color: black;
+        }
+        ol{
+            list-style: none;
+            font-size: 30px;
+            color:grey;
+            font-weight: bolder;
+            position:absolute;
+            bottom:10px;
+            left:44%
+        }
+        ol li{
+            float: left;
+            width:10px;
+            height:10px;
+            text-align: center;
+            margin-left: 10px;
+            border:5px solid dimgrey;
+            border-radius: 10px;
+        }
+        ol>li>a{
+            text-decoration: none;
+        }
+        .btnSelected{
+           color:aqua;
+        }
+        .selected{
+            background-color: aqua;
+            border:hidden;
+            width:20px;
+            height:20px;
+        }
+    </style>
+</head>
+<body>
+<img src="" id="bg">
+<span id="lbtn"class="lbtn" ><a id="lbtnA"href="javascrit:;"title="上一张">&lt;</a></span><span id="rbtn" class="rbtn"><a id="rbtnA" href="javascrit:;"title="下一张">&gt;</a></span>
+<ol>
+    <li><a href="javascript:;">&nbsp;</a></li>
+    <li><a href="javascript:;">&nbsp;</a></li>
+    <li><a href="javascript:;">&nbsp;</a></li>
+</ol>
+
+
+
+<script>
+    var img = document.getElementById("bg");
+    var lBtn = document.getElementById("lbtn");
+    var rBtn = document.getElementById("rbtn");
+    var lBtnA = document.getElementById("lbtnA");
+    var rBtnA = document.getElementById("rbtnA");
+    img.src = "images/bg1.jpg";
+    var index = 1;
+    function change(){
+        img.src = "images/bg" +index+".jpg";
+        index = index % 3 + 1;
+    }
+    var t = setInterval(change,2500);
+    function mouseEvent(){
+        lBtn.onclick = function(){
+            if(!(--index)){
+                index = 3;
+            }
+            img.src = "images/bg" +index+".jpg";
+        };
+        rBtn.onclick = function(){
+            if((++index)>3){
+                index = 1;
+            }
+            img.src = "images/bg" +index+".jpg";
+        };
+        img.onmouseover = function(){
+            clearInterval(t);
+        };
+        img.onmouseout = function(){
+            t = setInterval(change,2500);
+        };
+        lBtn.onmouseover = function(){
+            clearInterval(t);
+            lBtnA.className = "btnSelected";
+        };
+        lBtn.onmouseout = function(){
+            t = setInterval(change,2500);
+            lBtnA.className = "";
+        };
+        rBtn.onmouseover = function(){
+            clearInterval(t);
+            rBtnA.className = "btnSelected";
+        };
+        rBtn.onmouseout = function(){
+            t = setInterval(change,2500);
+            rBtnA.className = "";
+        };
+        var li = document.getElementsByTagName("li");
+        for(var i = 0;i < li.length;i++){
+            li[i].value = i;
+            li[i].onmouseover = function(){
+                clearInterval(t);
+//                this.style.backgroundColor = "deepskyblue";
+//                this.style.border = "hidden";
+                this.className = "selected";
+                img.src = "images/bg" +(this.value+1)+".jpg";
+            }
+            li[i].onmouseout = function(){
+                t = setInterval(change,2500)
+//                li[i].style.backgroundColor = "deepskyblue";
+//                li.style.border = "hidden";
+                this.className = "";
+            }
+        }
+    }
+    mouseEvent();
+
+</script>
+</body>
+</html>

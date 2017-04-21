@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>买鸡问题</title>
+</head>
+<body>
+小明妈妈给小明100元菜市场买鸡
+<br>
+公鸡3元
+<br>
+母鸡5元
+<br>
+小鸡1元3只
+<br>
+如何用100元买到100只鸡,要求
+每种鸡都要买到，问每种鸡分别多少只？<br>
+<br>
+<script>
+    var x=3;
+    var y = 0;
+
+    while(x<99) {
+        y = 1;
+        while (y < 100 - x) {
+            var z=100-y-x;
+            if(z*3+y*5+parseInt(x/3)==100){
+                document.write("小鸡共:"+ x+"只  母鸡共："+y+"只  公鸡共："+z+"只<br>");
+            }
+            y++;
+        }
+        x+=3;
+    }
+</script>
+</body>
+</html>

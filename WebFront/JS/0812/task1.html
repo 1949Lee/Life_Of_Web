@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <style>
+        html,body{
+            margin:0px;
+            padding:0px;
+        }
+        .menu>li{
+            list-style: none;
+            position: relative;
+            float:left;
+            width:78px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+        }
+        .menu>li>div{
+            list-style: none;
+            width:78px;
+            height:300px;
+            background:url("images/submenu.png") center no-repeat;
+            background-size: cover;
+            position:absolute;
+            top: 0px;
+            display: none;
+
+        }
+        .menu>li>div>ol>li{
+            list-style: none;
+            text-align: center;
+            line-height: 30px;
+            width:78px;
+            height:30px;
+        }
+        .menu>li>div>ol>li>a:hover{
+            color:#00c0ff;
+        }
+        .menu>li a{
+            color:#827c79;
+            text-decoration:none;
+            position: relative;
+            z-index: 1;
+        }
+        .menu{
+            font-size: 20px;
+            margin:0px;
+            padding:0px;
+        }
+        #nav{
+            background:url("images/nav_bg.png") center no-repeat;
+            width:312px;
+            height:50px;
+        }
+        .menuSelected{
+            border-left: 1px solid grey;
+            border-right: 1px solid grey;
+            background:url("images/submenu.png") top no-repeat;
+            background-size: cover;
+            margin-left: -1px;
+            margin-right: -1px;
+        }
+        #grand{
+            list-style: none;
+            display:none;
+            padding: 0px;
+            z-index:2;
+            border:1px solid yellow;
+            width:80px;
+        }
+        #grand>li{
+            width:80px;
+            height:20px;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+            margin: 0px;
+            border:1px solid red;
+        }
+    </style>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+<div id="nav">
+<ol id="menu" class="menu">
+
+</ol>
+    <ol id="grand">
+    </ol>
+</div>
+
+<script>
+      var menu = document.getElementById("menu");
+      var menuText = ["首页","资料","咨讯","下载"];
+      var menuLi = [];
+      var subMenuText = [
+          [""],
+              ["英雄资料","物品资料","视频中心","自定义地图","新手引导"],
+              ["官方新闻","赛事新闻","更新日志","游戏攻略"],
+              ["游戏下载","刀塔助手","精美壁纸","官方漫画"]
+      ];
+    for(var i = 0;i < menuText.length;i++){
+        var li = document.createElement("li");
+        li.innerHTML = "<a href='javascript:;'>"+menuText[i]+"</a>";
+        menu.appendChild(li);
+        menuLi.push(li);
+        li.value = i;
+    }
+      $(function(){
+          $("#menu>li").each(function(){
+              if(!$(this).is("#menu>li:first-child")) {
+                  var menuLi = $("<div></div>");
+                  $(this).append(menuLi);
+              }
+          });
+          $("#menu>li").mouseover(function () {
+              $("#menu>li:not(this)").removeClass("menuSelected");
+              $(this).addClass("menuSelected");
+              $(this).children().show();
+          });
+          $("#menu>li").mouseout(function () {
+              $(this).children("div").hide();
+          });
+          $("#menu>li>div").each(function(){
+              var ol = $("<ol></ol>");
+              ol.css({
+                  position: "absolute",
+                  margin: "0",
+                  padding: "0",
+                  top: "50px",
+                  fontSize: "5px"
+              });
+              for (var j = 0; j < subMenuText[$(this).parent().prop("value")].length; j++) {
+                  ol.append($("<li><a href='javascript:;'>"
+                          + subMenuText[$(this).parent().prop("value")][j]
+                          + "</a></li>"));
+              }
+              $(this).append(ol);
+          });
+      });
+</script>
+</body>
+</html>

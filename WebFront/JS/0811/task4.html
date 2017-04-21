@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ选择器</title>
+    <script src="jQuery/jquery-3.1.0.min.js"></script>
+    <style>
+        ol{
+            list-style: none;
+            margin-left:15%;
+            height:300px;
+        }
+        li{
+            float:left;
+            margin-left: 30px;
+            margin-top:200px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<ol>
+    <li><img src="images/sven_hphover.png"><br><div><input type="checkbox" ></div></li>
+    <li><img src="images/wisp_hphover.png"><br><div><input type="checkbox" ></div></li>
+    <li><img src="images/earthshaker_hphover.png"><br><div><input type="checkbox" ></div></li>
+    <li><img src="images/nevermore_hphover.png"><br><div><input type="checkbox"></div></li>
+    <li><img src="images/lion_hphover.png"><br><div><input type="checkbox" value="0"></div></li>
+</ol>
+<button >出征</button>
+
+
+<script>
+    $(function () {
+        var img = [];
+        for(var i = 0;i < $("li").length;i++){
+//            $("li:nth-child("+(i+1)+") input")[0].value=i;
+            $("li:nth-child("+(i+1)+") input").attr("value",i);
+        };
+        $("button:nth-child(2)").click(function(){
+            img=[];
+            for(var i = 0;i < $("[type=checkbox]:checked").length;i++){
+                img.push($("[type=checkbox]:checked")[i].value);
+            }
+//            alert(img.join("\n"));
+//            $("li").hide("slow");
+            var index = 0;
+            for(var i = 0;i < $("li").length;i++){
+//            $("li:nth-child("+(i+1)+") input")[0].value=i;
+                if(i==img[index]) {
+//                    $($("li")[i]).hide("slow");
+                    $($("li")[i]).slideUp(1000);
+                    $($("li")[i]).slideDown(1000);
+                    index++;
+                }
+                else{
+                    $($("li")[i]).hide("slow");
+                }
+            }
+        });
+
+    })
+</script>
+</body>
+</html>
