@@ -1,0 +1,25 @@
+/***********
+1、本地git与远程github库同步：
+***********/
+1、本地git与远程github库同步：
+   采用ssh链接，已完成 
+   （1）创建了ssh key
+   （2）在GitHub网站登录自己账号之后添加SSH Keys并成功
+   上述两个工作之后，采用如下命令在本地测试ssh链接github网站：
+   $ ssh -t git@github.com 
+   此时命令行（本地Git）这样说
+   ssh: Could not resolve hostname \342\200\223t: Name or service not known
+没成功，具体解决方法有很多
+首先可能因为你的ssh没打开，所以你需要打开，然后在本地git中输入如下命令打开
+$ ssh-agent -s
+然后再次测试
+$ ssh -t git@github.com 
+就成功了，它会说：
+Hi 1949Lee! You've successfully authenticated, but GitHub does not provide shell access.
+Hi 后面显示是你的github网站昵称就对了。
+然后我参考本地git与远程github库同步的帖子（http://www.cnblogs.com/oldinaction/p/5167455.html）里还说了一种另外的解决方式
+解决办法是执行下列命令：
+$ ssh -t -p 22 git@github.com 
+-p表示修改服务器端口为22
+当提示输入(yes/no)?时在后面输入yes回车即可
+
