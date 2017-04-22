@@ -43,14 +43,14 @@
 <!-- BEGIN LOGO -->
 <div class="logo">
     <a href="index.html">
-        <img src="../assets/pages/img/logo-big.png" alt=""/> </a>
+        <img src="../assets/pages/img/logo-horizontal.png" alt=""/> </a>
 </div>
 <!-- END LOGO -->
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
     <form class="login-form" action="" method="post">
-        <h3 class="form-title font-green">登录</h3>
+        <h3 class="form-title font-green-jungle">登录</h3>
         <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
             <span >用户名或密码错误</span>
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="form-actions">
-            <button type="submit" class="btn green uppercase">登录</button>
+            <button type="submit" class="btn green-jungle uppercase">登录</button>
             <label class="rememberme check mt-checkbox mt-checkbox-outline">
                 <input type="checkbox" name="remember" value="1"/>记住密码
                 <span></span>
@@ -84,27 +84,28 @@
         </div>
         <div class="create-account">
             <p>
-                <a href="javascript:;" id="register-btn" class="uppercase">创建用户</a>
+                <a href="javascript:;" id="register-btn" class="uppercase">注册用户</a>
             </p>
         </div>
     </form>
     <!-- END LOGIN FORM -->
     <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form class="forget-form" action="main.html" method="post">
-        <h3 class="font-green">忘记密码 ?</h3>
-        <p> 请在下方输入手机号并重置密码</p>
+    <form class="forget-form" action="login.html" method="post">
+        <h3 class="font-green-jungle">忘记密码 ?</h3>
+        <p> 请在下方输入绑定邮箱并重置密码</p>
         <div class="form-group">
-            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="手机号"
-                   name="phoneNumber"/></div>
+            <label class="control-label visible-ie8 visible-ie9">邮箱</label>
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="邮箱"
+                   name="email"/></div>
         <div class="form-actions">
-            <button type="button" id="back-btn" class="btn green btn-outline">返回</button>
+            <button type="button" id="back-btn" class="btn green-jungle btn-outline">返回</button>
             <button type="submit" class="btn btn-success uppercase pull-right">确定</button>
         </div>
     </form>
     <!-- END FORGOT PASSWORD FORM -->
     <!-- BEGIN REGISTRATION FORM -->
     <form class="register-form" action="main.html" method="post">
-        <h3 class="font-green">Sign Up</h3>
+        <h3 class="font-green-jungle">注册</h3>
         <p class="hint"> 请输入个人信息:</p>
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">姓名</label>
@@ -129,12 +130,9 @@
             <label class="control-label visible-ie8 visible-ie9">确认密码</label>
             <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="确认密码"
                    name="rePassword"/></div>
-        <div class="form-group margin-top-20 margin-bottom-20">
-            <div id="register_tnc_error"></div>
-        </div>
         <div class="form-actions">
-            <button type="button" id="register-back-btn" class="btn green btn-outline">返回</button>
-            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">注册</button>
+            <button type="button" id="register-back-btn" class="btn green-jungle btn-outline">返回</button>
+            <button type="submit" id="register-submit-btn" class="btn btn-success green-jungle uppercase pull-right">注册</button>
         </div>
     </form>
     <!-- END REGISTRATION FORM -->
@@ -153,9 +151,9 @@
 <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/jquery-validation/js/additional-methods.js" type="text/javascript"></script>
+<script src="../assets/global/plugins/select2/js/select2.full.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="../assets/global/scripts/app.js" type="text/javascript"></script>

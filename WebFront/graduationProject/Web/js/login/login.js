@@ -105,9 +105,9 @@ var Login = function () {
 
     var handleForgetPassword = function () {
         $('.forget-form').validate({
-            errorElement: 'span', //default input error message container
-            errorClass: 'help-block', // default input error message class
-            focusInvalid: false, // do not focus the last invalid input
+            errorElement: 'span',
+            errorClass: 'help-block',
+            focusInvalid: true,
             ignore: "",
             rules: {
                 email: {
@@ -118,7 +118,8 @@ var Login = function () {
 
             messages: {
                 email: {
-                    required: "Email is required."
+                    required: "邮箱不能为空",
+                    email:'邮箱格式不对'
                 }
             },
 
@@ -137,7 +138,12 @@ var Login = function () {
             },
 
             errorPlacement: function (error, element) {
-                error.insertAfter(element.closest('.input-icon'));
+                if (element.closest('.input-icon').size() === 1) {
+                    error.insertAfter(element.closest('.input-icon'));
+                }
+                else {
+                    error.insertAfter(element);
+                }
             },
 
             submitHandler: function (form) {
@@ -182,10 +188,9 @@ var Login = function () {
         $('.register-form').validate({
             errorElement: 'span', //default input error message container
             errorClass: 'help-block', // default input error message class
-            focusInvalid: false, // do not focus the last invalid input
+            focusInvalid: true, // do not focus the last invalid input
             ignore: "",
             rules: {
-
                 fullname: {
                     required: true
                 },
@@ -193,34 +198,32 @@ var Login = function () {
                     required: true,
                     email: true
                 },
-                address: {
-                    required: true
-                },
-                city: {
-                    required: true
-                },
-                country: {
-                    required: true
-                },
-
                 username: {
                     required: true
                 },
                 password: {
                     required: true
                 },
-                rpassword: {
+                rePassword: {
                     equalTo: "#register_password"
-                },
-
-                tnc: {
-                    required: true
                 }
             },
 
-            messages: { // custom messages for radio buttons and checkboxes
-                tnc: {
-                    required: "Please accept TNC first."
+            messages: {
+                fullname: {
+                    required: "姓名不能为空"
+                },
+                email:{
+                    required: "邮箱不能为空"
+                },
+                password: {
+                    required: "密码不能为空"
+                },
+                rePassword: {
+                    equalTo: "两次输入密码不一致"
+                },
+                username:{
+                    required: "登录名不能为空"
                 }
             },
 

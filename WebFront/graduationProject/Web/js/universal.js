@@ -10,13 +10,17 @@ var cookiesExpireDays = 30;
 
 //获取当前服务的地址
 function ServiceUrl() {
-    var url = window.location.origin + '/graduationProject/Service/';
+    var origin = window.location.href;
+    origin = origin.slice(0,origin.indexOf('Web/html'));
+    var url = origin+ 'Service/';
     return url;
 
 }
-//获取当前服务的地址
+//获取当前Web的地址
 function WebUrl() {
-    var url = window.location.origin + '/graduationProject/Web/';
+    var origin = window.location.href;
+    origin = origin.slice(0,origin.indexOf('Web/html'))
+    var url = origin + 'Web/';
     return url;
 
 }

@@ -27,13 +27,15 @@ var Layout = function () {
             if (content.height() < available_height) {
                 content.css('min-height', available_height);
             }
-        } else {
+        }
+        else {
             if (body.hasClass('page-sidebar-fixed')) {
                 height = _calculateFixedSidebarViewportHeight();
                 if (body.hasClass('page-footer-fixed') === false) {
                     height = height - $('.page-footer').outerHeight();
                 }
-            } else {
+            }
+            else {
                 var headerHeight = $('.page-header').outerHeight();
                 var footerHeight = $('.page-footer').outerHeight();
 
@@ -44,7 +46,11 @@ var Layout = function () {
                 }
 
                 if ((height + headerHeight + footerHeight) <= App.getViewPort().height) {
-                    height = App.getViewPort().height - headerHeight - footerHeight;
+                    if (App.getViewPort().width < resBreakpointMd) {
+                        height = App.getViewPort().height - headerHeight - footerHeight;
+                    } else {
+                        height = App.getViewPort().height - headerHeight - footerHeight+68;
+                    }
                 }
             }
             content.css('min-height', height);
