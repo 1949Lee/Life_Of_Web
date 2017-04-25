@@ -204,7 +204,7 @@ body {
       color: #888888; }
       .form-group.form-md-line-input .form-control.edited:not([readonly]) ~ label:after,
       .form-group.form-md-line-input .form-control.edited:not([readonly]) ~ .form-control-focus:after, .form-group.form-md-line-input .form-control:focus:not([readonly]) ~ label:after,
-      .form-group.form-md-line-input .form-control:focus:not([readonly]) ~ .form-control-focus:after {
+      .form-group.form-md-line-input .form-control:focus:not([readonly]) ~.form-control-focus:after {
         visibility: visible;
         left: 0;
         width: 100%;

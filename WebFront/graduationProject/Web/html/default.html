@@ -1,63 +1,528 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <meta content="#1 selling multi-purpose bootstrap admin theme sold in themeforest marketplace packed with angularjs, material design, rtl support with over thausands of templates and ui elements and plugins to power any type of web applications including saas and admin dashboards. Preview page of Theme #2 for material design bootstrap inputs, input groups, custom checkboxes and radio controls and more"
-          name="description"/>
-    <meta content="" name="author"/>
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="../assets/global/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-    <link href="../assets/global/plugins/simple-line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>
-    <link href="../assets/global/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet" type="text/css"/>
-    <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="../assets/global/css/components-rounded.css" rel="stylesheet" id="style_components" type="text/css"/>
-    <link href="../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-    <!-- END THEME GLOBAL STYLES -->
-    <!-- BEGIN THEME LAYOUT STYLES -->
-    <link href="../assets/layouts/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
-    <link href="../assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css"/>
-    <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico"/>
-</head>
-<body>
-<div class="page-container">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--&lt;!&ndash;<meta charset="utf-8"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<meta http-equiv="X-UA-Compatible" content="IE=edge">&ndash;&gt;-->
+    <!--&lt;!&ndash;<meta content="width=device-width, initial-scale=1" name="viewport"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<meta content="#1 selling multi-purpose bootstrap admin theme sold in themeforest marketplace packed with angularjs, material design, rtl support with over thausands of templates and ui elements and plugins to power any type of web applications including saas and admin dashboards. Preview page of Theme #2 for material design bootstrap inputs, input groups, custom checkboxes and radio controls and more"&ndash;&gt;-->
+          <!--&lt;!&ndash;name="description"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<meta content="" name="author"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash; BEGIN GLOBAL MANDATORY STYLES &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/simple-line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash; END GLOBAL MANDATORY STYLES &ndash;&gt;&ndash;&gt;-->
+
+    <!--&lt;!&ndash;&lt;!&ndash;特殊控件引用开始&ndash;&gt;&ndash;&gt;-->
+
+    <!--&lt;!&ndash;&lt;!&ndash;select2  CSS+JS&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/select2/css/select2.css" rel="stylesheet" type="text/css">&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css">&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;select2  结束&ndash;&gt;&ndash;&gt;-->
+
+    <!--&lt;!&ndash;&lt;!&ndash;模态框 CSS+JS&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet"&ndash;&gt;-->
+          <!--&lt;!&ndash;type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;模态框 结束&ndash;&gt;&ndash;&gt;-->
+
+    <!--&lt;!&ndash;&lt;!&ndash;特殊控件引用结束&ndash;&gt;&ndash;&gt;-->
+
+    <!--&lt;!&ndash;&lt;!&ndash; BEGIN THEME GLOBAL STYLES &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/css/components-rounded.css" rel="stylesheet" id="style_components" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash; END THEME GLOBAL STYLES &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash; BEGIN THEME LAYOUT STYLES &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/layouts/layout2/css/layout.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;<link href="../assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash; END THEME LAYOUT STYLES &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<link rel="shortcut icon" href="/Web/favicon.ico"/>&ndash;&gt;-->
 
 
+<!--</head>-->
+<!--<body>-->
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light  quiz-page">
+                <form role="form">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input">
+                            <input type="text" class="form-control" id="form_control_1"
+                                   placeholder="Enter your name">
+                            <label for="form_control_1"></label>
+                            <!--<span class="help-block">1</span>-->
+                        </div>
+                        <!--has-error,has-warning,has-info-->
+                        <div class="form-group form-md-line-input form-md-floating-label has-success quiz-input quiz-block-input ">
+                        <textarea class="form-control" rows="3" placeholder="Enter more text"
+                                  id="form_control_2"></textarea>
+                            <label for="form_control_2">
+                            </label>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input">
+                            <select class="form-control" id="form_control_3">
+                                <option value="">请选择</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                                <option value="4">Option 4</option>
+                            </select>
+                            <label for="form_control_3"></label>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input">
+                            <input type="text" class="form-control" disabled="" id="form_control_4" value="Disable">
+                            <label for="form_control_4"></label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END SAMPLE FORM PORTLET-->
+        </div>
+        <div class="col-md-6 ">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light form quiz-page">
+                <form role="form">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-block-input">
+                            <div class="form-control form-control-static" contenteditable="true">撒答案是
+                                <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input"
+                                     contenteditable="false" draggable="true">
+                                    <select class="form-control" id="form_control_6">
+                                        <option value="">请选择</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                        <option value="4">Option 4</option>
+                                    </select>
+                                    <label for="form_control_6"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-checkboxes quiz-input">
+                            <div class="md-checkbox-list">
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check1" id="checkbox11" class="md-check">
+                                    <label for="checkbox11">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 1 </label>
+                                </div>
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check1" id="checkbox12" class="md-check" checked="">
+                                    <label for="checkbox12">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 2 </label>
+                                </div>
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check1" id="checkbox13" class="md-check">
+                                    <label for="checkbox13">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 3 </label>
+                                </div>
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check1" id="checkbox14" disabled="" class="md-check">
+                                    <label for="checkbox14">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Disabled </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-checkboxes quiz-input">
+                            <label>Checkboxes</label>
+                            <div class="md-checkbox-inline">
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check2" id="checkbox21" class="md-check">
+                                    <label for="checkbox21">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 1 </label>
+                                </div>
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check2" id="checkbox22" class="md-check" checked="">
+                                    <label for="checkbox22">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 2 </label>
+                                </div>
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check2" id="checkbox23" class="md-check">
+                                    <label for="checkbox23">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 3 </label>
+                                </div>
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check2" id="checkbox24" disabled="" class="md-check">
+                                    <label for="checkbox24">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Disabled </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-radios quiz-input">
+                            <div class="md-radio-list">
+                                <div class="md-radio">
+                                    <input type="radio" id="radio1" name="radio1" class="md-radiobtn">
+                                    <label for="radio1">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 1 </label>
+                                </div>
+                                <div class="md-radio">
+                                    <input type="radio" id="radio2" name="radio1" class="md-radiobtn" checked="">
+                                    <label for="radio2">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 2 </label>
+                                </div>
+                                <div class="md-radio">
+                                    <input type="radio" id="radio3" name="radio1" class="md-radiobtn">
+                                    <label for="radio3">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 3 </label>
+                                </div>
+                                <div class="md-radio">
+                                    <input type="radio" id="radio5" name="radio1" disabled="" class="md-radiobtn">
+                                    <label for="radio5">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Disabled </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-radios quiz-input">
+                            <label>Radios - 111</label>
+                            <div class="md-radio-inline">
+                                <div class="md-radio">
+                                    <input type="radio" id="radio21" name="radio200" class="md-radiobtn">
+                                    <label for="radio21">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 1 </label>
+                                </div>
+                                <div class="md-radio">
+                                    <input type="radio" id="radio22" name="radio200" class="md-radiobtn" checked="">
+                                    <label for="radio22">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 2 </label>
+                                </div>
+                                <div class="md-radio">
+                                    <input type="radio" id="radio23" name="radio200" class="md-radiobtn">
+                                    <label for="radio23">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Option 3 </label>
+                                </div>
+                                <!--<a href="javascript:;" id="clickmewow" class="btn btn-success">Click</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END SAMPLE FORM PORTLET-->
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-md-12">
+            <div class="portlet light form quiz-page">
+                <form role="form">
+                    <div class="form-body">
+                        <div class="form-group form-md-line-input">
+                            <label for="multiple" class="control-label">Select2 multi select</label>
+                            <select id="multiple" class="form-control select2">
+                                <optgroup label="Alaskan">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI" disabled="disabled">Hawaii</option>
+                                </optgroup>
+                                <optgroup label="Pacific Time Zone">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                </optgroup>
+                                <optgroup label="Mountain Time Zone">
+                                    <option value="AZ">Arizona</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="WY">Wyoming</option>
+                                </optgroup>
+                                <optgroup label="Central Time Zone">
+                                    <option value="AL">Alabama</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="WI">Wisconsin</option>
+                                </optgroup>
+                                <optgroup label="Eastern Time Zone">
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WV">West Virginia</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div class="form-group form-md-line-input">
+                            <table class="table table-hover table-striped table-bordered">
+                                <tr>
+                                    <td> Responsive</td>
+                                    <td>
+                                        <a class="btn btn-outline dark" data-toggle="modal" href="#responsive"> View
+                                            Demo </a>
+                                    </td>
+                                </tr>
+                                <!--<tr>-->
+                                <!--<td> Ajax</td>-->
+                                <!--<td>-->
+                                <!--<a class="btn btn-outline dark" id="ajax-demo"-->
+                                <!--data-url="default.html"  data-toggle="modal"data-target="#ajax-modal">View-->
+                                <!--Demo </a>-->
+                                <!--</td>-->
+                                <!--</tr>-->
+                                <tr>
+                                    <td> Full Width</td>
+                                    <td>
+                                        <a class="btn btn-outline dark"  data-target="#full-width" data-toggle="modal"> View
+                                            Demo </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <!-- responsive -->
+                        <div id="responsive" class="modal fade" tabindex="-1" data-width="760">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Responsive</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Some Input</h4>
+                                        <p>
+                                            <input class="form-control" type="text"></p>
+                                        <p>
+                                            <input class="form-control" type="text"></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>Some More Input</h4>
+                                        <p>
+                                            <input class="form-control" type="text"></p>
+                                        <p>
+                                            <input class="form-control" type="text"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                                <button type="button" class="btn green">Save changes</button>
+                            </div>
+                        </div>
+                        <!-- stackable -->
+                        <div id="stack2" class="modal fade" tabindex="-1" data-focus-on="input:first">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Stack Two</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p> One fine body… </p>
+                                <p> One fine body… </p>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" data-tabindex="1"></div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" data-tabindex="2"></div>
+                                <button class="btn blue" data-toggle="modal" href="#stack3">Launch modal</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                                <button type="button" class="btn red">Ok</button>
+                            </div>
+                        </div>
+                        <div id="stack3" class="modal fade" tabindex="-1" data-focus-on="input:first">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Stack Three</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p> One fine body… </p>
+                                <input class="form-control" type="text" data-tabindex="1">
+                                <input class="form-control" type="text" data-tabindex="2"></div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                                <button type="button" class="btn green">Ok</button>
+                            </div>
+                        </div>
+                        <!-- ajax -->
+                        <div id="ajax-modal" class="modal container fade" tabindex="-1"></div>
+                        <!-- full width -->
+                        <div id="full-width" class="modal container fade modal-scroll" tabindex="-1" data-backdrop="static" data-keyboard="false"
+                             data-attention-animation="false"
+                        >
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Full Width</h4>
+                            </div>
+                            <div class="modal-body">
+                                <button class="btn blue" data-toggle="modal" href="#stack2">Launch modal</button>
+                                <p> This modal will resize itself to the same dimensions as the container class. </p>
+                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
+                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
+                                    egestas hendrerit ipsum, et porttitor augue
+                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
+                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
+                                    cursus nec, vestibulum vel nibh. Morbi
+                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
+                                    quam eu ipsum euismod pretium. </p>
+                                <p> This modal will resize itself to the same dimensions as the container class. </p>
+                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
+                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
+                                    egestas hendrerit ipsum, et porttitor augue
+                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
+                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
+                                    cursus nec, vestibulum vel nibh. Morbi
+                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
+                                    quam eu ipsum euismod pretium. </p>
+                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
+                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
+                                    egestas hendrerit ipsum, et porttitor augue
+                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
+                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
+                                    cursus nec, vestibulum vel nibh. Morbi
+                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
+                                    quam eu ipsum euismod pretium. </p>
+                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
+                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
+                                    egestas hendrerit ipsum, et porttitor augue
+                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
+                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
+                                    cursus nec, vestibulum vel nibh. Morbi
+                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
+                                    quam eu ipsum euismod pretium. </p>
+                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
+                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
+                                    egestas hendrerit ipsum, et porttitor augue
+                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
+                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
+                                    cursus nec, vestibulum vel nibh. Morbi
+                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
+                                    quam eu ipsum euismod pretium. </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                                <button type="button" class="btn green">Save changes</button>
+                            </div>
+                        </div>
+                        <!-- long modals -->
+                        <div id="long" class="modal fade modal-scroll" tabindex="-1" data-replace="true">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light quiz-btn">
+                <form role="form">
+                    <div class="form-actions noborder text-center">
+                        <button type="button" class="btn blue">Submit</button>
+                        <button type="button" class="btn default">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <!-- END SAMPLE FORM PORTLET-->
+        </div>
+    </div>
 </div>
 
+<!--&lt;!&ndash;[if lt IE 9]>-->
+<!--<script src="../assets/global/plugins/respond.min.js"></script>-->
+<!--<script src="../assets/global/plugins/excanvas.min.js"></script>-->
+<!--<script src="../assets/global/plugins/ie8.fix.min.js"></script>-->
+<!--<![endif]&ndash;&gt;-->
+<!--&lt;!&ndash; BEGIN CORE PLUGINS &ndash;&gt;-->
+<!--<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>-->
+<!--<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>-->
+<!--<script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>-->
+<!--<script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>-->
+<!--<script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>-->
+<!--<script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; END CORE PLUGINS &ndash;&gt;-->
+<!--&lt;!&ndash; BEGIN THEME GLOBAL SCRIPTS &ndash;&gt;-->
+<!--<script src="../assets/global/scripts/app.js" type="text/javascript"></script>-->
+<!--<script src="../js/universal.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; END THEME GLOBAL SCRIPTS &ndash;&gt;-->
 
-<!--[if lt IE 9]>
-<script src="../assets/global/plugins/respond.min.js"></script>
-<script src="../assets/global/plugins/excanvas.min.js"></script>
-<script src="../assets/global/plugins/ie8.fix.min.js"></script>
-<![endif]-->
-<!-- BEGIN CORE PLUGINS -->
-<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<!-- BEGIN THEME GLOBAL SCRIPTS -->
-<script src="../assets/global/scripts/app.js" type="text/javascript"></script>
-<script src="../js/universal.js" type="text/javascript"></script>
-<!-- END THEME GLOBAL SCRIPTS -->
-<!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="../assets/layouts/layout2/scripts/layout.js" type="text/javascript"></script>
-<script src="../assets/layouts/layout2/scripts/demo.js" type="text/javascript"></script>
-<script src="../assets/layouts/global/scripts/quick-sidebar.js" type="text/javascript"></script>
-<script src="../assets/layouts/global/scripts/quick-nav.js" type="text/javascript"></script>
-<!-- END THEME LAYOUT SCRIPTS -->
-<script>
-    $(function () {
-        page.initFinish(isTop);
-        console.log(JSON.parse(getCookie('loginInfo')));
-    })
-</script>
-</body>
-</html>
+<!--&lt;!&ndash;特殊控件引用开始&ndash;&gt;-->
+<!--&lt;!&ndash;select2 CSS+JS&ndash;&gt;-->
+<!--<script src="../assets/global/plugins/select2/js/select2.full.js" type="text/javascript"></script>-->
+<!--<script src="../assets/pages/scripts/components-select2.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash;select2  结束&ndash;&gt;-->
+
+<!--&lt;!&ndash;模态框 CSSS+JS&ndash;&gt;-->
+<!--<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>-->
+<!--<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>-->
+<!--<script src="../assets/pages/scripts/ui-extended-modals.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash;模态框 结束&ndash;&gt;-->
+
+<!--&lt;!&ndash;特殊控件引用结束&ndash;&gt;-->
+
+
+<!--&lt;!&ndash; BEGIN THEME LAYOUT SCRIPTS &ndash;&gt;-->
+<!--<script src="../assets/layouts/layout2/scripts/layout.js" type="text/javascript"></script>-->
+<!--<script src="../assets/layouts/layout2/scripts/demo.js" type="text/javascript"></script>-->
+<!--<script src="../assets/layouts/global/scripts/quick-sidebar.js" type="text/javascript"></script>-->
+<!--<script src="../assets/layouts/global/scripts/quick-nav.js" type="text/javascript"></script>-->
+<!--&lt;!&ndash; END THEME LAYOUT SCRIPTS &ndash;&gt;-->
+<!--<script>-->
+    <!--$(function () {-->
+        <!--page.initFinish(isTop);-->
+        <!--console.log(JSON.parse(getCookie('loginInfo')));-->
+        <!--$('#checkbox11').on('click', function () {-->
+            <!--console.log($(this).prop('checked'));-->
+            <!--$('#checkbox13').prop('checked', 'true');-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

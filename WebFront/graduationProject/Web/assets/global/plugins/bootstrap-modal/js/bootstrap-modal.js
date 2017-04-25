@@ -34,7 +34,7 @@
 
 		init: function (element, options) {
 			var that = this;
-
+			
 			this.options = options;
 
 			this.$element = $(element)
