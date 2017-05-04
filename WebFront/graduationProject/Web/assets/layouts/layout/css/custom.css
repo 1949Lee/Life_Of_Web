@@ -269,7 +269,9 @@
 
 .quiz-input {
     padding-top: 0px !important;
-    margin-bottom: 0px !important;
+    padding-left:20px !important;
+    padding-right: 20px !important;
+    margin-bottom: 20px !important;
 }
 
 .quiz-inline-input {
@@ -309,4 +311,59 @@
     .quiz-btn {
         margin-top: 25px;
     }
+}
+.hidden{
+    display:none !important;
+}
+.quiz-title {
+    padding: 0px;
+    font-size: 26px;
+    letter-spacing: -1px;
+    line-height: 26px;
+    display: block;
+    color: #666;
+    margin: 0px 0px 20px 0px;
+    font-weight: 300;
+    font-family: "Open Sans", sans-serif;
+    /* subtitle */
+}
+
+.quiz-title span {
+    font-size: 13px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    color: #888;
+}
+.quiz-title-wrapper{
+    text-align: center;
+}
+.quiz-action{
+    position: relative;
+}
+.quiz-input-action{
+    display:inline-block;
+    position: absolute;
+    top:5px;
+    right:5px;
+    opacity: 1;
+}
+
+.lee-tab-content .lee-tab-pane.active{
+    display: block;
+}
+.lee-tab-content .lee-tab-pane.active.col-flex{
+    display: flex;
+}
+.lee-tab-content .lee-tab-pane{
+    display: none;
+}
+.col-flex{
+    display: flex;
+    align-items:center;
+}
+.lee-flex-vertical-center{
+    margin-bottom: 15px;
+}
+.overflow-y-hidden{
+    overflow-y: hidden !important;
 }

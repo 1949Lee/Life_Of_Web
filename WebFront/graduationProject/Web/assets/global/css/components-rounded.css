@@ -6871,7 +6871,7 @@ Customized Bootstrap Modal
     display: none; }
 
 .modal-open {
-  overflow-y: auto !important; }
+  overflow-y: auto ; }
 
 .modal-open-noscroll {
   overflow-y: hidden !important; }

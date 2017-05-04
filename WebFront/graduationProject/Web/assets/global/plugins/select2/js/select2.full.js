@@ -4465,12 +4465,12 @@ S2.define('select2/i18n/en',[],function () {
   // English
   return {
     errorLoading: function () {
-      return 'The results could not be loaded.';
+      return '结果不能展示';
     },
     inputTooLong: function (args) {
       var overChars = args.input.length - args.maximum;
 
-      var message = 'Please delete ' + overChars + ' character';
+      var message = '请删除 ' + overChars + '个字';
 
       if (overChars != 1) {
         message += 's';
@@ -4481,27 +4481,22 @@ S2.define('select2/i18n/en',[],function () {
     inputTooShort: function (args) {
       var remainingChars = args.minimum - args.input.length;
 
-      var message = 'Please enter ' + remainingChars + ' or more characters';
+      var message = '请再输入 ' + remainingChars + '个或更多字';
 
       return message;
     },
     loadingMore: function () {
-      return 'Loading more results…';
+      return '列出更多';
     },
     maximumSelected: function (args) {
-      var message = 'You can only select ' + args.maximum + ' item';
-
-      if (args.maximum != 1) {
-        message += 's';
-      }
-
+      var message = '你最多只能选' + args.maximum + '项';
       return message;
     },
     noResults: function () {
-      return 'No results found';
+      return '未找到结果';
     },
     searching: function () {
-      return 'Searching…';
+      return '搜索中……';
     }
   };
 });
@@ -5139,7 +5134,7 @@ S2.define('select2/core',[
     var width = this._resolveWidth(this.$element, this.options.get('width'));
 
     if (width != null) {
-      $container.css('width', width);
+      // $container.css('width', width);
     }
   };
 

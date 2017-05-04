@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--<meta content="width=device-width, initial-scale=1" name="viewport"/>-->
+    <!--<meta content="#1 selling multi-purpose bootstrap admin theme sold in themeforest marketplace packed with angularjs, material design, rtl support with over thausands of templates and ui elements and plugins to power any type of web applications including saas and admin dashboards. Preview page of Theme #2 for material design bootstrap inputs, input groups, custom checkboxes and radio controls and more"-->
+    <!--name="description"/>-->
+    <!--<meta content="" name="author"/>-->
+    <!--&lt;!&ndash; BEGIN GLOBAL MANDATORY STYLES &ndash;&gt;-->
+    <!--<link href="../../assets/global/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../assets/global/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet"-->
+    <!--type="text/css"/>-->
+    <!--&lt;!&ndash; END GLOBAL MANDATORY STYLES &ndash;&gt;-->
+
+    <!--&lt;!&ndash;特殊控件引用开始&ndash;&gt;-->
+
+    <!--&lt;!&ndash;select2  CSS+JS&ndash;&gt;-->
+    <!--<link href="../../assets/global/plugins/select2/css/select2.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="../../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css">-->
+    <!--&lt;!&ndash;select2  结束&ndash;&gt;-->
+
+    <!--&lt;!&ndash;模态框 CSS+JS&ndash;&gt;-->
+    <!--<link href="../../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet"-->
+    <!--type="text/css"/>-->
+    <!--<link href="../../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>-->
+    <!--&lt;!&ndash;模态框 结束&ndash;&gt;-->
+
+    <!--&lt;!&ndash;特殊控件引用结束&ndash;&gt;-->
+
+    <!--&lt;!&ndash; BEGIN THEME GLOBAL STYLES &ndash;&gt;-->
+    <!--<link href="../../assets/global/css/components-rounded.css" rel="stylesheet" id="style_components" type="text/css"/>-->
+    <!--<link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>-->
+    <!--&lt;!&ndash; END THEME GLOBAL STYLES &ndash;&gt;-->
+    <!--&lt;!&ndash; BEGIN THEME LAYOUT STYLES &ndash;&gt;-->
+    <!--<link href="../../assets/layouts/layout2/css/layout.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="../../assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css"/>-->
+    <!--&lt;!&ndash; END THEME LAYOUT STYLES &ndash;&gt;-->
+    <!--<link rel="shortcut icon" href="/Web/favicon.ico"/>-->
+</head>
+<body>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light " id="newQuizForm">
+            <div class="portlet-body form">
+                <form class="form-horizontal" action="#" id="submitForm" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step">
+                                        <span class="number"> 1 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> 创建问卷
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step">
+                                        <span class="number"> 2 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> 配置问卷
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab3" data-toggle="tab" class="step active">
+                                        <span class="number"> 3 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> 预览问卷
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab4" data-toggle="tab" class="step">
+                                        <span class="number"> 4 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> 添加成功
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success"></div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    请确认问卷信息填写完整.
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    问卷生成成功，请继续配置问卷内容!
+                                </div>
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">请填写问卷基本信息</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">问卷名称
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="quizName"/>
+                                            <span class="help-block"> 请输入问卷名称(仅用于统计) </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">问卷标题
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="quizTitle"
+                                                   id="submit_form_password"/>
+                                            <span class="help-block"> 请输入问卷标题(用于显示) </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">问卷副标题
+                                            <span class="required"></span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="quizSubtitle"/>
+                                            <span class="help-block"> 添加问卷副标题 </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">问卷布局
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <select id="multiple" name="layoutStyle" data-placeholder="请选择问卷布局方式"
+                                                    class="form-control select2 new-quiz-input">
+                                                <option></option>
+                                                <option value="001">普通</option>
+                                                <!--<option value="002">单页</option>-->
+                                                <!--<option value="010">多标签页</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab2">
+
+                                    <div class="row quiz-head">
+                                        <div class="row">
+                                            <div class="col-md-12 quiz-title-wrapper">
+                                                <h1 class="quiz-title text-center">
+                                                    <span class="quiz-subtitle"></span>
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row portlet light quiz-body">
+                                        <div class="col-sm-12">
+                                            <div class="row quiz-page quiz-page1">
+                                                <div class="col-sm-6 quiz-col quiz1-col1">
+
+                                                </div>
+                                                <div class="col-sm-6 quiz-col quiz1-col2">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row quiz-footer">
+                                    </div>
+                                    <div class="row quiz-action">
+                                        <div class="col-md-12">
+                                            <a class="btn btn-circle btn-lg green-jungle pull-right new-quiz-ask-btn"
+                                               data-target="#newQuizAsk" data-toggle="modal"
+                                            >添加新题目
+                                                <i class="fa fa-puzzle-piece"></i>
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <h3 class="block">Provide your billing and credit card details</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Card Holder Name
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="card_name"/>
+                                            <span class="help-block"> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab4">
+                                    <h3 class="block">Confirm your account</h3>
+                                    <h4 class="form-section">Account</h4>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Username:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="username"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <a href="javascript:;" class="btn default button-previous">
+                                    <i class="fa fa-angle-left"></i> 上一步 </a>
+                                <a href="javascript:;" class="btn btn-outline green button-next"> 下一步
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                                <a href="javascript:;" class="btn green button-submit"> 完成问卷配置
+                                    <i class="fa fa-check"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="askAlert" class="modal fade " tabindex="-1"
+     data-keyboard="false"
+     data-backdrop="static"
+>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title">温馨提示</h4>
+    </div>
+    <div class="modal-body">
+        更换题目类型会删除当前以编写内容，是否更换？
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="changeAskType"  class="btn btn-outline dark">确定</button>
+        <button type="button" data-dismiss="modal"  class="btn green">取消</button>
+    </div>
+</div>
+<div id="newQuizAsk" class="modal container fade modal-scroll" tabindex="-1"
+     data-keyboard="false"
+     data-backdrop="static"
+>
+    <div class="modal-header">
+        <button type="button" class="close askPageCloseIcon"  aria-hidden="true"></button>
+        <h4 class="modal-title">Full Width</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <select id="askType" name="layoutStyle" data-placeholder="请选择的题目类型"
+                            class="form-control lee-tab select2">
+                        <option></option>
+                        <option leetab data-toggle="tab" data-target="#askType1" value="001">选择</option>
+                        <option leetab data-toggle="tab" data-target="#askType1" value="002">问答</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row lee-tab-content">
+                    <div class="lee-tab-pane  col-flex" id="askType1">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <select id="askEleType" name="layoutStyle" data-placeholder="请选择的数据项类型"
+                                        class="form-control lee-tab select2">
+                                    <option></option>
+                                    <option value="001">单选钮</option>
+                                    <option value="002">复选框</option>
+                                    <option value="003">文字输入框</option>
+                                    <!--<option value="004">时间输入框</option>-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="lee-flex-vertical-center quiz-inline-input">
+                                <div class="md-checkbox">
+                                    <input type="checkbox" name="check2" id="isStatistical" value="1" class="md-check">
+                                    <label for="isStatistical">
+                                        <span class="inc"></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span>设为统计项</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lee-tab-pane" id="askType2">
+                        <p>问答</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-3 form-group hide">
+                        <button id="addEleBtn" class="btn btn-outline green ">添加到编辑框<i class="fa fa fa-arrow-down"></i></button>
+                    </div>
+                    <div class="col-sm-9 warning alert-warning display-none ask-ele-type-tips">
+                        <span>如需添加统计项,请在勾选后添加</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <textarea id="askEditor" class="wysihtml5 form-control" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <button class="btn btn-outline green" id="previewBtn">预览</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div id="previewArea" class="col-sm-12 form-group hide">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline dark backQuizConfigPage">返回</button>
+        <button type="button" class="btn green confirmAsk">确定并添加</button>
+    </div>
+</div>
+<script>
+    //    var handleWysihtml5 = function () {
+    //        if (!jQuery().wysihtml5) {
+    //            return;
+    //        }
+    //
+    //        if ($('.wysihtml5').size() > 0) {
+    //            $('.wysihtml5').wysihtml5({
+    //                "stylesheets": ["../assets/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
+    //            });
+    //        }
+    //    }
+    //    handleWysihtml5();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Filter Mode Examples</title>
+		<style>
+			form {
+				margin: 0;
+			}
+			textarea {
+				display: block;
+			}
+		</style>
+		<link rel="stylesheet" href="../themes/default/default.css" />
+		<script charset="utf-8" src="../kindeditor-min.js"></script>
+		<script charset="utf-8" src="../lang/zh_CN.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				K.create('textarea[name="content"]', {
+					filterMode : false
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h3>关闭HTML过滤</h3>
+		<form>
+			<textarea name="content" style="width:800px;height:200px;"><div class="portlet light form quiz-page">
+					    <form role="form" class="ng-pristine ng-valid">
+						<div class="form-body">
+							<div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input">
+								<div class="form-control form-control-static">静态框
+									<div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input" contenteditable="false" draggable="true">
+										<select class="form-control" id="form_control_6">
+											<option value="">请选择</option>
+											<option value="1">Option 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+											<option value="4">Option 4</option>
+										</select>
+										<label for="form_control_6"></label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group form-md-line-input form-md-checkboxes quiz-input">
+								<div class="md-checkbox-list">
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox11" class="md-check">
+										<label for="checkbox11">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 1 </label>
+									</div>
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox12" class="md-check" checked="">
+										<label for="checkbox12">
+											<span></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 2 </label>
+									</div>
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox13" class="md-check">
+										<label for="checkbox13">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 3 </label>
+									</div>
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox14" disabled="" class="md-check">
+										<label for="checkbox14">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Disabled </label>
+									</div>
+								</div>
+							</div>
+								<label>Radios - 111</label>
+								<div class="md-radio-inline">
+									<div class="md-radio">
+										<input type="radio" id="radio21" name="radio200" class="md-radiobtn">
+										<label for="radio21">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 1 </label>
+									</div>
+									<div class="md-radio">
+										<input type="radio" id="radio22" name="radio200" class="md-radiobtn" checked="">
+										<label for="radio22">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 2 </label>
+									</div>
+									<div class="md-radio">
+										<input type="radio" id="radio23" name="radio200" class="md-radiobtn">
+										<label for="radio23">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 3 </label>
+									</div>
+									<!--<a href="javascript:;" id="clickmewow" class="btn btn-success">Click</a>-->
+								</div>
+							</div>
+						</div>
+					    </form>
+				    </div></textarea>
+			<p>
+				KindEditor 默认采用白名单过滤方式，可用 htmlTags 参数定义要保留的标签和属性。当然也可以用 filterMode 参数关闭过滤模式，保留所有标签。
+			</p>
+		</form>
+	</body>
+</html>

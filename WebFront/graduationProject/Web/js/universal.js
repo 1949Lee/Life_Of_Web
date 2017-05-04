@@ -205,6 +205,7 @@ var page = {
                             '</li>';
                     }
                 });
+                setCookie('currentSideBar',indexStr);
                 $('.page-breadcrumb').html(pageBarHtml);
                 $('.page-title').html(pageTitle);
             }
@@ -222,6 +223,18 @@ var page = {
         this.initPageBar(obj.initPageBar);
     }
 };
+function resizeSpecialEle(){
+    var arr = [['.select2-container','parent()']];
+    $(arr).each(function (i) {
+        switch(arr[i][1]){
+            case 'parent()':{
+                $(arr[i][0]).width($(arr[i][0]).parent().width());
+                break;
+            }
+        }
+
+    });
+}
 //写入cookies
 function setCookie(c_name, value) {
     if (arguments.length > 2) {
@@ -441,3 +454,4 @@ Guid.newGuid = function () {
 
 };
 // console.log(Guid.newGuid().toString('g'));
+

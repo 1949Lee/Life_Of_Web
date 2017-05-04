@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor Sample</title>
+	<script src="ckeditor.js"></script>
+</head>
+<body id="main">
+
+<main>
+	<div class="adjoined-bottom">
+		<div class="grid-container">
+			<div class="grid-width-100">
+				<textarea cols="80" id="text" name="text" rows="20">
+	                <div class="portlet light form quiz-page">
+					    <form role="form" class="ng-pristine ng-valid">
+						<div class="form-body">
+							<div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-block-input">
+								<div class="form-control form-control-static">静态框
+									<div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input" contenteditable="false" draggable="true">
+										<select class="form-control" id="form_control_6">
+											<option value="">请选择</option>
+											<option value="1">Option 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+											<option value="4">Option 4</option>
+										</select>
+										<label for="form_control_6"></label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group form-md-line-input form-md-checkboxes quiz-input">
+								<div class="md-checkbox-list">
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox11" class="md-check">
+										<label for="checkbox11">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 1 </label>
+									</div>
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox12" class="md-check" checked="">
+										<label for="checkbox12">
+											<span></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 2 </label>
+									</div>
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox13" class="md-check">
+										<label for="checkbox13">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 3 </label>
+									</div>
+									<div class="md-checkbox">
+										<input type="checkbox" name="check1" id="checkbox14" disabled="" class="md-check">
+										<label for="checkbox14">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Disabled </label>
+									</div>
+								</div>
+							</div>
+								<label>Radios - 111</label>
+								<div class="md-radio-inline">
+									<div class="md-radio">
+										<input type="radio" id="radio21" name="radio200" class="md-radiobtn">
+										<label for="radio21">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 1 </label>
+									</div>
+									<div class="md-radio">
+										<input type="radio" id="radio22" name="radio200" class="md-radiobtn" checked="">
+										<label for="radio22">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 2 </label>
+									</div>
+									<div class="md-radio">
+										<input type="radio" id="radio23" name="radio200" class="md-radiobtn">
+										<label for="radio23">
+											<span class="inc"></span>
+											<span class="check"></span>
+											<span class="box"></span> Option 3 </label>
+									</div>
+									<!--<a href="javascript:;" id="clickmewow" class="btn btn-success">Click</a>-->
+								</div>
+							</div>
+						</div>
+					    </form>
+				    </div>
+				</textarea>
+			</div>
+		</div>
+	</div>
+	<button onclick='save();'>获取</button>
+</main>
+<script>
+	<!-- initSample(); -->
+	CKEDITOR.replace('text');
+	function save(){
+	    console.log(CKEDITOR.instances.text.getData());
+	    console.log(CKEDITOR.instances.text.document.getBody().getHtml());
+		var old = CKEDITOR.instances.text.document.getBody().getHtml();
+		old += 
+		CKEDITOR.instances.text.setData()
+	}
+</script>
+
+</body>
+</html>

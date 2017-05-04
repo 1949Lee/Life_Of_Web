@@ -452,7 +452,7 @@ var Layout = function () {
 
     // Handles the go to top button at the footer
     var handleGoTop = function () {
-        var offset = 300;
+        var offset = 0;
         var duration = 500;
 
         if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {  // ios supported

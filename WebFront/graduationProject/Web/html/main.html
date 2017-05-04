@@ -17,7 +17,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 9]>
 <html lang="en" class="ie9 no-js" data-ng-app="quizApp"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en" ng-app="quizApp">
+<html lang="en" data-ng-app="quizApp">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 
@@ -36,6 +36,15 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="../assets/global/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!--特殊控件引用开始-->
+    <!--select2  CSS+JS-->
+    <link href="../assets/global/plugins/select2/css/select2.css" rel="stylesheet" type="text/css">
+    <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--select2  结束-->
+    <link id="ng_load_globalCss_before"/>
+    <!--特殊控件引用结束-->
+
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="../assets/global/css/components-rounded.css" rel="stylesheet" id="style_components" type="text/css"/>
     <link href="../assets/global/css/loaders.css" rel="stylesheet" type="text/css"/>
@@ -52,7 +61,6 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="../assets/layouts/layout2/css/layout.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/layouts/layout2/css/themes/blue.css" rel="stylesheet" type="text/css" id="style_color"/>
     <link href="../assets/layouts/layout/css/custom.css" rel="stylesheet" type="text/css"/>
-    <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="/favicon.ico"/>
     <!--<link rel="shortcut icon" href="/Web/favicon.ico"/>-->
@@ -473,11 +481,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
     <!-- BEGIN SIDEBAR -->
-    <div class="page-sidebar-wrapper ">
+    <div class="page-sidebar-wrapper" data-ng-controller="SidebarController">
         <!-- END SIDEBAR -->
         <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
         <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-        <div class="page-sidebar navbar-collapse collapse page-sidebar-top ">
+        <div class="page-sidebar navbar-collapse collapse page-sidebar-top " data-keep-expanded="false"
+             data-auto-scroll="true" data-slide-speed="200"
+             ng-class="{'page-sidebar-menu-closed': settings.layout.pageSidebarClosed}">
             <!-- BEGIN SIDEBAR MENU -->
             <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
             <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -534,12 +544,20 @@ License: You must have a valid license purchased only from themeforest(the above
                         <span class="selected"></span>
                         <span class="arrow"></span>
                     </a>
+                    <!--<ul class="sub-menu hidden">-->
+                        <!--<li class="nav-item hidden">-->
+                            <!--<a href="" class="nav-link hidden" ui-sref=".newQuiz" data-page-bar-index="1,0">-->
+                                <!--<i class="icon-bar-chart"></i>-->
+                                <!--<span class="title">新增问卷</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:;"
-                       ui-sref="template"
-                       data-page-bar-index="2"
-                       class="nav-link nav-toggle">
+                    <a
+                            ui-sref="template"
+                            data-page-bar-index="2"
+                            class="nav-link nav-toggle">
                         <i class="icon-folder"></i>
                         <span class="title">模板管理</span>
                         <span class="selected"></span>
@@ -577,10 +595,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!--</ul>-->
                 </li>
                 <li class="nav-item  ">
-                    <a href="javascript:;"
-                       ui-sref="statistics"
-                       data-page-bar-index="3"
-                       class="nav-link nav-toggle">
+                    <a
+                            ui-sref="statistics"
+                            data-page-bar-index="3"
+                            class="nav-link nav-toggle">
                         <i class="icon-bar-chart"></i>
                         <span class="title">数据统计</span>
                         <span class="selected"></span>
@@ -588,10 +606,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="javascript:;"
-                       ui-sref="profile"
-                       data-page-bar-index="4"
-                       class="nav-link nav-toggle">
+                    <a
+                            ui-sref="profile"
+                            data-page-bar-index="4"
+                            class="nav-link nav-toggle">
                         <i class="icon-user"></i>
                         <span class="title">个人中心</span>
                         <span class="selected"></span>
@@ -599,10 +617,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="javascript:;"
-                       ui-sref="sysConfig"
-                       data-page-bar-index="5"
-                       class="nav-link nav-toggle">
+                    <a
+                            ui-sref="sysConfig"
+                            data-page-bar-index="5"
+                            class="nav-link nav-toggle">
                         <i class="icon-settings"></i>
                         <span class="title">系统设置</span>
                         <span class="selected"></span>
@@ -642,7 +660,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
             <!-- END PAGE HEADER-->
             <!--<iframe src="default.html" id="pageContent" frameBorder="no" width="100%" scrolling="no" height="auto" onload="reInitIframe()" onresize="reInitIframe()" runat="server"></iframe>-->
-            <div ui-view class="page-content-body fade-in-up"></div>
+            <div data-ui-view class="page-content-body fade-in-up"></div>
         </div>
     </div>
     <!-- END CONTENT BODY -->
@@ -654,7 +672,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <div class="page-footer">
     <div class="page-footer-inner">上海市眼防所青少年近视干预项目调查问卷系统由
         <a href="#">高视医疗信息科技有限公司</a>提供技术支持
-        <div class="scroll-to-top scroll-top-move-up">
+        <div class="scroll-to-top scroll-top-move-up ">
             <i class="icon-arrow-up"></i>
         </div>
     </div>
@@ -665,20 +683,29 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="../assets/global/plugins/ie8.fix.js"></script>
     <![endif]-->
     <!-- BEGIN CORE PLUGINS -->
+    <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/jquery-validation/js/localization/messages_zh.js"></script>
+    <script src="../assets/global/plugins/jquery-validation/js/additional-methods.js" type="text/javascript"></script>
+    <!--<script src="../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js" type="text/javascript"></script>-->
+    <script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <!--<script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5.js" type="text/javascript"></script>-->
     <!-- END CORE PLUGINS -->
-
     <!--angular 引用开始-->
     <script src="../assets/global/plugins/angularjs/angular.min.js" type="text/javascript"></script>
-    <script src="../assets/global/plugins/angularjs/angular-sanitize.min.js" type="text/javascript"></script>
-    <script src="../assets/global/plugins/angularjs/angular-touch.min.js" type="text/javascript"></script>
+    <!--<script src="../assets/global/plugins/angularjs/angular-sanitize.min.js" type="text/javascript"></script>-->
+    <!--<script src="../assets/global/plugins/angularjs/angular-touch.min.js" type="text/javascript"></script>-->
     <script src="../assets/global/plugins/angularjs/plugins/angular-ui-router.min.js" type="text/javascript"></script>
     <script src="../assets/global/plugins/angularjs/plugins/ocLazyLoad.min.js" type="text/javascript"></script>
     <!--angular 引用结束-->
+
+    <script id="ng_load_appJs_before"></script>
 
     <!-- BEGIN THEME GLOBAL SCRIPTS -->
     <script src="../js/universal.js" type="text/javascript"></script>
@@ -686,16 +713,21 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="../js/directives.js" type="text/javascript"></script>
     <script src="../assets/global/scripts/app.js" type="text/javascript"></script>
     <!-- END THEME GLOBAL SCRIPTS -->
-
     <!--特殊控件引用开始-->
+    <script src="../assets/global/plugins/select2/js/select2.full.js" type="text/javascript"></script>
+    <!--<script src="../js/quiz/newQuiz.js" type="text/javascript"></script>-->
+    <!--<script src="../assets/pages/scripts/components-select2.js" type="text/javascript"></script>-->
+    <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+    <script src="../assets/global/plugins/bootstrap-modal/js/bootbox.js" type="text/javascript"></script>
     <script id="ng_load_js_before"></script>
     <!--特殊控件引用结束-->
 
     <!-- BEGIN THEME LAYOUT SCRIPTS -->
     <script src="../assets/layouts/layout2/scripts/layout.js" type="text/javascript"></script>
     <script src="../assets/layouts/layout2/scripts/demo.js" type="text/javascript"></script>
-    <script src="../assets/layouts/global/scripts/quick-sidebar.js" type="text/javascript"></script>
-    <script src="../assets/layouts/global/scripts/quick-nav.js" type="text/javascript"></script>
+    <!--<script src="../assets/layouts/global/scripts/quick-sidebar.js" type="text/javascript"></script>-->
+    <!--<script src="../assets/layouts/global/scripts/quick-nav.js" type="text/javascript"></script>-->
     <!-- END THEME LAYOUT SCRIPTS -->
 </div>
 <div ng-loader-bar class="loader">
@@ -711,17 +743,14 @@ License: You must have a valid license purchased only from themeforest(the above
 <script>
     $(function () {
 //        window.onresize = reInitIframe;
-        $(function () {
-            page.initFinish(isTop);
-            console.log(JSON.parse(getCookie('loginInfo')));
-            $('#checkbox11').on('click', function () {
-                console.log($(this).prop('checked'));
-                $('#checkbox13').prop('checked', 'true');
-            });
-
-            page.init({
-                initPageBar:'.nav-link',
-            });
+        page.initFinish(isTop);
+        console.log(JSON.parse(getCookie('loginInfo')));
+        $('#checkbox11').on('click', function () {
+            console.log($(this).prop('checked'));
+            $('#checkbox13').prop('checked', 'true');
+        });
+        page.init({
+            initPageBar: '.nav-link',
         });
     });
 </script>
