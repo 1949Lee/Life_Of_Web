@@ -192,3 +192,21 @@ CREATE TABLE `quiz_templates` (
 -- ----------------------------
 -- Records of quiz_templates
 -- ----------------------------
+
+--创建获得问卷详细信息的存储过程
+drop procedure if exists getQuizInfo;
+create PROCEDURE getQuizInfo(in _quizID VARCHAR(36))
+BEGIN
+DECLARE _askID VARCHAR(50);
+DECLARE i INT DEFAULT 1;
+DECLARE _askCount INT;
+SELECT askCount INTO _askCount FROM quiz WHERE quizID = _quizID; 
+SELECT * FROM quiz WHERE quizID = _quizID;
+while i <= _askCount do
+SELECT askID INTO _askID FROM (SELECT (@rowNum:=@rowNum+1) AS rowIndex, a.* FROM quiz_ask AS a, (Select (@rowNum :=0) ) AS b
+where quizID = _quizID ORDER BY askIndex)as askNew where askNew.rowIndex = i;
+SELECT * FROM quiz_ask where quizID = _quizID AND askID = _askID;
+SELECT * FROM quiz_ask_elements where quizID = _quizID AND askID = _askID;
+set i=i+1;
+end while;
+END

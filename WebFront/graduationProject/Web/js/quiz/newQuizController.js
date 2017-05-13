@@ -974,7 +974,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         // console.log(newQuiz.quizAllData);
                         saveQuiz();
                     }).hide();
-                    //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
+                    
                     $('.new-quiz-input.select2', form).change(function () {
                         form.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
                     });

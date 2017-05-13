@@ -8,7 +8,9 @@
 
 function initCon(){
     /*替换为你自己的数据库名*/
-    $dbname = 'CVbitPUFVNaoxNelGGLx';
+//    $dbname = 'CVbitPUFVNaoxNelGGLx';
+    $_SESSION["databaseName"] = 'edc_questionnaire';
+    $databaseName = 'edc_questionnaire';
     /*填入数据库连接信息*/
 //    $host = 'sqld.duapp.com';
 //    $port = 4050;
@@ -23,7 +25,7 @@ function initCon(){
     /*为了避免因MySQL数据库连接失败而导致程序异常中断，此处通过在mysql_connect()函数前添加@，来抑制错误信息，确保程序继续运行*/
     /*有关mysql_connect()函数的详细介绍，可参看http://php.net/manual/zh/function.mysql-connect.php*/
 //    $link = @mysql_connect("{$host}:{$port}",$user,$pwd,true);
-    $link = new mysqli($host, $user, $pwd,'edc_questionnaire', $port);
+    $link = new mysqli($host, $user, $pwd,$databaseName, $port);
     if(mysqli_connect_errno()) {
         die("Connect Server Failed: " . mysqli_connect_error());
     }

@@ -42,12 +42,12 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                         var actionClass = function (row, btnType) {
                             var className = '';
                             var authorFlag = (loginInfo.userID != row.createUserID) ? false : true;
-                            switch(btnType){
+                            switch (btnType) {
                                 case 'quizConfig':
-                                    if(authorFlag&&row.status == 1){
+                                    if (authorFlag && row.status == 1) {
                                         className = '';
                                     }
-                                    else{
+                                    else {
                                         className = 'disabled';
                                     }
                                     break;
@@ -55,24 +55,61 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                     className = '';
                                     break;
                                 case 'releaseQuiz':
-                                    if(authorFlag&&row.status == 1){
+                                    if (authorFlag && row.status == 1) {
                                         className = '';
                                     }
-                                    else{
+                                    else {
                                         className = 'disabled';
                                     }
                                     break;
                                 case 'deleteQuiz':
-                                    if(authorFlag&&row.status != 2){
+                                    if (authorFlag && row.status != 2) {
                                         className = '';
                                     }
-                                    else{
+                                    else {
                                         className = 'disabled';
                                     }
                                     break;
                             }
                             return className;
-                        }
+                        };
+
+                        // 配置问卷按钮点击
+                        var quizConfig = function (event) {
+                            var row = event.data;
+                            page.loading();
+                            ajaxByJQ.invokeServer('quiz/quizIndexHandler.php',
+                                {
+                                    method: 'getQuizInfo',
+                                    quiz: {
+                                        quizID: row.quizID
+                                    }
+                                },
+                                function (quizAllData) {
+                                    console.log(quizAllData);
+                                    page.initFinish();
+                                }
+                            )
+                        };
+
+                        // 预览问卷按钮点击
+                        var preView = function (event) {
+                            var row = event.data;
+                            console.log(row)
+                        };
+
+                        // 发布问卷按钮点击
+                        var releaseQuiz = function (event) {
+                            var row = event.data;
+                            console.log(row);
+                        };
+
+                        // 删除问卷按钮点击
+                        var deleteQuiz = function (event) {
+                            var row = event.data;
+                            console.log(row);
+                        };
+
                         var table = $('#quizListTable');
                         var oTable = table.dataTable({
                             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
@@ -150,16 +187,16 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                             '</button> ' +
                                             '<ul class="dropdown-menu pull-right" role="menu">' +
                                             '<li>' +
-                                            '<a href="#"  class="btn black ' + actionClass(row, 'quizConfig') + '"><i class="fa fa-cog"></i>配置</a>' +
+                                            '<a  id="quizConfig" class="btn black ' + actionClass(row, 'quizConfig') + '"><i class="fa fa-cog"></i>配置</a>' +
                                             '</li>' +
                                             '<li>' +
-                                            '<a href="#" class="btn black ' + actionClass(row, 'preView') + '"><i class="fa fa-eye"></i>预览</a>' +
+                                            '<a  id="preView" class="btn black ' + actionClass(row, 'preView') + '"><i class="fa fa-eye"></i>预览</a>' +
                                             '</li>' +
                                             '<li>' +
-                                            '<a href="#" class="btn black ' + actionClass(row, 'releaseQuiz') + '"><i class="fa fa-paper-plane-o"></i>发布</a>' +
+                                            '<a  id="releaseQuiz" class="btn black' + actionClass(row, 'releaseQuiz') + '"><i class="fa fa-paper-plane-o"></i>发布</a>' +
                                             '</li>' +
                                             '<li>' +
-                                            '<a href="#" class="btn black ' + actionClass(row, 'deleteQuiz') + '"><i class="fa fa-trash"></i>删除</a>' +
+                                            '<a  id="deleteQuiz" class="btn black ' + actionClass(row, 'deleteQuiz') + '"><i class="fa fa-trash"></i>删除</a>' +
                                             '</li>' +
                                             '</ul>' +
                                             '</div>';
@@ -167,7 +204,12 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                     }
                                 }
                             ],
-
+                            "createdRow": function( row, data, dataIndex ) {
+                                $(row).find('#quizConfig').on('click',data,quizConfig);
+                                $(row).find('#preView').on('click',data,preView);
+                                $(row).find('#releaseQuiz').on('click',data,releaseQuiz);
+                                $(row).find('#deleteQuiz').on('click',data,deleteQuiz);
+                            },
                             "lengthMenu": [
                                 [5, 10, 15, 20, -1],
                                 [5, 10, 15, 20, "All"] // change per page values here
@@ -196,7 +238,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                         });
                         var dataTable = $('#quizListTable').DataTable();
                         dataTable.on('init', function () {
-                            console.log(dataTable.data().length);
+                            // console.log(dataTable.data().length);
                         });
                     };
                     initQuizList();

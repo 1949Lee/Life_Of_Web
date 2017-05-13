@@ -22,13 +22,12 @@ function newQuiz($param)
                              "'".count($quizAllData['ask']['askList'])."', '".$quizAllData['quiz']['tabCount']."', '".$quizAllData['quiz']['tabName']."', '".$quizAllData['quiz']['dataCount']."');";
     switch($quizAllData['quiz']['layoutStyle']){
         case '001':
-            $sql .= "INSERT INTO quiz_ask (askID, quizID, templateFlag, askOrder, askType, pageCode, askIndex, askContent)
+            $sql .= "INSERT INTO quiz_ask (askID, quizID, templateFlag, askType, pageCode, askIndex, askContent)
                  VALUES";
             for($i = 0;$i < count($quizAllData['ask']['askList']);$i++){
                 $sql .= "('".$quizAllData['ask']['askList'][$i]['askID']."',
                         '".$quizAllData['ask']['quizID']."',
                         '".$quizAllData['ask']['templateFlag']."',
-                        '".$quizAllData['ask']['askList'][$i]['askOrder']."',
                         '".$quizAllData['ask']['askList'][$i]['askType']."',
                         '".$quizAllData['ask']['askList'][$i]['pageCode']."',
                         '".$quizAllData['ask']['askList'][$i]['askIndex']."',
@@ -39,7 +38,7 @@ function newQuiz($param)
             $sql = substr($sql,0,-1);
             $sql .= ';';
             for ($i = 0;$i < count($quizAllData['ask']['askList']);$i++){
-                $sql .= "INSERT INTO quiz_ask_elements (elementID, askID, qiuzID, elementType,elementLevel, statisticalFlag)
+                $sql .= "INSERT INTO quiz_ask_elements (elementID, askID, quizID, elementType,elementLevel, statisticalFlag)
                                 VALUES";
                 for ($j = 0;$j < count($quizAllData['ask']['askList'][$i]['askEleList']);$j++){
                     $sql .= "('".$quizAllData['ask']['askList'][$i]['askEleList'][$j]['elementID']."',
@@ -55,10 +54,10 @@ function newQuiz($param)
             }
             break;
         case '002':
-            $sql .= "INSERT INTO quiz_ask (askID, quizID, templateFlag, askOrder, askType, tabCode, pageCode, askIndex, askContent) 
+            $sql .= "INSERT INTO quiz_ask (askID, quizID, templateFlag, askType, tabCode, pageCode, askIndex, askContent) 
                  VALUES";
             for($i = 0;$i < count($quizAllData['ask']['askList']);$i++){
-                $sql .= "('1', '1', '0', '1', '1', '1', '1', '1')";
+                $sql .= "('1', '1', '0', '1', '1', '1', '1')";
                 $sql .= ',';
             }
             $sql = substr($sql,0,-1);
