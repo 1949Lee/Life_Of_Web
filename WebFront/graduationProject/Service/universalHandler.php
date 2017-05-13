@@ -5,45 +5,48 @@
  * Date: 2017/4/9
  * Time: 11:06
  */
+//error_reporting(E_ALL^E_NOTICE);
 $method = $_POST['method'];
-if(!empty($_POST['urlClass'])){
+if (!empty($_POST['urlClass'])) {
     $class = $_POST['urlClass'];
     unset($_POST['urlClass']);
     unset($_POST['method']);
     include_once "$class.php";
     $obj = new $class;
     $ret = call_user_func_array(array($obj, $method), $_POST);
-}
-else{
+} else {
     unset($_POST['method']);
-    call_user_func($method,$_POST);
+    call_user_func($method, $_POST);
 }
-function checkVerificationCode(){
+function checkVerificationCode()
+{
     session_start();
     $param = func_get_args();
-    $code = uniDecode($param[0]['code'],'utf-8');
-    $ses = iconv('gbk','utf-8',$_SESSION["verificationCode"]);
-    if($code==$ses){
+    $code = uniDecode($param[0]['code'], 'utf-8');
+    $ses = iconv('gbk', 'utf-8', $_SESSION["verificationCode"]);
+    if ($code == $ses) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
+
 //处理接收中文字符串
-function uniDecode($str, $charcode) {
-    $fun='toUtf8';
+function uniDecode($str, $charcode)
+{
+    $fun = 'toUtf8';
     $text = preg_replace_callback("/%u[0-9A-Za-z]{4}/", $fun, $str);
     return mb_convert_encoding($text, $charcode, 'utf-8');
 }
-function toUtf8($ar) {
+
+function toUtf8($ar)
+{
     foreach ($ar as $val) {
-        $c='';
+        $c = '';
         $val = intval(substr($val, 2), 16);
         if ($val < 0x7F) { // 0000-007F
             $c .= chr($val);
-        }
-        elseif ($val < 0x800) { // 0080-0800
+        } elseif ($val < 0x800) { // 0080-0800
             $c .= chr(0xC0 | ($val / 64));
             $c .= chr(0x80 | ($val % 64));
         } else { // 0800-FFFF
@@ -55,4 +58,24 @@ function toUtf8($ar) {
     return $c;
 }
 
+//系统当前时间
+function currentDateTime($param)
+{
+    $result = array();
+    $dt = new DateTime();
+    $result['code'] = '829';
+    $result['resultLength'] = 3;
+    $dateTime = array();
+    $dateTime['dateTime'] = $dt -> format('Y-m-d H:i:s');
+    $dateTime['date'] = $dt -> format('Y-m-d');
+    $dateTime['time'] = $dt -> format('H:i:s');
+    $result['result'] = $dateTime;
+    if($param['caller'] != 'service'){
+        echo json_encode($result);
+        return null;
+    }
+    else{
+        return $result;
+    }
+}
 ?>

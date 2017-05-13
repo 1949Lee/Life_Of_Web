@@ -66,7 +66,7 @@ var Login = function () {
                         if (data.code == '829') {//登陆成功
                             console.log(JSON.stringify(data));
                             console.log(JSON.parse(JSON.stringify(data)));
-                            setCookie('loginInfo',JSON.stringify(data));
+                            setCookie('loginInfo',JSON.stringify(data.result));
                             page.redirect('html/main.html');
                             
                         }

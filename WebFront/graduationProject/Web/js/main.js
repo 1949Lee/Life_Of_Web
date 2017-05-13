@@ -55,7 +55,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                     return $ocLazyLoad.load([
                         {
                             name: 'indexCss',
-                            insertBefore: '#ng_load_css_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                            insertBefore: '#ng_load_css_before', // 按需加载JS和CSS
                             files: [
                                 <!--模态框 CSS+JS-->
                                 '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css',
@@ -64,7 +64,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                         },
                         {
                             name: 'indexJs',
-                            insertBefore: '#ng_load_js_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                            insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
                             files: [
                                 // '../assets/pages/scripts/ui-extended-modals.js',
                                 '../js/generalPageControllers.js',
@@ -86,11 +86,11 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                     return $ocLazyLoad.load([
                         {
                             name: 'indexJs',
-                            insertBefore: '#ng_load_js_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                            insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
                             files: [
                                 '../js/quiz/quizController.js',
                             ]
-                        }
+                        },
                     ]);
                 }]
             }
@@ -107,7 +107,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                     return $ocLazyLoad.load([
                         {
                             name: 'indexCss',
-                            insertBefore: '#ng_load_css_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                            insertBefore: '#ng_load_css_before', // 按需加载JS和CSS
                             files: [
                                 <!--模态框 CSS+JS-->
                                 '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css',
@@ -117,19 +117,17 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                         },
                         {
                             name: 'quizApp',
-                            insertBefore: '#ng_load_appJs_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                            insertBefore: '#ng_load_appJs_before', // 按需加载JS和CSS
                             files: [
                                 "../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js",
                                 "../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js",
                                 "../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js",
-                                // "../assets/global/plugins/bootstrap-wysihtml5/wysihtml5.js"
                             ]
                         },
                         {
                             name: 'indexJs',
-                            insertBefore: '#ng_load_js_before', // load the above css files before a LINK element with this ID. Dynamic CSS files must be loaded between core and theme css files
+                            insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
                             files: [
-                                '../js/quiz/newQuiz.js',
                                 '../js/quiz/newQuizController.js',
                             ]
                         }

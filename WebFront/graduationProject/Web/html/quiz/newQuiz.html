@@ -49,7 +49,7 @@
                         <div class="form-body">
                             <ul class="nav nav-pills nav-justified steps">
                                 <li>
-                                    <a href="#tab1" data-toggle="tab" class="step">
+                                    <a data-target="#tab1" data-toggle="tab" class="step">
                                         <span class="number"> 1 </span>
                                         <span class="desc">
                                             <i class="fa fa-check"></i> 创建问卷
@@ -57,7 +57,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#tab2" data-toggle="tab" class="step">
+                                    <a data-target="#tab2" data-toggle="tab" class="step">
                                         <span class="number"> 2 </span>
                                         <span class="desc">
                                             <i class="fa fa-check"></i> 配置问卷
@@ -65,7 +65,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#tab3" data-toggle="tab" class="step active">
+                                    <a data-target="#tab2" data-toggle="tab" class="step active">
                                         <span class="number"> 3 </span>
                                         <span class="desc">
                                             <i class="fa fa-check"></i> 预览问卷
@@ -73,7 +73,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#tab4" data-toggle="tab" class="step">
+                                    <a data-target="#tab4" data-toggle="tab" class="step">
                                         <span class="number"> 4 </span>
                                         <span class="desc">
                                             <i class="fa fa-check"></i> 添加成功
@@ -95,39 +95,39 @@
                                 </div>
                                 <div class="tab-pane active" id="tab1">
                                     <h3 class="block">请填写问卷基本信息</h3>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">问卷名称
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-sm-4">问卷名称
                                             <span class="required"> * </span>
                                         </label>
-                                        <div class="col-md-4">
+                                        <div class="col-sm-4">
                                             <input type="text" class="form-control" name="quizName"/>
                                             <span class="help-block"> 请输入问卷名称(仅用于统计) </span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">问卷标题
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-sm-4">问卷标题
                                             <span class="required"> * </span>
                                         </label>
-                                        <div class="col-md-4">
+                                        <div class="col-sm-4">
                                             <input type="text" class="form-control" name="quizTitle"
                                                    id="submit_form_password"/>
                                             <span class="help-block"> 请输入问卷标题(用于显示) </span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">问卷副标题
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-sm-4">问卷副标题
                                             <span class="required"></span>
                                         </label>
-                                        <div class="col-md-4">
+                                        <div class="col-sm-4">
                                             <input type="text" class="form-control" name="quizSubtitle"/>
                                             <span class="help-block"> 添加问卷副标题 </span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">问卷布局
+                                    <div class="form-group form-md-line-input">
+                                        <label class="control-label col-sm-4">问卷布局
                                             <span class="required"> * </span>
                                         </label>
-                                        <div class="col-md-4">
+                                        <div class="col-sm-4">
                                             <select id="multiple" name="layoutStyle" data-placeholder="请选择问卷布局方式"
                                                     class="form-control select2 new-quiz-input">
                                                 <option></option>
@@ -139,7 +139,6 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab2">
-
                                     <div class="row quiz-head">
                                         <div class="row">
                                             <div class="col-md-12 quiz-title-wrapper">
@@ -175,24 +174,29 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tab3">
-                                    <h3 class="block">Provide your billing and credit card details</h3>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Card Holder Name
-                                            <span class="required"> * </span>
-                                        </label>
-                                        <div class="col-md-4">
-                                            <input type="text" class="form-control" name="card_name"/>
-                                            <span class="help-block"> </span>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="tab-pane" id="tab4">
-                                    <h3 class="block">Confirm your account</h3>
-                                    <h4 class="form-section">Account</h4>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Username:</label>
-                                        <div class="col-md-4">
-                                            <p class="form-control-static" data-display="username"></p>
+                                    <div class="row portlet light">
+                                        <h3 class="block">如果需要发布，请填写发布时间</h3>
+                                        <div class="form-group form-md-line-input">
+                                            <label class="control-label col-md-4">发布时间
+                                                <span class="required"></span>
+                                            </label>
+                                            <div class="col-md-4 input-icon right">
+                                                <input size="16" class="form-control" type="text" value="" name="releaseDateTime" id="releaseDateTime">
+                                                <!--<i class="icon-remove"></i>-->
+                                                <i class="icon-calendar"></i>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-md-line-input">
+                                            <label class="control-label col-md-4">结束时间
+                                                <span class="required"></span>
+                                            </label>
+                                            <div class="col-md-4 input-icon right">
+                                                <input size="16" class="form-control" type="text" value="" name="finishDateTime" id="finishDateTime">
+                                                <!--<i class="icon-remove"></i>-->
+                                                <i class="icon-calendar"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +211,10 @@
                                 <a href="javascript:;" class="btn btn-outline green button-next"> 下一步
                                     <i class="fa fa-angle-right"></i>
                                 </a>
-                                <a href="javascript:;" class="btn green button-submit"> 完成问卷配置
+                                <a href="javascript:;" id="saveQuizConfig" class="btn green-jungle button-submit">直接保存
+                                    <i class="fa fa-check"></i>
+                                </a>
+                                <a href="javascript:;" id="release" class="btn green button-submit">发布问卷
                                     <i class="fa fa-check"></i>
                                 </a>
                             </div>
@@ -240,7 +247,7 @@
 >
     <div class="modal-header">
         <button type="button" class="close askPageCloseIcon"  aria-hidden="true"></button>
-        <h4 class="modal-title">Full Width</h4>
+        <h4 class="modal-title">配置题目</h4>
     </div>
     <div class="modal-body">
         <div class="row">

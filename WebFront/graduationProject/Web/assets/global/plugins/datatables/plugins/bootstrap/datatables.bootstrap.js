@@ -1,14 +1,38 @@
 /* Set the defaults for DataTables initialisation */
+var dataTableLanguage = {
+    "sProcessing": "玩命加载中...",
+    "sLengthMenu": "显示 _MENU_ 项结果",
+    "sZeroRecords": "没有匹配结果",
+    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+    "sInfoEmpty": "当前没有记录",
+    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+    "sInfoPostFix": "",
+    "sSearch": "搜索:",
+    "sUrl": "",
+    "sEmptyTable": "您的列表当前没有记录，快去添加吧",
+    "sLoadingRecords": "载入中...",
+    "sInfoThousands": ",",
+    "oPaginate": {
+        "sFirst": "首页",
+        "sPrevious": "上页",
+        "sNext": "下页",
+        "sLast": "末页"
+    },
+    "oAria": {
+        "sSortAscending": ": 以升序排列此列",
+        "sSortDescending": ": 以降序排列此列"
+    }
+}
 $.extend(true, $.fn.dataTable.defaults, {
     "dom": "<'row'<'col-md-6 col-sm-6'l><'col-md-6 col-sm-6'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-5'i><'col-md-7 col-sm-7'p>>", // default layout with horizobtal scrollable datatable
     //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // datatable layout without  horizobtal scroll(used when bootstrap dropdowns used in the datatable cells)
     "language": {
         "lengthMenu": " _MENU_ records ",
         "paginate": {
-            "previous": 'Prev',
-            "next": 'Next',
-            "page": "Page",
-            "pageOf": "of"
+            "previous": '上一页',
+            "next": '下一页',
+            "page": "第",
+            "pageOf": "页/共"
         }
     },
     "pagingType": "bootstrap_number"
@@ -49,40 +73,40 @@ $.fn.dataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx
                 btnClass = '';
 
                 switch (button) {
-                case 'ellipsis':
-                    btnDisplay = '&hellip;';
-                    btnClass = 'disabled';
-                    break;
+                    case 'ellipsis':
+                        btnDisplay = '&hellip;';
+                        btnClass = 'disabled';
+                        break;
 
-                case 'first':
-                    btnDisplay = lang.sFirst;
-                    btnClass = button + (page > 0 ?
-                        '' : ' disabled');
-                    break;
+                    case 'first':
+                        btnDisplay = lang.sFirst;
+                        btnClass = button + (page > 0 ?
+                                '' : ' disabled');
+                        break;
 
-                case 'previous':
-                    btnDisplay = lang.sPrevious;
-                    btnClass = button + (page > 0 ?
-                        '' : ' disabled');
-                    break;
+                    case 'previous':
+                        btnDisplay = lang.sPrevious;
+                        btnClass = button + (page > 0 ?
+                                '' : ' disabled');
+                        break;
 
-                case 'next':
-                    btnDisplay = lang.sNext;
-                    btnClass = button + (page < pages - 1 ?
-                        '' : ' disabled');
-                    break;
+                    case 'next':
+                        btnDisplay = lang.sNext;
+                        btnClass = button + (page < pages - 1 ?
+                                '' : ' disabled');
+                        break;
 
-                case 'last':
-                    btnDisplay = lang.sLast;
-                    btnClass = button + (page < pages - 1 ?
-                        '' : ' disabled');
-                    break;
+                    case 'last':
+                        btnDisplay = lang.sLast;
+                        btnClass = button + (page < pages - 1 ?
+                                '' : ' disabled');
+                        break;
 
-                default:
-                    btnDisplay = button + 1;
-                    btnClass = page === button ?
-                        'active' : '';
-                    break;
+                    default:
+                        btnDisplay = button + 1;
+                        btnClass = page === button ?
+                            'active' : '';
+                        break;
                 }
 
                 if (btnDisplay) {
@@ -91,13 +115,13 @@ $.fn.dataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx
                         'aria-controls': settings.sTableId,
                         'tabindex': settings.iTabIndex,
                         'id': idx === 0 && typeof button === 'string' ?
-                            settings.sTableId + '_' + button : null
+                        settings.sTableId + '_' + button : null
                     })
                         .append($('<a>', {
                                 'href': '#'
                             })
-                            .html(btnDisplay)
-                    )
+                                .html(btnDisplay)
+                        )
                         .appendTo(container);
 
                     settings.oApi._fnBindAction(
@@ -117,8 +141,8 @@ $.fn.dataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx
 }
 
 /***
-Custom Pagination
-***/
+ Custom Pagination
+ ***/
 
 /* API method to get paging information */
 $.fn.dataTableExt.oApi.fnPagingInfo = function (oSettings) {
@@ -189,7 +213,6 @@ $.extend($.fn.dataTableExt.oPagination, {
                 iStart = oPaging.iPage - iHalf + 1;
                 iEnd = iStart + iListLength - 1;
             }
-
 
 
             for (i = 0, iLen = an.length; i < iLen; i++) {
@@ -336,7 +359,7 @@ $.extend($.fn.dataTableExt.oPagination, {
                 '<a href="#" class="btn btn-sm default prev disabled"><i class="fa fa-angle-left"></i></a>' +
                 '<input type="text" class="pagination-panel-input form-control input-sm input-inline input-mini" maxlenght="5" style="text-align:center; margin: 0 5px;">' +
                 '<a href="#" class="btn btn-sm default next disabled"><i class="fa fa-angle-right"></i></a> ' +
-                (oLang.pageOf ? oLang.pageOf + ' <span class="pagination-panel-total"></span>': '') + 
+                (oLang.pageOf ? oLang.pageOf + ' <span class="pagination-panel-total"></span>' : '') +
                 '</div>'
             );
 

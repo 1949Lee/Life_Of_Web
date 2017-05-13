@@ -367,3 +367,26 @@
 .overflow-y-hidden{
     overflow-y: hidden !important;
 }
+.no-wrap {
+    white-space: nowrap !important;
+}
+.quiz-text-center{
+    text-align: center !important;
+}
+.border-no-radius{
+    border-radius: 0px !important;
+}
+.black{
+    color: #000;
+}
+.btn-group-none{
+    /*position: relative;*/
+    display: block;
+    margin:-5px 0px 0px 2px !important;
+}
+.btn-group-none>.btn{
+    margin:0px;
+}
+.btn.disabled{
+    opacity: 0.4;
+}

@@ -4757,7 +4757,7 @@ wysihtml5.dom.parse = (function() {
       // Rename unknown tags to this
       DEFAULT_NODE_NAME   = "span",
       WHITE_SPACE_REG_EXP = /\s+/,
-      defaultRules        = { tags: {}, classes: {} },
+      defaultRules        = { tags: {div:{}}, classes: {} },
       currentRules        = {};
   
   /**
@@ -4766,7 +4766,6 @@ wysihtml5.dom.parse = (function() {
    */
   function parse(elementOrHtml, rules, context, cleanUp) {
     wysihtml5.lang.object(currentRules).merge(defaultRules).merge(rules).get();
-    
     context           = context || elementOrHtml.ownerDocument || document;
     var fragment      = context.createDocumentFragment(),
         isString      = typeof(elementOrHtml) === "string",
@@ -5219,6 +5218,24 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
   node.parentNode.replaceChild(fragment, node);
   node = fragment = null;
 };
+wysihtml5.dom.replaceWithChildNodesBr = function(node) {
+  if (!node.parentNode) {
+    return;
+  }
+
+  if (!node.firstChild) {
+    node.parentNode.removeChild(node);
+    return;
+  }
+    console.log(document.createElement('br'))
+    node.appendChild(document.createElement('br'))
+  var fragment = node.ownerDocument.createDocumentFragment();
+  while (node.firstChild) {
+    fragment.appendChild(node.firstChild);
+  }
+  node.parentNode.replaceChild(fragment, node);
+  node = fragment = null;
+};
 /**
  * Unwraps an unordered/ordered list
  *
@@ -5653,13 +5670,13 @@ wysihtml5.quirks.cleanPastedHTML = (function() {
   // TODO: We probably need more rules here
   var defaultRules = {
     // When pasting underlined links <a> into a contentEditable, IE thinks, it has to insert <u> to keep the styling
-    "a u": wysihtml5.dom.replaceWithChildNodes
+    "a u": wysihtml5.dom.replaceWithChildNodes,
+    "div": wysihtml5.dom.replaceWithChildNodesBr,
   };
   
   function cleanPastedHTML(elementOrHtml, rules, context) {
     rules   = rules || defaultRules;
     context = context || elementOrHtml.ownerDocument || document;
-    
     var element,
         isString = typeof(elementOrHtml) === "string",
         method,
@@ -9383,7 +9400,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
     autoLink:             true,
     // Object which includes parser rules to apply when html gets inserted via copy & paste
     // See parser_rules/*.js for examples
-    parserRules:          { tags: { br: {}, span: {}, div: {}, p: {} }, classes: {} },
+    parserRules:          { tags: { br: {}}, classes: {} },
     // Parser method to use when the user inserts content via copy & paste
     parser:               wysihtml5.dom.parse,
     // Class name which should be set on the contentEditable element in the created sandbox iframe, can be styled via the 'stylesheets' option
@@ -9494,6 +9511,7 @@ wysihtml5.views.Textarea = wysihtml5.views.View.extend(
         wysihtml5.quirks.redraw(htmlOrElement);
       }
       return returnValue;
+
     },
     
     /**

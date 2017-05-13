@@ -39,15 +39,47 @@
     <!--<link rel="shortcut icon" href="/Web/favicon.ico"/>-->
 </head>
 <body>
-
-
-<h1>问卷管理</h1>
-<button class="btn blue"
-        ng-click="newQuiz();
-        ">
-    新增问卷
-</button>
-<div ui-view=""></div>
+<!--<div class="row" ui-view="">-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase">问卷列表</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <buttton class="btn btn-transparent green btn-outline btn-circle"
+                                 id="newQuiz" ng-click="newQuiz();"
+                        >新增问卷</buttton>
+                        <button class="btn btn-transparent green-jungle btn-outline btn-circle"
+                                id="quizListPrint"
+                        >打印</button>
+                        <button class="btn btn-transparent green-jungle btn-outline btn-circle"
+                                id="quizListExcel"
+                        >Excel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover dt-responsive nowrap" id="quizListTable"
+                       width="100%">
+                    <thead>
+                    <!--<tr class="">-->
+                    <!--<th>问卷名称</th>-->
+                    <!--<th>问卷标题</th>-->
+                    <!--<th>创建时间</th>-->
+                    <!--<th>发布时间</th>-->
+                    <!--<th>结束时间</th>-->
+                    <!--<th>问卷状态</th>-->
+                    <!--</tr>-->
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
 
 </script>
