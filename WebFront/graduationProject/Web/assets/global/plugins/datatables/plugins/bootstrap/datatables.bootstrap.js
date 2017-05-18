@@ -1,28 +1,58 @@
 /* Set the defaults for DataTables initialisation */
-var dataTableLanguage = {
-    "sProcessing": "玩命加载中...",
-    "sLengthMenu": "显示 _MENU_ 项结果",
-    "sZeroRecords": "没有匹配结果",
-    "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-    "sInfoEmpty": "当前没有记录",
-    "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-    "sInfoPostFix": "",
-    "sSearch": "搜索:",
-    "sUrl": "",
-    "sEmptyTable": "您的列表当前没有记录，快去添加吧",
-    "sLoadingRecords": "载入中...",
-    "sInfoThousands": ",",
-    "oPaginate": {
-        "sFirst": "首页",
-        "sPrevious": "上页",
-        "sNext": "下页",
-        "sLast": "末页"
-    },
-    "oAria": {
-        "sSortAscending": ": 以升序排列此列",
-        "sSortDescending": ": 以降序排列此列"
+var dataTableLanguage = function (opt) {
+    var res = {};
+    if(opt == undefined){
+        res = {
+            "sProcessing":"玩命加载中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "当前没有记录",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索:",
+            "sUrl": "",
+            "sEmptyTable": "您的列表当前没有记录，快去添加吧",
+            "sLoadingRecords": "载入中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            }
+            ,
+            "oAria": {
+                "sSortAscending": ": 以升序排列此列",
+                "sSortDescending": ": 以降序排列此列"
+            }
+        };
     }
-}
+    else{
+        res.sProcessing = opt.sProcessing == undefined ?"玩命加载中...":opt.sProcessing;
+        res.sLengthMenu = opt.sLengthMenu == undefined ?"显示 _MENU_ 项结果":opt.sLengthMenu;
+        res.sZeroRecords = opt.sZeroRecords == undefined ?"没有匹配结果":opt.sZeroRecords;
+        res.sInfo = opt.sInfo == undefined ?"显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项":opt.sInfo;
+        res.sInfoEmpty = opt.sInfoEmpty == undefined ?"当前没有记录":opt.sInfoEmpty;
+        res.sInfoFiltered = opt.sInfoFiltered == undefined ?"(由 _MAX_ 项结果过滤)":opt.sInfoFiltered;
+        res.sInfoPostFix = opt.sInfoPostFix == undefined ?"":opt.sInfoPostFix;
+        res.sSearch = opt.sSearch == undefined ?"搜索:":opt.sSearch;
+        res.sUrl = opt.sUrl == undefined ?"":opt.sUrl;
+        res.sEmptyTable = opt.sEmptyTable == undefined ?"您的列表当前没有记录，快去添加吧":opt.sEmptyTable;
+        res.sLoadingRecords = opt.sLoadingRecords == undefined ?"载入中...":opt.sLoadingRecords;
+        res.sInfoThousands = opt.sInfoThousands == undefined ?",":opt.sInfoThousands;
+        res.oPaginate = {};
+        res.oPaginate.sFirst = opt.sFirst == undefined ?"首页":opt.sFirst;
+        res.oPaginate.sPrevious = opt.sPrevious == undefined ?"上页":opt.sPrevious;
+        res.oPaginate.sNext = opt.sNext == undefined ?"下页":opt.sNext;
+        res.oPaginate.sLast = opt.sLast == undefined ?"末页":opt.sLast;
+        res.oAria= {
+            "sSortAscending": ": 以升序排列此列",
+                "sSortDescending": ": 以降序排列此列"
+        }
+    }
+    return res;
+};
 $.extend(true, $.fn.dataTable.defaults, {
     "dom": "<'row'<'col-md-6 col-sm-6'l><'col-md-6 col-sm-6'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-5'i><'col-md-7 col-sm-7'p>>", // default layout with horizobtal scrollable datatable
     //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // datatable layout without  horizobtal scroll(used when bootstrap dropdowns used in the datatable cells)

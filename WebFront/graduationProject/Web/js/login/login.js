@@ -1,8 +1,8 @@
 var Login = function () {
 
     var handleLogin = function () {
-        $('#verificationCodeImg').on('click',function () {
-            $(this).attr('src','../img/verificationCode.php?'+Math.random());
+        $('#verificationCodeImg').on('click', function () {
+            $(this).attr('src', '../img/verificationCode.php?' + Math.random());
         });
         $('.login-form').validate({
             errorElement: 'span', //default input error message container
@@ -56,6 +56,7 @@ var Login = function () {
 
             submitHandler: function (form) {
                 //console.log($(form));
+                page.loading();
                 ajaxByJQ.invokeServer('user/userHandler.php', {
                         method: 'login',
                         code: $(form).find('input[name=verificationCode]').val(),
@@ -64,20 +65,27 @@ var Login = function () {
                     }, function (data) {
                         console.log(data);
                         if (data.code == '829') {//登陆成功
+                            page.initFinish();
                             console.log(JSON.stringify(data));
                             console.log(JSON.parse(JSON.stringify(data)));
-                            setCookie('loginInfo',JSON.stringify(data.result));
+                            setCookie('loginInfo', JSON.stringify(data.result));
                             page.redirect('html/main.html');
-                            
-                        }
-                        else if(data.code == '101'){//验证码错误
 
                         }
-                        else if(data.code == '102'){//用户名不存在
-
+                        else if (data.code == '101') {//验证码错误
+                            $('.alert-danger').html('验证码错误');
+                            $('.alert-danger', $('.login-form')).show();
+                            page.initFinish();
                         }
-                        else if(data.code == '103'){//密码错误
-
+                        else if (data.code == '102') {//用户名不存在
+                            $('.alert-danger').html('用户名不存在');
+                            $('.alert-danger', $('.login-form')).show();
+                            page.initFinish();
+                        }
+                        else if (data.code == '103') {//密码错误
+                            $('.alert-danger').html('密码错误');
+                            $('.alert-danger', $('.login-form')).show();
+                            page.initFinish();
                         }
                     },
                     {
@@ -99,7 +107,7 @@ var Login = function () {
             }
         });
     }
-    var delAllCookies = function(){
+    var delAllCookies = function () {
         delCookie('loginInfo');
     }
 
@@ -119,7 +127,7 @@ var Login = function () {
             messages: {
                 email: {
                     required: "邮箱不能为空",
-                    email:'邮箱格式不对'
+                    email: '邮箱格式不对'
                 }
             },
 
@@ -213,7 +221,7 @@ var Login = function () {
                 fullname: {
                     required: "姓名不能为空"
                 },
-                email:{
+                email: {
                     required: "邮箱不能为空"
                 },
                 password: {
@@ -222,7 +230,7 @@ var Login = function () {
                 rePassword: {
                     equalTo: "两次输入密码不一致"
                 },
-                username:{
+                username: {
                     required: "登录名不能为空"
                 }
             },
@@ -283,7 +291,7 @@ var Login = function () {
             handleLogin();
             handleForgetPassword();
             handleRegister();
-
+            page.initFinish();
         }
 
     };

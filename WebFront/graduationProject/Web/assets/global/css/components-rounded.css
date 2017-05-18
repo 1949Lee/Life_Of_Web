@@ -4965,6 +4965,10 @@ Dropdown Menu
 .dropdown-toggle > .dropdown-menu,
 .btn-group > .dropdown-menu {
   margin-top: 10px; }
+.dropdown > .dropdown-menu,
+.dropdown-toggle > .dropdown-menu,
+.btn-group > .dropdown-menu.is-above {
+  margin-bottom: 10px; }
   .dropdown > .dropdown-menu:before,
   .dropdown-toggle > .dropdown-menu:before,
   .btn-group > .dropdown-menu:before {
@@ -5009,7 +5013,6 @@ Dropdown Menu
   .btn-group > .dropdown-menu.pull-right:after {
     left: auto;
     right: 10px; }
-
 .dropdown.dropup > .dropdown-menu,
 .dropdown-toggle.dropup > .dropdown-menu,
 .btn-group.dropup > .dropdown-menu {

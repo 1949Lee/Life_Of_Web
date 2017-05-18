@@ -16,7 +16,11 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
         //改变位置
         page.changePageBar(getCookie('currentSideBar'));
 
-        var loginInfo = JSON.parse(getCookie('loginInfo'))[0];
+        var loginInfo = getLogin();
+        if(loginInfo == null){
+            window.location.href = WebUrl()+'html/login.html';
+        }
+
         //初始化步骤
         var param = JSON.parse($state.params.param);
         var newQuizFormWizard = function () {
@@ -25,20 +29,37 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
             return {
 
                 //页面的一些变量
+                openCode: null,
                 quizAllData: {},
                 askTem: {},
                 askTypeChangeFlag: true,
+                editAskFlag: null,
                 leeWysihtml5: null,
                 editor: null,
                 quizBookmark: null,
-                askActionHtml: '<div class="actions quiz-input-action hide"><div class="btn-group"> <a class="btn btn-circle btn-default " href="javascript:;" data-toggle="dropdown"><i class="fa fa-"></i> 操作 <i class="fa fa-angle-down"></i> </a> <ul class="dropdown-menu pull-right"> <li> <a href="javascript:;"> <i class="fa fa-pencil"></i>修改</a> </li> <li> <a href="javascript:;"> <i class="fa fa-trash-o"></i>删除</a> </li> </ul> </div></div>',
+                askOldIndex: null,
+                askActionHtml: '<div class="actions quiz-input-action hide"><div class="btn-group"> <a class="btn btn-circle btn-default " href="javascript:;" data-toggle="dropdown"><i class="fa fa-"></i> 操作 <i class="fa fa-angle-down"></i> </a> <ul class="dropdown-menu pull-right"> <li> <a class="editAsk" href="javascript:;"> <i class="fa fa-pencil"></i>修改</a> </li> <li> <a class="deleteAsk" href="javascript:;"> <i class="fa fa-trash-o"></i>删除</a> </li> </ul> </div></div>',
+
+                // 打开未发布的问卷继续配置时要做的处理
+                initQuizConfigForStatus1: function () {
+                    var newQuiz = this;
+                    $('[name=quizName]').val(newQuiz.quizAllData.quiz.name).parent().parent().addClass('has-success');
+                    $('[name=quizTitle]').val(newQuiz.quizAllData.quiz.title).parent().parent().addClass('has-success');
+                    $('[name=quizSubtitle]').val(newQuiz.quizAllData.quiz.subtitle);
+                    $('[name=layoutStyle]').val(newQuiz.quizAllData.quiz.layoutStyle).select2().toggle('change');
+                    $('[name=layoutStyle]').val(newQuiz.quizAllData.quiz.layoutStyle).parent().parent().addClass('has-success');
+                    page.initFinish();
+                },
                 //页面初始化入口
                 init: function (obj) {
                     var newQuiz = this;
                     newQuiz.quizAllData = obj.quizAllData;
-                    if (newQuiz.quizAllData.quiz.status == 1) {
-                        newQuiz.askOrder = newQuiz.quizAllData.ask.askList.length;
+                    newQuiz.openCode = obj.openCode;
+                    //打开未发布的问卷继续配置时要做的处理
+                    if (newQuiz.quizAllData.quiz.status == '1' && newQuiz.openCode == '2') {
+                        // newQuiz.askOrder = newQuiz.quizAllData.ask.askList.length;
                         newQuiz.askIndex = newQuiz.quizAllData.ask.askList.length;
+                        newQuiz.initQuizConfigForStatus1();
                     }
                     if (!jQuery().bootstrapWizard) {
                         return;
@@ -58,13 +79,29 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             return m;
                         }
                     });
+
+                    // 时间控件设置
+                    // 初始时间
+                    var nowDateTime = moment((moment().format('YYYY-MM-DD'))).add(1, 'days');
+                    // console.log(nowDateTime.format('YYYY-MM-DD HH:mm'));
                     $('#releaseDateTime,#finishDateTime').datetimepicker({
-                        format: "yyyy-mm-dd hh:ii",
-                        autoclose: true,
-                        todayBtn: true,
-                        minView: 1,
-                        minuteStep: 10
+                        format: "YYYY-MM-DD HH:mm",
+                        dayViewHeaderFormat: 'YYYY MMMM',
+                        locale: 'zh-CN',
+                        defaultDate: nowDateTime.format('YYYY-MM-DD HH:mm'),
+                        minDate: (moment().format('YYYY-MM-DD HH:mm')).slice(0, -2) + '00',
+                        stepping: 10,
+                        useCurrent: false
                     });
+                    $('#releaseDateTime,#finishDateTime').val('');
+                    $("#releaseDateTime").on("dp.change", function (e) {
+                        $('#finishDateTime').data("DateTimePicker").minDate(e.date);
+                    });
+                    $("#finishDateTime").on("dp.change", function (e) {
+                        $('#releaseDateTime').data("DateTimePicker").maxDate(e.date);
+                    });
+                    // 时间控件设置 结束
+
                     var form = $('#submitForm');
                     var error = $('.alert-danger', form);
                     var success = $('.alert-success', form);
@@ -215,10 +252,25 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             '</div>';
                         return page;
                     };
+
+                    //打开未发布的问卷继续配置时要做的处理
+                    var initAskListForStatus1 = function () {
+                        page.loading();
+                        $('.quiz-body').html('').html(newQuizPageForNormal(1));
+                        newQuiz.quizBookmark = {
+                            quiz: '1',
+                            col: '1',
+                        }
+                        for (var i = 0; i < newQuiz.quizAllData.ask.askList.length; i++) {
+                            appendNewAsk(newQuiz.quizBookmark, newQuiz.quizAllData.quiz.layoutStyle, newQuiz.quizAllData.ask.askList[i]);
+                        }
+                        $('.quiz-body').find('[type=radio],[type=checkbox]').prop('checked', false);
+                        page.initFinish();
+                    };
+
                     // 根据不同布局方式设置'配置问卷'界面的标签
                     var prepareForQuizConfig = function () {
                         // 设置标题和副标题
-                        console.log();
                         if ($('.quiz-title').text() == newQuiz.quizAllData.quiz.title) {
                             if (isValid(newQuiz.quizAllData.quiz.subtitle, 1)) {
                                 if (newQuiz.quizAllData.quiz.subtitle != $('.quiz-subtitle').text()) {
@@ -263,11 +315,11 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             :
                                 break;
                         }
-                        // $quizBody.find('>div').html(quizBodyLayoutHtml);
+                        $quizBody.find('>div').html(quizBodyLayoutHtml);
 
                         //处理问卷数据
                         switch (newQuiz.quizAllData.quiz.status) {
-                            case 0:
+                            case '0':
                                 //新生成的问卷还没有存导数据库的问卷需要初始化newQuiz.quizAllData.ask
                                 newQuiz.quizAllData.ask = {
                                     quizID: newQuiz.quizAllData.quiz.quizID,
@@ -278,7 +330,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 //     newQuiz.quizAllData.askOrderIndex = 0;
                                 // }
                                 break;
-                            case 1:
+                            case '1':
                                 //未发布的问卷需要显示已经配好的题目内容以便修改
                                 break;
                         }
@@ -303,47 +355,50 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             $('#previewArea').append($arrItem);
                             console.log($('#previewArea').find('>div').eq(i).html());
                             console.log($('#previewArea').find('>div').eq(i).text());
-                            if ($('#previewArea').find('>div').eq(i).html() == $('#previewArea').find('>div').eq(i).text()) {
-                                if (i == 0) {
-                                    continue;
-                                }
-                                var $p = $('<p></p>');
-                                $p.append(editorHtmlArr[i]);
-                                $askList.append($p);
-                            } else {
-                                if (i == 0) {
-                                    return false;
+                            if (editorHtmlArr[i] != '') {
+                                if ($('#previewArea').find('>div').eq(i).html() == $('#previewArea').find('>div').eq(i).text()) {
+                                    if (i == 0) {
+                                        continue;
+                                    }
+                                    var $p = $('<p></p>');
+                                    $p.append(editorHtmlArr[i]);
+                                    $askList.append($p);
                                 }
                                 else {
-                                    switch ($(editorHtmlArr[i]).data('input-type')) {
-                                        case '001':
-                                            var $div = $('<div class="md-radio"></div>');
-                                            $div.append($(editorHtmlArr[i]));
-                                            var $label = $('<label for="' + $(editorHtmlArr[i]).attr('id') + '"></label>');
-                                            $label.append('<span class="inc"></span>');
-                                            $label.append('<span class="check"></span>');
-                                            $label.append('<span class="box"></span>');
-                                            $label.append($('#previewArea').find('>div').eq(i).text());
-                                            $div.append($label);
-                                            $askList.append($div);
-                                            break;
-                                        case '002':
-                                            var $div = $('<div class="md-checkbox"></div>');
-                                            $div.append($(editorHtmlArr[i]));
-                                            var $label = $('<label for="' + $(editorHtmlArr[i]).attr('id') + '"></label>');
-                                            $label.append('<span class="inc"></span>');
-                                            $label.append('<span class="check"></span>');
-                                            $label.append('<span class="box"></span>');
-                                            $label.append($('#previewArea').find('>div').eq(i).text());
-                                            $div.append($label);
-                                            $askList.append($div);
-                                            break;
-                                        case '003':
+                                    if (i == 0) {
+                                        return false;
+                                    }
+                                    else {
+                                        switch ($(editorHtmlArr[i]).data('input-type')) {
+                                            case '001':
+                                                var $div = $('<div class="md-radio"></div>');
+                                                $div.append($(editorHtmlArr[i]));
+                                                var $label = $('<label for="' + $(editorHtmlArr[i]).attr('id') + '"></label>');
+                                                $label.append('<span class="inc"></span>');
+                                                $label.append('<span class="check"></span>');
+                                                $label.append('<span class="box"></span>');
+                                                $label.append($('#previewArea').find('>div').eq(i).text());
+                                                $div.append($label);
+                                                $askList.append($div);
+                                                break;
+                                            case '002':
+                                                var $div = $('<div class="md-checkbox"></div>');
+                                                $div.append($(editorHtmlArr[i]));
+                                                var $label = $('<label for="' + $(editorHtmlArr[i]).attr('id') + '"></label>');
+                                                $label.append('<span class="inc"></span>');
+                                                $label.append('<span class="check"></span>');
+                                                $label.append('<span class="box"></span>');
+                                                $label.append($('#previewArea').find('>div').eq(i).text());
+                                                $div.append($label);
+                                                $askList.append($div);
+                                                break;
+                                            case '003':
 
-                                            break;
+                                                break;
+
+                                        }
 
                                     }
-
                                 }
                             }
                         }
@@ -418,7 +473,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         if (typeof(testHtml) == 'string' && testHtml != '') {
                             var caretBookmark;
                             if (caretBookmark) {
-                                editor.composer.selection.setBookmark(caretBookmark);
+                                newQuiz.editor.composer.selection.setBookmark(caretBookmark);
                             }
                             newQuiz.editor.composer.commands.exec("insertHTML", testHtml);
                             // console.log($(newQuiz.editor.composer.element).find(':not(div,br):not([contenteditable])'));
@@ -445,6 +500,15 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         }
                     };
 
+                    var leeTabChange = function ($ele) {
+                        if ($ele == ''||$ele.val() == '') {
+                            $('.lee-tab-pane').removeClass('active');
+                        }
+                        else {
+                            $($ele.data('target')).addClass('active');
+                            $($ele.data('target')).siblings().removeClass('active');
+                        }
+                    }
                     // 初始化标签页
                     var initAskModalTab = function () {
                         //如果是下拉框的话就除了点击以外还需要需要在change时间里绑定
@@ -463,15 +527,9 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         }
                         $('.lee-tab').find('[leetab]').each(function () {
                             $(this).click(function () {
-                                if ($(this).val() == '') {
-                                    $('.lee-tab-pane').removeClass('active');
-                                }
-                                else {
-                                    $($(this).data('target')).addClass('active');
-                                    $($(this).data('target')).siblings().removeClass('active');
-                                }
+                                leeTabChange($(this));
                             })
-                        })
+                        });
                     };
 
 
@@ -481,12 +539,13 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     };
                     //点击添加按钮时要做的工作
                     var askModalOpenClick = function () {
+                        newQuiz.editAskFlag = false;
                         newQuiz.askTem = {};
                         newQuiz.askTem.askID = Guid.newGuid().toString('g');
-                        if (!isValid(newQuiz.askOrder, 1)) {
-                            newQuiz.askOrder = 0;
-                        }
-                        newQuiz.askTem.askOrder = newQuiz.askOrder + 1;
+                        // if (!isValid(newQuiz.askOrder, 1)) {
+                        //     newQuiz.askOrder = 0;
+                        // }
+                        // newQuiz.askTem.askOrder = newQuiz.askOrder + 1;
                         if (newQuiz.quizAllData.quiz.layoutStyle == '010') {
                             newQuiz.askTem.tabCode = getCurrentQuizTab();
                         }
@@ -516,44 +575,51 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         resetAskEditor();
 
                         // 控件
-                        $('#askType,#askEleType').find('option:selected').removeData();
-                        $('#askType,#askEleType').val(null).trigger('change');
+                        $('#askType,#askEleType').find('option').removeData();
+                        $('#askType,#askEleType').val(null).select2().toggle('change');
                         newQuiz.askTypeChangeFlag = true;
                         $('#isStatistical').prop('checked', false);
                         $('#addEleBtn').parent().addClass('hide');
                         $('.ask-ele-type-tips').addClass('display-none');
                         $('#previewArea').html('').addClass('hide');
-
+                        leeTabChange('');
                         // 数据
                     };
 
                     // 关闭添加题目模态框事件
                     var askModalCloseClick = function () {
-                        bootbox.confirm({
-                            message: "返回会删除当前题目配置信息，确定返回?",
-                            buttons: {
-                                confirm: {
-                                    label: '确定',
-                                    className: 'green'
+                        if (!newQuiz.editAskFlag) {
+                            bootbox.confirm({
+                                message: "返回会清空当前题目配置信息，确定返回?",
+                                buttons: {
+                                    confirm: {
+                                        label: '确定',
+                                        className: 'green'
+                                    },
+                                    cancel: {
+                                        label: '取消',
+                                        className: 'btn-outline dark'
+                                    }
                                 },
-                                cancel: {
-                                    label: '取消',
-                                    className: 'btn-outline dark'
-                                }
-                            },
-                            callback: function (result) {
-                                // console.log(result);
-                                if (result) {
-                                    resetAskModal();
-                                    $(this).on('hidden.bs.modal', function () {
-                                        $('#newQuizAsk').modal('toggle');
-                                    });
-                                }
-                                else {
+                                callback: function (result) {
+                                    // console.log(result);
+                                    if (result) {
+                                        resetAskModal();
+                                        $(this).on('hidden.bs.modal', function () {
+                                            $('#newQuizAsk').modal('toggle');
+                                        });
+                                    }
+                                    else {
 
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
+                        else {
+                            resetAskModal();
+                            $('#newQuizAsk').modal('toggle');
+                            newQuiz.askIndex = newQuiz.askOldIndex;
+                        }
                     };
 
                     // 改变题目类型时初始化编辑框中的内容
@@ -648,14 +714,14 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                             case '001':
                                                 askEle.elementID = $askEle.attr('name');
                                                 askEle.elementType = '001';
-                                                askEle.elementlevel = $askEle.data('ele-level');
+                                                askEle.elementLevel = $askEle.data('ele-level');
                                                 askEle.statisticalFlag = $askEle.data('statistical') == 'statistical' ? 1 : 0;
                                                 askEleList.push(askEle);
                                                 break;
                                             case '002':
                                                 askEle.elementID = $askEle.attr('name');
                                                 askEle.elementType = '001';
-                                                askEle.elementlevel = $askEle.data('ele-level');
+                                                askEle.elementLevel = $askEle.data('ele-level');
                                                 askEle.statisticalFlag = $askEle.data('statistical') == 'statistical' ? 1 : 0;
                                                 askEleList.push(askEle);
                                                 break;
@@ -679,23 +745,126 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     };
 
                     // 添加到页面时获取数据项数组
-                    var getAskELeList = function () {
+                    var getAskELeList = function (askType) {
                         var askEleList = [];
-                        getAskEle(newQuiz.askTem.askType, askEleList);
+                        if (askType == undefined) {
+                            getAskEle(newQuiz.askTem.askType, askEleList);
+                        }
+                        else {
+                            getAskEle(askType, askEleList)
+                        }
                         return askEleList;
                     };
 
+                    // 根据题目获取预览前HTML
+                    var getAskEditorHtml = function (askData) {
+                        var askEditorHtmlArr = [];
+                        // console.log(askData.askContent);
+                        var $ask = $(askData.askContent);
+                        var $eleArr = $ask.find('.md-radio-list').children();
+                        for (var i = 0; i < $eleArr.length; i++) {
+                            if ($eleArr.html() != '') {
+                                if ($eleArr.eq(i)[0].tagName == 'P') {
+                                    askEditorHtmlArr.push($eleArr.eq(i).text()
+                                        .replace($eleArr.eq(i).find('.quiz-ask-index').text(), ''));
+                                }
+                                else if ($eleArr.eq(i)[0].tagName == 'DIV') {
+                                    askEditorHtmlArr.push($eleArr.eq(i).find('input').prop("outerHTML") + $eleArr.eq(i).text());
+                                }
+                            }
+                        }
+                        return askEditorHtmlArr.join('<br>');
+                    };
+
+                    // 删除题目
+                    var deleteAskOpenClick = function (askData) {
+                        // page.loading();
+                        newQuiz.quizAllData.ask.askList.splice(askData.askIndex - 1,1);
+                        for(var i = 0;i < newQuiz.quizAllData.ask.askList.length;i++){
+                            newQuiz.quizAllData.ask.askList[i].askIndex = i+1;
+                            var $tem = $('<div></div>').append(newQuiz.quizAllData.ask.askList[i].askContent);
+                            $tem.find('.quiz-ask-index').html(newQuiz.quizAllData.ask.askList[i].askIndex+'.');
+                            newQuiz.quizAllData.ask.askList[i].askContent = $tem.html();
+                        }
+                        newQuiz.askIndex--;
+                        initAskListForStatus1();
+                        // page.initFinish();
+                    };
+
+                    //编辑题目
+                    var editAskOpenClick = function (askData) {
+                        handleWysihtml5();
+                        newQuiz.askOldIndex = parseInt(newQuiz.askIndex);
+                        console.log(askData.askIndex);
+                        newQuiz.askIndex = parseInt(askData.askIndex - 1);
+                        $('#newQuizAsk').on('shown.bs.modal', function () {
+                            if (newQuiz.editAskFlag) {
+                                $('#askType').val(askData.askType).select2().toggle('change');
+                                leeTabChange($('#askType').find('option:selected'));
+                                for (var i = 0; i < askData.askEleList.length; i++) {
+                                    var elementID = '';
+                                    switch (askData.askEleList[i].elementType) {
+                                        case '001':
+                                            elementID = askData.askEleList[i].elementID.slice(-36);
+                                            break;
+                                        case '002':
+                                            elementID = askData.askEleList[i].elementID.slice(-36);
+                                            break;
+                                        case '003':
+                                            elementID = askData.askEleList[i].elementID.slice(-36);
+                                            break;
+                                    }
+                                    $('#askEleType').val(askData.askEleList[i].elementType).find('option:selected').data('elementID', elementID);
+                                    var statisticalAttr = (askData.askEleList[i].statisticalFlag == 1) ? 'statistical' : '';
+                                    $('#askEleType').find('option:selected').data('statisticalAttr', statisticalAttr);
+                                }
+                                $('#askEleType').val('');
+                                newQuiz.editor.currentView.element.focus();
+                                var askEditorHtml = getAskEditorHtml(askData);
+                                console.log(askEditorHtml);
+                                var caretBookmark;
+                                if (caretBookmark) {
+                                    newQuiz.editor.composer.selection.setBookmark(caretBookmark);
+                                }
+                                newQuiz.editor.composer.commands.exec('insertHtml', askEditorHtml);
+                                previewBtnClick();
+                            }
+                        });
+                    };
+
                     // 添加到页面
-                    var appendNewAsk = function (quizBookmark, layoutStyle) {
+                    var appendNewAsk = function (quizBookmark, layoutStyle, askData) {
                         console.log(App.getViewPort());
-                        var $askHtml = $('#previewArea').html();
-                        newQuiz.askTem.askType = $('#askType').val();
-                        newQuiz.askTem.askContent = $askHtml;
-                        newQuiz.askTem.askTitle = 'null';
-                        // console.log(newQuiz.askTem);
-                        newQuiz.askTem.askEleList = getAskELeList();
-                        var $ask = $('#previewArea').find('>div').detach();
-                        $ask.prepend($(newQuiz.askActionHtml));
+                        var $askHtml, askEleID;
+                        if (newQuiz.quizAllData.quiz.status == '0') {
+                            $askHtml = $('#previewArea').html();
+                            newQuiz.askTem.askType = $('#askType').val();
+                            newQuiz.askTem.askContent = $askHtml;
+                            newQuiz.askTem.askTitle = 'null';
+                            // console.log(newQuiz.askTem);
+                            newQuiz.askTem.askEleList = getAskELeList(newQuiz.askTem.askType);
+                            askEleID = newQuiz.askTem.askID;
+                            var $ask = $('#previewArea').find('>div').detach();
+                            $ask.prepend($(newQuiz.askActionHtml));
+                        }
+                        if (newQuiz.quizAllData.quiz.status == '1' && newQuiz.openCode == '2') {
+                            if (askData == undefined) {
+                                $askHtml = $('#previewArea').html();
+                                newQuiz.askTem.askType = $('#askType').val();
+                                newQuiz.askTem.askContent = $askHtml;
+                                newQuiz.askTem.askTitle = 'null';
+                                // console.log(newQuiz.askTem);
+                                newQuiz.askTem.askEleList = getAskELeList(newQuiz.askTem.askType);
+                                askEleID = newQuiz.askTem.askID;
+                                var $ask = $('#previewArea').find('>div').detach();
+                                $ask.prepend($(newQuiz.askActionHtml));
+                            }
+                            else {
+                                askEleID = askData.askID;
+                                $askHtml = askData.askContent;
+                                $ask = $($askHtml).prepend($(newQuiz.askActionHtml));
+                            }
+                        }
                         $(document).on('mouseover', '.quiz-input,.quiz-input *', function () {
                             $('.quiz-input-action').removeClass('hide');
                         }).on('mouseleave', '.quiz-input', function () {
@@ -703,21 +872,23 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 $('.quiz-input-action').addClass('hide')
                             }, 800);
                         });
-                        page.loading();
+                        if (newQuiz.quizAllData.quiz.status == '0' || askData == undefined) {
+                            page.loading();
+                        }
                         switch (layoutStyle) {
                             case '001':
-                                console.log($('.quiz1-col1').height());
+                                // console.log($('.quiz1-col1').height());
                                 var $col = $('.quiz' + quizBookmark.quiz + '-col' + quizBookmark.col)
-                                newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz+','+newQuiz.quizBookmark.col;
+                                newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz + ',' + newQuiz.quizBookmark.col;
                                 $col.append($ask);
-                                if ($col.find('>.quiz-input').length > 1) {
+                                if ($col.find('>.quiz-input').length > 2) {
                                     if (quizBookmark.col == 2 && $col.height() > $('.quiz' + quizBookmark.quiz + '-col' + 1).height()) {
                                         newQuiz.quizBookmark.col = 1;
                                         var $newPage = $(newQuizPageForNormal(++newQuiz.quizBookmark.quiz));
-                                        $('.quiz-body>div').append($newPage);
+                                        $('.quiz-body').append($newPage);
                                         $ask.detach();
                                         $col = $('.quiz' + newQuiz.quizBookmark.quiz + '-col' + 1);
-                                        newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz+','+1;
+                                        newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz + ',' + 1;
                                         $col.append($ask);
                                     }
                                     if ($col.height() <= App.getViewPort().height * (4 / 3)) {
@@ -730,14 +901,14 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                             $('.quiz-body>div').append($newPage);
                                             $ask.detach();
                                             $col = $('.quiz' + newQuiz.quizBookmark.quiz + '-col' + 1);
-                                            newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz+','+1;
+                                            newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz + ',' + 1;
                                             $col.append($ask);
                                         }
                                         else if (quizBookmark.col == 1) {
                                             $ask.detach();
                                             $col = $('.quiz' + quizBookmark.quiz + '-col' + 2);
                                             newQuiz.quizBookmark.col = 2;
-                                            newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz+','+2;
+                                            newQuiz.askTem.pageCode = newQuiz.quizBookmark.quiz + ',' + 2;
                                             $col.append($ask);
                                         }
                                     }
@@ -746,20 +917,76 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         }
                         // console.log(newQuiz.askTem);
                         // console.log(newQuiz.quizAllData.ask);
-                        newQuiz.quizAllData.ask.askList.push(newQuiz.askTem);
-                        // console.log(newQuiz.quizAllData.ask);
-                        newQuiz.askTem = {};
-                        newQuiz.askIndex++;
-                        newQuiz.askOrder++;
-                        page.initFinish();
+                        $ask.find('.editAsk').on('click', function () {
+                            newQuiz.editAskFlag = true;
+                            $('#newQuizAsk').modal('toggle');
+                            if (askData == undefined) {
+                                var _askTem = new Object(newQuiz.askTem);
+                                editAskOpenClick(_askTem);
+                            }
+                            else {
+                                // newQuiz.askTem;
+                                editAskOpenClick(askData);
+                            }
+                        });
+                        $ask.find('.deleteAsk').on('click',function () {
+                            bootbox.confirm({
+                                message: "删除后题目相关内容无法找回，确定删除?",
+                                buttons: {
+                                    confirm: {
+                                        label: '确定',
+                                        className: 'green'
+                                    },
+                                    cancel: {
+                                        label: '取消',
+                                        className: 'btn-outline dark'
+                                    }
+                                },
+                                callback: function (result) {
+                                    // console.log(result);
+                                    if (result) {
+                                        if (askData == undefined) {
+                                            var _askTem = new Object(newQuiz.askTem);
+                                            deleteAskOpenClick(_askTem);
+                                        }
+                                        else {
+                                            // newQuiz.askTem;
+                                            var _askTem = new Object(newQuiz.askTem);
+                                            deleteAskOpenClick(askData);
+                                        }
+                                    }
+                                    else {
+
+                                    }
+                                }
+                            })
+                        });
+                        if (newQuiz.quizAllData.quiz.status == '0' || askData == undefined) {
+                            newQuiz.quizAllData.ask.askList.push(newQuiz.askTem);
+                            // console.log(newQuiz.quizAllData.ask);
+                            newQuiz.askTem = {};
+                            newQuiz.askIndex++;
+                            page.initFinish();
+                        }
+                        // newQuiz.askOrder++;
                     };
 
                     //确认题目
                     var confirmAskClick = function () {
                         if (!$('#previewArea').hasClass('hide')) {
-                            if (newQuiz.quizBookmark != undefined) {
-                                // appendNewAsk({quiz:1,col:1},'001');
-                                appendNewAsk(newQuiz.quizBookmark, '001');
+                            if (!newQuiz.editAskFlag) {
+                                if (newQuiz.quizBookmark != undefined) {
+                                    // appendNewAsk({quiz:1,col:1},'001');
+                                    appendNewAsk(newQuiz.quizBookmark, newQuiz.quizAllData.quiz.layoutStyle);
+                                }
+                            }
+                            else {
+                                // 改变文档题目并重新计算位置
+                                // 改变列表
+                                newQuiz.quizAllData.ask.askList[newQuiz.askIndex].askType = $('#askType').val();
+                                newQuiz.quizAllData.ask.askList[newQuiz.askIndex].askEleList = getAskELeList($('#askType').val());
+                                newQuiz.quizAllData.ask.askList[newQuiz.askIndex].askContent = $('#previewArea').html();
+                                initAskListForStatus1();
                             }
                             resetAskModal();
                             $('#newQuizAsk').modal('toggle');
@@ -803,6 +1030,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     };
                     // 初始化配置界面
                     var initAskModal = function () {
+                        newQuiz.askTypeChangeFlag = true;
                         initAskModalTab();
                         initAskModalFire();
                         initAskModalClose();
@@ -883,9 +1111,9 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         onNext: function (tab, navigation, index) {
                             success.hide();
                             error.hide();
-                            // if (form.valid() == false) {
-                            //     return false;
-                            // }
+                            if (form.valid() == false) {
+                                return false;
+                            }
                             //不同步骤对应不同的处理函数
                             switch (index) {
                                 case 1:
@@ -926,29 +1154,67 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             $('#newQuizForm').find('.progress-bar').css({
                                 width: $percent + '%'
                             });
+                            switch (index) {
+                                case 0:
+                                    break;
+                                case 1:
+                                    initAskListForStatus1();
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                            }
                         }
                     });
 
                     $('#newQuizForm').find('.button-previous').hide();
 
-                    var saveQuiz = function () {
+                    var saveQuiz = function (status) {
+                        page.loading();
                         newQuiz.quizAllData.quiz.createUserID = loginInfo.userID;
                         newQuiz.quizAllData.quiz.dataCount = 0;
                         for (var i = 0; i < newQuiz.quizAllData.ask.askList.length; i++) {
                             newQuiz.quizAllData.quiz.dataCount += newQuiz.quizAllData.ask.askList[i].askEleList.length;
                         }
+                        newQuiz.quizAllData.quiz.releaseDateTime = $('#releaseDateTime').val() + ':00';
+                        newQuiz.quizAllData.quiz.finishDateTime = $('#finishDateTime').val() + ':00';
                         switch (newQuiz.quizAllData.quiz.status) {
-                            case 0:
-                                newQuiz.quizAllData.quiz.releaseDateTime = newQuiz.quizAllData.quiz.finishDateTime =
-                                    newQuiz.quizAllData.quiz.tabCount = newQuiz.quizAllData.quiz.tabName = 'null';
+                            case '0':
+                                if (status == '1') {
+                                    newQuiz.quizAllData.quiz.releaseDateTime = newQuiz.quizAllData.quiz.finishDateTime = 'null'
+
+                                }
+                                newQuiz.quizAllData.quiz.status = status;
+                                newQuiz.quizAllData.quiz.tabCount = newQuiz.quizAllData.quiz.tabName = 'null';
                                 console.log(newQuiz.quizAllData);
                                 ajaxByJQ.invokeServer('quiz/quizHandler.php', {
                                         method: 'newQuiz',
+                                        caller: 'web',
                                         quizAllData: newQuiz.quizAllData,
                                     }, function (data) {
                                         if (data.code == '829') {//添加成功
                                             // console.log(data);
-                                            toastr.success('', '保存成功')
+                                            if (status == '1') {
+                                                page.initFinish();
+                                                toastr.success('', '保存成功');
+                                                $state.go('quiz');
+                                            }
+                                            else {
+                                                page.initFinish();
+                                                toastr.success('', '发布成功');
+                                                $state.go('quiz');
+                                            }
+                                        }
+                                        else {
+                                            if (status == '1') {
+                                                page.initFinish();
+                                                toastr.error('', '保存失败');
+                                            }
+                                            else {
+                                                page.initFinish();
+                                                toastr.error('', '发布失败');
+                                            }
                                         }
                                     },
                                     {
@@ -959,22 +1225,84 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                     }
                                 );
                                 break;
-                            case 1:
+                            case '1':
+                                if (status == '1') {
+                                    newQuiz.quizAllData.quiz.releaseDateTime = newQuiz.quizAllData.quiz.finishDateTime = 'null'
+
+                                }
+                                newQuiz.quizAllData.quiz.status = status;
+                                newQuiz.quizAllData.quiz.tabCount = newQuiz.quizAllData.quiz.tabName = 'null';
+                                console.log(newQuiz.quizAllData);
+                                ajaxByJQ.invokeServer('quiz/quizHandler.php', {
+                                        method: 'updateQuiz',
+                                        caller: 'web',
+                                        quizAllData: newQuiz.quizAllData,
+                                    }, function (data) {
+                                        if (data.code == '829') {//添加成功
+                                            // console.log(data);
+                                            if (status == '1') {
+                                                page.initFinish();
+                                                toastr.success('', '保存成功');
+                                                $state.go('quiz');
+                                            }
+                                            else {
+                                                page.initFinish();
+                                                toastr.success('', '发布成功');
+                                                $state.go('quiz');
+                                            }
+                                        }
+                                        else {
+                                            if (status == '1') {
+                                                page.initFinish();
+                                                toastr.error('', '保存失败');
+                                            }
+                                            else {
+                                                page.initFinish();
+                                                toastr.error('', '发布失败');
+                                            }
+                                        }
+                                    },
+                                    {
+                                        cache: false,
+                                        dataType: 'json',
+                                        //failedFun:function(){}
+                                        // type:get或post
+                                    }
+                                );
                                 break;
                         }
                     };
 
+
                     $('#newQuizForm #release').click(function () {
                         // console.log(newQuiz.quizAllData);
                         //发布时间（默认当天）和结束时间（默认14天）的验证
-                        saveQuiz();
+                        if ($('#releaseDateTime').val() == '') {
+                            toastr.error('', '发布时间必须填写');
+                            return;
+                        }
+                        if ($('#finishDateTime').val() == '') {
+                            toastr.error('', '结束时间必须填写');
+                            return;
+                        }
+                        var finishDateTime = new Date($('#finishDateTime').val());
+                        var releaseDateTime = new Date($('#releaseDateTime').val());
+                        if (parseInt(finishDateTime.getTime() - releaseDateTime.getTime()) < exeDate) {
+                            toastr.error('', '结束时间必须为发布时间两周之后');
+                            return;
+                        }
+                        saveQuiz('2');
                     }).hide();
 
                     $('#newQuizForm #saveQuizConfig').click(function () {
                         // console.log(newQuiz.quizAllData);
-                        saveQuiz();
+                        if ($('#releaseDateTime').val() != '' || $('#finishDateTime').val() != '') {
+                            toastr.error('', '直接保存时，发布时间和结束时间必须为空');
+                            return;
+                        }
+                        saveQuiz('1');
                     }).hide();
-                    
+
                     $('.new-quiz-input.select2', form).change(function () {
                         form.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
                     });

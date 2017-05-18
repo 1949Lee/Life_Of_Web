@@ -49,7 +49,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
             url: "/index",
             templateUrl: "default.html",
             data: {pageTitle: '主页'},
-            controller: 'generalPageController',
+            controller: 'indexController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
@@ -67,7 +67,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                             insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
                             files: [
                                 // '../assets/pages/scripts/ui-extended-modals.js',
-                                '../js/generalPageControllers.js',
+                                '../js/indexController.js',
                             ]
                         }
                     ]);
@@ -129,6 +129,35 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                             insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
                             files: [
                                 '../js/quiz/newQuizController.js',
+                            ]
+                        }
+                    ]);
+                }]
+            }
+        })
+        // 孩子问卷填写
+        .state('childQuiz', {
+            url: "/childQuiz/:param",
+            templateUrl: "quiz/childQuiz.html?"+Math.random(),
+            data: {pageTitle: '填写问卷'},
+            controller: 'childQuizController',
+            resolve: {
+                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            name: 'childQuizCss',
+                            insertBefore: '#ng_load_css_before', // 按需加载JS和CSS
+                            files: [
+                                <!--模态框 CSS+JS-->
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css',
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css',
+                            ]
+                        },
+                        {
+                            name: 'childQuizJs',
+                            insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
+                            files: [
+                                '../js/quiz/childQuizController.js',
                             ]
                         }
                     ]);
@@ -200,7 +229,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
         .state('profile', {
             url: "/profile",
             templateUrl: "profile/profileIndex.html",
-            data: {pageTitle: 'AngularJS UI Bootstrap'},
+            data: {pageTitle: '个人中心'},
             controller: 'generalPageController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -230,7 +259,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
         .state('sysConfig', {
             url: "/sysConfig",
             templateUrl: "sysConfig/sysConfigIndex.html",
-            data: {pageTitle: 'jQuery Tree View'},
+            data: {pageTitle: '系统设置'},
             controller: 'generalPageController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {

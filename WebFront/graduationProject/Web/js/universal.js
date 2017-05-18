@@ -2,6 +2,7 @@
  * Created by Lee on 2017/1/24.
  */
 var isTop = this.parent == this;
+var exeDate = 14 * 24 * 3600 * 1000;
 
 /*
  系统默认值
@@ -144,11 +145,13 @@ var ajaxByJQ = {
 };
 var page = {
     initFinish: function (isTop) {
-        if (!isTop) {
-            $('.loader', parent.document).addClass('hide');
-        }
-        else {
-            $('.loader').addClass('hide');
+        if(!$('.loader').hasClass('hide')){
+            if (!isTop) {
+                $('.loader', parent.document).addClass('hide');
+            }
+            else {
+                $('.loader').addClass('hide');
+            }
         }
     },
     pageBar: {
@@ -221,6 +224,11 @@ var page = {
     },
     init: function (obj) {
         this.initPageBar(obj.initPageBar);
+    },
+    reloadSidebar:function (navArr) {
+        for(var i = 0;i < navArr.length;i++){
+            $('[ui-sref='+navArr[i]+']').parent().addClass('hide');
+        }
     }
 };
 function resizeSpecialEle(){
@@ -267,6 +275,16 @@ function delCookie(name) {
     if (cval != null)
         document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
 }
+function getLogin(){
+    var str = getCookie('loginInfo');
+    if(str == null){
+        return str;
+    }
+    else{
+        return JSON.parse(str)[0];
+    }
+}
+
 //全局唯一标识符
 function Guid(g) {
 

@@ -42,386 +42,45 @@
 
 </head>
 <body>
-<div>
-    <div class="row">
-        <div class="col-sm-6">
-            <!-- BEGIN SAMPLE FORM PORTLET-->
-            <div class="portlet light  quiz-page">
-                <form role="form">
-                    <div class="form-body">
-                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input">
-                            <input type="text" class="form-control" id="form_control_1"
-                                   placeholder="Enter your name">
-                            <label for="form_control_1"></label>
-                            <!--<span class="help-block">1</span>-->
-                        </div>
-                        <!--has-error,has-warning,has-info-->
-                        <div class="form-group form-md-line-input form-md-floating-label has-success quiz-input quiz-block-input ">
-                        <textarea class="form-control" rows="3" placeholder="Enter more text"
-                                  id="form_control_2"></textarea>
-                            <label for="form_control_2">
-                            </label>
-                        </div>
-                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input">
-                            <select class="form-control" id="form_control_3">
-                                <option value="">请选择</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="4">Option 4</option>
-                            </select>
-                            <label for="form_control_3"></label>
-                        </div>
-                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input">
-                            <input type="text" class="form-control" disabled="" id="form_control_4" value="Disable">
-                            <label for="form_control_4"></label>
-                        </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase">问卷列表</span>
+                </div>
+                <div class="form-group quiz-inline-input margin-left-normal hide">
+                    <select class="select2 form-control" name="" data-placeholder="请选择孩子" id="child">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <buttton class="btn btn-transparent green btn-outline btn-circle"
+                                 id="refreshTable"
+                        ><i class="fa fa-refresh"></i></buttton>
                     </div>
-                </form>
+                </div>
             </div>
-            <!-- END SAMPLE FORM PORTLET-->
-        </div>
-        <div class="col-sm-6 ">
-            <!-- BEGIN SAMPLE FORM PORTLET-->
-            <div class="portlet light form quiz-page">
-                <form role="form">
-                    <div class="form-body">
-                        <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-block-input">
-                            <div class="form-control form-control-static" contenteditable="true">撒答案是
-                                <div class="form-group form-md-line-input form-md-floating-label quiz-input quiz-inline-input"
-                                     contenteditable="false" draggable="true">
-                                    <select class="form-control" id="form_control_6">
-                                        <option value="">请选择</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                        <option value="4">Option 4</option>
-                                    </select>
-                                    <label for="form_control_6"></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group form-md-line-input form-md-checkboxes quiz-input">
-                            <div class="md-checkbox-list">
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check1" id="checkbox11" class="md-check">
-                                    <label for="checkbox11">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 1 </label>
-                                </div>
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check1" id="checkbox12" class="md-check" checked="">
-                                    <label for="checkbox12">
-                                        <span></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 2 </label>
-                                </div>
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check1" id="checkbox13" class="md-check">
-                                    <label for="checkbox13">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 3 </label>
-                                </div>
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check1" id="checkbox14" disabled="" class="md-check">
-                                    <label for="checkbox14">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Disabled </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group form-md-line-input form-md-checkboxes quiz-input">
-                            <label>Checkboxes</label>
-                            <div class="md-checkbox-inline">
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check2" id="checkbox21" class="md-check">
-                                    <label for="checkbox21">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 1 </label>
-                                </div>
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check2" id="checkbox22" class="md-check" checked="">
-                                    <label for="checkbox22">
-                                        <span></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 2 </label>
-                                </div>
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check2" id="checkbox23" class="md-check">
-                                    <label for="checkbox23">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 3 </label>
-                                </div>
-                                <div class="md-checkbox">
-                                    <input type="checkbox" name="check2" id="checkbox24" disabled="" class="md-check">
-                                    <label for="checkbox24">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> 禁用 </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group form-md-line-input form-md-radios quiz-input">
-                            <div class="md-radio-list">
-                                <div class="md-radio">
-                                    <input type="radio" id="radio1" name="radio1" class="md-radiobtn">
-                                    <label for="radio1">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 1 </label>
-                                </div>
-                                <div class="md-radio">
-                                    <input type="radio" id="radio2" name="radio1" class="md-radiobtn" checked="">
-                                    <label for="radio2">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 2 </label>
-                                </div>
-                                <div class="md-radio">
-                                    <input type="radio" id="radio3" name="radio1" class="md-radiobtn">
-                                    <label for="radio3">
-                                        <span></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 3 </label>
-                                </div>
-                                <div class="md-radio">
-                                    <input type="radio" id="radio5" name="radio1" disabled="" class="md-radiobtn">
-                                    <label for="radio5">
-                                        <span></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Disabled </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group form-md-line-input form-md-radios quiz-input">
-                            <label>Radios - 111</label>
-                            <div class="md-radio-inline">
-                                <div class="md-radio">
-                                    <input type="radio" id="radio21" name="radio200" class="md-radiobtn">
-                                    <label for="radio21">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 1 </label>
-                                </div>
-                                <div class="md-radio">
-                                    <input type="radio" id="radio22" name="radio200" class="md-radiobtn" checked="">
-                                    <label for="radio22">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 2 </label>
-                                </div>
-                                <div class="md-radio">
-                                    <input type="radio" id="radio23" name="radio200" class="md-radiobtn">
-                                    <label for="radio23">
-                                        <span class="inc"></span>
-                                        <span class="check"></span>
-                                        <span class="box"></span> Option 3 </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+            <div class="portlet-body">
+                <table class="table table-striped table-bordered table-hover dt-responsive nowrap" id="quizListTable"
+                       width="100%">
+                    <thead>
+                    <!--<tr class="">-->
+                    <!--<th>问卷名称</th>-->
+                    <!--<th>问卷标题</th>-->
+                    <!--<th>创建时间</th>-->
+                    <!--<th>发布时间</th>-->
+                    <!--<th>结束时间</th>-->
+                    <!--<th>问卷状态</th>-->
+                    <!--</tr>-->
+                    </thead>
+                </table>
             </div>
-            <!-- END SAMPLE FORM PORTLET-->
-        </div>
-    </div>
-    <div class=" row">
-        <div class="col-md-12">
-            <div class="portlet light form quiz-page">
-                    <div class="form-body">
-                        <div class="form-group">
-                            <label for="multiple" class="control-label">Select2 multi select</label>
-                            <select id="multiple" class="form-control select2">
-                                <optgroup label="Alaskan">
-                                    <option value="AK">Alaska</option>
-                                    <option value="HI" disabled="disabled">Hawaii</option>
-                                </optgroup>
-                                <optgroup label="Pacific Time Zone">
-                                    <option value="CA">California</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="WA">Washington</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                        <div class="form-group form-md-line-input">
-                            <table class="table table-hover table-striped table-bordered">
-                                <tr>
-                                    <td> Responsive</td>
-                                    <td>
-                                        <a class="btn btn-outline dark" data-toggle="modal" data-target="#responsive"> View
-                                            Demo </a>
-                                    </td>
-                                </tr>
-                                <!--<tr>-->
-                                <!--<td> Ajax</td>-->
-                                <!--<td>-->
-                                <!--<a class="btn btn-outline dark" id="ajax-demo"-->
-                                <!--data-url="default.html"  data-toggle="modal"data-target="#ajax-modal">View-->
-                                <!--Demo </a>-->
-                                <!--</td>-->
-                                <!--</tr>-->
-                                <tr>
-                                    <td> Full Width</td>
-                                    <td>
-                                        <a class="btn btn-outline dark"  data-target="#full-width" data-toggle="modal"> View
-                                            Demo </a>
-                                    </td>
-                                </tr>
-                            </table>
-
-                        </div>
-                        <!-- responsive -->
-                        <div id="responsive" class="modal fade" tabindex="-1" data-width="40%">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                <h4 class="modal-title">Responsive</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4>Some Input</h4>
-                                        <p>
-                                            <input class="form-control" type="text"></p>
-                                        <p>
-                                            <input class="form-control" type="text"></p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4>Some More Input</h4>
-                                        <p>
-                                            <input class="form-control" type="text"></p>
-                                        <p>
-                                            <input class="form-control" type="text"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-                                <button type="button" class="btn green">Save changes</button>
-                            </div>
-                        </div>
-                        <!-- stackable -->
-                        <div id="stack2" class="modal fade" tabindex="-1" data-focus-on="input:first">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                <h4 class="modal-title">Stack Two</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p> One fine body… </p>
-                                <p> One fine body… </p>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" data-tabindex="1"></div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" data-tabindex="2"></div>
-                                <button class="btn blue" data-toggle="modal" href="#stack3">Launch modal</button>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-                                <button type="button" class="btn red">Ok</button>
-                            </div>
-                        </div>
-                        <div id="stack3" class="modal fade" tabindex="-1" data-focus-on="input:first">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                <h4 class="modal-title">Stack Three</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p> One fine body… </p>
-                                <input class="form-control" type="text" data-tabindex="1">
-                                <input class="form-control" type="text" data-tabindex="2"></div>
-                            <div class="modal-footer">
-                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-                                <button type="button" class="btn green">Ok</button>
-                            </div>
-                        </div>
-                        <!-- ajax -->
-                        <div id="ajax-modal" class="modal container fade modal-scroll" tabindex="-1"></div>
-                        <!-- full width -->
-                        <div id="full-width" class="modal container fade modal-scroll" tabindex="-1" data-backdrop="static" data-keyboard="false"
-
-                        >
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                <h4 class="modal-title">Full Width</h4>
-                            </div>
-                            <div class="modal-body">
-                                <button class="btn blue" data-toggle="modal" href="#stack2">Launch modal</button>
-                                <p> This modal will resize itself to the same dimensions as the container class. </p>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
-                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
-                                    egestas hendrerit ipsum, et porttitor augue
-                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
-                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
-                                    cursus nec, vestibulum vel nibh. Morbi
-                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
-                                    quam eu ipsum euismod pretium. </p>
-                                <p> This modal will resize itself to the same dimensions as the container class. </p>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
-                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
-                                    egestas hendrerit ipsum, et porttitor augue
-                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
-                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
-                                    cursus nec, vestibulum vel nibh. Morbi
-                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
-                                    quam eu ipsum euismod pretium. </p>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
-                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
-                                    egestas hendrerit ipsum, et porttitor augue
-                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
-                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
-                                    cursus nec, vestibulum vel nibh. Morbi
-                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
-                                    quam eu ipsum euismod pretium. </p>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
-                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
-                                    egestas hendrerit ipsum, et porttitor augue
-                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
-                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
-                                    cursus nec, vestibulum vel nibh. Morbi
-                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
-                                    quam eu ipsum euismod pretium. </p>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin ipsum ac
-                                    ante fermentum suscipit. In ac augue non purus accumsan lobortis id sed nibh. Nunc
-                                    egestas hendrerit ipsum, et porttitor augue
-                                    volutpat non. Aliquam erat volutpat. Vestibulum scelerisque lobortis pulvinar.
-                                    Aenean hendrerit risus neque, eget tincidunt leo. Vestibulum est tortor, commodo nec
-                                    cursus nec, vestibulum vel nibh. Morbi
-                                    elit magna, ornare placerat euismod semper, dignissim vel odio. Phasellus elementum
-                                    quam eu ipsum euismod pretium. </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
-                                <button type="button" class="btn green">Save changes</button>
-                            </div>
-                        </div>
-                        <!-- long modals -->
-                        <div id="long" class="modal fade modal-scroll" tabindex="-1" data-replace="true">
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <!-- BEGIN SAMPLE FORM PORTLET-->
-            <div class="portlet light quiz-btn">
-                <form role="form">
-                    <div class="form-actions noborder text-center">
-                        <button type="button" class="btn blue">Submit</button>
-                        <button type="button" class="btn default">Cancel</button>
-                    </div>
-                </form>
-            </div>
-            <!-- END SAMPLE FORM PORTLET-->
         </div>
     </div>
 </div>
-
 <!--&lt;!&ndash;[if lt IE 9]>-->
 <!--<script src="../assets/global/plugins/respond.min.js"></script>-->
 <!--<script src="../assets/global/plugins/excanvas.min.js"></script>-->
@@ -461,8 +120,5 @@
 <!--<script src="../assets/layouts/global/scripts/quick-sidebar.js" type="text/javascript"></script>-->
 <!--<script src="../assets/layouts/global/scripts/quick-nav.js" type="text/javascript"></script>-->
 <!--&lt;!&ndash; END THEME LAYOUT SCRIPTS &ndash;&gt;-->
-<script>
-
-</script>
 </body>
 </html>

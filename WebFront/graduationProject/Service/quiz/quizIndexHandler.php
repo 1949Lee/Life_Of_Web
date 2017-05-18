@@ -21,7 +21,7 @@ function getQuizList($param)
         when 2 then '发布中'
         when 3 then '已结束'
         else '--'
-        end as statusName,a.status  from quiz as a ,admin_users as b where b.userID = a.createUserID;";
+        end as statusName,a.status  from quiz as a ,users as b where b.userID = a.createUserID and a.status != '4' ;";
     $conn->query("set character set 'utf8'");
     $conn->query("set names 'utf8'");
 //    $result['draw'] = (int)$dataCondition['draw'];
@@ -75,15 +75,20 @@ function getQuizInfo($param)
                         unset($row['templateFlag']);
                         unset($row['quizID']);
                         $row['askEleList'] = array();
-                        $result['ask'][] = $row;
+                        $row['askContent'] =  html_entity_decode($row['askContent']);
+                        $result['ask']['askList'][] = $row;
                         $askResultSet = false;
                     }
                     else {
+                        $ask = array_pop($result['ask']['askList']);
                         while ($row = $resultSet->fetch_assoc()) {
                             unset($row['quizID']);
                             unset($row['askID']);
-                            end($result['ask'])['askEleList'][] = $row;
+                            unset($row['elementLocation']);
+                            unset($row['elementSelector']);
+                            $ask['askEleList'][] = $row;
                         }
+                        $result['ask']['askList'][] = $ask;
                         $askResultSet = true;
                     }
                 }

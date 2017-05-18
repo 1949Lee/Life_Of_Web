@@ -25,8 +25,8 @@
       <file leaf-file-name="universalHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/universalHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="25" column="62" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="62" />
+            <state relative-caret-position="210">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="28" />
               <folding>
                 <element signature="e#6#83#0#PHP" expanded="true" />
                 <element signature="n#uniDecode#0;n#!!top" expanded="false" />
@@ -36,27 +36,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quizIndexHandler.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="quizIndexHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quiz/quizIndexHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="720">
+              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="25" selection-end-column="37" />
               <folding>
-                <element signature="e#2101#3294#0#PHP" expanded="false" />
-                <element signature="e#2459#3294#0#PHP" expanded="false" />
-                <marker date="1494669256340" expanded="true" signature="309:829" ph="select a.qui... quiz" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
-              <folding>
-                <element signature="e#1071#2519#0#PHP" expanded="false" />
+                <element signature="e#2116#3640#0#PHP" expanded="false" />
+                <marker date="1494927314720" expanded="true" signature="309:823" ph="select a.qui... quiz" />
+                <marker date="1494927314720" expanded="true" signature="309:843" ph="select a.qui... quiz" />
               </folding>
             </state>
           </provider>
@@ -65,21 +53,41 @@
       <file leaf-file-name="quizHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quiz/quizHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="43" column="61" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="61" />
+            <state relative-caret-position="600">
+              <caret line="20" column="165" selection-start-line="20" selection-start-column="157" selection-end-line="20" selection-end-column="165" />
               <folding>
-                <marker date="1494651430235" expanded="true" signature="393:584" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="393:618" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="393:741" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="393:776" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="393:929" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="393:1136" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="393:1171" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="393:1334" ph="INSERT INTO quiz... " />
-                <marker date="1494651430235" expanded="true" signature="1428:1537" ph="INSERT INTO quiz_ask... " />
-                <marker date="1494651430235" expanded="true" signature="1428:1543" ph="INSERT INTO quiz_ask... " />
-                <marker date="1494651430235" expanded="true" signature="2422:2560" ph="INSERT INTO quiz_ask_elements... " />
-                <marker date="1494651430235" expanded="true" signature="3398:3523" ph="INSERT INTO quiz_ask... " />
+                <marker date="1494776123440" expanded="true" signature="534:725" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="534:739" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="534:874" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="534:889" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="534:1036" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="534:1239" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="534:1254" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="534:1433" ph="INSERT INTO quiz... " />
+                <marker date="1494776123440" expanded="true" signature="1529:1638" ph="INSERT INTO quiz_ask... " />
+                <marker date="1494776123440" expanded="true" signature="1529:1644" ph="INSERT INTO quiz_ask... " />
+                <marker date="1494776123440" expanded="true" signature="2560:2698" ph="INSERT INTO quiz_ask_elements... " />
+                <marker date="1494776123440" expanded="true" signature="3565:3690" ph="INSERT INTO quiz_ask... " />
+                <marker date="1494776123440" expanded="true" signature="4708:4741" ph="DELETE FROM " />
+                <marker date="1494776123440" expanded="true" signature="4708:4780" ph="DELETE FROM " />
+                <marker date="1494776123440" expanded="true" signature="4781:4857" ph="DELETE FROM " />
+                <marker date="1494776123440" expanded="true" signature="4858:4943" ph="DELETE FROM " />
+                <marker date="1494776123440" expanded="true" signature="5382:5431" ph="DELETE FROM " />
+                <marker date="1494776123440" expanded="true" signature="5432:5485" ph="DELETE FROM " />
+                <marker date="1494776123440" expanded="true" signature="5486:5548" ph="DELETE FROM " />
+                <marker date="1494776123440" expanded="true" signature="5564:5621" ph="UPDATE quiz " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1140">
+              <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
+              <folding>
+                <element signature="e#1071#2519#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -88,11 +96,29 @@
       <file leaf-file-name="userHandler.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/userHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="23" />
+            <state relative-caret-position="720">
+              <caret line="30" column="83" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
               <folding>
-                <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-                <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+                <element signature="e#215#416#0#PHP" expanded="false" />
+                <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+                <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+                <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="indexHandler.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/indexHandler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+              <folding>
+                <marker date="1495075071184" expanded="true" signature="364:940" ph="SELECT a.chi... childquiz" />
+                <marker date="1495075071184" expanded="true" signature="364:962" ph="SELECT a.chi... childquiz" />
+                <marker date="1495075071184" expanded="true" signature="687:832" ph="SELECT a. NA... quiz" />
+                <marker date="1495075071184" expanded="true" signature="864:919" ph="SELECT quizI... quiz" />
+                <marker date="1495075071184" expanded="true" signature="1096:1402" ph="SELECT NULL quiz" />
               </folding>
             </state>
           </provider>
@@ -101,7 +127,7 @@
       <file leaf-file-name="initConnection.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/initConnection.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="660">
               <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
               <folding>
                 <element signature="e#6#84#0#PHP" expanded="true" />
@@ -115,13 +141,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/user/userHandler.php" />
         <option value="$PROJECT_DIR$/../Web/html/main.php" />
         <option value="$PROJECT_DIR$/universalHandler.php" />
-        <option value="$PROJECT_DIR$/quiz/quizHandler.php" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/initConnection.php" />
+        <option value="$PROJECT_DIR$/quiz/quizHandler.php" />
         <option value="$PROJECT_DIR$/quiz/quizIndexHandler.php" />
+        <option value="$PROJECT_DIR$/user/userHandler.php" />
+        <option value="$PROJECT_DIR$/idnex.php" />
+        <option value="$PROJECT_DIR$/indexHandler.php" />
       </list>
     </option>
   </component>
@@ -169,8 +197,8 @@
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -245,15 +273,21 @@
       <workItem from="1494460561526" duration="14003000" />
       <workItem from="1494546911992" duration="24054000" />
       <workItem from="1494635759657" duration="2031000" />
-      <workItem from="1494649611550" duration="17226000" />
+      <workItem from="1494649611550" duration="21020000" />
+      <workItem from="1494723374113" duration="11512000" />
+      <workItem from="1494811409449" duration="2841000" />
+      <workItem from="1494909643037" duration="3491000" />
+      <workItem from="1494932201325" duration="4955000" />
+      <workItem from="1494988491353" duration="9701000" />
+      <workItem from="1495069505290" duration="2189000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124328000" />
+    <option name="totallyTimeSpent" value="162811000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.49369085" order="0" side_tool="false" content_ui="combo" />
@@ -306,29 +340,21 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="5" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/universalHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#83#0#PHP" expanded="true" />
-            <element signature="n#uniDecode#0;n#!!top" expanded="false" />
-            <element signature="n#toUtf8#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user/userHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -368,8 +394,10 @@
         <state relative-caret-position="330">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -409,8 +437,10 @@
         <state relative-caret-position="330">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -450,8 +480,10 @@
         <state relative-caret-position="330">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -491,8 +523,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -532,8 +566,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -573,8 +609,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -614,8 +652,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -679,8 +719,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -720,8 +762,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
           </folding>
         </state>
       </provider>
@@ -745,21 +789,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Web/html/main.php" />
-    <entry file="file://$PROJECT_DIR$/universalHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="25" column="62" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="62" />
-          <folding>
-            <element signature="e#6#83#0#PHP" expanded="true" />
-            <element signature="n#uniDecode#0;n#!!top" expanded="false" />
-            <element signature="n#toUtf8#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
+        <state relative-caret-position="1140">
           <caret line="76" column="23" selection-start-line="76" selection-start-column="23" selection-end-line="76" selection-end-column="23" />
           <folding>
             <element signature="e#1071#2519#0#PHP" expanded="false" />
@@ -771,18 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
           <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user/userHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="23" />
-          <folding>
-            <marker date="1492183794071" expanded="true" signature="452:493" ph="select * fro... admin_users" />
-            <marker date="1492183794071" expanded="true" signature="452:519" ph="select * fro... admin_users" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -796,28 +816,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/quiz/quizHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="43" column="61" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="61" />
+        <state relative-caret-position="600">
+          <caret line="20" column="165" selection-start-line="20" selection-start-column="157" selection-end-line="20" selection-end-column="165" />
           <folding>
-            <marker date="1494651430235" expanded="true" signature="393:584" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="393:618" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="393:741" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="393:776" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="393:929" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="393:1136" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="393:1171" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="393:1334" ph="INSERT INTO quiz... " />
-            <marker date="1494651430235" expanded="true" signature="1428:1537" ph="INSERT INTO quiz_ask... " />
-            <marker date="1494651430235" expanded="true" signature="1428:1543" ph="INSERT INTO quiz_ask... " />
-            <marker date="1494651430235" expanded="true" signature="2422:2560" ph="INSERT INTO quiz_ask_elements... " />
-            <marker date="1494651430235" expanded="true" signature="3398:3523" ph="INSERT INTO quiz_ask... " />
+            <marker date="1494776123440" expanded="true" signature="534:725" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="534:739" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="534:874" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="534:889" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="534:1036" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="534:1239" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="534:1254" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="534:1433" ph="INSERT INTO quiz... " />
+            <marker date="1494776123440" expanded="true" signature="1529:1638" ph="INSERT INTO quiz_ask... " />
+            <marker date="1494776123440" expanded="true" signature="1529:1644" ph="INSERT INTO quiz_ask... " />
+            <marker date="1494776123440" expanded="true" signature="2560:2698" ph="INSERT INTO quiz_ask_elements... " />
+            <marker date="1494776123440" expanded="true" signature="3565:3690" ph="INSERT INTO quiz_ask... " />
+            <marker date="1494776123440" expanded="true" signature="4708:4741" ph="DELETE FROM " />
+            <marker date="1494776123440" expanded="true" signature="4708:4780" ph="DELETE FROM " />
+            <marker date="1494776123440" expanded="true" signature="4781:4857" ph="DELETE FROM " />
+            <marker date="1494776123440" expanded="true" signature="4858:4943" ph="DELETE FROM " />
+            <marker date="1494776123440" expanded="true" signature="5382:5431" ph="DELETE FROM " />
+            <marker date="1494776123440" expanded="true" signature="5432:5485" ph="DELETE FROM " />
+            <marker date="1494776123440" expanded="true" signature="5486:5548" ph="DELETE FROM " />
+            <marker date="1494776123440" expanded="true" signature="5564:5621" ph="UPDATE quiz " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/userHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="30" column="83" selection-start-line="30" selection-start-column="83" selection-end-line="30" selection-end-column="83" />
+          <folding>
+            <element signature="e#215#416#0#PHP" expanded="false" />
+            <marker date="1494935033063" expanded="true" signature="452:487" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="452:513" ph="select * fro... admin_users" />
+            <marker date="1494935033063" expanded="true" signature="888:958" ph="select * fro... children" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/universalHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#6#83#0#PHP" expanded="true" />
+            <element signature="n#uniDecode#0;n#!!top" expanded="false" />
+            <element signature="n#toUtf8#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/initConnection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
+        <state relative-caret-position="660">
           <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
           <folding>
             <element signature="e#6#84#0#PHP" expanded="true" />
@@ -827,12 +880,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/quiz/quizIndexHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="720">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="25" selection-end-column="37" />
           <folding>
-            <element signature="e#2101#3294#0#PHP" expanded="false" />
-            <element signature="e#2459#3294#0#PHP" expanded="false" />
-            <marker date="1494669256340" expanded="true" signature="309:829" ph="select a.qui... quiz" />
+            <element signature="e#2116#3640#0#PHP" expanded="false" />
+            <marker date="1494927314720" expanded="true" signature="309:823" ph="select a.qui... quiz" />
+            <marker date="1494927314720" expanded="true" signature="309:843" ph="select a.qui... quiz" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indexHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+          <folding>
+            <marker date="1495075071184" expanded="true" signature="364:940" ph="SELECT a.chi... childquiz" />
+            <marker date="1495075071184" expanded="true" signature="364:962" ph="SELECT a.chi... childquiz" />
+            <marker date="1495075071184" expanded="true" signature="687:832" ph="SELECT a. NA... quiz" />
+            <marker date="1495075071184" expanded="true" signature="864:919" ph="SELECT quizI... quiz" />
+            <marker date="1495075071184" expanded="true" signature="1096:1402" ph="SELECT NULL quiz" />
           </folding>
         </state>
       </provider>

@@ -15,7 +15,11 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
         // 初始化页面布局 结束
 
         // 获得账户信息
-        var loginInfo = JSON.parse(getCookie('loginInfo'))[0];
+        var loginInfo = getLogin();
+        if(loginInfo == null){
+            page.loading();
+            window.location.href = WebUrl()+'html/login.html';
+        }
 
         // 获取路由参数
         var param = null;
@@ -44,7 +48,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                             var authorFlag = (loginInfo.userID != row.createUserID) ? false : true;
                             switch (btnType) {
                                 case 'quizConfig':
-                                    if (authorFlag && row.status == 1) {
+                                    if (authorFlag && row.status == '1') {
                                         className = '';
                                     }
                                     else {
@@ -87,7 +91,15 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                 },
                                 function (quizAllData) {
                                     console.log(quizAllData);
-                                    page.initFinish();
+                                    var param = {
+                                        openCode: 2,
+                                        quizAllData: {
+                                            quiz: quizAllData.quiz,
+                                            ask: quizAllData.ask
+                                        }
+                                    };
+                                    $state.go('newQuiz', {param: JSON.stringify(param)});
+
                                 }
                             )
                         };
@@ -107,7 +119,48 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                         // 删除问卷按钮点击
                         var deleteQuiz = function (event) {
                             var row = event.data;
-                            console.log(row);
+                            bootbox.confirm({
+                                message: "确定删除出问卷?",
+                                buttons: {
+                                    confirm: {
+                                        label: '确定',
+                                        className: 'green'
+                                    },
+                                    cancel: {
+                                        label: '取消',
+                                        className: 'btn-outline dark'
+                                    }
+                                },
+                                callback: function (result) {
+                                    // console.log(result);
+                                    if (result) {
+                                        ajaxByJQ.invokeServer('quiz/quizHandler.php', {
+                                                method: 'deleteQuiz',
+                                                caller: 'web',
+                                                quizID: row.quizID,
+                                            }, function (data) {
+                                                if (data.code == '829') {//添加成功
+                                                    toastr.success('', '删除成功');
+                                                }
+                                            },
+                                            {
+                                                cache: false,
+                                                dataType: 'json',
+                                                //failedFun:function(){}
+                                                // type:get或post
+                                            }
+                                        );
+                                        $(this).on('hidden.bs.modal', function () {
+                                            $('#newQuizAsk').modal('toggle');
+                                        });
+                                    }
+                                    else {
+
+                                    }
+                                }
+                            }).init(function () {
+                                // $('.bootbox').parent().height(App.getViewPort().height);
+                            });
                         };
 
                         var table = $('#quizListTable');
@@ -193,7 +246,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                             '<a  id="preView" class="btn black ' + actionClass(row, 'preView') + '"><i class="fa fa-eye"></i>预览</a>' +
                                             '</li>' +
                                             '<li>' +
-                                            '<a  id="releaseQuiz" class="btn black' + actionClass(row, 'releaseQuiz') + '"><i class="fa fa-paper-plane-o"></i>发布</a>' +
+                                            '<a  id="releaseQuiz" class="btn black ' + actionClass(row, 'releaseQuiz') + '"><i class="fa fa-paper-plane-o"></i>发布</a>' +
                                             '</li>' +
                                             '<li>' +
                                             '<a  id="deleteQuiz" class="btn black ' + actionClass(row, 'deleteQuiz') + '"><i class="fa fa-trash"></i>删除</a>' +
@@ -204,11 +257,11 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                     }
                                 }
                             ],
-                            "createdRow": function( row, data, dataIndex ) {
-                                $(row).find('#quizConfig').on('click',data,quizConfig);
-                                $(row).find('#preView').on('click',data,preView);
-                                $(row).find('#releaseQuiz').on('click',data,releaseQuiz);
-                                $(row).find('#deleteQuiz').on('click',data,deleteQuiz);
+                            "createdRow": function (row, data, dataIndex) {
+                                $(row).find('#quizConfig').off('click').on('click', data, quizConfig);
+                                $(row).find('#preView').off('click').on('click', data, preView);
+                                $(row).find('#releaseQuiz').off('click').on('click', data, releaseQuiz);
+                                $(row).find('#deleteQuiz').off('click').on('click', data, deleteQuiz);
                             },
                             "lengthMenu": [
                                 [5, 10, 15, 20, -1],
@@ -240,6 +293,9 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                         dataTable.on('init', function () {
                             // console.log(dataTable.data().length);
                         });
+                        $('#refreshTable').on('click',function () {
+                            dataTable.ajax.reload();
+                        });
                     };
                     initQuizList();
                 }
@@ -256,7 +312,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                 quiz: {
                     quizID: Guid.newGuid().toString('g'),
                     templateID: Guid.newGuid().toString('g'),
-                    status: 0
+                    status: '0'
                 },
                 ask: {
                     templateFlag: 0
