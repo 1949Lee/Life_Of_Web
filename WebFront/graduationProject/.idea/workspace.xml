@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Web/js/quiz/newQuizController.js" line="1177" />
+    <bookmark url="file://$PROJECT_DIR$/Web/js/quiz/newQuizController.js" line="1188" />
     <bookmark url="file://$PROJECT_DIR$/Web/js/profile/profileController.js" line="276" />
     <bookmark url="file://$PROJECT_DIR$/Web/js/quiz/newQuizController.js" line="458" />
     <bookmark url="file://$PROJECT_DIR$/Web/js/statistics/statisticsController.js" line="54" />
@@ -54,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7497">
+            <state relative-caret-position="-7692">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#6369#7579#0" expanded="false" />
@@ -84,16 +84,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Web/html/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="childQuizController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/js/quiz/childQuizController.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -103,16 +93,6 @@
                 <element signature="e#3175#5773#0" expanded="false" />
                 <element signature="e#5863#7363#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="datatables.bootstrap.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Web/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="23" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="23" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -151,13 +131,69 @@
       <file leaf-file-name="quizController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/js/quiz/quizController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
+            <state relative-caret-position="509">
               <caret line="267" column="54" selection-start-line="267" selection-start-column="54" selection-end-line="267" selection-end-column="54" />
               <folding>
                 <element signature="e#14146#16621#0" expanded="false" />
                 <element signature="e#16673#17438#0" expanded="false" />
                 <element signature="e#17553#26258#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newQuizController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Web/js/quiz/newQuizController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="997" column="51" selection-start-line="997" selection-start-column="51" selection-end-line="997" selection-end-column="51" />
+              <folding>
+                <element signature="e#3578#3821#0" expanded="false" />
+                <element signature="e#3865#4182#0" expanded="false" />
+                <element signature="e#4487#4910#0" expanded="false" />
+                <element signature="e#6008#6519#0" expanded="false" />
+                <element signature="e#6556#7110#0" expanded="false" />
+                <element signature="e#10028#11323#0" expanded="false" />
+                <element signature="e#11397#12974#0" expanded="false" />
+                <element signature="e#14482#17858#0" expanded="false" />
+                <element signature="e#14607#15112#0" expanded="false" />
+                <element signature="e#15142#15841#0" expanded="false" />
+                <element signature="e#17949#24328#0" expanded="false" />
+                <element signature="e#24417#35263#0" expanded="false" />
+                <element signature="e#40623#41321#0" expanded="false" />
+                <element signature="e#40693#41292#0" expanded="false" />
+                <element signature="e#42906#43256#0" expanded="false" />
+                <element signature="e#44362#45603#0" expanded="false" />
+                <element signature="e#44515#44955#0" expanded="false" />
+                <element signature="e#45017#45545#0" expanded="false" />
+                <element signature="e#47082#47495#0" expanded="false" />
+                <element signature="e#47755#48168#0" expanded="false" />
+                <element signature="e#48900#50367#0" expanded="false" />
+                <element signature="e#50466#55550#0" expanded="false" />
+                <element signature="e#56131#58327#0" expanded="false" />
+                <element signature="e#60016#61428#0" expanded="false" />
+                <element signature="e#65173#67944#0" expanded="false" />
+                <element signature="e#68743#70300#0" expanded="false" />
+                <element signature="e#68896#69336#0" expanded="false" />
+                <element signature="e#70951#71274#0" expanded="false" />
+                <element signature="e#73323#73472#0" expanded="false" />
+                <element signature="e#74601#74656#0" expanded="false" />
+                <element signature="e#75151#75575#0" expanded="false" />
+                <element signature="e#76413#76619#0" expanded="false" />
+                <element signature="e#76678#77543#0" expanded="false" />
+                <element signature="e#84861#92140#0" expanded="false" />
+                <element signature="e#93902#94070#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newQuiz.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/html/quiz/newQuiz.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="275" column="54" selection-start-line="275" selection-start-column="44" selection-end-line="275" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -243,8 +279,6 @@
         <option value="$PROJECT_DIR$/Web/assets/global/plugins/font-awesome/css/font-awesome.css" />
         <option value="$PROJECT_DIR$/Web/assets/global/plugins/word/jquery.wordexport.js" />
         <option value="$PROJECT_DIR$/Web/img/verificationCode.php" />
-        <option value="$PROJECT_DIR$/Web/html/quiz/newQuiz.html" />
-        <option value="$PROJECT_DIR$/Web/js/quiz/newQuizController.js" />
         <option value="$PROJECT_DIR$/Web/js/main.js" />
         <option value="$PROJECT_DIR$/Web/html/default.html" />
         <option value="$PROJECT_DIR$/Web/html/template/templateIndex.html" />
@@ -262,6 +296,8 @@
         <option value="$PROJECT_DIR$/Web/js/indexController.js" />
         <option value="$PROJECT_DIR$/Web/js/statistics/statisticsController.js" />
         <option value="$PROJECT_DIR$/Web/html/main.html" />
+        <option value="$PROJECT_DIR$/Web/html/quiz/newQuiz.html" />
+        <option value="$PROJECT_DIR$/Web/js/quiz/newQuizController.js" />
       </list>
     </option>
   </component>
@@ -326,6 +362,86 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="Web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="graduationProject">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="graduationProject">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="quiz">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="graduationProject">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="graduationProject">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="html">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="quiz">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -607,16 +723,16 @@
       <workItem from="1497926694385" duration="16055000" />
       <workItem from="1498012824858" duration="18255000" />
       <workItem from="1498122768549" duration="1645000" />
-      <workItem from="1498184997901" duration="10682000" />
+      <workItem from="1498184997901" duration="11805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="769157000" />
+    <option name="totallyTimeSpent" value="770280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25183016" sideWeight="0.4747634" order="2" side_tool="false" content_ui="tabs" x="487" y="50" width="331" height="667" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -857,57 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/html/quiz/newQuiz.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="299" column="58" selection-start-line="299" selection-start-column="43" selection-end-line="299" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/js/quiz/newQuizController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="43" />
-          <folding>
-            <element signature="e#3578#3821#0" expanded="false" />
-            <element signature="e#3865#4182#0" expanded="false" />
-            <element signature="e#4487#4910#0" expanded="false" />
-            <element signature="e#6008#6519#0" expanded="false" />
-            <element signature="e#6556#7110#0" expanded="false" />
-            <element signature="e#10028#11323#0" expanded="false" />
-            <element signature="e#11397#12974#0" expanded="false" />
-            <element signature="e#14482#17858#0" expanded="false" />
-            <element signature="e#14607#15112#0" expanded="false" />
-            <element signature="e#15142#15841#0" expanded="false" />
-            <element signature="e#17949#24328#0" expanded="false" />
-            <element signature="e#24417#35263#0" expanded="false" />
-            <element signature="e#40623#41321#0" expanded="false" />
-            <element signature="e#40693#41292#0" expanded="false" />
-            <element signature="e#42906#43256#0" expanded="false" />
-            <element signature="e#44362#45603#0" expanded="false" />
-            <element signature="e#44515#44955#0" expanded="false" />
-            <element signature="e#45017#45545#0" expanded="false" />
-            <element signature="e#46730#47143#0" expanded="false" />
-            <element signature="e#47403#47816#0" expanded="false" />
-            <element signature="e#48548#49850#0" expanded="false" />
-            <element signature="e#49949#55033#0" expanded="false" />
-            <element signature="e#55614#57810#0" expanded="false" />
-            <element signature="e#59447#60859#0" expanded="false" />
-            <element signature="e#64604#67375#0" expanded="false" />
-            <element signature="e#68174#69731#0" expanded="false" />
-            <element signature="e#68327#68767#0" expanded="false" />
-            <element signature="e#70382#70705#0" expanded="false" />
-            <element signature="e#72751#72900#0" expanded="false" />
-            <element signature="e#74029#74084#0" expanded="false" />
-            <element signature="e#74579#75003#0" expanded="false" />
-            <element signature="e#75841#76047#0" expanded="false" />
-            <element signature="e#76106#76971#0" expanded="false" />
-            <element signature="e#84289#91568#0" expanded="false" />
-            <element signature="e#93330#93498#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/assets/global/plugins/select2/js/select2.full.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -1007,18 +1072,6 @@
           <folding>
             <element signature="e#3175#5773#0" expanded="false" />
             <element signature="e#5863#7363#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/js/quiz/quizController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="267" column="54" selection-start-line="267" selection-start-column="54" selection-end-line="267" selection-end-column="54" />
-          <folding>
-            <element signature="e#14146#16621#0" expanded="false" />
-            <element signature="e#16673#17438#0" expanded="false" />
-            <element signature="e#17553#26258#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1124,11 +1177,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Web/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7497">
+        <state relative-caret-position="-7692">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#6369#7579#0" expanded="false" />
             <element signature="e#11184#11191#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/js/quiz/quizController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="267" column="54" selection-start-line="267" selection-start-column="54" selection-end-line="267" selection-end-column="54" />
+          <folding>
+            <element signature="e#14146#16621#0" expanded="false" />
+            <element signature="e#16673#17438#0" expanded="false" />
+            <element signature="e#17553#26258#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/html/quiz/newQuiz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="275" column="54" selection-start-line="275" selection-start-column="44" selection-end-line="275" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/js/quiz/newQuizController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="997" column="51" selection-start-line="997" selection-start-column="51" selection-end-line="997" selection-end-column="51" />
+          <folding>
+            <element signature="e#3578#3821#0" expanded="false" />
+            <element signature="e#3865#4182#0" expanded="false" />
+            <element signature="e#4487#4910#0" expanded="false" />
+            <element signature="e#6008#6519#0" expanded="false" />
+            <element signature="e#6556#7110#0" expanded="false" />
+            <element signature="e#10028#11323#0" expanded="false" />
+            <element signature="e#11397#12974#0" expanded="false" />
+            <element signature="e#14482#17858#0" expanded="false" />
+            <element signature="e#14607#15112#0" expanded="false" />
+            <element signature="e#15142#15841#0" expanded="false" />
+            <element signature="e#17949#24328#0" expanded="false" />
+            <element signature="e#24417#35263#0" expanded="false" />
+            <element signature="e#40623#41321#0" expanded="false" />
+            <element signature="e#40693#41292#0" expanded="false" />
+            <element signature="e#42906#43256#0" expanded="false" />
+            <element signature="e#44362#45603#0" expanded="false" />
+            <element signature="e#44515#44955#0" expanded="false" />
+            <element signature="e#45017#45545#0" expanded="false" />
+            <element signature="e#47082#47495#0" expanded="false" />
+            <element signature="e#47755#48168#0" expanded="false" />
+            <element signature="e#48900#50367#0" expanded="false" />
+            <element signature="e#50466#55550#0" expanded="false" />
+            <element signature="e#56131#58327#0" expanded="false" />
+            <element signature="e#60016#61428#0" expanded="false" />
+            <element signature="e#65173#67944#0" expanded="false" />
+            <element signature="e#68743#70300#0" expanded="false" />
+            <element signature="e#68896#69336#0" expanded="false" />
+            <element signature="e#70951#71274#0" expanded="false" />
+            <element signature="e#73323#73472#0" expanded="false" />
+            <element signature="e#74601#74656#0" expanded="false" />
+            <element signature="e#75151#75575#0" expanded="false" />
+            <element signature="e#76413#76619#0" expanded="false" />
+            <element signature="e#76678#77543#0" expanded="false" />
+            <element signature="e#84861#92140#0" expanded="false" />
+            <element signature="e#93902#94070#0" expanded="false" />
           </folding>
         </state>
       </provider>

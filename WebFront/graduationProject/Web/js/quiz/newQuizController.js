@@ -770,8 +770,14 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         // editor.currentView.element
                         switch (AskEleType) {
                             case '001':
+                                if(!newQuiz.editAskFlag){
+                                    $(newQuiz.editor.currentView.element).html('');
+                                }
                                 break;
                             case '002':
+                                if(!newQuiz.editAskFlag){
+                                    $(newQuiz.editor.currentView.element).html('');
+                                }
                                 break;
                         }
                     };
@@ -837,6 +843,10 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 $('#isStatistical').prop('checked', false);
                                 $('#askEleType').find('option:selected').data('statisticalAttr', '');
                             }
+                            if(!newQuiz.editAskFlag){
+                                $(newQuiz.editor.currentView.element).html('');
+                            }
+
                         }
                         else {
                             $('#addEleBtn').parent().addClass('hide');
@@ -985,6 +995,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         $('#newQuizAsk').on('shown.bs.modal', function () {
                             if (newQuiz.editAskFlag) {
                                 $('#askType').val(askData.askType).select2().toggle('change');
+                                reloadAskEleType();
                                 leeTabChange($('#askType').find('option:selected'));
                                 for (var i = 0; i < askData.askEleList.length; i++) {
                                     var elementID = '';
@@ -1201,7 +1212,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         $('.confirmAsk').off('click').on('click', confirmAskClick);
                         $('#statisticalName').off('blur').on('blur', setStatistical);
                         $('#askType').off('click').on('change', reloadAskEleType);
-                        $('#askType').off('click').on('select2:select', warningBeforeAskEleTypeClickForChange);
+                        // $('#askType').off('click').on('select2:select', warningBeforeAskEleTypeClickForChange);
                         $('#askEleType').off('click').on('change', askEleTypeChangeClick);
                         $('#changeAskType').off('click').on('click', function () {
                             newQuiz.askTypeChangeFlag = true;
