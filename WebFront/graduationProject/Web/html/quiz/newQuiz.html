@@ -175,7 +175,8 @@
                                                 <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 input-icon right">
-                                                <input size="16" class="form-control" type="text" value="" name="releaseDateTime" id="releaseDateTime">
+                                                <input size="16" class="form-control" type="text" value=""
+                                                       name="releaseDateTime" id="releaseDateTime">
                                                 <!--<i class="icon-remove"></i>-->
                                                 <i class="icon-calendar"></i>
                                             </div>
@@ -185,9 +186,21 @@
                                                 <span class="required"></span>
                                             </label>
                                             <div class="col-md-4 input-icon right">
-                                                <input size="16" class="form-control" type="text" value="" name="finishDateTime" id="finishDateTime">
+                                                <input size="16" class="form-control" type="text" value=""
+                                                       name="finishDateTime" id="finishDateTime">
                                                 <!--<i class="icon-remove"></i>-->
                                                 <i class="icon-calendar"></i>
+                                            </div>
+                                        </div>
+                                        <div class="md-checkbox-list col-md-4 col-md-push-4">
+                                            <div class="md-checkbox">
+                                                <input type="checkbox" id="isTemplate" name="isTemplate"
+                                                       class="md-check">
+                                                <label for="isTemplate">
+                                                    <span></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span> 保存为模板
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
@@ -226,11 +239,11 @@
         <h4 class="modal-title">温馨提示</h4>
     </div>
     <div class="modal-body">
-        更换题目类型会删除当前以编写内容，是否更换？
+        更换题目类型会删除当前已编写内容，是否更换？
     </div>
     <div class="modal-footer">
-        <button type="button" id="changeAskType"  class="btn btn-outline dark">确定</button>
-        <button type="button" data-dismiss="modal"  class="btn green">取消</button>
+        <button type="button" id="changeAskType" class="btn btn-outline dark">确定</button>
+        <button type="button" data-dismiss="modal" class="btn green">取消</button>
     </div>
 </div>
 <div id="newQuizAsk" class="modal container fade modal-scroll" tabindex="-1"
@@ -238,7 +251,7 @@
      data-backdrop="static"
 >
     <div class="modal-header">
-        <button type="button" class="close askPageCloseIcon"  aria-hidden="true"></button>
+        <button type="button" class="close askPageCloseIcon" aria-hidden="true"></button>
         <h4 class="modal-title">配置题目</h4>
     </div>
     <div class="modal-body">
@@ -265,12 +278,12 @@
                                     <option></option>
                                     <option value="001">单选钮</option>
                                     <option value="002">复选框</option>
-                                    <option value="003">文字输入框</option>
-                                    <!--<option value="004">时间输入框</option>-->
+                                    <option value="003">普通输入框</option>
+                                    <option value="004">时间输入框</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-2">
                             <div class="lee-flex-vertical-center quiz-inline-input">
                                 <div class="md-checkbox">
                                     <input type="checkbox" name="check2" id="isStatistical" value="1" class="md-check">
@@ -279,6 +292,12 @@
                                         <span class="check"></span>
                                         <span class="box"></span>设为统计项</label>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-md-line-input">
+                                <input type="text" class="form-control" name="statisticalName" placeholder="请输入统计项名称"
+                                       id="statisticalName"/>
                             </div>
                         </div>
                     </div>
@@ -292,7 +311,8 @@
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-3 form-group hide">
-                        <button id="addEleBtn" class="btn btn-outline green ">添加到编辑框<i class="fa fa fa-arrow-down"></i></button>
+                        <button id="addEleBtn" class="btn btn-outline green ">添加到编辑框<i class="fa fa fa-arrow-down"></i>
+                        </button>
                     </div>
                     <div class="col-sm-9 warning alert-warning display-none ask-ele-type-tips">
                         <span>如需添加统计项,请在勾选后添加</span>

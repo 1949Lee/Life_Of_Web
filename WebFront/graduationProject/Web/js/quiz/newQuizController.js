@@ -17,10 +17,10 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
         page.changePageBar(getCookie('currentSideBar'));
 
         var loginInfo = getLogin();
-        if(loginInfo == null){
-            window.location.href = WebUrl()+'html/login.html';
+        if (loginInfo == null) {
+            window.location.href = WebUrl() + 'html/login.html';
         }
-
+        console.log('成功进入newQuizController')
         //初始化步骤
         var param = JSON.parse($state.params.param);
         var newQuizFormWizard = function () {
@@ -44,8 +44,12 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                 initQuizConfigForStatus1: function () {
                     var newQuiz = this;
                     $('[name=quizName]').val(newQuiz.quizAllData.quiz.name).parent().parent().addClass('has-success');
-                    $('[name=quizTitle]').val(newQuiz.quizAllData.quiz.title).parent().parent().addClass('has-success');
-                    $('[name=quizSubtitle]').val(newQuiz.quizAllData.quiz.subtitle);
+                    if (isValid(newQuiz.quizAllData.quiz.title, 2)) {
+                        $('[name=quizTitle]').val(newQuiz.quizAllData.quiz.title).parent().parent().addClass('has-success');
+                    }
+                    if (isValid(newQuiz.quizAllData.quiz.subtitle, 2)) {
+                        $('[name=quizSubtitle]').val(newQuiz.quizAllData.quiz.subtitle);
+                    }
                     $('[name=layoutStyle]').val(newQuiz.quizAllData.quiz.layoutStyle).select2().toggle('change');
                     $('[name=layoutStyle]').val(newQuiz.quizAllData.quiz.layoutStyle).parent().parent().addClass('has-success');
                     page.initFinish();
@@ -56,7 +60,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     newQuiz.quizAllData = obj.quizAllData;
                     newQuiz.openCode = obj.openCode;
                     //打开未发布的问卷继续配置时要做的处理
-                    if (newQuiz.quizAllData.quiz.status == '1' && newQuiz.openCode == '2') {
+                    if ((newQuiz.quizAllData.quiz.status == '1' && newQuiz.openCode == '2') || newQuiz.openCode == '3') {
                         // newQuiz.askOrder = newQuiz.quizAllData.ask.askList.length;
                         newQuiz.askIndex = newQuiz.quizAllData.ask.askList.length;
                         newQuiz.initQuizConfigForStatus1();
@@ -261,6 +265,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             quiz: '1',
                             col: '1',
                         }
+                        console.log(newQuiz.quizAllData);
                         for (var i = 0; i < newQuiz.quizAllData.ask.askList.length; i++) {
                             appendNewAsk(newQuiz.quizBookmark, newQuiz.quizAllData.quiz.layoutStyle, newQuiz.quizAllData.ask.askList[i]);
                         }
@@ -321,11 +326,13 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         switch (newQuiz.quizAllData.quiz.status) {
                             case '0':
                                 //新生成的问卷还没有存导数据库的问卷需要初始化newQuiz.quizAllData.ask
-                                newQuiz.quizAllData.ask = {
-                                    quizID: newQuiz.quizAllData.quiz.quizID,
-                                    templateFlag: newQuiz.quizAllData.ask.templateFlag,
-                                    askList: []
-                                };
+                                if (newQuiz.openCode != '3') {
+                                    newQuiz.quizAllData.ask = {
+                                        quizID: newQuiz.quizAllData.quiz.quizID,
+                                        templateFlag: newQuiz.quizAllData.ask.templateFlag,
+                                        askList: []
+                                    };
+                                }
                                 // if (newQuiz.quizAllData.askOrderIndex == undefined) {
                                 //     newQuiz.quizAllData.askOrderIndex = 0;
                                 // }
@@ -369,7 +376,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                         return false;
                                     }
                                     else {
-                                        switch ($(editorHtmlArr[i]).data('input-type')) {
+                                        switch ($('<div>' + editorHtmlArr[i] + '</div>').find('[data-input-type]').data('input-type')) {
                                             case '001':
                                                 var $div = $('<div class="md-radio"></div>');
                                                 $div.append($(editorHtmlArr[i]));
@@ -393,11 +400,31 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                                 $askList.append($div);
                                                 break;
                                             case '003':
+                                                var eleStr = editorHtmlArr[i].toString();
+                                                eleStr = eleStr.replace('<input', '<*ELE*><input');
+                                                var $div = $('<div class="md-radio">' + eleStr + '</div>');
+                                                var textArr = $div.text().split('<*ELE*>');
+                                                eleStr = eleStr.replace('<*ELE*>', '').replace(textArr[0], '').replace(textArr[1], '');
+                                                $div = $('<div class="md-radio"></div>');
+                                                //input前面有字
+                                                if (textArr[0] != "") {
+                                                    var $label = $('<label class="control-label quiz-input-label"></label>');
+                                                    $label.append(textArr[0]);
+                                                    $div.append($label);
+                                                }
+                                                $div.append($('<div class="quiz-inline-input">' + eleStr + '</div>'));
+                                                //input后面有字
+                                                if (textArr[1] != "") {
+                                                    var $label = $('<label class="control-label quiz-input-label"></label>');
+                                                    $label.append(textArr[1]);
+                                                    $div.append($label);
+                                                }
+                                                $askList.append($div);
+                                                break;
+                                            case '004':
 
                                                 break;
-
                                         }
-
                                     }
                                 }
                             }
@@ -416,17 +443,25 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 case '001':
                                     var eleID = '';
                                     var eleIndex;
-                                    var statisticalAttr;
+                                    var statisticalAttr, statisticalNameAttr;
                                     if (!isValid($('#askEleType').find('option:selected').data('elementID'), 1)) {
                                         eleID = Guid.newGuid().toString('g');
                                         $('#askEleType').find('option:selected').data('elementID', eleID);
                                         eleIndex = 0;
                                         statisticalAttr = ($('#isStatistical').prop('checked') == false) ? '' : 'statistical';
                                         $('#askEleType').find('option:selected').data('statisticalAttr', statisticalAttr);
+                                        if (statisticalAttr == 'statistical') {
+                                            statisticalNameAttr = $('#statisticalName').val();
+                                        }
+                                        else {
+                                            statisticalNameAttr = '';
+                                        }
+                                        $('#askEleType').find('option:selected').data('statisticalNameAttr', statisticalNameAttr);
                                     }
                                     else {
                                         eleID = $('#askEleType').find('option:selected').data('elementID');
                                         statisticalAttr = $('#askEleType').find('option:selected').data('statisticalAttr');
+                                        statisticalNameAttr = $('#askEleType').find('option:selected').data('statisticalNameAttr');
                                         if ($(newQuiz.editor.composer.element).find('[name=rad' + eleID + ']').length <= 0) {
                                             eleIndex = 0;
                                         }
@@ -434,12 +469,12 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                             eleIndex = parseInt($(newQuiz.editor.composer.element).find('[name=rad' + eleID + ']').last().val()) + 1;
                                         }
                                     }
-                                    askELeHtml = '<input type="radio" id="rad' + (newQuiz.askIndex + 1) + '-' + eleID + '-' + eleIndex + '"data-input-type="' + AskEleType + '"data-ele-level="' + 1 + '" data-statistical="' + statisticalAttr + '" name="rad' + eleID + '" value="' + eleIndex + '" class="md-radiobtn">';
+                                    askELeHtml = '<input type="radio" id="rad' + (newQuiz.askIndex + 1) + '-' + eleID + '-' + eleIndex + '"data-input-type="' + AskEleType + '"data-ele-level="' + 1 + '" data-statistical="' + statisticalAttr + '" data-statistical-name="' + statisticalNameAttr + '" name="rad' + eleID + '" value="' + eleIndex + '" class="md-radiobtn">';
                                     break;
                                 case '002':
                                     var eleID = '';
                                     var eleIndex;
-                                    var statisticalAttr;
+                                    var statisticalAttr, statisticalNameAttr;
                                     if (!isValid($('#askEleType').find('option:selected').data('elementID'), 1)) {
                                         eleID = Guid.newGuid().toString('g');
                                         $('#askEleType').find('option:selected').data('elementID', eleID);
@@ -447,16 +482,79 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                         $('#askEleType').find('option:selected').data('elementIndex', 0);
                                         statisticalAttr = ($('#isStatistical').prop('checked') == false) ? '' : 'statistical';
                                         $('#askEleType').find('option:selected').data('statisticalAttr', statisticalAttr);
+                                        if (statisticalAttr == 'statistical') {
+                                            statisticalNameAttr = $('#statisticalName').val();
+                                            console.log(statisticalNameAttr)
+                                        }
+                                        else {
+                                            statisticalNameAttr = '';
+                                        }
+                                        $('#askEleType').find('option:selected').data('statisticalNameAttr', statisticalNameAttr);
                                     }
                                     else {
                                         eleID = $('#askEleType').find('option:selected').data('elementID');
                                         statisticalAttr = $('#askEleType').find('option:selected').data('statisticalAttr');
+                                        statisticalNameAttr = $('#askEleType').find('option:selected').data('statisticalNameAttr');
                                         eleIndex = parseInt($('#askEleType').find('option:selected').data('elementIndex')) + 1;
                                         $('#askEleType').find('option:selected').data('elementIndex', eleIndex);
                                     }
-                                    askELeHtml = '<input type="checkbox" id="rad' + (newQuiz.askIndex + 1) + '-' + eleID + '-' + eleIndex + '"data-input-type="' + AskEleType + '"data-ele-level="' + 1 + '" data-statistical="' + statisticalAttr + '" name="rad' + eleID + '" value="' + eleIndex + '" class="md-check">';
+                                    askELeHtml = '<input type="checkbox" id="rad' + (newQuiz.askIndex + 1) + '-' + eleID + '-' + eleIndex + '"data-input-type="' + AskEleType + '"data-ele-level="' + 1 + '" data-statistical="' + statisticalAttr + '"data-statistical-name="' + statisticalNameAttr + '"  name="rad' + eleID + '" value="' + eleIndex + '" class="md-check">';
                                     break;
                                 case '003':
+                                    var eleID = '';
+                                    var eleIndex;
+                                    var statisticalAttr, statisticalNameAttr;
+                                    if (!isValid($('#askEleType').find('option:selected').data('elementID'), 1)) {
+                                        eleID = Guid.newGuid().toString('g');
+                                        $('#askEleType').find('option:selected').data('elementID', eleID);
+                                        eleIndex = 0;
+                                        $('#askEleType').find('option:selected').data('elementIndex', 0);
+                                        statisticalAttr = ($('#isStatistical').prop('checked') == false) ? '' : 'statistical';
+                                        $('#askEleType').find('option:selected').data('statisticalAttr', statisticalAttr);
+                                        if (statisticalAttr == 'statistical') {
+                                            statisticalNameAttr = $('#statisticalName').val();
+                                        }
+                                        else {
+                                            statisticalNameAttr = '';
+                                        }
+                                        $('#askEleType').find('option:selected').data('statisticalNameAttr', statisticalNameAttr);
+                                    }
+                                    else {
+                                        eleID = $('#askEleType').find('option:selected').data('elementID');
+                                        statisticalAttr = $('#askEleType').find('option:selected').data('statisticalAttr');
+                                        statisticalNameAttr = $('#askEleType').find('option:selected').data('statisticalNameAttr');
+                                        eleIndex = parseInt($('#askEleType').find('option:selected').data('elementIndex')) + 1;
+                                        $('#askEleType').find('option:selected').data('elementIndex', eleIndex);
+                                    }
+                                    askELeHtml = '<input type="text" id="txt' + (newQuiz.askIndex + 1) + '-' + eleID + '-' + eleIndex + '"data-input-type="' + AskEleType + '"data-ele-level="' + 1 + '" data-statistical="' + statisticalAttr + '" data-statistical-name="' + statisticalNameAttr + '" class="form-control">';
+                                    break;
+                                case '004':
+                                    var eleID = '';
+                                    var eleIndex;
+                                    var statisticalAttr, statisticalNameAttr;
+                                    if (!isValid($('#askEleType').find('option:selected').data('elementID'), 1)) {
+                                        eleID = Guid.newGuid().toString('g');
+                                        $('#askEleType').find('option:selected').data('elementID', eleID);
+                                        eleIndex = 0;
+                                        $('#askEleType').find('option:selected').data('elementIndex', 0);
+                                        statisticalAttr = ($('#isStatistical').prop('checked') == false) ? '' : 'statistical';
+                                        $('#askEleType').find('option:selected').data('statisticalAttr', statisticalAttr);
+                                        if (statisticalAttr == 'statistical') {
+                                            statisticalNameAttr = $('#statisticalName').val();
+                                        }
+                                        else {
+                                            statisticalNameAttr = '';
+                                        }
+                                        $('#askEleType').find('option:selected').data('statisticalNameAttr', statisticalNameAttr);
+                                    }
+                                    else {
+                                        eleID = $('#askEleType').find('option:selected').data('elementID');
+                                        statisticalAttr = $('#askEleType').find('option:selected').data('statisticalAttr');
+                                        statisticalNameAttr = $('#askEleType').find('option:selected').data('statisticalNameAttr');
+                                        eleIndex = parseInt($('#askEleType').find('option:selected').data('elementIndex')) + 1;
+                                        $('#askEleType').find('option:selected').data('elementIndex', eleIndex);
+                                    }
+                                    askELeHtml = '<input type="text" id="dttxt' + (newQuiz.askIndex + 1) + '-' + eleID + '-' + eleIndex + '"data-input-type="' + AskEleType + '"data-ele-level="' + 1 + '" data-statistical="' + statisticalAttr + '" data-statistical-name="' + statisticalNameAttr + '" class="form-control">';
                                     break;
                             }
                             return askELeHtml;
@@ -464,6 +562,45 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         else {
                             return false;
                         }
+                    };
+
+                    // 显示相关统计信息
+                    var getStatisticalInfo = function ($askEle) {
+                        // console.log($askEle);
+                        if ($askEle.attr('data-statistical') == 'statistical') {
+                            $('#askEleType').val($askEle.attr('data-input-type')).select2().toggle('change');
+                            $('#isStatistical').prop('checked', true);
+                            $('#statisticalName').val($askEle.attr('data-statistical-name'));
+                            $('#statisticalName').attr('data-input-type', $askEle.attr('data-input-type'));
+                            if ($askEle.attr('data-input-type') == '001' || $askEle.attr('data-input-type') == '002') {
+                                $('#statisticalName').attr('data-statistical-id', $askEle.attr('name'));
+                            }
+                            else {
+                                $('#statisticalName').attr('data-statistical-id', $askEle.attr('id'));
+                            }
+                        }
+                        else {
+                            return;
+                        }
+                    };
+                    var setStatistical = function () {
+                        if ($('#isStatistical').prop('checked') == true) {
+                            if ($('#statisticalName').attr('data-statistical-id') == '001' || $('#statisticalName').attr('data-statistical-id') == '002') {
+                                if (isValid($('#statisticalName').attr('data-statistical-id'), 4)) {
+                                    var $askELe = $(newQuiz.editor.composer.element)
+                                        .find('#' + $('#statisticalName').attr('data-statistical-id'));
+                                    $askELe.attr('data-statistical-name', $('#statisticalName').val());
+                                }
+                            }
+                            else {
+                                if (isValid($('#statisticalName').attr('data-statistical-id'), 4)) {
+                                    var $askELe = $(newQuiz.editor.composer.element)
+                                        .find('[name="' + $('#statisticalName').attr('data-statistical-id') + '"]');
+                                    $askELe.attr('data-statistical-name', $('#statisticalName').val());
+                                }
+                            }
+                        }
+                        return;
                     };
 
                     // 添加数据项到编辑框
@@ -479,6 +616,10 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             // console.log($(newQuiz.editor.composer.element).find(':not(div,br):not([contenteditable])'));
                             // $(newQuiz.editor.composer.element).find(':not(div,br):not([contenteditable])').attr('contenteditable', 'false');
                         }
+                        // console.log($(newQuiz.editor.composer.element).find('[data-input-type]'));
+                        $(newQuiz.editor.composer.element).find('[data-input-type]').off('click').on('click', function () {
+                            getStatisticalInfo($(this));
+                        });
                     };
 
                     //初始化编辑框
@@ -501,7 +642,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     };
 
                     var leeTabChange = function ($ele) {
-                        if ($ele == ''||$ele.val() == '') {
+                        if ($ele == '' || $ele.val() == '') {
                             $('.lee-tab-pane').removeClass('active');
                         }
                         else {
@@ -579,6 +720,8 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         $('#askType,#askEleType').val(null).select2().toggle('change');
                         newQuiz.askTypeChangeFlag = true;
                         $('#isStatistical').prop('checked', false);
+                        $('#statisticalName').val('');
+                        $('#statisticalName').removeAttr('data-input-type').removeAttr('data-statistical-id');
                         $('#addEleBtn').parent().addClass('hide');
                         $('.ask-ele-type-tips').addClass('display-none');
                         $('#previewArea').html('').addClass('hide');
@@ -638,7 +781,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         var AskEleType = $('#askType').find('option:selected').val();
                         switch (AskEleType) {
                             case '001':
-                                $('#askEleType').find('option:last-child').attr('disabled', 'disabled');
+                                $('#askEleType').find('option:not([value="001"],[value="002"])').attr('disabled', 'disabled');
                                 $('#askEleType').select2({
                                     allowClear: false,
                                     formatResult: format,
@@ -650,7 +793,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 });
                                 break;
                             case '002':
-                                $('#askEleType').find('option:last-child').removeAttr('disabled');
+                                $('#askEleType').find('option:not([value="001"],[value="002"])').removeAttr('disabled');
                                 $('#askEleType').select2({
                                     allowClear: false,
                                     formatResult: format,
@@ -720,7 +863,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                                 break;
                                             case '002':
                                                 askEle.elementID = $askEle.attr('name');
-                                                askEle.elementType = '001';
+                                                askEle.elementType = '002';
                                                 askEle.elementLevel = $askEle.data('ele-level');
                                                 askEle.statisticalFlag = $askEle.data('statistical') == 'statistical' ? 1 : 0;
                                                 askEleList.push(askEle);
@@ -730,10 +873,39 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                     case '002':
                                         switch ($(this).val()) {
                                             case '001':
-
+                                                askEle.elementID = $askEle.attr('name');
+                                                askEle.elementType = '001';
+                                                askEle.elementLevel = $askEle.data('ele-level');
+                                                askEle.statisticalFlag = $askEle.data('statistical') == 'statistical' ? 1 : 0;
+                                                askEleList.push(askEle);
                                                 break;
                                             case '002':
-
+                                                askEle.elementID = $askEle.attr('name');
+                                                askEle.elementType = '002';
+                                                askEle.elementLevel = $askEle.data('ele-level');
+                                                askEle.statisticalFlag = $askEle.data('statistical') == 'statistical' ? 1 : 0;
+                                                askEleList.push(askEle);
+                                                break;
+                                            case '003':
+                                                $askEle = $area.find('[data-input-type=' + $(this).val() + ']')
+                                                for (var i = 0; i < $askEle.length; i++) {
+                                                    askEle = {};
+                                                    askEle.elementID = $askEle.eq(i).attr('id');
+                                                    askEle.elementType = '003';
+                                                    askEle.elementLevel = $askEle.eq(i).data('ele-level');
+                                                    askEle.statisticalFlag = $askEle.eq(i).data('statistical') == 'statistical' ? 1 : 0;
+                                                    askEleList.push(askEle);
+                                                }
+                                                break;
+                                            case '004':
+                                                $askEle = $area.find('[data-input-type=' + $(this).val() + ']')
+                                                for (var i = 0; i < $askEle.length; i++) {
+                                                    askEle.elementID = $askEle.eq(i).attr('id');
+                                                    askEle.elementType = '004';
+                                                    askEle.elementLevel = $askEle.eq(i).data('ele-level');
+                                                    askEle.statisticalFlag = $askEle.eq(i).data('statistical') == 'statistical' ? 1 : 0;
+                                                    askEleList.push(askEle);
+                                                }
                                                 break;
                                         }
                                         break;
@@ -769,7 +941,20 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                         .replace($eleArr.eq(i).find('.quiz-ask-index').text(), ''));
                                 }
                                 else if ($eleArr.eq(i)[0].tagName == 'DIV') {
-                                    askEditorHtmlArr.push($eleArr.eq(i).find('input').prop("outerHTML") + $eleArr.eq(i).text());
+                                    switch ($eleArr.eq(i).find('[data-input-type]').data('input-type')) {
+                                        case '001':
+                                            askEditorHtmlArr.push($eleArr.eq(i).find('input').prop("outerHTML") + $eleArr.eq(i).text());
+                                            break;
+                                        case '002':
+                                            askEditorHtmlArr.push($eleArr.eq(i).find('input').prop("outerHTML") + $eleArr.eq(i).text());
+                                            break;
+                                        case '003':
+                                            askEditorHtmlArr.push($eleArr.eq(i).find('.control-label:first-child').text() + $eleArr.eq(i).find('input').prop("outerHTML") + $eleArr.eq(i).find('.control-label:last-child').text());
+                                            break;
+                                        case '004':
+                                            askEditorHtmlArr.push($eleArr.eq(i).find('.control-label:first-child').text() + $eleArr.eq(i).find('input').prop("outerHTML") + $eleArr.eq(i).find('.control-label:last-child').text());
+                                            break;
+                                    }
                                 }
                             }
                         }
@@ -779,11 +964,11 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     // 删除题目
                     var deleteAskOpenClick = function (askData) {
                         // page.loading();
-                        newQuiz.quizAllData.ask.askList.splice(askData.askIndex - 1,1);
-                        for(var i = 0;i < newQuiz.quizAllData.ask.askList.length;i++){
-                            newQuiz.quizAllData.ask.askList[i].askIndex = i+1;
+                        newQuiz.quizAllData.ask.askList.splice(askData.askIndex - 1, 1);
+                        for (var i = 0; i < newQuiz.quizAllData.ask.askList.length; i++) {
+                            newQuiz.quizAllData.ask.askList[i].askIndex = i + 1;
                             var $tem = $('<div></div>').append(newQuiz.quizAllData.ask.askList[i].askContent);
-                            $tem.find('.quiz-ask-index').html(newQuiz.quizAllData.ask.askList[i].askIndex+'.');
+                            $tem.find('.quiz-ask-index').html(newQuiz.quizAllData.ask.askList[i].askIndex + '.');
                             newQuiz.quizAllData.ask.askList[i].askContent = $tem.html();
                         }
                         newQuiz.askIndex--;
@@ -813,6 +998,9 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                         case '003':
                                             elementID = askData.askEleList[i].elementID.slice(-36);
                                             break;
+                                        case '004':
+                                            elementID = askData.askEleList[i].elementID.slice(-36);
+                                            break;
                                     }
                                     $('#askEleType').val(askData.askEleList[i].elementType).find('option:selected').data('elementID', elementID);
                                     var statisticalAttr = (askData.askEleList[i].statisticalFlag == 1) ? 'statistical' : '';
@@ -827,6 +1015,9 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                     newQuiz.editor.composer.selection.setBookmark(caretBookmark);
                                 }
                                 newQuiz.editor.composer.commands.exec('insertHtml', askEditorHtml);
+                                $(newQuiz.editor.composer.element).find('[data-input-type]').off('click').on('click', function () {
+                                    getStatisticalInfo($(this));
+                                });
                                 previewBtnClick();
                             }
                         });
@@ -835,8 +1026,8 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     // 添加到页面
                     var appendNewAsk = function (quizBookmark, layoutStyle, askData) {
                         console.log(App.getViewPort());
-                        var $askHtml, askEleID;
-                        if (newQuiz.quizAllData.quiz.status == '0') {
+                        var $askHtml, askEleID, $ask;
+                        if (newQuiz.quizAllData.quiz.status == '0' && newQuiz.openCode != '3') {
                             $askHtml = $('#previewArea').html();
                             newQuiz.askTem.askType = $('#askType').val();
                             newQuiz.askTem.askContent = $askHtml;
@@ -844,10 +1035,10 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             // console.log(newQuiz.askTem);
                             newQuiz.askTem.askEleList = getAskELeList(newQuiz.askTem.askType);
                             askEleID = newQuiz.askTem.askID;
-                            var $ask = $('#previewArea').find('>div').detach();
+                            $ask = $('#previewArea').find('>div').detach();
                             $ask.prepend($(newQuiz.askActionHtml));
                         }
-                        if (newQuiz.quizAllData.quiz.status == '1' && newQuiz.openCode == '2') {
+                        if ((newQuiz.quizAllData.quiz.status == '1' && newQuiz.openCode == '2') || newQuiz.openCode == '3') {
                             if (askData == undefined) {
                                 $askHtml = $('#previewArea').html();
                                 newQuiz.askTem.askType = $('#askType').val();
@@ -856,7 +1047,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 // console.log(newQuiz.askTem);
                                 newQuiz.askTem.askEleList = getAskELeList(newQuiz.askTem.askType);
                                 askEleID = newQuiz.askTem.askID;
-                                var $ask = $('#previewArea').find('>div').detach();
+                                $ask = $('#previewArea').find('>div').detach();
                                 $ask.prepend($(newQuiz.askActionHtml));
                             }
                             else {
@@ -917,11 +1108,12 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         }
                         // console.log(newQuiz.askTem);
                         // console.log(newQuiz.quizAllData.ask);
+                        var _askTem = new Object(newQuiz.askTem);
                         $ask.find('.editAsk').on('click', function () {
                             newQuiz.editAskFlag = true;
                             $('#newQuizAsk').modal('toggle');
                             if (askData == undefined) {
-                                var _askTem = new Object(newQuiz.askTem);
+
                                 editAskOpenClick(_askTem);
                             }
                             else {
@@ -929,7 +1121,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 editAskOpenClick(askData);
                             }
                         });
-                        $ask.find('.deleteAsk').on('click',function () {
+                        $ask.find('.deleteAsk').on('click', function () {
                             bootbox.confirm({
                                 message: "删除后题目相关内容无法找回，确定删除?",
                                 buttons: {
@@ -961,7 +1153,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 }
                             })
                         });
-                        if (newQuiz.quizAllData.quiz.status == '0' || askData == undefined) {
+                        if (askData == undefined) {
                             newQuiz.quizAllData.ask.askList.push(newQuiz.askTem);
                             // console.log(newQuiz.quizAllData.ask);
                             newQuiz.askTem = {};
@@ -986,8 +1178,12 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 newQuiz.quizAllData.ask.askList[newQuiz.askIndex].askType = $('#askType').val();
                                 newQuiz.quizAllData.ask.askList[newQuiz.askIndex].askEleList = getAskELeList($('#askType').val());
                                 newQuiz.quizAllData.ask.askList[newQuiz.askIndex].askContent = $('#previewArea').html();
+                                if (newQuiz.editAskFlag) {
+                                    newQuiz.askIndex = newQuiz.askOldIndex;
+                                }
                                 initAskListForStatus1();
                             }
+                            console.log();
                             resetAskModal();
                             $('#newQuizAsk').modal('toggle');
                         }
@@ -1003,6 +1199,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         $('.backQuizConfigPage').off('click').on('click', askModalCloseClick);
                         $('.askPageCloseIcon').off('click').on('click', askModalCloseClick);
                         $('.confirmAsk').off('click').on('click', confirmAskClick);
+                        $('#statisticalName').off('blur').on('blur', setStatistical);
                         $('#askType').off('click').on('change', reloadAskEleType);
                         $('#askType').off('click').on('select2:select', warningBeforeAskEleTypeClickForChange);
                         $('#askEleType').off('click').on('change', askEleTypeChangeClick);
@@ -1010,15 +1207,15 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             newQuiz.askTypeChangeFlag = true;
                             $('#askAlert').modal('toggle');
                         });
-                        $('#isStatistical').on('click', function () {
+                        $('#is').on('click', function () {
                             if ($(this).prop('checked')) {
                                 $('#askEleType').find('option:selected').data('statisticalAttr', 'statistical');
                                 var statisticalAttr = $('#askEleType').find('option:selected').data('statisticalAttr');
-                                $(newQuiz.editor.composer.element).find('[name=rad' + $('#askEleType').find('option:selected').data('elementID') + ']').attr('data-statistical', statisticalAttr);
+                                $(newQuiz.editor.composer.element).find('[data-input-type=' + $('#askEleType').find('option:selected').val() + ']').attr('data-statistical', statisticalAttr);
                             }
                             else {
                                 $('#askEleType').find('option:selected').data('statisticalAttr', '');
-                                $(newQuiz.editor.composer.element).find('[name=rad' + $('#askEleType').find('option:selected').data('elementID') + ']').attr('data-statistical', '');
+                                $(newQuiz.editor.composer.element).find('[data-input-type=' + $('#askEleType').find('option:selected').val() + ']').attr('data-statistical', '');
                             }
                             $(newQuiz.editor.composer.element)
                         });
@@ -1170,6 +1367,50 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
 
                     $('#newQuizForm').find('.button-previous').hide();
 
+                    var getStatistics = function () {
+                        var statistics = {};
+                        statistics.quizID = newQuiz.quizAllData.quiz.quizID;
+                        statistics.statisticsList = [];
+                        for (var i = 0; i < newQuiz.quizAllData.ask.askList.length; i++) {
+                            for (var j = 0; j < newQuiz.quizAllData.ask.askList[i].askEleList.length; j++) {
+                                var $askELe,obj={};
+                                if(newQuiz.quizAllData.ask.askList[i].askEleList[j].statisticalFlag == '1'){
+                                    switch (newQuiz.quizAllData.ask.askList[i].askEleList[j].elementType) {
+                                        case '001':
+                                        case '002':
+                                            $askELe = $('[name="'+newQuiz.quizAllData.ask.askList[i].askEleList[j].elementID+'"]');
+                                            obj.statisticalType = '001';
+                                            obj.valueName = [];
+                                            $askELe.each(function () {
+                                                obj.valueName.push($(this).next().text());
+                                            });
+                                            obj.valueName = obj.valueName.join('*,*');
+                                            obj.code = [];
+                                            $askELe.each(function () {
+                                                obj.code.push($(this).val());
+                                            });
+                                            obj.code = obj.code.join(',');
+                                            break;
+                                        case '003':
+                                        case '004':
+                                            $askELe = $('#'+newQuiz.quizAllData.ask.askList[i].askEleList[j].elementID);
+                                            obj.statisticalType = '002';
+                                            obj.valueName = 'null';
+                                            obj.code = 'null';
+                                            break;
+                                    }
+                                    obj.statisticalID = Guid.newGuid().toString('g');
+                                    obj.eleID = newQuiz.quizAllData.ask.askList[i].askEleList[j].elementID;
+                                    obj.name = $askELe.eq(0).attr('data-statistical-name');
+                                    obj.nameAbbreviation = 'null';
+                                    statistics.statisticsList.push(obj);
+                                }
+
+                            }
+                        }
+                        return statistics;
+                    }
+
                     var saveQuiz = function (status) {
                         page.loading();
                         newQuiz.quizAllData.quiz.createUserID = loginInfo.userID;
@@ -1179,6 +1420,9 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         }
                         newQuiz.quizAllData.quiz.releaseDateTime = $('#releaseDateTime').val() + ':00';
                         newQuiz.quizAllData.quiz.finishDateTime = $('#finishDateTime').val() + ':00';
+                        newQuiz.quizAllData.quiz.isTemplate = $('#isTemplate').prop('checked');
+                        newQuiz.quizAllData.statistics = getStatistics();
+                        // console.log(newQuiz.quizAllData.statistics);
                         switch (newQuiz.quizAllData.quiz.status) {
                             case '0':
                                 if (status == '1') {
@@ -1232,6 +1476,31 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 }
                                 newQuiz.quizAllData.quiz.status = status;
                                 newQuiz.quizAllData.quiz.tabCount = newQuiz.quizAllData.quiz.tabName = 'null';
+                                if (status == '2') {
+                                    if (newQuiz.quizAllData.quiz.isTemplate) {
+                                        newQuiz.quizAllData.template = {};
+                                        newQuiz.quizAllData.template.templateID = Guid.newGuid().toString('g');
+                                        newQuiz.quizAllData.template.ask = {
+                                            askList: [],
+                                            templateFlag: '1',
+                                            quizID: newQuiz.quizAllData.template.templateID
+                                        };
+                                        for (var i = 0; i < newQuiz.quizAllData.ask.askList.length; i++) {
+                                            var temAsk = {};
+                                            temAsk.askID = Guid.newGuid().toString('g');
+                                            temAsk.askEleList = [];
+                                            for (var j = 0; j < newQuiz.quizAllData.ask.askList[i].askEleList.length; j++) {
+                                                var temAskEle = {};
+                                                var oldID = newQuiz.quizAllData.ask.askList[i].askEleList[j].elementID.toString();
+                                                temAskEle.nGUID = Guid.newGuid().toString('g');
+                                                temAskEle.elementID = oldID.slice(0, -36) + temAskEle.nGUID;
+                                                temAskEle.oGUID = oldID.slice(-36);
+                                                temAsk.askEleList.push(temAskEle);
+                                            }
+                                            newQuiz.quizAllData.template.ask.askList.push(temAsk);
+                                        }
+                                    }
+                                }
                                 console.log(newQuiz.quizAllData);
                                 ajaxByJQ.invokeServer('quiz/quizHandler.php', {
                                         method: 'updateQuiz',
@@ -1239,7 +1508,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                         quizAllData: newQuiz.quizAllData,
                                     }, function (data) {
                                         if (data.code == '829') {//添加成功
-                                            // console.log(data);
+                                            console.log(data);
                                             if (status == '1') {
                                                 page.initFinish();
                                                 toastr.success('', '保存成功');
@@ -1298,6 +1567,10 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         // console.log(newQuiz.quizAllData);
                         if ($('#releaseDateTime').val() != '' || $('#finishDateTime').val() != '') {
                             toastr.error('', '直接保存时，发布时间和结束时间必须为空');
+                            return;
+                        }
+                        if ($('#isTemplate').prop('checked') != false) {
+                            toastr.error('', '发布时才能保存为模板，请勿勾选保存为模板');
                             return;
                         }
                         saveQuiz('1');

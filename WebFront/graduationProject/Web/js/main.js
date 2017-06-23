@@ -85,6 +85,15 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
+                            name: 'templateCss',
+                            insertBefore: '#ng_load_css_before', // 按需加载JS和CSS
+                            files: [
+                                <!--模态框 CSS+JS-->
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css',
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css',
+                            ]
+                        },
+                        {
                             name: 'indexJs',
                             insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
                             files: [
@@ -170,24 +179,25 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
             url: "/template",
             templateUrl: "template/templateIndex.html",
             data: {pageTitle: '模板管理'},
-            controller: 'generalPageController',
+            controller: 'templateController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        // {
-                        //     name: 'css',
-                        //     insertBefore: '#ng_load_css_before',
-                        //     files: [
-                        //         //添加引用文件
-                        //
-                        //     ]
-                        // },
                         {
-                            name: 'js',
+                            name: 'templateCss',
+                            insertBefore: '#ng_load_css_before', // 按需加载JS和CSS
+                            files: [
+                                <!--模态框 CSS+JS-->
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css',
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css',
+                            ]
+                        },
+                        {
+                            name: 'templateJs',
                             insertBefore: '#ng_load_js_before',
                             files: [
                                 //添加引用文件
-                                '../js/generalPageControllers.js'
+                                '../js/template/templateController.js'
                             ]
                         }
                     ]);
@@ -200,26 +210,26 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
             url: "/statistics",
             templateUrl: "statistics/statisticsIndex.html",
             data: {pageTitle: 'AngularJS Ui Select'},
-            controller: 'generalPageController',
+            controller: 'statisticsController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        // {
-                        //     name: 'css',
-                        //     insertBefore: '#ng_load_css_before',
-                        //     files: [
-                        //         //添加引用文件
-                        //
-                        //     ]
-                        // },
                         {
-                            name: 'js',
-                            insertBefore: '#ng_load_js_before',
+                            name: 'templateCss',
+                            insertBefore: '#ng_load_css_before', // 按需加载JS和CSS
                             files: [
-                                //添加引用文件
-                                '../js/generalPageControllers.js'
+                                <!--模态框 CSS+JS-->
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css',
+                                '../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css',
                             ]
-                        }
+                        },
+                        {
+                            name: 'indexJs',
+                            insertBefore: '#ng_load_js_before', // 按需加载JS和CSS
+                            files: [
+                                '../js/statistics/statisticsController.js',
+                            ]
+                        },
                     ]);
                 }]
             }
@@ -230,7 +240,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
             url: "/profile",
             templateUrl: "profile/profileIndex.html",
             data: {pageTitle: '个人中心'},
-            controller: 'generalPageController',
+            controller: 'profileController',
             resolve: {
                 deps: ['$ocLazyLoad', function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
@@ -247,7 +257,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
                             insertBefore: '#ng_load_js_before',
                             files: [
                                 //添加引用文件
-                                '../js/generalPageControllers.js'
+                                '../js/profile/profileController.js'
                             ]
                         }
                     ]);
@@ -256,34 +266,34 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
         })
 
         // 系统设置
-        .state('sysConfig', {
-            url: "/sysConfig",
-            templateUrl: "sysConfig/sysConfigIndex.html",
-            data: {pageTitle: '系统设置'},
-            controller: 'generalPageController',
-            resolve: {
-                deps: ['$ocLazyLoad', function ($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        // {
-                        //     name: 'css',
-                        //     insertBefore: '#ng_load_css_before',
-                        //     files: [
-                        //         //添加引用文件
-                        //
-                        //     ]
-                        // },
-                        {
-                            name: 'js',
-                            insertBefore: '#ng_load_js_before',
-                            files: [
-                                //添加引用文件
-                                '../js/generalPageControllers.js'
-                            ]
-                        }
-                    ]);
-                }]
-            }
-        });
+        // .state('sysConfig', {
+        //     url: "/sysConfig",
+        //     templateUrl: "sysConfig/sysConfigIndex.html",
+        //     data: {pageTitle: '系统设置'},
+        //     controller: 'generalPageController',
+        //     resolve: {
+        //         deps: ['$ocLazyLoad', function ($ocLazyLoad) {
+        //             return $ocLazyLoad.load([
+        //                 // {
+        //                 //     name: 'css',
+        //                 //     insertBefore: '#ng_load_css_before',
+        //                 //     files: [
+        //                 //         //添加引用文件
+        //                 //
+        //                 //     ]
+        //                 // },
+        //                 {
+        //                     name: 'js',
+        //                     insertBefore: '#ng_load_js_before',
+        //                     files: [
+        //                         //添加引用文件
+        //                         '../js/generalPageControllers.js'
+        //                     ]
+        //                 }
+        //             ]);
+        //         }]
+        //     }
+        // });
 }]);
 quizApp.run(["$rootScope", "settings", "$state", function ($rootScope, settings, $state) {
     $rootScope.$state = $state; // state to be accessed from view

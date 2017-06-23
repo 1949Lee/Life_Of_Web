@@ -1,39 +1,80 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-    <style type="text/css">
-        #div1, #div2
-        {float:left; width:198px; height:66px; margin:10px;padding:10px;border:1px solid #aaaaaa;}
-    </style>
-    <script type="text/javascript">
-        function allowDrop(ev)
-        {
-            ev.preventDefault();
-        }
-
-        function drag(ev)
-        {
-        }
-
-        function drop(ev)
-        {
-            ev.preventDefault();
-            ev.target.appendChild(document.getElementById('drag1'));
-        }
-    </script>
-</head>
+   <title>测试HTML导出内容至WORD</title>
+  <script type="text/javascript" language="javascript">
+      //指定页面区域内容导入Word
+       function exportToWord(controlId) {
+           var control = document.getElementById(controlId);
+            try {
+                var oWD = new ActiveXObject("Word.Application");
+                var oDC = oWD.Documents.Add("", 0, 1);
+                var oRange = oDC.Range(0, 1);
+               var sel = document.body.createTextRange();
+                            try {
+                                   sel.moveToElementText(control);
+                                } catch (notE) {
+                                    alert("导出数据失败，没有数据可以导出。");
+                                    window.close();
+                                  return;
+                                }
+                            sel.select();
+                            sel.execCommand("Copy");
+                            oRange.Paste();
+                            oWD.Application.Visible = true;
+                            //window.close();
+                        }
+                    catch (e) {
+                            alert("导出数据失败，需要在客户机器安装Microsoft Office Word(不限版本)，将当前站点加入信任站点，允许在IE中运行ActiveX控件。");
+                           try { oWD.Quit(); } catch (ex) { }
+                            //window.close();
+                        }
+                }
+        </script>
+    </head>
 <body>
-
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <select class="form-control" draggable="true" ondragstart="drag(event)" id="drag1">
-        <option value="">请选择</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-        <option value="4">Option 4</option>
-    </select>
-</div>
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-</body>
-</html>
+    <div id="TestDiv">
+       <div align="center">爱情公寓第三季成绩表</div>
+    37
+    38        <table width="100%">
+    39            <tr>
+    40                <td style="background-color: #F50AE5; font-weight: bold;text-align:center">
+    41                    名次
+    42                </td>
+    43                <td style="background-color: #F50AE5; font-weight: bold;text-align:center">
+    44                    姓名
+    45                </td>
+    46                <td style="background-color: #F50AE5; font-weight: bold;text-align:center">
+    47                    总分
+    48                </td>
+    49            </tr>
+    50            <tr>
+    51                <td style="text-align:center">
+    52                    2012001
+    53                </td>
+    54                <td style="text-align:center">
+    55                    曾小贤
+    56                </td>
+    57                <td style="text-align:center">
+    58                    86
+    59                </td>
+    60            </tr>
+    61            <tr>
+    62                <td style="text-align:center">
+    63                    2012002
+    64                </td>
+    65                <td style="text-align:center">
+    66                    胡一菲
+    67                </td>
+    68                <td style="text-align:center">
+    69                    85
+    70                </td>
+    71            </tr>
+    72        </table>
+    73    </div>
+74    <div>
+    75    <div style="text-align:center">
+    76    <input type="button" value="导出到WORD" onclick="return exportToWord('TestDiv')" />
+    77    </div>
+    78</body>
+79</html>

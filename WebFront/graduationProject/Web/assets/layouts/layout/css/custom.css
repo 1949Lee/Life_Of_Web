@@ -283,6 +283,13 @@
     display: block;
 }
 
+.quiz-input-label{
+    padding-left: 0px;
+}
+.md-radio .quiz-input-label{
+    padding-left: 0px;
+}
+
 @media (min-width: 768px) {
     .quiz-page {
         margin-bottom: -12px;
@@ -397,11 +404,10 @@
 }
 
 .btn-group-none {
-    /*position: relative;*/
     display: block;
     margin: -5px 0px 0px 2px !important;
+    height:10px;
 }
-
 .btn-group-none > .btn {
     margin: 0px;
 }
@@ -420,8 +426,8 @@
 
 .btn-group > .dropdown-menu.is-above:before {
     position: absolute;
-    top:auto;
-    bottom: -9px ;
+    top: auto;
+    bottom: -9px;
     left: 9px;
     right: auto;
     display: inline-block !important;
@@ -434,7 +440,7 @@
 
 .btn-group > .dropdown-menu.is-above:after {
     position: absolute;
-    top:auto;
+    top: auto;
     bottom: -7px;
     left: 10px;
     right: auto;
@@ -455,7 +461,35 @@
     left: auto;
     right: 10px;
 }
-.dropdown-menu{
-    margin-top:0 !important;
+
+.dropdown-menu {
+    margin-top: 0 !important;
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2) !important;
+}
+
+.quiz-input.error > div > p {
+    color: red;
+}
+.portlet-no-margin-padding{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.text-right{
+    text-align: right;
+}
+.some-margin-10px-top{
+    margin-top: 10px;
+}
+.some-margin-10px-top{
+    margin-top: 10px;
+}
+.statistics-btn-group{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btn-group.pull-right > .btn{
+    margin-right:5px;
+}
+.btn-group.pull-right > .btn:last-child{
+    margin-right:0px;
 }

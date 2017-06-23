@@ -30,6 +30,8 @@ $conn = initCon();
 $quiID = $_GET['quizID'];
 $result = array();
 $sql = "CALL " . $_SESSION["databaseName"] . ".getQuizInfo('" . $quiID . "');";
+
+$sql = str_replace('\'null\'', 'null', $sql);
 $conn->autocommit(FALSE);
 if($conn->multi_query($sql)) {
     $firstResultSet = true;
@@ -76,4 +78,23 @@ else{
 }
 echo var_dump($result);
 mysqli_close($conn);
+
+function newChildQuiz($param){
+    $childQuiz = $param;
+    $result = array();
+    $con = initCon();
+    $sql = "";
+    $con->query("set character set 'utf8'");
+    $con->query("set names 'utf8'");
+    if($resultSet = $con->query($sql)){
+
+    }
+    else{
+        $result['code'] = '100';
+        $result['error'] = $con->error;
+    }
+    $con->close();
+    echo json_encode($result);
+}
+
 ?>

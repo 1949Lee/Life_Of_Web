@@ -2,33 +2,50 @@
 /**
  * Created by PhpStorm.
  * User: Lee
- * Date: 2017/5/11
- * Time: 14:11
+ * Date: 2017/5/31
+ * Time: 10:47
  */
 include_once '../initConnection.php';
 include_once '../universalHandler.php';
-function getQuizList($param)
-{
+function deleteTemplate($param){
+    $templateID = $param['templateID'];
+    $result = array();
+    $con = initCon();
+    $sql = "DELETE FROM quiz_templates WHERE templateID= '" .$templateID . "';";
+    if ($con->query($sql)) {
+        $result['code'] = '829';
+        $result['result'] = '成功';
+    } else {
+        $result['code'] = '100';
+        $result['result'] = $con->error;
+    }
+    echo json_encode($result);
+    $con->close();
+}
+
+function getTemplateList($param){
     $dataCondition = $param;
     $result = array();
     $conn = initCon();
-    $sql = "select a.quizID,a.templateID,a.createUserID,a.name,a.title,b.name as createUserName,a.createDateTime,
-        case when a.releaseDateTime is null then '--' else a.releaseDateTime end as releaseDateTime,
-        case when a.finishDateTime is null then '--' else a.finishDateTime end as finishDateTime,
-        case a.status 
-        when 1 then '未发布'
-        when 2 then '发布中'
-        when 3 then '已结束'
-        else '--'
-        end as statusName,a.status  from quiz as a ,users as b where b.userID = a.createUserID and a.status != '4' ;";
+    $sql = "SELECT a.templateID,a.createUserID,a.name,b.name AS createUserName,a.createDateTime,
+CASE a.layoutStyle
+WHEN '001' THEN
+	'普通'
+WHEN '002' THEN
+	'单页'
+ELSE
+	'--'
+END AS layoutStyleName,
+a.status,a.layoutStyle
+FROM quiz_templates AS a,users AS b WHERE b.userID = a.createUserID;";
     $conn->query("set character set 'utf8'");
     $conn->query("set names 'utf8'");
 //    $result['draw'] = (int)$dataCondition['draw'];
     $resultSet = $conn->query($sql);
     if ($resultSet->num_rows > 0) {
-        $result['quizList'] = array();
+        $result['templateList'] = array();
         while ($row = $resultSet->fetch_assoc()) {
-            $result['quizList'][] = $row;
+            $result['templateList'][] = $row;
         }
         $result['code'] = '829';
         $result['recordsTotal'] = $resultSet->num_rows;
@@ -37,44 +54,34 @@ function getQuizList($param)
         $result['code'] = '102';//用户名不存在
         $result['recordsTotal'] = 0;
         $result['recordsFiltered'] = 0;
-        $result['quizList'] = [];
+        $result['templateList'] = [];
     }
     mysqli_close($conn);
     echo json_encode($result);
 }
 
-function getQuizInfo($param)
-{
-    $quiID = $param['quiz']['quizID'];
+function getTemplateInfo($param){
+    $quiID = $param['quiz']['templateID'];
     $result = array();
     $conn = initCon();
-    $sql = "CALL " . $_SESSION["databaseName"] . ".getQuizInfo('" . $quiID . "');";
+    $sql = "CALL " . $_SESSION["databaseName"] . ".getTemplateInfo('" . $quiID . "');";
     $conn->query("set character set 'utf8'");
     $conn->query("set names 'utf8'");
     $conn->autocommit(FALSE);
-    $i = 0;
+//    $i = 0;
     if($conn->multi_query($sql)) {
-//        $notAskResultSet = true;
+        $firstResultSet = true;
         $askResultSet = true;
         $result['code'] = '829';
         do {
             if ($resultSet= $conn->store_result()) {
-                if ($i == 0) {
+                if ($firstResultSet) {
                     $row = $resultSet->fetch_assoc();
                     $result['quiz'] = $row;
-                    $notAskResultSet = false;
+                    $firstResultSet = false;
                     $result['ask'] = array();
                     $result['ask']['quizID'] = $quiID;
                     $result['ask']['askList'] = array();
-                }
-                else if($i == 1){
-                    $result['statistics'] = array();
-                    $result['statistics']['statisticsList'] = array();
-                    while ($row = $resultSet->fetch_assoc()) {
-                        $result['statistics']['quizID'] = $row['quizID'];
-                        unset($row['quizID']);
-                        $result['statistics']['statisticsList'][] = $row;
-                    }
                 }
                 else {
                     if ($askResultSet) {
@@ -101,7 +108,7 @@ function getQuizInfo($param)
                     }
                 }
                 $resultSet->close();
-                $i++;
+//                $i++;
             }
         }while($conn->next_result());
 //        $result['test'] = $i;
@@ -114,5 +121,4 @@ function getQuizInfo($param)
     echo json_encode($result);
     mysqli_close($conn);
 }
-
 ?>

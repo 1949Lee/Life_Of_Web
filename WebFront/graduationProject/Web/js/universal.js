@@ -26,7 +26,7 @@ function WebUrl() {
 
 }
 //字符串判断是否可用
-// @param{type=1}则判断是否为undefined；{type=2}则判断是否为空或undefined
+// @param{type=1}则判断是否为undefined；{type=2}则判断是否为空或undefined;{type=3}则判断是否为空或'';{type=4}则判断是否为空或''或undefined
 function isValid(str, type) {
     switch (type) {
         case 1:
@@ -34,6 +34,12 @@ function isValid(str, type) {
             break;
         case 2:
             return !((str === undefined) || ( str === ''));
+            break;
+        case 3:
+            return !((str === null) || ( str === ''));
+            break;
+        case 4:
+            return !(((str === null) || ( str === ''))|| ( str === undefined));
             break;
     }
 }
@@ -472,4 +478,20 @@ Guid.newGuid = function () {
 
 };
 // console.log(Guid.newGuid().toString('g'));
+
+function maskStr(str,type){
+    var result = str;
+    switch(type){
+        case 1:
+            result = result[0] + '*' + result.substring(1+1);
+            break;
+        case 2:
+            result = result.substring(0,3) + '*****' + result.substring(7,10);
+            break;
+        case 3:
+            // result = result[0] + '*' + result.substring(2);
+            break;
+    }
+    return result;
+}
 

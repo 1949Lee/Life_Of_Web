@@ -45,23 +45,23 @@
         <div class="portlet light ">
             <div class="portlet-title">
                 <div class="caption font-dark">
-                    <i class="icon-settings font-dark"></i>
+                    <i class="fa fa-file-text font-dark"></i>
                     <span class="caption-subject bold uppercase">问卷列表</span>
                 </div>
                 <div class="actions">
-                    <div class="btn-group btn-group-devided" data-toggle="buttons">
-                        <buttton class="btn btn-transparent green btn-outline btn-circle"
-                                 id="refreshTable"
-                        ><i class="fa fa-refresh"></i></buttton>
-                        <buttton class="btn btn-transparent green btn-outline btn-circle"
-                                 id="newQuiz" ng-click="newQuiz();"
-                        >新增问卷</buttton>
-                        <button class="btn btn-transparent green-jungle btn-outline btn-circle"
-                                id="quizListPrint"
-                        >打印</button>
-                        <button class="btn btn-transparent green-jungle btn-outline btn-circle"
-                                id="quizListExcel"
-                        >Excel</button>
+                    <div class="quiz-list-table-btn-group btn-group btn-group-devided pull-right" data-toggle="buttons">
+                        <!--<buttton class="btn btn-transparent green btn-outline btn-circle"-->
+                                 <!--id="refreshTable"-->
+                        <!--&gt;<i class="fa fa-refresh"></i></buttton>-->
+                        <!--<buttton class="btn btn-transparent green btn-outline btn-circle"-->
+                                 <!--id="newQuiz" ng-click="newQuiz();"-->
+                        <!--&gt;新增问卷</buttton>-->
+                        <!--<button class="btn btn-transparent green-jungle btn-outline btn-circle"-->
+                                <!--id="quizListPrint"-->
+                        <!--&gt;打印</button>-->
+                        <!--<button class="btn btn-transparent green-jungle btn-outline btn-circle"-->
+                                <!--id="quizListExcel"-->
+                        <!--&gt;Excel</button>-->
                     </div>
                 </div>
             </div>
@@ -81,6 +81,88 @@
                 </table>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="releaseQuizModal" class="modal  fade modal-scroll" tabindex="-1"
+     data-keyboard="false"
+     data-backdrop="static"
+     style="overflow: visible !important;"
+>
+    <div class="modal-header">
+        <button type="button" class="close askPageCloseIcon"  aria-hidden="true"></button>
+        <h4 class="modal-title">发布问卷</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" action="#" id="releaseQuizForm" method="POST">
+            <div class="row">
+                <div class="form-group form-md-line-input">
+                    <label class="control-label col-md-4 text-right">发布时间
+                        <span class="required">*</span>
+                    </label>
+                    <div class="col-md-4 input-icon right">
+                        <input size="16" class="form-control" type="text" value="" name="releaseDateTime" id="releaseDateTime">
+                        <!--<i class="icon-remove"></i>-->
+                        <i class="icon-calendar"></i>
+                    </div>
+                </div>
+                <div class="form-group form-md-line-input">
+                    <label class="control-label col-md-4 text-right">结束时间
+                        <span class="required">*</span>
+                    </label>
+                    <div class="col-md-4 input-icon right">
+                        <input size="16" class="form-control" type="text" value="" name="finishDateTime" id="finishDateTime">
+                        <!--<i class="icon-remove"></i>-->
+                        <i class="icon-calendar"></i>
+                    </div>
+                </div>
+                <div class="md-checkbox-list col-md-4 col-md-push-4">
+                    <div class="md-checkbox">
+                        <input type="checkbox" id="isTemplate" name="isTemplate" class="md-check">
+                        <label for="isTemplate">
+                            <span></span>
+                            <span class="check"></span>
+                            <span class="box"></span> 保存为模板
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline dark backQuizList">返回</button>
+        <button type="button" class="btn green confirmAsk">发布</button>
+    </div>
+</div>
+<div id="quizViewModal" class="modal container fade modal-scroll" tabindex="-1"
+     data-keyboard="false"
+     data-backdrop="static"
+>
+    <div class="modal-header">
+        <button type="button" class="close askPageCloseIcon"  aria-hidden="true"></button>
+        <h4 class="modal-title"></h4>
+    </div>
+    <div class="modal-body">
+        <div class="portlet light portlet-no-margin-padding">
+            <form id="quizViewForm">
+                <div class="row quiz-head">
+                    <div class="col-md-12 quiz-title-wrapper">
+                        <h1 class="quiz-title text-center">
+                            <span class="quiz-subtitle"></span>
+                        </h1>
+                    </div>
+                </div>
+                <div class="row portlet light portlet-no-margin-padding quiz-body">
+                    <div class="col-sm-12">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <!--<button type="button" class="btn green confirmWord">导出WORD</button>-->
+        <button type="button" class="btn green backQuizList">返回</button>
     </div>
 </div>
 <script>

@@ -66,6 +66,7 @@ var Login = function () {
                         console.log(data);
                         if (data.code == '829') {//登陆成功
                             page.initFinish();
+                            $('.alert-danger', $('.login-form')).hide();
                             console.log(JSON.stringify(data));
                             console.log(JSON.parse(JSON.stringify(data)));
                             setCookie('loginInfo', JSON.stringify(data.result));
@@ -155,7 +156,36 @@ var Login = function () {
             },
 
             submitHandler: function (form) {
-                form.submit();
+                page.loading();
+                ajaxByJQ.invokeServer('user/userHandler.php', {
+                        method: 'forgetPassword',
+                        email: $(form).find('input[name=email]').val()
+                    }, function (data) {
+                        console.log(data);
+                        if (data.code == '829') {//找回密码邮件发送成功
+                            page.initFinish();
+                            $('.alert-danger', $('.forget-form')).hide();
+                            $('.login-form').show();
+                            $('.forget-form').hide();
+                        }
+                        else if (data.code == '101') {//邮箱非绑定
+                            $('.alert-danger', $('.forget-form')).html('请输入账户绑定的邮箱');
+                            $('.alert-danger', $('.forget-form')).show();
+                            page.initFinish();
+                        }
+                        else if (data.code == '102') {//邮件发送失败
+                            $('.alert-danger', $('.forget-form')).html('邮件发送失败，请重试');
+                            $('.alert-danger', $('.forget-form')).show();
+                            page.initFinish();
+                        }
+                    },
+                    {
+                        cache: false,
+                        dataType: 'json',
+                        //failedFun:function(){}
+                        // type:get或post
+                    }
+                );
             }
         });
 

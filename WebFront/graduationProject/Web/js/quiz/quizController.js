@@ -43,6 +43,96 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                     var initQuizList = function () {
                         var myFunc = this;
                         var serverSide = false;
+
+                        //重置查看模板模态框
+                        var resetTemplateModal = function () {
+                            // console.log();
+                            var $templateModal = $('#quizViewModal');
+                            $templateModal.find('.modal-title').html('');
+                            $templateModal.find('.quiz-title').html('<span class="quiz-subtitle"></span>');
+                            $templateModal.find('.quiz-body').html('<div class="col-sm-12"></div>');
+                        };
+
+                        // 生成一页
+                        var newQuizPageForNormal = function (index) {
+                            var page =
+                                '<div class="row quiz-page quiz-page' + index + '">' +
+                                '<div class="col-sm-6 quiz-col quiz' + index + '-col1">' +
+                                '</div>' +
+                                '<div class="col-sm-6 quiz-col quiz' + index + '-col2"></div>' +
+                                '</div>';
+                            return page;
+                        };
+
+                        // 添加到页面
+                        var appendNewAsk = function (quizBookmark, layoutStyle, askData) {
+                            var $askHtml, askEleID;
+                            askEleID = askData.askID;
+                            $askHtml = askData.askContent;
+                            var $ask = $($askHtml)
+                            switch (layoutStyle) {
+                                case '001':
+                                    // console.log($('.quiz1-col1').height());
+                                    var $col = $('.quiz' + quizBookmark.quiz + '-col' + quizBookmark.col)
+                                    $col.append($ask);
+                                    // console.log($col.height());
+                                    if ($col.find('>.quiz-input').length > 2) {
+                                        if (quizBookmark.col == 2 && $col.height() > $('.quiz' + quizBookmark.quiz + '-col' + 1).height()) {
+                                            quizIndex.quizBookmark.col = 1;
+                                            var $newPage = $(newQuizPageForNormal(++quizIndex.quizBookmark.quiz));
+                                            $('.quiz-body').append($newPage);
+                                            $ask.detach();
+                                            $col = $('.quiz' + quizIndex.quizBookmark.quiz + '-col' + 1);
+                                            $col.append($ask);
+                                        }
+                                        if ($col.height() <= App.getViewPort().height * (4 / 3)) {
+
+                                        }
+                                        else {
+                                            if (quizBookmark.col == 2) {
+                                                quizIndex.quizBookmark.col = 1;
+                                                var $newPage = $(newQuizPageForNormal(++quizIndex.quizBookmark.quiz));
+                                                $('.quiz-body>div').append($newPage);
+                                                $ask.detach();
+                                                $col = $('.quiz' + quizIndex.quizBookmark.quiz + '-col' + 1);
+                                                $col.append($ask);
+                                            }
+                                            else if (quizBookmark.col == 1) {
+                                                $ask.detach();
+                                                $col = $('.quiz' + quizBookmark.quiz + '-col' + 2);
+                                                quizIndex.quizBookmark.col = 2;
+                                                $col.append($ask);
+                                            }
+                                        }
+                                    }
+                                    break;
+                            }
+                        };
+
+                        // 加载模板内容
+                        var initTemplateContent = function(quizAllData){
+                            console.log($('.quiz-body'));
+                            $('.quiz-body').html('').html(newQuizPageForNormal(1));
+                            quizIndex.quizBookmark = {
+                                quiz: '1',
+                                col: '1',
+                            };
+                            for (var i = 0; i < quizAllData.ask.askList.length; i++) {
+                                appendNewAsk(quizIndex.quizBookmark, quizAllData.quiz.layoutStyle, quizAllData.ask.askList[i]);
+                            }
+                        };
+
+                        //初始化查看模板模态框
+                        var initTemplateModal = function (quizAllData) {
+                            var $templateModal = $('#quizViewModal');
+                            $templateModal.find('.close').off('click').on('click',function () {
+                                $('#quizViewModal').modal('toggle');
+                            });
+                            $templateModal.find('.quiz-title').prepend(quizAllData.quiz.title);
+                            $templateModal.find('.quiz-title .quiz-subtitle').html(quizAllData.quiz.subtitle);
+                            // initTemplateContent(quizAllData);
+                        };
+
                         var actionClass = function (row, btnType) {
                             var className = '';
                             var authorFlag = (loginInfo.userID != row.createUserID) ? false : true;
@@ -77,7 +167,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                             }
                             return className;
                         };
-
+                        
                         // 配置问卷按钮点击
                         var quizConfig = function (event) {
                             var row = event.data;
@@ -107,20 +197,84 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                         // 预览问卷按钮点击
                         var preView = function (event) {
                             var row = event.data;
+                            page.loading();
+                            ajaxByJQ.invokeServer('quiz/quizIndexHandler.php',
+                                {
+                                    method: 'getQuizInfo',
+                                    quiz: {
+                                        quizID: row.quizID
+                                    }
+                                },
+                                function (quizAllData) {
+                                    console.log(quizAllData);
+                                    var param = {
+                                        openCode: 2,
+                                        quizAllData: {
+                                            quiz: quizAllData.quiz,
+                                            ask: quizAllData.ask
+                                        }
+                                    };
+                                    //重置查看模板模态框
+
+                                    resetTemplateModal();
+
+                                    //初始化查看模板模态框
+                                    $('#quizViewModal').on('shown.bs.modal',function(){
+                                        // 加载内容
+                                        initTemplateContent(quizAllData);
+                                        page.initFinish();
+                                    });
+                                    $('#quizViewModal').modal('toggle');
+                                    $('#quizViewModal .backQuizList').off('click').on('click',function () {
+                                        $('#quizViewModal').modal('toggle');
+                                    });
+                                    initTemplateModal(quizAllData);
+
+
+                                }
+                            )
                             console.log(row)
                         };
 
                         // 发布问卷按钮点击
                         var releaseQuiz = function (event) {
                             var row = event.data;
+                            initReleaseQuiz();
+                            $('#releaseQuizModal').modal('toggle');
+                            console.log($(document).find('.bootstrap-datetimepicker-widget'));
+                            $(document).find('.bootstrap-datetimepicker-widget').css({position:'relative','z-index':'11000'});
+                            $('#releaseQuizModal .backQuizList,#releaseQuizModal .close').off('click').on('click',function () {
+                                $('#releaseQuizModal').modal('toggle');
+                            });
                             console.log(row);
                         };
-
+                        var initReleaseQuiz = function(){
+                            // 初始时间
+                            var nowDateTime = moment((moment().format('YYYY-MM-DD'))).add(1, 'days');
+                            // console.log(nowDateTime.format('YYYY-MM-DD HH:mm'));
+                            $('#releaseDateTime,#finishDateTime').datetimepicker({
+                                format: "YYYY-MM-DD HH:mm",
+                                dayViewHeaderFormat: 'YYYY MMMM',
+                                locale: 'zh-CN',
+                                defaultDate: nowDateTime.format('YYYY-MM-DD HH:mm'),
+                                minDate: (moment().format('YYYY-MM-DD HH:mm')).slice(0, -2) + '00',
+                                stepping: 10,
+                                useCurrent: false
+                            });
+                            $('#releaseDateTime,#finishDateTime').val('');
+                            $("#releaseDateTime").on("dp.change", function (e) {
+                                $('#finishDateTime').data("DateTimePicker").minDate(e.date);
+                            });
+                            $("#finishDateTime").on("dp.change", function (e) {
+                                $('#releaseDateTime').data("DateTimePicker").maxDate(e.date);
+                            });
+                            // $('#releaseDateTime').data("DateTimePicker").show();
+                        }
                         // 删除问卷按钮点击
                         var deleteQuiz = function (event) {
                             var row = event.data;
                             bootbox.confirm({
-                                message: "确定删除出问卷?",
+                                message: "确定删除问卷?",
                                 buttons: {
                                     confirm: {
                                         label: '确定',
@@ -141,6 +295,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                             }, function (data) {
                                                 if (data.code == '829') {//添加成功
                                                     toastr.success('', '删除成功');
+                                                    $('#quizListTable').DataTable().ajax.reload();
                                                 }
                                             },
                                             {
@@ -162,11 +317,27 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                 // $('.bootbox').parent().height(App.getViewPort().height);
                             });
                         };
-
+                        var newQuiz = function () {
+                            console.log('跳转');
+                            var param = {
+                                openCode: 1,
+                                quizAllData: {
+                                    quiz: {
+                                        quizID: Guid.newGuid().toString('g'),
+                                        templateID: 'null',
+                                        status: '0'
+                                    },
+                                    ask: {
+                                        templateFlag: 0
+                                    }
+                                }
+                            };
+                            $state.go('newQuiz', {param: JSON.stringify(param)});
+                        };
                         var table = $('#quizListTable');
-                        var oTable = table.dataTable({
+                        var dataTable = table.DataTable({
                             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
-                            "language": dataTableLanguage,
+                            "language": dataTableLanguage(),
 
                             // Or you can use remote translation file
                             //"language": {
@@ -185,6 +356,36 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                 {
                                     responsivePriority: 1,
                                     targets: 0
+                                }
+
+                            ],
+                            dom: 'Bfrtip',
+                            buttons: [
+                                {
+                                    text:'<i class="fa fa-refresh"></i>',
+                                    className: 'btn btn-transparent green btn-outline btn-circle refreshTable'
+                                },
+                                {
+                                    text:'新增问卷',
+                                    className: 'btn btn-transparent green btn-outline btn-circle newQuiz'
+                                },
+                                {
+                                    extend: 'print',
+                                    text:'打印',
+                                    title:'青少年近视干预项目|所有问卷',
+                                    exportOptions:{
+                                        columns:':not(:last-child)'
+                                    },
+                                    className: 'btn btn-transparent green-jungle btn-outline btn-circle'
+                                },
+                                {
+                                    extend: 'excel',
+                                    text:'Excel',
+                                    filename:'所有问卷',
+                                    exportOptions:{
+                                        columns:':not(:last-child)'
+                                    },
+                                    className: 'btn btn-transparent green-jungle btn-outline btn-circle'
                                 }
 
                             ],
@@ -224,7 +425,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                 {
                                     data: 'statusName',
                                     title: '问卷状态',
-                                    width: '8%',
+                                    width: '5%',
                                     responsivePriority: 4
                                 },
                                 {
@@ -236,9 +437,9 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                         var actionHtml =
                                             '<div class=" btn-group btn-group-sm  btn-group-none">' +
                                             '<button type="button" class="btn btn-fit-height green-jungle dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">' +
-                                            '操作<i class="fa fa-angle-down"></i> ' +
+                                            '操作<i class="fa fa-angle-up"></i> ' +
                                             '</button> ' +
-                                            '<ul class="dropdown-menu pull-right" role="menu">' +
+                                            '<ul class="button-dropdown-list is-above dropdown-menu pull-right" role="menu">' +
                                             '<li>' +
                                             '<a  id="quizConfig" class="btn black ' + actionClass(row, 'quizConfig') + '"><i class="fa fa-cog"></i>配置</a>' +
                                             '</li>' +
@@ -265,7 +466,7 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                             },
                             "lengthMenu": [
                                 [5, 10, 15, 20, -1],
-                                [5, 10, 15, 20, "All"] // change per page values here
+                                [5, 10, 15, 20, "全部"] // change per page values here
                             ],
                             // set the initial value
                             "pageLength": 20,
@@ -289,12 +490,23 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                             },
                             // "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // 水平滚动
                         });
-                        var dataTable = $('#quizListTable').DataTable();
+                        // var dataTable = $('#quizListTable').DataTable();
+                        // console.log(dataTable.buttons().container());
+                        dataTable.buttons().container()
+                            .appendTo( $('.quiz-list-table-btn-group.btn-group') );
                         dataTable.on('init', function () {
                             // console.log(dataTable.data().length);
+                            $('.refreshTable').on('click',function () {
+                                dataTable.ajax.reload();
+                            });
+                            $('.newQuiz').on('click',function () {
+                                newQuiz();
+                            });
                         });
-                        $('#refreshTable').on('click',function () {
-                            dataTable.ajax.reload();
+
+                        $('.confirmWord').on('click',function () {
+                            // window.open('<p>sadadsasddas</p>','_blank');
+                            // window.print();
                         });
                     };
                     initQuizList();
@@ -304,21 +516,4 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
         }();
         quizIndex.init();
     });
-    $scope.newQuiz = function () {
-        console.log('跳转');
-        var param = {
-            openCode: 1,
-            quizAllData: {
-                quiz: {
-                    quizID: Guid.newGuid().toString('g'),
-                    templateID: Guid.newGuid().toString('g'),
-                    status: '0'
-                },
-                ask: {
-                    templateFlag: 0
-                }
-            }
-        };
-        $state.go('newQuiz', {param: JSON.stringify(param)});
-    };
 }]);
