@@ -55,6 +55,7 @@ FROM
 			a. STATUS = '2'
 		AND a.createUserID = b.userID
 		AND a.quizID  = c.quizID
+		AND a.releaseDateTime <= now()
 	) AS b
 WHERE
 	a.quizID IN (
@@ -89,6 +90,7 @@ FROM
 WHERE
 	a.status = '2'
 AND a.createUserID = b.userID
+AND a.releaseDateTime <= now()
 AND a.quizID NOT IN (SELECT quizID FROM child_quiz where childID = '".$child['childID']."');
 ";
     $_resultSet = $con->query($sql);
@@ -133,10 +135,11 @@ function getQuizList($param)
     $con = initCon();
 //    for($i = 0;$i < count($child['childList']);$i++){
     $sql = "
-SELECT
+SELECT * FROM (SELECT
 	a.childQuizID,
 	a.childID,
 	a.quizID,
+    a.updateDatetime,
 	CASE
 WHEN a.answerDatetime IS NULL THEN
 	'--'
@@ -167,7 +170,8 @@ FROM
 	) AS b,
 children as c
 WHERE
-	a.quizID = b.quizID  AND a.childID = c.childID;
+	a.quizID = b.quizID  AND a.childID = c.childID) AS a
+ORDER BY  a.updateDatetime DESC;
 ";
     $con->query("set character set 'utf8'");
     $con->query("set names 'utf8'");

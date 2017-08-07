@@ -446,9 +446,9 @@ angular.module('quizApp').controller('quizController', ['$rootScope', '$scope', 
                                             '<li>' +
                                             '<a  id="preView" class="btn black ' + actionClass(row, 'preView') + '"><i class="fa fa-eye"></i>预览</a>' +
                                             '</li>' +
-                                            '<li>' +
-                                            '<a  id="releaseQuiz" class="btn black ' + actionClass(row, 'releaseQuiz') + '"><i class="fa fa-paper-plane-o"></i>发布</a>' +
-                                            '</li>' +
+                                            // '<li>' +
+                                            // '<a  id="releaseQuiz" class="btn black ' + actionClass(row, 'releaseQuiz') + '"><i class="fa fa-paper-plane-o"></i>发布</a>' +
+                                            // '</li>' +
                                             '<li>' +
                                             '<a  id="deleteQuiz" class="btn black ' + actionClass(row, 'deleteQuiz') + '"><i class="fa fa-trash"></i>删除</a>' +
                                             '</li>' +

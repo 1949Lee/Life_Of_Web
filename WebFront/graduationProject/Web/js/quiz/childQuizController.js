@@ -38,6 +38,7 @@ angular.module('quizApp').controller('childQuizController', ['$rootScope', '$sco
                     // 获取路由参数
                     if ($state.params.param != undefined) {
                         childQuiz.childQuizInfoParam = JSON.parse($state.params.param);
+                        console.log($state.params.param);
                         if(childQuiz.childQuizInfoParam.writeStatus == '2'){
                             $('.quiz-action').addClass('hide');
                         }

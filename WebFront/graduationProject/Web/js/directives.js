@@ -3,20 +3,26 @@ GLobal Directives
 ***/
 
 // Route State Load Spinner(used on page or content load)
-quizApp.directive('ngLoaderBar', ['$rootScope', '$state',
-    function($rootScope, $state) {
+quizApp.directive('ngLoaderBar', ['$rootScope', '$state','$location',
+    function($rootScope, $state,$location) {
         return {
             link: function(scope, element, attrs) {
                 // by defult hide the spinner bar
                 element.addClass('hide'); // hide spinner bar by default
 
                 // display the spinner bar whenever the route changes(the content part started loading)
-                $rootScope.$on('$stateChangeStart', function() {
+                $rootScope.$on('$stateChangeStart', function(event,toState, toParams, fromState, fromParams) {
                     element.removeClass('hide'); // show spinner bar
+                    if(fromState.name == 'childQuiz' && toState.name == 'statistics'){
+                        // $location.search({openCode:'2'});
+                        toParams.param = {
+                            openCode:'2'
+                        };
+                    }
                 });
 
                 // hide the spinner bar on rounte change success(after the content loaded)
-                $rootScope.$on('$stateChangeSuccess', function(event) {
+                $rootScope.$on('$stateChangeSuccess', function(event,toState, toParams, fromState, fromParams) {
                     element.addClass('hide'); // hide spinner bar
                     // $('body').removeClass('page-on-load'); // remove page loading indicator
                     Layout.setAngularJsSidebarMenuActiveLink('match', null, event.currentScope.$state); // activate selected link in the sidebar menu
@@ -24,7 +30,7 @@ quizApp.directive('ngLoaderBar', ['$rootScope', '$state',
                     // auto scorll to page top
                     setTimeout(function () {
                         App.scrollTop(); // scroll to the top on content load
-                    }, $rootScope.settings.layout.pageAutoScrollOnLoad);     
+                    }, $rootScope.settings.layout.pageAutoScrollOnLoad);
                 });
 
                 // handle errors

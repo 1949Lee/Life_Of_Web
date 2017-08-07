@@ -489,7 +489,10 @@ function maskStr(str,type){
             result = result.substring(0,3) + '*****' + result.substring(7,10);
             break;
         case 3:
-            // result = result[0] + '*' + result.substring(2);
+            // result = result[2] + '*' + result.substring(4);
+            break;
+        case 4:
+            result = result.substring(0,2) + '****' + result.substring(6);
             break;
     }
     return result;

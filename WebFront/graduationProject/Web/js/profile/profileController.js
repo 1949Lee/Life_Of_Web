@@ -267,7 +267,7 @@ angular.module('quizApp').controller('profileController', ['$rootScope', '$scope
 
                     init: function () {
                         $('.childList').hide();
-                        $('input[name=email]').val(loginInfo.email).attr('disabled','disabled').parent().parent().addClass('has-success');
+                        $('input[name=email]').val(maskStr(loginInfo.email,4)).attr('disabled','disabled').parent().parent().addClass('has-success');
                         $('input[name=name]').val(loginInfo.name).attr('disabled','disabled').parent().parent().addClass('has-success');
                         page.initFinish();
                     }

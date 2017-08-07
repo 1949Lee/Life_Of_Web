@@ -217,6 +217,7 @@ angular.module('quizApp').controller('indexController', ['$rootScope', '$scope',
                         if (!jQuery().dataTable) {
                             return;
                         }
+
                         var initQuizList = function () {
                             var myFunc = this;
                             var serverSide = false;
@@ -227,7 +228,13 @@ angular.module('quizApp').controller('indexController', ['$rootScope', '$scope',
                                 // console.log(row)
                                 $state.go('childQuiz', {param: JSON.stringify(row)});
                             };
-
+                            $(document).off('click','tr.child #quizView').on('click','tr.child #quizView',function(){
+                                var filterData = {};
+                                delCookie('filterData');
+                                filterData.page = $('#quizListTable').DataTable().page();
+                                setCookie('filterData', JSON.stringify(filterData));
+                                quizView({data:dataTable.data()[$(this).parent().parent().parent().attr('data-dt-row')]});
+                            });
                             var table = $('#quizListTable');
                             table.removeClass('hide');
                             var oTable = table.dataTable({
@@ -283,15 +290,15 @@ angular.module('quizApp').controller('indexController', ['$rootScope', '$scope',
                                         width: '9.5%',
                                     },
                                     {
-                                        data: 'submitDatetime',
-                                        title: '提交时间',
+                                        data: 'updateDatetime',
+                                        title: '更新时间',
                                         width: '15%'
                                     },
                                     {
                                         data: null,
                                         title: '操作',
                                         width: '6%',
-                                        responsivePriority: 3,
+                                        responsivePriority: 2,
                                         render: function (data, type, row, meta) {
                                             // var actionHtml =
                                             //     '<div class="button-dropdown btn-group  btn-group-sm  btn-group-none">' +
@@ -315,7 +322,8 @@ angular.module('quizApp').controller('indexController', ['$rootScope', '$scope',
                                     }
                                 ],
                                 "createdRow": function (row, data, dataIndex) {
-                                    $(row).find('#quizView').off('click').on('click', data, quizView);
+                                    $(row).on('click','#quizView',data,quizView);
+                                    // $(row).find('#quizView').off('click').on('click', data, quizView);
                                     $(row).find('td').eq(2).text(maskStr($(row).find('td').eq(2).text(),1));
                                     $(row).find('td').eq(3).text(maskStr($(row).find('td').eq(3).text(),3));
                                 },
@@ -348,6 +356,10 @@ angular.module('quizApp').controller('indexController', ['$rootScope', '$scope',
                             var dataTable = $('#quizListTable').DataTable();
                             dataTable.on('init', function () {
                                 // console.log(dataTable.data().length);
+                                if(isValid(getCookie('filterData'),4)){
+                                    var filterData = JSON.parse(getCookie('filterData'));
+                                    dataTable.page(parseInt(filterData.page)).draw(false);
+                                }
                             });
                             $('#refreshTable').on('click',function () {
                                 dataTable.ajax.reload();

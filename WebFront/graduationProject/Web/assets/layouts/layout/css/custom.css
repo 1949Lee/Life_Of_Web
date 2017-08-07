@@ -260,7 +260,7 @@
 }
 
 .quiz-page {
-    margin-bottom: -12px;
+    margin-bottom: -15px;
     /*border: solid 2px rgba(38, 194, 129,0.5);*/
 }
 
@@ -292,7 +292,7 @@
 
 @media (min-width: 768px) {
     .quiz-page {
-        margin-bottom: -12px;
+        margin-bottom: 15px;
         border: solid 2px rgba(51, 51, 51, 0.5);
     }
 
@@ -303,7 +303,7 @@
 
 @media (min-width: 992px) {
     .quiz-page {
-        margin-bottom: -12px;
+        margin-bottom: 15px;
     }
 
     .quiz-btn {

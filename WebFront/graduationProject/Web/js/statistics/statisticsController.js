@@ -22,11 +22,6 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                 window.location.href = WebUrl() + 'html/login.html';
             }
 
-            // 获取路由参数
-            var param = null;
-            if ($state.params.param != undefined) {
-                param = JSON.parse($state.params.param);
-            }
             var statisticsIndex = function () {
                 return {
 
@@ -34,7 +29,7 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
 
 
                     //页面初始化入口
-                    init: function () {
+                    init: function (initData) {
                         var quizIndex = this;
                         if (!jQuery().dataTable) {
                             return;
@@ -120,7 +115,7 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                             return result;
                         };
 
-                        var doFilter = function () {
+                        var doFilter = function (type) {
                             var table = $('#filterTable');
                             if (checkBeforeFilter()) {
                                 var filterData = {
@@ -137,7 +132,14 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                                 });
                                 console.log(filterData);
                                 page.loading();
-                                initStatisticalResult(filterData);
+                                if(type == 2){
+                                    var pre = JSON.parse(getCookie('filterData'))
+                                    initStatisticalResult(filterData,pre.page);
+                                    delCookie('filterData');
+                                }
+                                else{
+                                    initStatisticalResult(filterData,0);
+                                }
                                 // ajaxByJQ.invokeServer('statistics/statisticsIndexHandler.php',
                                 //     {
                                 //         method: 'getFilterResult',
@@ -159,19 +161,35 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                             }
                         };
 
-                        var quizView = function (event) {
+                        var quizViewStatic = function (event) {
+                            var table = $('#filterTable');
                             var row = event.data;
                             // console.log(row)
+                            // $('div[data-ui-view]').addClass('previousUiView hide').removeAttr('data-ui-view');
+                            var filterData = {
+                                quizID: $('#quizSlt').val(),
+                                conditions: []
+                            };
+                            table.find('tbody>tr[role=row]').each(function () {
+                                var obj = {};
+                                obj.statisticsCode = $(this).find('.statisticsName').val();
+                                obj.statisticsName = $(this).find('.statisticsName>option:selected').text();
+                                obj.statisticsValue = $(this).find('.statisticsRule').val();
+                                obj.statisticsAnswer = ($(this).find('.statisticsValue').val()).join(',');
+                                filterData.conditions.push(obj);
+                            });
+                            filterData.page = $('#resultTable').DataTable().page();
+                            setCookie('filterData', JSON.stringify(filterData));
                             $state.go('childQuiz', {param: JSON.stringify(row)});
                         };
 
                         //显示同结果列表
-                        var initStatisticalResult = function (filterData) {
+                        var initStatisticalResult = function (filterData,pageCode) {
                             var serverSide = false;
                             var table = $('#resultTable');
                             var dataTable = table.DataTable({
                                 // Internationalisation. For more info refer to http://datatables.net/manual/i18n
-                                "language": dataTableLanguage({sEmptyTable: '该条件下没有统计结果',sInfoEmpty:'当前没有统计结果'}),
+                                "language": dataTableLanguage({sEmptyTable: '该条件下没有统计结果', sInfoEmpty: '当前没有统计结果'}),
 
                                 // Or you can use remote translation file
                                 //"language": {
@@ -180,7 +198,7 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                                 "order": [
                                     [0, 'asc']
                                 ],
-                                destroy:true,
+                                destroy: true,
                                 // scrollX:true,\
                                 autoWidth: false,
                                 columnDefs: [
@@ -286,9 +304,9 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                                     }
                                 ],
                                 "createdRow": function (row, data, dataIndex) {
-                                    $(row).find('#quizView').off('click').on('click', data, quizView);
-                                    $(row).find('td').eq(2).text(maskStr($(row).find('td').eq(2).text(),1));
-                                    $(row).find('td').eq(3).text(maskStr($(row).find('td').eq(3).text(),3));
+                                    $(row).find('#quizView').off('click').on('click', data, quizViewStatic);
+                                    $(row).find('td').eq(2).text(maskStr($(row).find('td').eq(2).text(), 1));
+                                    $(row).find('td').eq(3).text(maskStr($(row).find('td').eq(3).text(), 3));
                                 },
                                 "lengthMenu": [
                                     [5, 10, 15, 20, -1],
@@ -330,9 +348,31 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                                 $('.newQuiz').on('click', function () {
                                     newQuiz();
                                 });
+                                $(document).off('click','tr.child #quizView').on('click','tr.child #quizView',function(){
+                                    quizViewStatic({data:dataTable.data()[$(this).parent().parent().parent().attr('data-dt-row')]});
+                                });
+                                // console.log(pageCode);
+                                if(isValid(param,4) && param.openCode == '2'&& pageCode != undefined){
+                                    $('#resultTable').DataTable().page(parseInt(pageCode)).draw(false);
+                                }
                             });
                         };
 
+                        var setFilterTable = function (filterData) {
+                            $('#quizSlt').val(filterData.quizID).select2().toggle('change');
+                            $('#quizSlt').trigger('change');
+                            var table = $('#filterTable');
+                            for(var i = 0;i < filterData.conditions.length;i++){
+                                $('#newCondition').click();
+                                table.find('tbody>tr[role=row]').eq(i).each(function () {
+                                    $(this).find('.statisticsName').val(filterData.conditions[i].statisticsCode).select2().toggle('change');
+                                    $(this).find('.statisticsName').change();
+                                    $(this).find('.statisticsRule').val(filterData.conditions[i].statisticsValue).select2().toggle('change');
+                                    $(this).find('.statisticsValue').val((filterData.conditions[i].statisticsAnswer).split(',')).select2().toggle('change');
+                                });
+                            }
+                            doFilter(2);
+                        };
                         //初始配置化表格
                         var initQuizList = function (statisticsData) {
                             var myFunc = this;
@@ -435,13 +475,13 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                                             var actionHtml = '<div class="hide"><select class="select2 form-control statisticsRule" name="" data-placeholder=""><option value=""></option>' +
                                                 '<option value="101">属于</option>' +
                                                 '<option value="102">不属于</option>' +
-                                                '<option value="103">等于</option>' +
-                                                '<option value="104">不等于</option>' +
-                                                '<option value="105">大于</option>' +
-                                                '<option value="106">大于等于</option>' +
-                                                '<option value="107">小于</option>' +
-                                                '<option value="108">小于等于</option>' +
-                                                '<option value="109">在……之间</option>' +
+                                                // '<option value="103">等于</option>' +
+                                                // '<option value="104">不等于</option>' +
+                                                // '<option value="105">大于</option>' +
+                                                // '<option value="106">大于等于</option>' +
+                                                // '<option value="107">小于</option>' +
+                                                // '<option value="108">小于等于</option>' +
+                                                // '<option value="109">在……之间</option>' +
                                                 '</select></div>';
                                             return actionHtml;
                                         }
@@ -502,13 +542,16 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                                 colReorder: true,
                                 processing: true,
                                 serverSide: serverSide,
-                                data: [[1]]
+                                data: []
                             };
                             // var dataTable = table.DataTable(dataTableOptionObj);
                             $('#quizSlt').trigger('change');
                             $('#doFilter').off('click').on('click', function () {
                                 doFilter();
                             });
+                            if(isValid(param,4) && param.openCode == '2'){
+                                setFilterTable(initData);
+                            }
                             page.initFinish();
                             // dataTable.row.add(1).draw();
                             // $('#filterTable').DataTable().destroy();
@@ -538,9 +581,28 @@ angular.module('quizApp').controller('statisticsController', ['$rootScope', '$sc
                     }
                 };
 
+            }();
+            // 获取路由参数
+            var param = null;
+            if (isValid($state.params.param, 4)) {
+                if (typeof($state.params.param) == 'string') {
+                    param = JSON.parse($state.params.param);
+                }
+                else if (typeof($state.params.param) == 'object') {
+                    param = $.extend({}, $state.params.param);
+                }
+                if (param.openCode == '2') {
+                    // $('.previousUiView').removeClass('hide')
+                    // $('div[data-ui-view]:not(.previousUiView)').detach();
+                    var filterData = JSON.parse(getCookie('filterData'));
+                    statisticsIndex.init(filterData);
+                }
             }
-            ();
-            statisticsIndex.init();
+            else {
+                statisticsIndex.init();
+            }
+
+
         }
     );
 }]);

@@ -82,7 +82,8 @@ function getFilterResult($param)
     $con = initCon();
     $con->query("set character set 'utf8'");
     $con->query("set names 'utf8'");
-    $sql = "SELECT
+    $sql = "
+SELECT * FROM (SELECT
 	a.childQuizID,
 	a.childID,
 	a.quizID,
@@ -116,7 +117,8 @@ FROM
 	) AS b,
 children as c
 WHERE
-	a.quizID = '".$filterData['quizID']."' AND a.quizID = b.quizID  AND a.childID = c.childID";
+	a.quizID = '".$filterData['quizID']."' AND a.quizID = b.quizID  AND a.childID = c.childID) AS a
+ORDER BY a.submitDatetime DESC;";
     if ($resultSet = $con->query($sql)) {
         $result['code'] = '829';
         $result["resultList"] = array();

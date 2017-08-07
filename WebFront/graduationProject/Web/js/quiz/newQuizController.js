@@ -306,20 +306,18 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                         switch (newQuiz.quizAllData.quiz.layoutStyle) {
                             case '001':
                                 quizBodyLayoutHtml = newQuizPageForNormal(1);
+                                quizBodyLayoutHtml = $(quizBodyLayoutHtml).addClass('hide')[0].outerHTML;
                                 newQuiz.quizBookmark = {
                                     quiz: 1,
                                     col: 1
                                 };
                                 break;
-                            case
-                            '002'
-                            :
+                            case'002':
                                 break;
-                            case
-                            '010'
-                            :
+                            case'010':
                                 break;
                         }
+                        console.log(quizBodyLayoutHtml);
                         $quizBody.find('>div').html(quizBodyLayoutHtml);
 
                         //处理问卷数据
@@ -585,17 +583,17 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     };
                     var setStatistical = function () {
                         if ($('#isStatistical').prop('checked') == true) {
-                            if ($('#statisticalName').attr('data-statistical-id') == '001' || $('#statisticalName').attr('data-statistical-id') == '002') {
+                            if ($('#statisticalName').attr('data-input-type') == '001' || $('#statisticalName').attr('data-input-type') == '002') {
                                 if (isValid($('#statisticalName').attr('data-statistical-id'), 4)) {
                                     var $askELe = $(newQuiz.editor.composer.element)
-                                        .find('#' + $('#statisticalName').attr('data-statistical-id'));
+                                        .find('[name="' + $('#statisticalName').attr('data-statistical-id')+ '"]');
                                     $askELe.attr('data-statistical-name', $('#statisticalName').val());
                                 }
                             }
                             else {
                                 if (isValid($('#statisticalName').attr('data-statistical-id'), 4)) {
                                     var $askELe = $(newQuiz.editor.composer.element)
-                                        .find('[name="' + $('#statisticalName').attr('data-statistical-id') + '"]');
+                                        .find('#' + $('#statisticalName').attr('data-statistical-id'));
                                     $askELe.attr('data-statistical-name', $('#statisticalName').val());
                                 }
                             }
@@ -1037,6 +1035,9 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                     // 添加到页面
                     var appendNewAsk = function (quizBookmark, layoutStyle, askData) {
                         console.log(App.getViewPort());
+                        if(quizBookmark.quiz == 1 && quizBookmark.col == 1 && $('.quiz-page1').hasClass('hide')){
+                            $('.quiz-page1').removeClass('hide');
+                        }
                         var $askHtml, askEleID, $ask;
                         if (newQuiz.quizAllData.quiz.status == '0' && newQuiz.openCode != '3') {
                             $askHtml = $('#previewArea').html();
@@ -1218,7 +1219,7 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                             newQuiz.askTypeChangeFlag = true;
                             $('#askAlert').modal('toggle');
                         });
-                        $('#is').on('click', function () {
+                        $('#isStatistical').on('click', function () {
                             if ($(this).prop('checked')) {
                                 $('#askEleType').find('option:selected').data('statisticalAttr', 'statistical');
                                 var statisticalAttr = $('#askEleType').find('option:selected').data('statisticalAttr');
@@ -1328,7 +1329,13 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                     handleBasicInfo();
                                     break;
                                 case 2:
-                                    handleQuizConfig();
+                                    if(newQuiz.quizAllData.ask.askList.length > 0) {
+                                        handleQuizConfig();
+                                    }
+                                    else{
+                                        toastr.warning('','请至少配置一道题目');
+                                        return false;
+                                    }
                                     break;
                                 case 3:
                                     handleQuizConfirm();
@@ -1366,7 +1373,10 @@ angular.module('quizApp').controller('newQuizController', ['$rootScope', '$scope
                                 case 0:
                                     break;
                                 case 1:
-                                    initAskListForStatus1();
+                                    console.log(newQuiz.quizAllData)
+                                    if(newQuiz.quizAllData.quiz.status == 1 || newQuiz.openCode == '3'){
+                                        initAskListForStatus1();
+                                    }
                                     break;
                                 case 2:
                                     break;

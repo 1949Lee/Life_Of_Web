@@ -207,7 +207,7 @@ quizApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
 
         // 数据统计
         .state('statistics', {
-            url: "/statistics",
+            url: "/statistics:param",
             templateUrl: "statistics/statisticsIndex.html",
             data: {pageTitle: 'AngularJS Ui Select'},
             controller: 'statisticsController',

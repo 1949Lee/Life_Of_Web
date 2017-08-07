@@ -20,17 +20,28 @@ function newQuiz($param)
     } else {
         $dateTimeNow = $quizAllData['quiz']['createDateTime'];
     }
-    $sql = "INSERT INTO quiz (quizID, templateID, createUserID, name, title, subtitle, createDateTime, releaseDateTime, finishDateTime, status, layoutStyle, askCount, tabCount, tabName, dataCount) VALUES" .
-        "('" . $quizAllData['quiz']['quizID'] . "', '" . $quizAllData['quiz']['templateID'] . "', '" . $quizAllData['quiz']['createUserID'] . "'," .
-        " '" . $quizAllData['quiz']['name'] . "', '" . $quizAllData['quiz']['title'] . "', '" . $quizAllData['quiz']['subtitle'] . "', '" . $dateTimeNow . "', " .
-        "'" . $quizAllData['quiz']['releaseDateTime'] . "', '" . $quizAllData['quiz']['finishDateTime'] . "', '" . $quizAllData['quiz']['status'] . "', '" . $quizAllData['quiz']['layoutStyle'] . "', " .
-        "'" . count($quizAllData['ask']['askList']) . "', '" . $quizAllData['quiz']['tabCount'] . "', '" . $quizAllData['quiz']['tabName'] . "', '" . $quizAllData['quiz']['dataCount'] . "');";
+    if(array_key_exists('askList',$quizAllData['ask'])){
+        $sql = "INSERT INTO quiz (quizID, templateID, createUserID, name, title, subtitle, createDateTime, releaseDateTime, finishDateTime, status, layoutStyle, askCount, tabCount, tabName, dataCount) VALUES" .
+            "('" . $quizAllData['quiz']['quizID'] . "', '" . $quizAllData['quiz']['templateID'] . "', '" . $quizAllData['quiz']['createUserID'] . "'," .
+            " '" . $quizAllData['quiz']['name'] . "', '" . $quizAllData['quiz']['title'] . "', '" . $quizAllData['quiz']['subtitle'] . "', '" . $dateTimeNow . "', " .
+            "'" . $quizAllData['quiz']['releaseDateTime'] . "', '" . $quizAllData['quiz']['finishDateTime'] . "', '" . $quizAllData['quiz']['status'] . "', '" . $quizAllData['quiz']['layoutStyle'] . "', " .
+            "'" . count($quizAllData['ask']['askList']) . "', '" . $quizAllData['quiz']['tabCount'] . "', '" . $quizAllData['quiz']['tabName'] . "', '" . $quizAllData['quiz']['dataCount'] . "');";
+    }
+    else{
+        $sql = "INSERT INTO quiz (quizID, templateID, createUserID, name, title, subtitle, createDateTime, releaseDateTime, finishDateTime, status, layoutStyle, askCount, tabCount, tabName, dataCount) VALUES" .
+            "('" . $quizAllData['quiz']['quizID'] . "', '" . $quizAllData['quiz']['templateID'] . "', '" . $quizAllData['quiz']['createUserID'] . "'," .
+            " '" . $quizAllData['quiz']['name'] . "', '" . $quizAllData['quiz']['title'] . "', '" . $quizAllData['quiz']['subtitle'] . "', '" . $dateTimeNow . "', " .
+            "'" . $quizAllData['quiz']['releaseDateTime'] . "', '" . $quizAllData['quiz']['finishDateTime'] . "', '" . $quizAllData['quiz']['status'] . "', '" . $quizAllData['quiz']['layoutStyle'] . "', " .
+            "'" . 0 . "', '" . $quizAllData['quiz']['tabCount'] . "', '" . $quizAllData['quiz']['tabName'] . "', '" . $quizAllData['quiz']['dataCount'] . "');";
+    }
+
     switch ($quizAllData['quiz']['layoutStyle']) {
         case '001':
-            $sql .= "INSERT INTO quiz_ask (askID, quizID, templateFlag, askType, pageCode, askIndex, askContent)
+            if(array_key_exists('askList',$quizAllData['ask'])){
+                $sql .= "INSERT INTO quiz_ask (askID, quizID, templateFlag, askType, pageCode, askIndex, askContent)
                  VALUES";
-            for ($i = 0; $i < count($quizAllData['ask']['askList']); $i++) {
-                $sql .= "('" . $quizAllData['ask']['askList'][$i]['askID'] . "',
+                for ($i = 0; $i < count($quizAllData['ask']['askList']); $i++) {
+                    $sql .= "('" . $quizAllData['ask']['askList'][$i]['askID'] . "',
                         '" . $quizAllData['ask']['quizID'] . "',
                         '" . $quizAllData['ask']['templateFlag'] . "',
                         '" . $quizAllData['ask']['askList'][$i]['askType'] . "',
@@ -38,35 +49,37 @@ function newQuiz($param)
                         '" . $quizAllData['ask']['askList'][$i]['askIndex'] . "',
                         '" . htmlentities($quizAllData['ask']['askList'][$i]['askContent']) . "')";
 //                请使用html_entity_decode()把数据库中的题目内容字符串转化为HTML代码
-                $sql .= ',';
-            }
-            $sql = substr($sql, 0, -1);
-            $sql .= ';';
-            for ($i = 0; $i < count($quizAllData['ask']['askList']); $i++) {
+                    $sql .= ',';
+                }
+                $sql = substr($sql, 0, -1);
+                $sql .= ';';
+                for ($i = 0; $i < count($quizAllData['ask']['askList']); $i++) {
 
-                $sql .= "INSERT INTO quiz_ask_elements (elementID, askID, quizID, elementType,elementLevel, statisticalFlag)
+                    $sql .= "INSERT INTO quiz_ask_elements (elementID, askID, quizID, elementType,elementLevel, statisticalFlag)
                                 VALUES";
-                $tem = '';
-                for ($j = 0; $j < count($quizAllData['ask']['askList'][$i]['askEleList']); $j++) {
-                    $sql .= "('" . $quizAllData['ask']['askList'][$i]['askEleList'][$j]['elementID'] . "',
+                    $tem = '';
+                    for ($j = 0; $j < count($quizAllData['ask']['askList'][$i]['askEleList']); $j++) {
+                        $sql .= "('" . $quizAllData['ask']['askList'][$i]['askEleList'][$j]['elementID'] . "',
                         '" . $quizAllData['ask']['askList'][$i]['askID'] . "',
                         '" . $quizAllData['ask']['quizID'] . "',
                         '" . $quizAllData['ask']['askList'][$i]['askEleList'][$j]['elementType'] . "',
                         '" . $quizAllData['ask']['askList'][$i]['askEleList'][$j]['elementLevel'] . "',
                         '" . $quizAllData['ask']['askList'][$i]['askEleList'][$j]['statisticalFlag'] . "')";
-                    $tem .= $quizAllData['ask']['askList'][$i]['askEleList'][$j]['elementID'] ;
-                    $sql .= ',';
-                    $tem .= ',';
-                    $test++;
+                        $tem .= $quizAllData['ask']['askList'][$i]['askEleList'][$j]['elementID'] ;
+                        $sql .= ',';
+                        $tem .= ',';
+                        $test++;
+                    }
+                    $result['eleSql'] = $tem;
+                    $sql = substr($sql, 0, -1);
+                    $sql .= ';';
                 }
-                $result['eleSql'] = $tem;
-                $sql = substr($sql, 0, -1);
-                $sql .= ';';
             }
-            $sql .= "INSERT INTO dict_quiz_statistics (statisticalID, eleID, quizID, statisticalType, name, nameAbbreviation, valueName,code)
+            if(array_key_exists('statisticsList',$quizAllData['statistics'])){
+                $sql .= "INSERT INTO dict_quiz_statistics (statisticalID, eleID, quizID, statisticalType, name, nameAbbreviation, valueName,code)
                  VALUES";
-            for ($i = 0; $i < count($quizAllData['statistics']['statisticsList']); $i++) {
-                $sql .= "('" . $quizAllData['statistics']['statisticsList'][$i]['statisticalID'] . "',
+                for ($i = 0; $i < count($quizAllData['statistics']['statisticsList']); $i++) {
+                    $sql .= "('" . $quizAllData['statistics']['statisticsList'][$i]['statisticalID'] . "',
                         '" . $quizAllData['statistics']['statisticsList'][$i]['eleID'] . "',
                         '" . $quizAllData['statistics']['quizID'] . "',
                         '" . $quizAllData['statistics']['statisticsList'][$i]['statisticalType'] . "',
@@ -75,10 +88,11 @@ function newQuiz($param)
                         '" . $quizAllData['statistics']['statisticsList'][$i]['valueName'] . "',
                         '" . $quizAllData['statistics']['statisticsList'][$i]['code'] . "')";
 //                请使用html_entity_decode()把数据库中的题目内容字符串转化为HTML代码
-                $sql .= ',';
+                    $sql .= ',';
+                }
+                $sql = substr($sql, 0, -1);
+                $sql .= ';';
             }
-            $sql = substr($sql, 0, -1);
-            $sql .= ';';
             break;
         case '002':
             $sql .= "INSERT INTO quiz_ask (askID, quizID, templateFlag, askType, tabCode, pageCode, askIndex, askContent) 
